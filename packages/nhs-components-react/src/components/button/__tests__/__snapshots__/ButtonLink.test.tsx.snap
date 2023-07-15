@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ButtonLink > should match the snapshot - disabled 1`] = `
+<a
+  aria-disabled="true"
+  class="nhsuk-button nhsuk-button--disabled"
+  data-testid="button-link"
+  disabled=""
+  draggable="false"
+  href="/some-url"
+  role="button"
+>
+  Click me
+</a>
+`;
+
+exports[`ButtonLink > should match the snapshot - reverse 1`] = `
+<a
+  class="nhsuk-button nhsuk-button--reverse"
+  data-testid="button-link"
+  draggable="false"
+  href="/some-url"
+  role="button"
+>
+  Click me
+</a>
+`;
+
+exports[`ButtonLink > should match the snapshot - secondary 1`] = `
+<a
+  class="nhsuk-button nhsuk-button--secondary"
+  data-testid="button-link"
+  draggable="false"
+  href="/some-url"
+  role="button"
+>
+  Click me
+</a>
+`;
+
+exports[`ButtonLink > should match the snapshot 1`] = `
+<a
+  class="nhsuk-button"
+  data-testid="button-link"
+  draggable="false"
+  href="/some-url"
+  role="button"
+>
+  Click me
+</a>
+`;
