@@ -1,6 +1,6 @@
 # BackLink
 
-More details about this component can be found [here](https://github.com/nhsuk/nhsuk-frontend/tree/main/packages/components/back-link) in the `nhsuk-frontend` repository.
+More details about this component can be found [here](https://service-manual.nhs.uk/design-system/components/back-link).
 
 ## Basic Usage
 

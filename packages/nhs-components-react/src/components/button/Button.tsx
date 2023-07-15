@@ -10,6 +10,11 @@ type BaseButtonProps = {
 
 type ButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
+/**
+ * Use buttons to help users carry out an action on a page like starting an application or saving their progress.
+ *
+ * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/button).
+ */
 export const Button: React.FC<ButtonProps> = ({
   className,
   disabled,
@@ -44,6 +49,11 @@ Button.defaultProps = {
 
 type ButtonLinkProps = BaseButtonProps & AsElementLink<HTMLAnchorElement>
 
+/**
+ * Use buttons to help users carry out an action on a page like starting an application or saving their progress.
+ *
+ * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/button).
+ */
 export const ButtonLink: React.FC<ButtonLinkProps> = ({
   className,
   disabled,

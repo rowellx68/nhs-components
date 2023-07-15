@@ -5,6 +5,11 @@ import clsx from 'clsx'
 type BreadcrumbItem = React.FC<AsElementLink<HTMLAnchorElement>>
 type BreadcrumbBackItem = React.FC<AsElementLink<HTMLAnchorElement>>
 
+/**
+ * Use breadcrumbs to help users understand where they are in the website.
+ *
+ * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/breadcrumbs).
+ */
 const Item: BreadcrumbItem = ({
   className,
   children,
