@@ -52,7 +52,61 @@ exports[`Breadcrumb > accepts react-router-dom Link element 1`] = `
 </nav>
 `;
 
-exports[`Breadcrumb > should match snapshot 1`] = `
+exports[`Breadcrumb > should match the snapshot - other elements 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  class="nhsuk-breadcrumb"
+  data-testid="breadcrumb"
+>
+  <div
+    class="nhsuk-width-container"
+  >
+    <ol
+      class="nhsuk-breadcrumb__list"
+    >
+      <li
+        class="nhsuk-breadcrumb__item"
+      >
+        <a
+          class="nhsuk-breadcrumb__link"
+          href="/url/1"
+        >
+          Item 1
+        </a>
+      </li>
+      <li
+        class="nhsuk-breadcrumb__item"
+      >
+        <a
+          class="nhsuk-breadcrumb__link"
+          href="/url/2"
+        >
+          Item 1
+        </a>
+      </li>
+    </ol>
+    <p
+      class="nhsuk-breadcrumb__back"
+    >
+      <a
+        class="nhsuk-breadcrumb__backlink"
+        href="/url/1"
+      >
+        <span
+          class="nhsuk-u-visually-hidden"
+        >
+          Back to  
+        </span>
+        Item 1
+      </a>
+    </p>
+    Item
+    item
+  </div>
+</nav>
+`;
+
+exports[`Breadcrumb > should match the snapshot 1`] = `
 <nav
   aria-label="Breadcrumb"
   class="nhsuk-breadcrumb"

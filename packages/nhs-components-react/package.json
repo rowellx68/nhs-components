@@ -1,7 +1,7 @@
 {
   "name": "nhs-components-react",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "packageManager": "pnpm@8.6.7",
@@ -14,7 +14,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier": "prettier --check .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "types": "dist/index.d.ts",
   "main": "dist/components.cjs",
@@ -46,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.1",
+    "@vitest/coverage-istanbul": "^0.33.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",

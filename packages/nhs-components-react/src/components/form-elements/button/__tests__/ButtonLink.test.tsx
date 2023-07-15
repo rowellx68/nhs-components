@@ -6,6 +6,16 @@ import { ButtonLink } from '..'
 describe('ButtonLink', () => {
   test('should match the snapshot', () => {
     render(
+      <ButtonLink href="/some-url" data-testid="button-link">
+        Click me
+      </ButtonLink>,
+    )
+
+    expect(screen.getByTestId('button-link')).toMatchSnapshot()
+  })
+
+  test('should match the snapshot - react-router-dom', () => {
+    render(
       <ButtonLink asElement={Link} to="/some-url" data-testid="button-link">
         Click me
       </ButtonLink>,

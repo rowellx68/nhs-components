@@ -4,12 +4,26 @@ import { Link } from 'react-router-dom'
 import Breadcrumb from '..'
 
 describe('Breadcrumb', () => {
-  test('should match snapshot', () => {
+  test('should match the snapshot', () => {
     render(
       <Breadcrumb data-testid="breadcrumb">
         <Breadcrumb.Item href="/url/1">Item 1</Breadcrumb.Item>
         <Breadcrumb.Item href="/url/2">Item 1</Breadcrumb.Item>
         <Breadcrumb.Back href="/url/1">Item 1</Breadcrumb.Back>
+      </Breadcrumb>,
+    )
+
+    expect(screen.getByTestId('breadcrumb')).toMatchSnapshot()
+  })
+
+  test('should match the snapshot - other elements', () => {
+    render(
+      <Breadcrumb data-testid="breadcrumb">
+        <Breadcrumb.Item href="/url/1">Item 1</Breadcrumb.Item>
+        <Breadcrumb.Item href="/url/2">Item 1</Breadcrumb.Item>
+        <Breadcrumb.Back href="/url/1">Item 1</Breadcrumb.Back>
+        <>Item</>
+        item
       </Breadcrumb>,
     )
 

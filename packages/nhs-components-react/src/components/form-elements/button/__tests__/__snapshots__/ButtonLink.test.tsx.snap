@@ -14,6 +14,18 @@ exports[`ButtonLink > should match the snapshot - disabled 1`] = `
 </a>
 `;
 
+exports[`ButtonLink > should match the snapshot - react-router-dom 1`] = `
+<a
+  class="nhsuk-button"
+  data-testid="button-link"
+  draggable="false"
+  href="/some-url"
+  role="button"
+>
+  Click me
+</a>
+`;
+
 exports[`ButtonLink > should match the snapshot - reverse 1`] = `
 <a
   class="nhsuk-button nhsuk-button--reverse"
