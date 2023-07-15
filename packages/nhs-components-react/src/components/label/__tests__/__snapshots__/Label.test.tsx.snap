@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Label > should match snapshot - isPageHeading 1`] = `
+<h1
+  class="nhsuk-label-wrapper"
+>
+  <label
+    class="nhsuk-label nhsuk-label--xl"
+    data-testid="label"
+  >
+    What is your name?
+  </label>
+</h1>
+`;
+
+exports[`Label > should match snapshot - size l 1`] = `
+<label
+  class="nhsuk-label nhsuk-label--l"
+  data-testid="label"
+>
+  What is your name?
+</label>
+`;
+
+exports[`Label > should match snapshot - size m 1`] = `
+<label
+  class="nhsuk-label nhsuk-label--m"
+  data-testid="label"
+>
+  What is your name?
+</label>
+`;
+
+exports[`Label > should match snapshot - size s 1`] = `
+<label
+  class="nhsuk-label nhsuk-label--s"
+  data-testid="label"
+>
+  What is your name?
+</label>
+`;
+
+exports[`Label > should match snapshot - size xl 1`] = `
+<h1
+  class="nhsuk-label-wrapper"
+>
+  <label
+    class="nhsuk-label nhsuk-label--xl"
+    data-testid="label"
+  >
+    What is your name?
+  </label>
+</h1>
+`;
+
+exports[`Label > should match snapshot 1`] = `
+<label
+  class="nhsuk-label"
+  data-testid="label"
+>
+  What is your name?
+</label>
+`;
