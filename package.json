@@ -1,0 +1,21 @@
+{
+  "name": "nhs-components",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "Rowell Heria (rowell+dev@heria.uk)",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^18",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.0",
+    "vitest": "^0.33.0"
+  }
+}
