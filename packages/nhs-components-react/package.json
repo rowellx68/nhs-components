@@ -16,6 +16,25 @@
     "preview": "vite preview",
     "test": "vitest"
   },
+  "types": "dist/index.d.ts",
+  "main": "dist/components.cjs",
+  "module": "dist/components.js",
+  "exports": {
+    ".": {
+      "require": "./dist/components.cjs",
+      "import": "./dist/components.js"
+    },
+    "./icons": {
+      "require": "./dist/icons.cjs",
+      "import": "./dist/icons.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/__tests__/*",
+    "!dist/utils/test-utils.d.ts",
+    "!dist/setup-tests.d.ts"
+  ],
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
