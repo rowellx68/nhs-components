@@ -13,7 +13,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prettier": "prettier --check .",
-    "preview": "vite preview",
+    "format": "pnpm run prettier --write && pnpm run lint --write",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },

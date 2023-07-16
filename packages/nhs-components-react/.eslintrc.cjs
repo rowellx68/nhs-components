@@ -3,6 +3,11 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -28,7 +33,7 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  plugins: [],
+  plugins: ['react'],
   rules: {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
