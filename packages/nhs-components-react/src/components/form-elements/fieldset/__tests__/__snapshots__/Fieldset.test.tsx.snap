@@ -1,0 +1,105 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Fieldset > should match the snapshot - errored 1`] = `
+<div
+  class="nhsuk-form-group nhsuk-form-group--error"
+>
+  <fieldset
+    class="nhsuk-fieldset"
+    data-testid="fieldset"
+  >
+    sample
+  </fieldset>
+</div>
+`;
+
+exports[`Fieldset > should match the snapshot - have registered components 1`] = `
+<div
+  class="nhsuk-form-group"
+>
+  <fieldset
+    class="nhsuk-fieldset"
+    data-testid="fieldset"
+  >
+    sample
+  </fieldset>
+</div>
+`;
+
+exports[`Fieldset > should match the snapshot 1`] = `
+<fieldset
+  class="nhsuk-fieldset"
+  data-testid="fieldset"
+/>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot - isPageHeading 1`] = `
+<legend
+  class="nhsuk-legend nhsuk-fieldset__legend--xl"
+  data-testid="fieldset-legend"
+>
+  <h1
+    class="nhsuk-fieldset__heading"
+  >
+    Legend
+  </h1>
+</legend>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot - isPageHeading as h2 1`] = `
+<legend
+  class="nhsuk-legend nhsuk-fieldset__legend--xl"
+  data-testid="fieldset-legend"
+>
+  <h2
+    class="nhsuk-fieldset__heading"
+  >
+    Legend
+  </h2>
+</legend>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot - size l 1`] = `
+<legend
+  class="nhsuk-legend nhsuk-fieldset__legend--l"
+  data-testid="fieldset-legend"
+>
+  Legend
+</legend>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot - size m 1`] = `
+<legend
+  class="nhsuk-legend nhsuk-fieldset__legend--m"
+  data-testid="fieldset-legend"
+>
+  Legend
+</legend>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot - size s 1`] = `
+<legend
+  class="nhsuk-legend nhsuk-fieldset__legend--s"
+  data-testid="fieldset-legend"
+>
+  Legend
+</legend>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot - size xl 1`] = `
+<legend
+  class="nhsuk-legend nhsuk-fieldset__legend--xl"
+  data-testid="fieldset-legend"
+>
+  Legend
+</legend>
+`;
+
+exports[`Fieldset.Legend > should match the snapshot 1`] = `
+<legend
+  class="nhsuk-legend"
+  data-testid="fieldset-legend"
+>
+  Legend
+</legend>
+`;
