@@ -23,9 +23,11 @@ describe('Fieldset', () => {
       return 'sample'
     }
 
-    render(<Fieldset data-testid="fieldset">
-      <Sample />
-    </Fieldset>)
+    render(
+      <Fieldset data-testid="fieldset">
+        <Sample />
+      </Fieldset>,
+    )
 
     expect(screen.getByTestId('fieldset').parentNode).toMatchSnapshot()
   })
@@ -42,9 +44,11 @@ describe('Fieldset', () => {
       return 'sample'
     }
 
-    render(<Fieldset data-testid="fieldset">
-      <Sample />
-    </Fieldset>)
+    render(
+      <Fieldset data-testid="fieldset">
+        <Sample />
+      </Fieldset>,
+    )
 
     expect(screen.getByTestId('fieldset').parentNode).toMatchSnapshot()
   })

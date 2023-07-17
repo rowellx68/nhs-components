@@ -8,7 +8,12 @@ export { default as Breadcrumb } from '@/components/navigation/breadcrumb'
 
 // form elements
 export { Button, ButtonLink } from '@/components/form-elements/button'
-export { default as Fieldset, FieldsetContext, type FieldsetContextValue, useFieldsetContext } from '@/components/form-elements/fieldset'
+export {
+  default as Fieldset,
+  FieldsetContext,
+  type FieldsetContextValue,
+  useFieldsetContext,
+} from '@/components/form-elements/fieldset'
 export { default as Hint } from '@/components/form-elements/hint'
 
 // miscellaneous
