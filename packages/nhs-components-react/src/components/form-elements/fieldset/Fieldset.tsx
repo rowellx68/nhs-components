@@ -62,35 +62,36 @@ const Fieldset: Fieldset = ({
   const [registered, setRegistered] = useState<string[]>([])
   const [errored, setErrored] = useState<string[]>([])
 
-  const erroredComponent = (componentId: string, add: boolean) => {
-    const hasError = errored.includes(componentId)
-
-    if (add && !hasError) {
+  const addErroredComponent = (componentId: string) => {
+    if (!errored.includes(componentId)) {
       setErrored([...errored, componentId])
     }
+  }
 
-    if (!add && hasError) {
+  const removeErroredComponent = (componentId: string) => {
+    if (errored.includes(componentId)) {
       setErrored(errored.filter((id) => id !== componentId))
     }
   }
 
-  const registerComponent = (componentId: string, add: boolean) => {
-    const haveRegistered = registered.includes(componentId)
-    if (add && !haveRegistered) {
+  const addComponent = (componentId: string) => {
+    if (!registered.includes(componentId)) {
       setRegistered([...registered, componentId])
     }
+  }
 
-    if (!add && haveRegistered) {
+  const removeComponent = (componentId: string) => {
+    if (registered.includes(componentId)) {
       setRegistered(registered.filter((id) => id !== componentId))
     }
   }
 
   const contextValue: FieldsetContextValue = {
     isFieldset: true,
-    setErrored: (id) => erroredComponent(id, true),
-    resetErrored: (id) => erroredComponent(id, false),
-    register: (id) => registerComponent(id, true),
-    unregister: (id) => registerComponent(id, false),
+    setErrored: addErroredComponent,
+    resetErrored: removeErroredComponent,
+    register: addComponent,
+    unregister: removeComponent,
   }
 
   const BaseFieldset = (): JSX.Element => {

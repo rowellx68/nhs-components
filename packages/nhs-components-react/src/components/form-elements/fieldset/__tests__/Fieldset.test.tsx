@@ -3,6 +3,7 @@ import { describe, test, expect } from 'vitest'
 import Fieldset from '../Fieldset'
 import { Size } from '@/types/nhsuk-sizes'
 import { useFieldsetContext } from '../FieldsetContext'
+import { useEffect } from 'react'
 
 describe('Fieldset', () => {
   test('should match the snapshot', () => {
@@ -15,7 +16,9 @@ describe('Fieldset', () => {
     const Sample = () => {
       const { register } = useFieldsetContext()
 
-      register('component')
+      useEffect(() => {
+        register('component')
+      }, [])
 
       return 'sample'
     }
@@ -31,8 +34,10 @@ describe('Fieldset', () => {
     const Sample = () => {
       const { register, setErrored } = useFieldsetContext()
 
-      register('component')
-      setErrored('component')
+      useEffect(() => {
+        register('component')
+        setErrored('component')
+      }, [])
 
       return 'sample'
     }
