@@ -58,9 +58,15 @@ type Split = {
   Others: ReactNode[]
 }
 
+/**
+ * Use breadcrumbs to help users understand where they are in the website.
+ *
+ * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/breadcrumb).
+ */
 const Breadcrumb: Breadcrumb = ({
   children,
   className,
+  'aria-label': ariaLabel = 'Breadcrumb',
   ...rest
 }): JSX.Element => {
   const { Items, Back, Others } = React.Children.toArray(
@@ -85,7 +91,11 @@ const Breadcrumb: Breadcrumb = ({
   )
 
   return (
-    <nav className={clsx('nhsuk-breadcrumb', className)} {...rest}>
+    <nav
+      className={clsx('nhsuk-breadcrumb', className)}
+      aria-label={ariaLabel}
+      {...rest}
+    >
       <div className="nhsuk-width-container">
         <ol className="nhsuk-breadcrumb__list">{Items}</ol>
         {Back}
@@ -97,9 +107,5 @@ const Breadcrumb: Breadcrumb = ({
 
 Breadcrumb.Back = BackItem
 Breadcrumb.Item = Item
-
-Breadcrumb.defaultProps = {
-  'aria-label': 'Breadcrumb',
-}
 
 export default Breadcrumb

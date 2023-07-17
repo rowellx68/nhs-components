@@ -63,20 +63,20 @@ const ContentsListItem: ContentsListItem = ({
 const ContentsList: ContentsList = ({
   className,
   children,
-  visuallyHiddenText,
+  visuallyHiddenText = 'Contents',
+  role = 'navigation',
   ...rest
 }): JSX.Element => {
   return (
-    <nav className={clsx('nhsuk-contents-list', className)} {...rest}>
+    <nav
+      className={clsx('nhsuk-contents-list', className)}
+      role={role}
+      {...rest}
+    >
       <h2 className="nhsuk-u-visually-hidden">{visuallyHiddenText}</h2>
       <ul className="nhsuk-contents-list__list">{children}</ul>
     </nav>
   )
-}
-
-ContentsList.defaultProps = {
-  role: 'navigation',
-  visuallyHiddenText: 'Contents',
 }
 
 ContentsList.Item = ContentsListItem

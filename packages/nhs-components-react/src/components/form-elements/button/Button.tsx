@@ -21,6 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
   secondary,
   reverse,
   children,
+  type = 'submit',
   ...rest
 }): JSX.Element => {
   return (
@@ -36,15 +37,12 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       disabled={disabled}
       aria-disabled={disabled}
+      type={type}
       {...rest}
     >
       {children}
     </button>
   )
-}
-
-Button.defaultProps = {
-  type: 'submit',
 }
 
 type ButtonLinkProps = BaseButtonProps & AsElementLink<HTMLAnchorElement>
@@ -61,6 +59,8 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
   reverse,
   children,
   asElement: Component = 'a',
+  role = 'button',
+  draggable = false,
   ...rest
 }): JSX.Element => {
   return (
@@ -76,14 +76,11 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
       )}
       disabled={disabled}
       aria-disabled={disabled}
+      role={role}
+      draggable={draggable}
       {...rest}
     >
       {children}
     </Component>
   )
-}
-
-ButtonLink.defaultProps = {
-  role: 'button',
-  draggable: false,
 }
