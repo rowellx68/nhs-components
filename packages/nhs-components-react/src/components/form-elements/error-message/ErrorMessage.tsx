@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { HTMLProps } from 'react'
 
-type ErrorMessageProps = {
+export type ErrorMessageProps = {
   visuallyHiddenText?: string
 } & HTMLProps<HTMLSpanElement>
 

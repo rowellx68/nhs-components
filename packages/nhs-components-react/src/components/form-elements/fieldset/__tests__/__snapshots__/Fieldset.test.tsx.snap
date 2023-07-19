@@ -1,31 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Fieldset > should match the snapshot - errored 1`] = `
-<div
-  class="nhsuk-form-group nhsuk-form-group--error"
->
-  <fieldset
-    class="nhsuk-fieldset"
-    data-testid="fieldset"
-  >
-    sample
-  </fieldset>
-</div>
-`;
-
-exports[`Fieldset > should match the snapshot - have registered components 1`] = `
-<div
-  class="nhsuk-form-group"
->
-  <fieldset
-    class="nhsuk-fieldset"
-    data-testid="fieldset"
-  >
-    sample
-  </fieldset>
-</div>
-`;
-
 exports[`Fieldset > should match the snapshot 1`] = `
 <fieldset
   class="nhsuk-fieldset"

@@ -2,18 +2,14 @@ import { createContext, useContext } from 'react'
 
 export type FieldsetContextValue = {
   isFieldset: boolean
-  setErrored: (componentId: string) => void
-  resetErrored: (componentId: string) => void
-  register: (componentId: string) => void
-  unregister: (componentId: string) => void
+  passError: (componentId: string, error: boolean) => void
+  registerComponent: (componentId: string, deregister?: boolean) => void
 }
 
 const FieldsetContext = createContext<FieldsetContextValue>({
   isFieldset: false,
-  setErrored: () => {},
-  resetErrored: () => {},
-  register: () => {},
-  unregister: () => {},
+  passError: () => {},
+  registerComponent: () => {},
 })
 
 export const useFieldsetContext = () =>

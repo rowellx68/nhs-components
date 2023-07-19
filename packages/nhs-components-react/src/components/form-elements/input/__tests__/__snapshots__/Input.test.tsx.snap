@@ -1,0 +1,86 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input > should match the snapshot - error 1`] = `
+<div
+  class="nhsuk-form-group nhsuk-form-group--error"
+>
+  <span
+    class="nhsuk-error-message"
+    for="input_:r3:"
+    id="input_:r3:--error-message"
+  >
+    <span
+      class="nhsuk-u-visually-hidden"
+    >
+      Error
+      :
+    </span>
+    This is an error
+  </span>
+  <input
+    class="nhsuk-input nhsuk-input--error"
+    data-testid="input"
+    id="input_:r3:"
+    name="input_:r3:"
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input > should match the snapshot - hint 1`] = `
+<div
+  class="nhsuk-form-group"
+>
+  <div
+    class="nhsuk-hint"
+    for="input_:r2:"
+    id="input_:r2:--hint"
+  >
+    Optionally provide your phone number
+  </div>
+  <input
+    aria-describedby="input_:r2:--hint"
+    class="nhsuk-input"
+    data-testid="input"
+    id="input_:r2:"
+    name="input_:r2:"
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input > should match the snapshot - label 1`] = `
+<div
+  class="nhsuk-form-group"
+>
+  <label
+    class="nhsuk-label"
+    for="input_:r1:"
+    id="input_:r1:--label"
+  >
+    First name
+  </label>
+  <input
+    aria-labelledby="input_:r1:--label"
+    class="nhsuk-input"
+    data-testid="input"
+    id="input_:r1:"
+    name="input_:r1:"
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input > should match the snapshot 1`] = `
+<div
+  class="nhsuk-form-group"
+>
+  <input
+    class="nhsuk-input"
+    data-testid="input"
+    id="input_:r0:"
+    name="input_:r0:"
+    type="text"
+  />
+</div>
+`;

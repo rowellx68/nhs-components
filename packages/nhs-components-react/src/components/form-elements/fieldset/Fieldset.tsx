@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { ElementType, HTMLProps, useState } from 'react'
+import { ElementType, HTMLProps, memo, useState } from 'react'
 import FieldsetContext, { FieldsetContextValue } from './FieldsetContext'
 import { Size } from '@/types/nhsuk-sizes'
 
@@ -48,6 +48,25 @@ type Fieldset = {
   Legend: Legend
 } & React.FC<FieldsetProps>
 
+type FieldsetState = {
+  registered: string[]
+  errored: string[]
+}
+
+const BaseFieldset: React.FC<HTMLProps<HTMLFieldSetElement>> = ({
+  className,
+  children,
+  ...rest
+}): JSX.Element => {
+  return (
+    <fieldset className={clsx('nhsuk-fieldset', className)} {...rest}>
+      {children}
+    </fieldset>
+  )
+}
+
+const MemoBaseFieldset = memo(BaseFieldset)
+
 /**
  * Use a fieldset to group related form inputs.
  *
@@ -59,63 +78,70 @@ const Fieldset: Fieldset = ({
   disableErrorLine,
   ...rest
 }): JSX.Element => {
-  const [registered, setRegistered] = useState<string[]>([])
-  const [errored, setErrored] = useState<string[]>([])
+  const [state, setState] = useState<FieldsetState>({
+    registered: [],
+    errored: [],
+  })
 
-  const addErroredComponent = (componentId: string) => {
-    if (!errored.includes(componentId)) {
-      setErrored([...errored, componentId])
-    }
+  const passError = (componentId: string, error: boolean): void => {
+    setState((prevState) => {
+      const existingError = prevState.errored.includes(componentId)
+      if (existingError && !error) {
+        return {
+          ...prevState,
+          errored: prevState.errored.filter((id) => id !== componentId),
+        }
+      }
+      if (!existingError && error) {
+        return { ...prevState, errored: [...prevState.errored, componentId] }
+      }
+      return prevState
+    })
   }
 
-  const removeErroredComponent = (componentId: string) => {
-    if (errored.includes(componentId)) {
-      setErrored(errored.filter((id) => id !== componentId))
-    }
-  }
-
-  const addComponent = (componentId: string) => {
-    if (!registered.includes(componentId)) {
-      setRegistered([...registered, componentId])
-    }
-  }
-
-  const removeComponent = (componentId: string) => {
-    if (registered.includes(componentId)) {
-      setRegistered(registered.filter((id) => id !== componentId))
-    }
+  const registerComponent = (componentId: string, deregister = false): void => {
+    setState((prevState) => {
+      if (deregister) {
+        return {
+          ...prevState,
+          registered: prevState.registered.filter((id) => id !== componentId),
+        }
+      }
+      if (!prevState.registered.includes(componentId)) {
+        return {
+          ...prevState,
+          registered: [...prevState.registered, componentId],
+        }
+      }
+      return prevState
+    })
   }
 
   const contextValue: FieldsetContextValue = {
     isFieldset: true,
-    setErrored: addErroredComponent,
-    resetErrored: removeErroredComponent,
-    register: addComponent,
-    unregister: removeComponent,
+    passError,
+    registerComponent,
   }
 
-  const BaseFieldset = (): JSX.Element => {
-    return (
-      <fieldset className={clsx('nhsuk-fieldset', className)} {...rest}>
-        {children}
-      </fieldset>
-    )
-  }
+  const withFormElements = state.registered.length > 0
+  const withErrors = state.errored.length > 0
 
   return (
     <FieldsetContext.Provider value={contextValue}>
-      {registered.length > 0 ? (
+      {withFormElements ? (
         <div
           className={clsx('nhsuk-form-group', {
-            'nhsuk-form-group--error': disableErrorLine
-              ? false
-              : errored.length > 0,
+            'nhsuk-form-group--error': disableErrorLine ? false : withErrors,
           })}
         >
-          <BaseFieldset />
+          <MemoBaseFieldset className={className} {...rest}>
+            {children}
+          </MemoBaseFieldset>
         </div>
       ) : (
-        <BaseFieldset />
+        <MemoBaseFieldset className={className} {...rest}>
+          {children}
+        </MemoBaseFieldset>
       )}
     </FieldsetContext.Provider>
   )
