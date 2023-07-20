@@ -12,6 +12,8 @@ const FieldsetContext = createContext<FieldsetContextValue>({
   registerComponent: () => {},
 })
 
+FieldsetContext.displayName = 'FieldsetContext'
+
 export const useFieldsetContext = () =>
   useContext<FieldsetContextValue>(FieldsetContext)
 

@@ -15,7 +15,7 @@ type InputProps = {
 } & Omit<HTMLProps<HTMLInputElement>, 'type'> &
   FormElementProps
 
-const render: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
+const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   {
     id,
     width,
@@ -66,6 +66,6 @@ const render: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
   )
 }
 
-const Input = forwardRef(render)
+const InputForwardRef = forwardRef(Input)
 
-export default Input
+export default InputForwardRef
