@@ -1,4 +1,4 @@
-import { HTMLProps, memo, useEffect, useState } from 'react'
+import { HTMLProps, ReactNode, memo, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import useIdWithPrefix from '@/hooks/use-id-with-prefix'
 import Label, { LabelProps } from '@/components/miscellaneous/label/Label'
@@ -12,7 +12,7 @@ type FormGroupProps = {
   name?: string
   label?: string
   labelProps?: LabelProps
-  hint?: string
+  hint?: ReactNode
   hintProps?: HTMLProps<HTMLDivElement>
   error?: string | boolean
   errorProps?: ErrorMessageProps
