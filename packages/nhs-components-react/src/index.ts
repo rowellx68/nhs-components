@@ -1,5 +1,6 @@
 // content-presentation
 export { default as ContentsList } from '@/components/content-presentation/contents-list'
+export { default as Details } from '@/components/content-presentation/details'
 
 // navigation
 export { default as ActionLink } from '@/components/navigation/action-link'
