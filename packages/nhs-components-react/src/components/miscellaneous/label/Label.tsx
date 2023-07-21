@@ -49,20 +49,20 @@ const Label: React.FC<LabelProps> = ({
   isPageHeading,
   ...rest
 }): JSX.Element => {
-  return (
-    <>
-      {isPageHeading || size === 'xl' ? (
-        <h1 className="nhsuk-label-wrapper">
-          <BaseLabel className={className} isPageHeading {...rest}>
-            {children}
-          </BaseLabel>
-        </h1>
-      ) : (
+  if (isPageHeading || size === 'xl') {
+    return (
+      <h1 className="nhsuk-label-wrapper">
         <BaseLabel className={className} isPageHeading {...rest}>
           {children}
         </BaseLabel>
-      )}
-    </>
+      </h1>
+    )
+  }
+
+  return (
+    <BaseLabel className={className} size={size} {...rest}>
+      {children}
+    </BaseLabel>
   )
 }
 
