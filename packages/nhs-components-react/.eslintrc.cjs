@@ -2,7 +2,10 @@
 
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: {
+    browser: true,
+    es2020: true,
+  },
   settings: {
     react: {
       version: 'detect',
@@ -19,6 +22,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended',
     'prettier',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
