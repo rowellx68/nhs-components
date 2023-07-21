@@ -29,6 +29,19 @@ const BaseLabel: React.FC<LabelProps> = ({
   )
 }
 
+/**
+ * This component is not meant to be used directly.
+ *
+ * @param {string} [props.className] - An optional class name to apply to the label.
+ * @param {Size} [props.size] - The size of the label.
+ * @param {boolean} [props.isPageHeading] - Whether the label is a page heading.
+ *
+ * @example
+ * ```tsx
+ * <Label size="xl">Example</Label>
+ * <Label isPageHeading>Example</Label>
+ * ```
+ */
 const Label: React.FC<LabelProps> = ({
   children,
   className,
@@ -36,21 +49,23 @@ const Label: React.FC<LabelProps> = ({
   isPageHeading,
   ...rest
 }): JSX.Element => {
-  if (isPageHeading || size === 'xl') {
-    return (
-      <h1 className="nhsuk-label-wrapper">
+  return (
+    <>
+      {isPageHeading || size === 'xl' ? (
+        <h1 className="nhsuk-label-wrapper">
+          <BaseLabel className={className} isPageHeading {...rest}>
+            {children}
+          </BaseLabel>
+        </h1>
+      ) : (
         <BaseLabel className={className} isPageHeading {...rest}>
           {children}
         </BaseLabel>
-      </h1>
-    )
-  }
-
-  return (
-    <BaseLabel className={className} size={size} {...rest}>
-      {children}
-    </BaseLabel>
+      )}
+    </>
   )
 }
+
+Label.displayName = 'Label'
 
 export default Label

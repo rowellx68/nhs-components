@@ -22,3 +22,5 @@ export const ArrowRightCircleIcon: React.FC<Icon> = ({
     </svg>
   )
 }
+
+ArrowRightCircleIcon.displayName = 'ArrowRightCircleIcon'

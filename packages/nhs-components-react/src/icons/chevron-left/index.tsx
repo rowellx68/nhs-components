@@ -21,3 +21,5 @@ export const ChevronLeftIcon: React.FC<Icon> = ({
     </svg>
   )
 }
+
+ChevronLeftIcon.displayName = 'ChevronLeftIcon'

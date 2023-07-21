@@ -9,7 +9,7 @@ describe('ContentsList', () => {
         <ContentsList.Item current href="/page-1">
           Page 1
         </ContentsList.Item>
-        <ContentsList.Link href="/page-2">Page 2</ContentsList.Link>
+        <ContentsList.Item href="/page-2">Page 2</ContentsList.Item>
       </ContentsList>,
     )
 

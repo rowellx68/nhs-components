@@ -6,6 +6,9 @@ export type FieldsetContextValue = {
   registerComponent: (componentId: string, deregister?: boolean) => void
 }
 
+/**
+ * Context to pass the `FieldsetContextValue` to the `Fieldset` and `Fieldset.Legend` components.
+ */
 const FieldsetContext = createContext<FieldsetContextValue>({
   isFieldset: false,
   passError: () => {},
@@ -14,6 +17,11 @@ const FieldsetContext = createContext<FieldsetContextValue>({
 
 FieldsetContext.displayName = 'FieldsetContext'
 
+/**
+ * Hook to get the `FieldsetContext`.
+ *
+ * @returns {FieldsetContextValue} The FieldsetContext
+ */
 export const useFieldsetContext = () =>
   useContext<FieldsetContextValue>(FieldsetContext)
 

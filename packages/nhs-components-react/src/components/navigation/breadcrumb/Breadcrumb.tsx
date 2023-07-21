@@ -6,9 +6,13 @@ type BreadcrumbItem = React.FC<AsElementLink<HTMLAnchorElement>>
 type BreadcrumbBackItem = React.FC<AsElementLink<HTMLAnchorElement>>
 
 /**
- * Use breadcrumbs to help users understand where they are in the website.
+ * @param {string} [props.className] - An optional class name to apply to the container.
+ * @param {AsElementLink<HTMLAnchorElement>} [props.asElement] - The element to render the link as. Defaults to `a`.
  *
- * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/breadcrumbs).
+ * @example
+ * ```tsx
+ * <Breadcrumb.Item href="/start">Home</Breadcrumb.Item>
+ * ```
  */
 const Item: BreadcrumbItem = ({
   className,
@@ -28,9 +32,19 @@ const Item: BreadcrumbItem = ({
   )
 }
 
+/**
+ *
+ * @param {string} [props.className] - An optional class name to apply to the container.
+ * @param {AsElementLink<HTMLAnchorElement>} [props.asElement] - The element to render the link as. Defaults to `a`.
+ *
+ * @example
+ * ```tsx
+ * <Breadcrumb.Back href="/step-2">Step 2</Breadcrumb.Back>
+ * ```
+ */
 const BackItem: BreadcrumbBackItem = ({
-  className,
   children,
+  className,
   asElement: Component = 'a',
   ...rest
 }): JSX.Element => {
@@ -61,7 +75,19 @@ type Split = {
 /**
  * Use breadcrumbs to help users understand where they are in the website.
  *
- * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/breadcrumb).
+ * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/breadcrumb).
+ *
+ * @param {string} [props.className] - An optional class name to apply to the container.
+ * @param {string} [props.aria-label] - An optional label for the breadcrumb. Defaults to `Breadcrumb`.
+ *
+ * @example
+ * ```tsx
+ * <Breadcrumb>
+ *  <Breadcrumb.Item href="/start">Home</Breadcrumb.Item>
+ *  <Breadcrumb.Item href="/step-1">Step 1</Breadcrumb.Item>
+ *  <Breadcrumb.Item href="/step-2">Step 2</Breadcrumb.Item>
+ *  <Breadcrumb.Back href="/step-2">Step 2</Breadcrumb.Back>
+ * </Breadcrumb>
  */
 const Breadcrumb: Breadcrumb = ({
   children,
@@ -104,6 +130,10 @@ const Breadcrumb: Breadcrumb = ({
     </nav>
   )
 }
+
+Breadcrumb.displayName = 'Breadcrumb'
+Item.displayName = 'Breadcrumb.Item'
+BackItem.displayName = 'Breadcrumb.Back'
 
 Breadcrumb.Back = BackItem
 Breadcrumb.Item = Item

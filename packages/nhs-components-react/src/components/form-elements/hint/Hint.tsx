@@ -4,11 +4,18 @@ import { HTMLProps } from 'react'
 /**
  * Use hint text to help users understand a question.
  *
- * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/hint-text).
+ * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/hint-text).
+ *
+ * @param {string} [props.className] - An optional class name to apply to the container.
+ *
+ * @example
+ * ```tsx
+ * <Hint>This is a hint</Hint>
+ * ```
  */
 const Hint: React.FC<HTMLProps<HTMLDivElement>> = ({
-  className,
   children,
+  className,
   ...rest
 }): JSX.Element => {
   return (
@@ -17,5 +24,7 @@ const Hint: React.FC<HTMLProps<HTMLDivElement>> = ({
     </div>
   )
 }
+
+Hint.displayName = 'Hint'
 
 export default Hint

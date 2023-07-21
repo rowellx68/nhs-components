@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode, memo, useEffect, useState } from 'react'
+import { HTMLProps, ReactNode, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import useIdWithPrefix from '@/hooks/use-id-with-prefix'
 import Label, { LabelProps } from '@/components/miscellaneous/label/Label'
@@ -33,6 +33,33 @@ type FormGroupProps = {
   }) => JSX.Element
 } & Omit<HTMLProps<HTMLDivElement>, 'children'>
 
+/**
+ * This component is not meant to be used directly.
+ *
+ * @param {string} [props.className] - An optional class name to apply to the container.
+ * @param {string} [props.id] - An optional ID for the form group. If not provided, a unique ID will be generated.
+ * @param {string} [props.name] - An optional name for the form group. If not provided, the ID will be used.
+ * @param {string} [props.label] - An optional label for the form group.
+ * @param {LabelProps} [props.labelProps] - Any other props to be passed to the label.
+ * @param {ReactNode} [props.hint] - An optional hint to be displayed above the form group.
+ * @param {HTMLProps<HTMLDivElement>} [props.hintProps] - Any other props to be passed to the hint.
+ * @param {string | boolean} [props.error] - An optional error message to be displayed above the form group.
+ * @param {ErrorMessageProps} [props.errorProps] - Any other props to be passed to the error message.
+ * @param {boolean} [props.disableErrorLine] - Whether to disable the error line.
+ * @param {'input' | 'radios' | 'select' | 'checkboxes' | 'dateinput' | 'textarea'} [props.inputType] - The type of input to render.
+ * @param {(data: { elementId: string; hintId?: string; labelId?: string; name: string; hasError: boolean }) => JSX.Element} [props.render] - A render function that will be passed the element ID, hint ID, label ID, name, and whether the form group has an error.
+ *
+ * @example
+ * ```tsx
+ * <FormGroup
+ *  id="example"
+ *  label="Example"
+ *  inputType="input"
+ *  render={({ elementId, hintId, labelId, name, hasError }) => (
+ *    <input />
+ *  )} />
+ * ```
+ */
 const FormGroup: React.FC<FormGroupProps> = ({
   className,
   id,
@@ -109,4 +136,6 @@ const FormGroup: React.FC<FormGroupProps> = ({
   )
 }
 
-export default memo(FormGroup)
+FormGroup.displayName = 'FormGroup'
+
+export default FormGroup

@@ -5,16 +5,22 @@ import clsx from 'clsx'
 /**
  * Use action links to help users get to the next stage of a journey quickly by signposting the start of a digital service.
  *
- * See more information regarding this component [here](https://service-manual.nhs.uk/design-system/components/action-link).
+ * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/action-link).
+ *
+ * @param {string} [props.className] - An optional class name to apply to the container.
+ * @param {AsElementLink<HTMLAnchorElement>} [props.asElement] - The element to render the link as. Defaults to `a`.
+ *
+ * @example
+ * ```tsx
+ * <ActionLink href="https://nhs.uk">Go to the NHS website</ActionLink>
+ * ```
  */
 const ActionLink: React.FC<AsElementLink<HTMLAnchorElement>> = ({
-  className,
   children,
+  className,
   asElement: Component = 'a',
   ...rest
 }): JSX.Element => {
-  // const Component = asElement ?? 'a' as ElementType
-
   return (
     <div className="nhsuk-action-link">
       <Component
@@ -27,5 +33,7 @@ const ActionLink: React.FC<AsElementLink<HTMLAnchorElement>> = ({
     </div>
   )
 }
+
+ActionLink.displayName = 'ActionLink'
 
 export default ActionLink
