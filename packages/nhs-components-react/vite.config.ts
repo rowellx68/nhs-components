@@ -10,7 +10,7 @@ export default defineConfig({
       exclude: [
         'node_modules/**',
         '**/__tests__',
-        '**/*.(test|spec)',
+        '**/*.(test|spec|stor*)',
         '**/setup-tests.*',
         '**/test-utils.*',
       ],
