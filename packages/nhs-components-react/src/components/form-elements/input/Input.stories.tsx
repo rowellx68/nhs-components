@@ -19,6 +19,7 @@ export const Basic: Story = {
     id: 'example',
     label: 'Example',
     hint: 'This is a hint',
+    error: '',
   },
   render: (args) => <Input {...args} />,
 }

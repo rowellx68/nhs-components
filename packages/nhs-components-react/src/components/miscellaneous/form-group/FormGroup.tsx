@@ -1,22 +1,34 @@
 import { HTMLProps, ReactNode, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import useIdWithPrefix from '@/hooks/use-id-with-prefix'
-import Label, { LabelProps } from '@/components/miscellaneous/label/Label'
-import ErrorMessage, {
-  ErrorMessageProps,
-} from '@/components/form-elements/error-message/ErrorMessage'
+import Label from '@/components/miscellaneous/label/Label'
+import ErrorMessage from '@/components/form-elements/error-message/ErrorMessage'
 import Hint from '@/components/form-elements/hint/Hint'
 import { useFieldsetContext } from '@/index'
+import { FormElementProps } from '@/types/form-element-types'
 
-type FormGroupProps = {
-  name?: string
-  label?: string
-  labelProps?: LabelProps
-  hint?: ReactNode
-  hintProps?: HTMLProps<HTMLDivElement>
+type ExcludedProps =
+  | 'hint'
+  | 'label'
+  | 'labelProps'
+  | 'hintProps'
+  | 'errorProps'
+  | 'inputType'
+  | 'disableErrorLine'
+
+type BaseFormElementRenderProps = {
   error?: string | boolean
-  errorProps?: ErrorMessageProps
-  disableErrorLine?: boolean
+} & HTMLProps<
+  HTMLInputElement | HTMLDivElement | HTMLSelectElement | HTMLTextAreaElement
+>
+
+type FormElementRenderProps<T> = Omit<T, ExcludedProps> & {
+  id: string
+  name: string
+}
+
+type FormGroupProps<T> = FormElementProps & {
+  render: (props: FormElementRenderProps<T>) => ReactNode
   inputType:
     | 'input'
     | 'radios'
@@ -24,56 +36,27 @@ type FormGroupProps = {
     | 'checkboxes'
     | 'dateinput'
     | 'textarea'
-  render: (data: {
-    elementId: string
-    hintId?: string
-    labelId?: string
-    name: string
-    hasError: boolean
-  }) => JSX.Element
-} & Omit<HTMLProps<HTMLDivElement>, 'children'>
+}
 
-/**
- * This component is not meant to be used directly.
- *
- * @param {string} [props.className] - An optional class name to apply to the container.
- * @param {string} [props.id] - An optional ID for the form group. If not provided, a unique ID will be generated.
- * @param {string} [props.name] - An optional name for the form group. If not provided, the ID will be used.
- * @param {string} [props.label] - An optional label for the form group.
- * @param {LabelProps} [props.labelProps] - Any other props to be passed to the label.
- * @param {ReactNode} [props.hint] - An optional hint to be displayed above the form group.
- * @param {HTMLProps<HTMLDivElement>} [props.hintProps] - Any other props to be passed to the hint.
- * @param {string | boolean} [props.error] - An optional error message to be displayed above the form group.
- * @param {ErrorMessageProps} [props.errorProps] - Any other props to be passed to the error message.
- * @param {boolean} [props.disableErrorLine] - Whether to disable the error line.
- * @param {'input' | 'radios' | 'select' | 'checkboxes' | 'dateinput' | 'textarea'} [props.inputType] - The type of input to render.
- * @param {(data: { elementId: string; hintId?: string; labelId?: string; name: string; hasError: boolean }) => JSX.Element} [props.render] - A render function that will be passed the element ID, hint ID, label ID, name, and whether the form group has an error.
- *
- * @example
- * ```tsx
- * <FormGroup
- *  id="example"
- *  label="Example"
- *  inputType="input"
- *  render={({ elementId, hintId, labelId, name, hasError }) => (
- *    <input />
- *  )} />
- * ```
- */
-const FormGroup: React.FC<FormGroupProps> = ({
-  className,
-  id,
-  name,
-  label,
-  labelProps,
-  hint,
-  hintProps,
-  error,
-  errorProps,
-  disableErrorLine,
-  inputType,
-  render,
-}): JSX.Element => {
+const FormGroup = <T extends BaseFormElementRenderProps>(
+  props: FormGroupProps<T>,
+): JSX.Element => {
+  const {
+    render,
+    hint,
+    label,
+    id,
+    labelProps,
+    error,
+    hintProps,
+    errorProps,
+    formGroupProps,
+    inputType,
+    disableErrorLine,
+    name,
+    ...rest
+  } = props
+
   const [generatedId] = useState(useIdWithPrefix(inputType))
   const { isFieldset, passError, registerComponent } = useFieldsetContext()
 
@@ -81,6 +64,15 @@ const FormGroup: React.FC<FormGroupProps> = ({
   const labelId = `${elementId}--label`
   const hintId = `${elementId}--hint`
   const errorId = `${elementId}--error-message`
+
+  const renderProps = {
+    'aria-describedby': hint ? hintId : undefined,
+    'aria-labelledby': label ? labelId : undefined,
+    error,
+    name: name || elementId,
+    id: elementId,
+    ...rest,
+  } as FormElementRenderProps<T>
 
   useEffect(() => {
     if (!isFieldset) {
@@ -97,6 +89,8 @@ const FormGroup: React.FC<FormGroupProps> = ({
     return () => registerComponent(elementId, true)
   }, [])
 
+  const { className: formGroupClass, ...formGroupRest } = formGroupProps || {}
+
   return (
     <div
       className={clsx(
@@ -104,8 +98,9 @@ const FormGroup: React.FC<FormGroupProps> = ({
         {
           'nhsuk-form-group--error': !disableErrorLine && error,
         },
-        className,
+        formGroupClass,
       )}
+      {...formGroupRest}
     >
       {label && (
         <Label id={labelId} htmlFor={elementId} {...labelProps}>
@@ -125,13 +120,7 @@ const FormGroup: React.FC<FormGroupProps> = ({
         </ErrorMessage>
       )}
 
-      {render({
-        elementId,
-        hasError: Boolean(error),
-        labelId: label ? labelId : undefined,
-        hintId: hint ? hintId : undefined,
-        name: name || elementId,
-      })}
+      {render(renderProps)}
     </div>
   )
 }

@@ -8,12 +8,6 @@ More details about this component can be found [here](https://service-manual.nhs
 import { Input } from 'nhs-components-react'
 
 const Component = () => {
-  return (
-    <Input
-      id="input-example"
-      label="Example input"
-      hint="Example hint"
-    />
-  )
+  return <Input id="input-example" label="Example input" hint="Example hint" />
 }
 ```
