@@ -1,0 +1,218 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Radios > should match the snapshot - conditional 1`] = `
+<div
+  class="nhsuk-form-group nhsuk-form-group--error"
+>
+  <label
+    class="nhsuk-label"
+    for="radios_:r2:"
+    id="radios_:r2:--label"
+  >
+    Label
+  </label>
+  <span
+    class="nhsuk-error-message"
+    for="radios_:r2:"
+    id="radios_:r2:--error-message"
+  >
+    <span
+      class="nhsuk-u-visually-hidden"
+    >
+      Error
+      :
+    </span>
+    Error
+  </span>
+  <div
+    aria-labelledby="radios_:r2:--label"
+    class="nhsuk-radios"
+    data-testid="radios"
+    error="Error"
+    id="radios_:r2:"
+  >
+    <div
+      class="nhsuk-radios__item"
+    >
+      <input
+        class="nhsuk-radios__input"
+        id="radios_:r2:-1"
+        name="radios_:r2:"
+        type="radio"
+        value="1"
+      />
+      <label
+        class="nhsuk-label nhsuk-radios__label"
+        for="radios_:r2:-1"
+        id="radios_:r2:-1--label"
+      >
+        Option 1
+      </label>
+      <div
+        class="nhsuk-hint nhsuk-radios__hint"
+        id="radios_:r2:-1--hint"
+      >
+        Hint
+      </div>
+    </div>
+    <div
+      class="nhsuk-radios__conditional"
+      id="radios_:r2:-1--conditional"
+    >
+      Yay
+    </div>
+    <div
+      class="nhsuk-radios__item"
+    >
+      <input
+        class="nhsuk-radios__input"
+        id="radios_:r2:-2"
+        name="radios_:r2:"
+        type="radio"
+        value="2"
+      />
+      <label
+        class="nhsuk-label nhsuk-radios__label"
+        for="radios_:r2:-2"
+        id="radios_:r2:-2--label"
+      >
+        Option 2
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Radios > should match the snapshot - hint, error 1`] = `
+<div
+  class="nhsuk-form-group nhsuk-form-group--error"
+>
+  <label
+    class="nhsuk-label"
+    for="radios_:r1:"
+    id="radios_:r1:--label"
+  >
+    Label
+  </label>
+  <span
+    class="nhsuk-error-message"
+    for="radios_:r1:"
+    id="radios_:r1:--error-message"
+  >
+    <span
+      class="nhsuk-u-visually-hidden"
+    >
+      Error
+      :
+    </span>
+    Error
+  </span>
+  <div
+    aria-labelledby="radios_:r1:--label"
+    class="nhsuk-radios"
+    data-testid="radios"
+    error="Error"
+    id="radios_:r1:"
+  >
+    <div
+      class="nhsuk-radios__item"
+    >
+      <input
+        class="nhsuk-radios__input"
+        id="radios_:r1:-1"
+        name="radios_:r1:"
+        type="radio"
+        value="1"
+      />
+      <label
+        class="nhsuk-label nhsuk-radios__label"
+        for="radios_:r1:-1"
+        id="radios_:r1:-1--label"
+      >
+        Option 1
+      </label>
+      <div
+        class="nhsuk-hint nhsuk-radios__hint"
+        id="radios_:r1:-1--hint"
+      >
+        Hint
+      </div>
+    </div>
+    <div
+      class="nhsuk-radios__item"
+    >
+      <input
+        class="nhsuk-radios__input"
+        id="radios_:r1:-2"
+        name="radios_:r1:"
+        type="radio"
+        value="2"
+      />
+      <label
+        class="nhsuk-label nhsuk-radios__label"
+        for="radios_:r1:-2"
+        id="radios_:r1:-2--label"
+      >
+        Option 2
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Radios > should match the snapshot 1`] = `
+<div
+  class="nhsuk-form-group"
+>
+  <label
+    class="nhsuk-label"
+    for="radios_:r0:"
+    id="radios_:r0:--label"
+  >
+    Label
+  </label>
+  <div
+    aria-labelledby="radios_:r0:--label"
+    class="nhsuk-radios"
+    data-testid="radios"
+    id="radios_:r0:"
+  >
+    <div
+      class="nhsuk-radios__item"
+    >
+      <input
+        class="nhsuk-radios__input"
+        id="radios_:r0:-1"
+        name="radios_:r0:"
+        type="radio"
+        value="1"
+      />
+      <label
+        class="nhsuk-label nhsuk-radios__label"
+        for="radios_:r0:-1"
+        id="radios_:r0:-1--label"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="nhsuk-radios__item"
+    >
+      <input
+        class="nhsuk-radios__input"
+        id="radios_:r0:-2"
+        name="radios_:r0:"
+        type="radio"
+        value="2"
+      />
+      <label
+        class="nhsuk-label nhsuk-radios__label"
+        for="radios_:r0:-2"
+        id="radios_:r0:-2--label"
+      >
+        Option 2
+      </label>
+    </div>
+  </div>
+</div>
+`;

@@ -39,16 +39,7 @@ const Textarea: ForwardRefRenderFunction<HTMLTextAreaElement, TextareaProps> = (
  *
  * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/textarea).
  *
- * @param {string} [props.id] - An optional ID for the textarea. If not passed, one will be generated.
- * @param {string} [props.className] - An optional class name to apply to the container.
- * @param {string} [props.label] - An optional label for the textarea.
- * @param {HTMLProps<HTMLLabelElement>} [props.labelProps] - Any other props to be passed to the label.
- * @param {string} [props.hint] - An optional hint to be displayed above the textarea.
- * @param {HTMLProps<HTMLDivElement>} [props.hintProps] - Any other props to be passed to the hint.
- * @param {string} [props.error] - An optional error message to be displayed above the textarea.
- * @param {HTMLProps<HTMLDivElement>} [props.errorProps] - Any other props to be passed to the error message.
- * @param {boolean} [props.disableErrorLine] - Whether to disable the error line.
- * @param {number} [props.rows] - The number of rows to display.
+ * @param {TextareaProps} props - The props of the component.
  * @param {React.ForwardedRef<HTMLTextAreaElement>} ref - Optional ref to be passed to the textarea.
  *
  * @example
