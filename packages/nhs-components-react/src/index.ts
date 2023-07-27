@@ -19,6 +19,8 @@ export {
 } from '@/components/form-elements/fieldset'
 export { default as Hint } from '@/components/form-elements/hint'
 export { default as Input } from '@/components/form-elements/input'
+export { default as Radios } from '@/components/form-elements/radios'
+export { default as Textarea } from '@/components/form-elements/textarea'
 
 // miscellaneous
 export { default as Label } from '@/components/miscellaneous/label'

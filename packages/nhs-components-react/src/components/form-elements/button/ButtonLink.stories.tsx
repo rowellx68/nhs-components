@@ -52,4 +52,3 @@ export const Reverse: Story = {
   },
   render: (args) => <ButtonLink {...args}>Continue</ButtonLink>,
 }
-
