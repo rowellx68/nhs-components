@@ -10,6 +10,7 @@ export { default as Breadcrumb } from '@/components/navigation/breadcrumb'
 // form elements
 export { Button, ButtonLink } from '@/components/form-elements/button'
 export { default as ErrorMessage } from '@/components/form-elements/error-message'
+export { default as ErrorSummary } from '@/components/form-elements/error-summary'
 export {
   default as Fieldset,
   FieldsetContext,
