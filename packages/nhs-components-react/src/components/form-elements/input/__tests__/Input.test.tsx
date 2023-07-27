@@ -28,4 +28,10 @@ describe('Input', () => {
 
     expect(screen.getByTestId('input').parentNode).toMatchSnapshot()
   })
+
+  test('should match the snapshot - type password', () => {
+    render(<Input data-testid="input" type="password" />)
+
+    expect(screen.getByTestId('input').parentNode).toMatchSnapshot()
+  })
 })

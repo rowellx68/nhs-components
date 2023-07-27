@@ -33,7 +33,15 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     <FormGroup<InputProps>
       {...props}
       inputType="input"
-      render={({ id, name, className, error, width, type = 'text', ...rest }) => (
+      render={({
+        id,
+        name,
+        className,
+        error,
+        width,
+        type = 'text',
+        ...rest
+      }) => (
         <input
           id={id}
           name={name}

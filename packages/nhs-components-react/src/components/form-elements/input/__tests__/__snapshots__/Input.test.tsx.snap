@@ -71,6 +71,20 @@ exports[`Input > should match the snapshot - label 1`] = `
 </div>
 `;
 
+exports[`Input > should match the snapshot - type password 1`] = `
+<div
+  class="nhsuk-form-group"
+>
+  <input
+    class="nhsuk-input"
+    data-testid="input"
+    id="input_:r4:"
+    name="input_:r4:"
+    type="password"
+  />
+</div>
+`;
+
 exports[`Input > should match the snapshot 1`] = `
 <div
   class="nhsuk-form-group"

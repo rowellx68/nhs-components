@@ -8,6 +8,6 @@ More details about this component can be found [here](https://service-manual.nhs
 import { Textarea } from 'nhs-components-react'
 
 const Component = () => {
-  return <Textarea label='Describe the problem' />
+  return <Textarea label="Describe the problem" />
 }
 ```
