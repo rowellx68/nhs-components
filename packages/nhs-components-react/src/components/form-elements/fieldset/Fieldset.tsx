@@ -107,37 +107,23 @@ const Fieldset: Fieldset = ({
   })
 
   const passError = (componentId: string, error: boolean): void => {
-    setState((prevState) => {
-      const existingError = prevState.errored.includes(componentId)
-      if (existingError && !error) {
-        return {
-          ...prevState,
-          errored: prevState.errored.filter((id) => id !== componentId),
-        }
-      }
-      if (!existingError && error) {
-        return { ...prevState, errored: [...prevState.errored, componentId] }
-      }
-      return prevState
-    })
+    setState((prevState) => ({
+      ...prevState,
+      errored: error
+        ? prevState.errored
+            .filter((id) => id !== componentId)
+            .concat(componentId)
+        : prevState.errored.concat(componentId),
+    }))
   }
 
   const registerComponent = (componentId: string, deregister = false): void => {
-    setState((prevState) => {
-      if (deregister) {
-        return {
-          ...prevState,
-          registered: prevState.registered.filter((id) => id !== componentId),
-        }
-      }
-      if (!prevState.registered.includes(componentId)) {
-        return {
-          ...prevState,
-          registered: [...prevState.registered, componentId],
-        }
-      }
-      return prevState
-    })
+    setState((prevState) => ({
+      ...prevState,
+      registered: deregister
+        ? prevState.registered.filter((id) => id !== componentId)
+        : prevState.registered.concat(componentId),
+    }))
   }
 
   const contextValue: FieldsetContextValue = {

@@ -31,6 +31,37 @@ exports[`Fieldset > should match the snapshot - errored elements 1`] = `
 </fieldset>
 `;
 
+exports[`Fieldset > should match the snapshot - errored elements disableErrorLine 1`] = `
+<fieldset
+  class="nhsuk-fieldset"
+  data-testid="fieldset"
+>
+  <div
+    class="nhsuk-form-group nhsuk-form-group--error"
+  >
+    <span
+      class="nhsuk-error-message"
+      for="sample-input"
+      id="sample-input--error-message"
+    >
+      <span
+        class="nhsuk-u-visually-hidden"
+      >
+        Error
+        :
+      </span>
+      this is an error
+    </span>
+    <input
+      class="nhsuk-input nhsuk-input--error"
+      id="sample-input"
+      name="sample-input"
+      type="text"
+    />
+  </div>
+</fieldset>
+`;
+
 exports[`Fieldset > should match the snapshot - registered elements 1`] = `
 <fieldset
   class="nhsuk-fieldset"

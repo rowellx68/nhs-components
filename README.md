@@ -27,28 +27,26 @@ yarn add nhs-components-react
 ## Example Usage
 
 ```tsx
-import { Button, Fieldset, Input } from 'nhs-components-react'
+import { Button, Fieldset, Input } from "nhs-components-react";
 
 const Component = () => (
   <>
     <Fieldset>
-        <Fieldset.Legend isPageHeading>
-          What is your NHS number?
-        </Fieldset.Legend>
-        <Input
-          width='10'
-          hint={
-            <>
-              Your NHS number is a 10 digit number that you find on any letter
-              the NHS has sent you. For example,{" "}
-              <span className="nhsuk-u-nowrap">485 777 3456</span>.
-            </>
-          }
-        />
-      </Fieldset>
-      <Button>Continue</Button>
+      <Fieldset.Legend isPageHeading>What is your NHS number?</Fieldset.Legend>
+      <Input
+        width="10"
+        hint={
+          <>
+            Your NHS number is a 10 digit number that you find on any letter the
+            NHS has sent you. For example,{" "}
+            <span className="nhsuk-u-nowrap">485 777 3456</span>.
+          </>
+        }
+      />
+    </Fieldset>
+    <Button>Continue</Button>
   </>
-)
+);
 ```
 
 ## Contributing

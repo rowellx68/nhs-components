@@ -219,27 +219,14 @@ const Radios: Radios = ({ children, ...rest }): JSX.Element => {
   }
 
   const setConditional = (reference: string, conditional: boolean): void => {
-    setState((prevState) => {
-      const hasConditional = prevState.conditionalRadios.includes(reference)
-
-      if (conditional && !hasConditional) {
-        return {
-          ...prevState,
-          conditionalRadios: prevState.conditionalRadios
+    setState((prevState) => ({
+      ...prevState,
+      conditionalRadios: conditional
+        ? prevState.conditionalRadios
             .filter((ref) => ref !== reference)
-            .concat(reference),
-        }
-      }
-
-      if (!conditional && hasConditional) {
-        return {
-          ...prevState,
-          conditionalRadios: [...prevState.conditionalRadios, reference],
-        }
-      }
-
-      return prevState
-    })
+            .concat(reference)
+        : prevState.conditionalRadios.concat(reference),
+    }))
   }
 
   const resetRadios = (): void => {

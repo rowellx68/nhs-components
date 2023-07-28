@@ -30,6 +30,16 @@ describe('Fieldset', () => {
 
     expect(screen.getByTestId('fieldset')).toMatchSnapshot()
   })
+
+  test('should match the snapshot - errored elements disableErrorLine', () => {
+    render(
+      <Fieldset data-testid="fieldset" disableErrorLine>
+        <Input id="sample-input" error="this is an error" />
+      </Fieldset>,
+    )
+
+    expect(screen.getByTestId('fieldset')).toMatchSnapshot()
+  })
 })
 
 describe('Fieldset.Legend', () => {
