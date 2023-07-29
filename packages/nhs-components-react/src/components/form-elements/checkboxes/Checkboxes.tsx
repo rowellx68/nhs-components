@@ -151,6 +151,11 @@ const Box: ForwardRefRenderFunction<HTMLInputElement, CheckboxProps> = (
 
 /**
  * A checkbox component that can be used within a `Checkboxes` component.
+ *
+ * @example
+ * ```tsx
+ * <Checkboxes.Box value="GP Practice">GP Practice</Checkboxes.Box>
+ * ```
  */
 const BoxForwardRef = forwardRef(Box)
 
@@ -158,6 +163,14 @@ const BoxForwardRef = forwardRef(Box)
  * Use checkboxes to let users select 1 or more options on a form.
  *
  * For more information on when to use this component, got to the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/checkboxes).
+ *
+ * @example
+ * ```tsx
+ * <Checkboxes label="Which services?" name="fruit">
+ *  <Checkboxes.Box value="GP Practice">GP Practice</Checkboxes.Box>
+ *  <Checkboxes.Box value="Dentist">Dentist</Checkboxes.Box>
+ * </Checkboxes>
+ * ```
  */
 const Checkboxes: Checkboxes = ({
   children,
