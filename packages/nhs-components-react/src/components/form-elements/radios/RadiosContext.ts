@@ -23,7 +23,7 @@ export const reducer: RadiosReducer = (state, { type, data }) => {
         ...state,
         conditional: data.hasConditional
           ? state.conditional
-              .filter((id) => id !== data.refId)
+              .filter(/* istanbul ignore next */ (id) => id !== data.refId)
               .concat(data.refId)
           : state.conditional.concat(data.refId),
       }
@@ -47,10 +47,10 @@ export type RadiosContextValue = {
 const RadiosContext = createContext<RadiosContextValue>({
   name: '',
   selectedRadio: '',
-  dispatch: () => {},
-  getRadioId: () => '',
-  leaseReference: () => '',
-  releaseReference: () => {},
+  dispatch: /* istanbul ignore next */ () => {},
+  getRadioId: /* istanbul ignore next */ () => '',
+  leaseReference: /* istanbul ignore next */ () => '',
+  releaseReference: /* istanbul ignore next */ () => {},
 })
 
 RadiosContext.displayName = 'RadiosContext'

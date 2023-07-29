@@ -22,7 +22,7 @@ export const reducer: CheckboxesReducer = (state, { type, data }) => {
         ...state,
         conditional: data.hasConditional
           ? state.conditional
-              .filter((id) => id !== data.refId)
+              .filter(/* istanbul ignore next */ (id) => id !== data.refId)
               .concat(data.refId)
           : state.conditional.filter((id) => id !== data.refId),
       }
@@ -39,10 +39,10 @@ export type CheckboxesContextValue = {
 
 const CheckboxesContext = createContext<CheckboxesContextValue>({
   name: '',
-  dispatch: () => {},
-  getCheckboxId: () => '',
-  leaseReference: () => '',
-  releaseReference: () => {},
+  dispatch: /* istanbul ignore next */ () => {},
+  getCheckboxId: /* istanbul ignore next */ () => '',
+  leaseReference: /* istanbul ignore next */ () => '',
+  releaseReference: /* istanbul ignore next */ () => {},
 })
 
 CheckboxesContext.displayName = 'CheckboxesContext'
