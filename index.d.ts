@@ -4,6 +4,7 @@ export { default as ActionLink } from './components/navigation/action-link';
 export { default as BackLink } from './components/navigation/back-link';
 export { default as Breadcrumb } from './components/navigation/breadcrumb';
 export { Button, ButtonLink } from './components/form-elements/button';
+export { default as Checkboxes } from './components/form-elements/checkboxes';
 export { default as ErrorMessage } from './components/form-elements/error-message';
 export { default as ErrorSummary } from './components/form-elements/error-summary';
 export { default as Fieldset, FieldsetContext, type FieldsetContextValue, useFieldsetContext, } from './components/form-elements/fieldset';

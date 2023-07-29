@@ -14,6 +14,19 @@ type RadioContainerProps = {
     idPrefix?: string;
 } & HTMLProps<HTMLDivElement> & FormElementProps;
 declare const Divider: React.FC<HTMLProps<HTMLDivElement>>;
+/**
+ * Radio component that renders a single radio input.
+ *
+ * @param {RadioProps} props - The props to be passed to the radio input.
+ * @param {React.ForwardedRef<HTMLInputElement>} ref - Optional ref to be passed to the radio input.
+ *
+ * @example
+ * ```tsx
+ * <Radios.Radio value="yes" hint="some hint">
+ *  Yes
+ * </Radios.Radio>
+ * ```
+ */
 declare const RadioForwardRef: import("react").ForwardRefExoticComponent<Omit<RadioProps, "ref"> & import("react").RefAttributes<HTMLInputElement>>;
 /**
  * Use radios when you want users to select only 1 option from a list.
