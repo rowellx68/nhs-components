@@ -204,6 +204,7 @@ exports[`Radios > should match the snapshot - conditional 1`] = `
       class="nhsuk-radios__item"
     >
       <input
+        checked=""
         class="nhsuk-radios__input"
         id="radios_:r3:-1"
         name="radios_:r3:"

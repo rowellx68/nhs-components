@@ -53,19 +53,6 @@ const Divider: React.FC<HTMLProps<HTMLDivElement>> = ({
   )
 }
 
-/**
- * Radio component that renders a single radio input.
- *
- * @param {RadioProps} props - The props to be passed to the radio input.
- * @param {React.ForwardedRef<HTMLInputElement>} ref - Optional ref to be passed to the radio input.
- *
- * @example
- * ```tsx
- * <Radios.Radio value="yes" hint="some hint">
- *  Yes
- * </Radios.Radio>
- * ```
- */
 const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
   {
     children,
@@ -79,6 +66,7 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
     conditionalWrapperProps,
     checked,
     defaultChecked,
+    onChange,
     type = 'radio',
     ...rest
   },
@@ -96,6 +84,11 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
   const inputId = id || getRadioId(radioReference)
   const shouldShowConditional =
     selectedRadio === radioReference && checked !== false
+
+  const { className: labelClassName, ...labelRest } = labelProps || {}
+  const { className: hintClassName, ...hintRest } = hintProps || {}
+  const { className: conditionalClassName, ...conditionalRest } =
+    conditionalWrapperProps || {}
 
   const setSelected = (reference: string): void => {
     dispatch({ type: 'set_selected', data: { refId: reference } })
@@ -120,6 +113,7 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
       type: 'set_conditional',
       data: { refId: radioReference, hasConditional: Boolean(conditional) },
     })
+
     return () =>
       dispatch({
         type: 'set_conditional',
@@ -136,27 +130,29 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
           name={name}
           type={type}
           checked={checked}
+          defaultChecked={defaultChecked}
           ref={ref}
-          onChange={() => {
+          onChange={(ev) => {
             setSelected(radioReference)
+            onChange?.(ev)
           }}
           {...rest}
         />
         {children && (
           <Label
-            className="nhsuk-radios__label"
+            className={clsx('nhsuk-radios__label', labelClassName)}
             id={`${inputId}--label`}
             htmlFor={inputId}
-            {...labelProps}
+            {...labelRest}
           >
             {children}
           </Label>
         )}
         {hint && (
           <Hint
-            className="nhsuk-radios__hint"
+            className={clsx('nhsuk-radios__hint', hintClassName)}
             id={`${inputId}--hint`}
-            {...hintProps}
+            {...hintRest}
           >
             {hint}
           </Hint>
@@ -164,9 +160,9 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
       </div>
       {conditional && (shouldShowConditional || forceShowConditional) && (
         <div
-          className="nhsuk-radios__conditional"
+          className={clsx('nhsuk-radios__conditional', conditionalClassName)}
           id={`${inputId}--conditional`}
-          {...conditionalWrapperProps}
+          {...conditionalRest}
         >
           {conditional}
         </div>
@@ -175,6 +171,19 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
   )
 }
 
+/**
+ * Radio component that renders a single radio input.
+ *
+ * @param {RadioProps} props - The props to be passed to the radio input.
+ * @param {React.ForwardedRef<HTMLInputElement>} ref - Optional ref to be passed to the radio input.
+ *
+ * @example
+ * ```tsx
+ * <Radios.Radio value="yes" hint="some hint">
+ *  Yes
+ * </Radios.Radio>
+ * ```
+ */
 const RadioForwardRef = forwardRef(Radio)
 
 /**
