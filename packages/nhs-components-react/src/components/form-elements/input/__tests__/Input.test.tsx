@@ -1,6 +1,6 @@
 import { render, screen } from '@/utils/test-utils'
 import { describe, expect, test } from 'vitest'
-import Input from '../Input'
+import Input from '..'
 
 describe('Input', () => {
   test('should match the snapshot', () => {

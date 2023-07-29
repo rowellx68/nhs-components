@@ -21,6 +21,7 @@ export {
 export { default as Hint } from '@/components/form-elements/hint'
 export { default as Input } from '@/components/form-elements/input'
 export { default as Radios } from '@/components/form-elements/radios'
+export { default as Select } from '@/components/form-elements/select'
 export { default as Textarea } from '@/components/form-elements/textarea'
 
 // miscellaneous
