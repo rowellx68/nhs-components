@@ -68,10 +68,17 @@ describe('Radios', () => {
   test('should match the snapshot - clicked', async () => {
     render(
       <Radios data-testid="radios" label="Label" error="Error">
-        <Radios.Radio data-testid="option-1" value="1" hint="Hint" conditional="Yay">
+        <Radios.Radio
+          data-testid="option-1"
+          value="1"
+          hint="Hint"
+          conditional="Yay"
+        >
           Option 1
         </Radios.Radio>
-        <Radios.Radio data-testid="option-2" value="2">Option 2</Radios.Radio>
+        <Radios.Radio data-testid="option-2" value="2">
+          Option 2
+        </Radios.Radio>
       </Radios>,
     )
 

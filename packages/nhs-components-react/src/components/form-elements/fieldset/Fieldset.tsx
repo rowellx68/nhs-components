@@ -1,6 +1,9 @@
 import clsx from 'clsx'
-import { ElementType, HTMLProps, memo, useState } from 'react'
-import FieldsetContext, { FieldsetContextValue } from './FieldsetContext'
+import { ElementType, HTMLProps, memo, useReducer } from 'react'
+import FieldsetContext, {
+  FieldsetContextValue,
+  reducer,
+} from './FieldsetContext'
 import { Size } from '@/types/nhsuk-sizes'
 
 type LegendProps = {
@@ -61,11 +64,6 @@ type Fieldset = {
   Legend: Legend
 } & React.FC<FieldsetProps>
 
-type FieldsetState = {
-  registered: string[]
-  errored: string[]
-}
-
 const BaseFieldset: React.FC<HTMLProps<HTMLFieldSetElement>> = ({
   className,
   children,
@@ -101,35 +99,11 @@ const Fieldset: Fieldset = ({
   disableErrorLine,
   ...rest
 }): JSX.Element => {
-  const [state, setState] = useState<FieldsetState>({
-    registered: [],
-    errored: [],
-  })
-
-  const passError = (componentId: string, error: boolean): void => {
-    setState((prevState) => ({
-      ...prevState,
-      errored: error
-        ? prevState.errored
-            .filter((id) => id !== componentId)
-            .concat(componentId)
-        : prevState.errored.concat(componentId),
-    }))
-  }
-
-  const registerComponent = (componentId: string, deregister = false): void => {
-    setState((prevState) => ({
-      ...prevState,
-      registered: deregister
-        ? prevState.registered.filter((id) => id !== componentId)
-        : prevState.registered.concat(componentId),
-    }))
-  }
+  const [state, dispatch] = useReducer(reducer, { registered: [], errored: [] })
 
   const contextValue: FieldsetContextValue = {
     isFieldset: true,
-    passError,
-    registerComponent,
+    dispatch,
   }
 
   const withFormElements = state.registered.length > 0

@@ -1,9 +1,46 @@
+import { ActionBase, ReducerBase } from '@/utils/reducer'
 import { createContext, useContext } from 'react'
+
+export type FieldsetState = {
+  registered: string[]
+  errored: string[]
+}
+
+export type SetErrorAction = ActionBase<
+  'set_error',
+  { id: string; error: boolean }
+>
+export type RegisterComponentAction = ActionBase<
+  'register_component',
+  { id: string; unregister: boolean }
+>
+export type FieldsetReducer = ReducerBase<
+  FieldsetState,
+  SetErrorAction | RegisterComponentAction
+>
+
+export const reducer: FieldsetReducer = (state, { type, data }) => {
+  switch (type) {
+    case 'set_error':
+      return {
+        ...state,
+        errored: data.error
+          ? state.errored.filter((id) => id !== data.id).concat(data.id)
+          : state.errored.concat(data.id),
+      }
+    case 'register_component':
+      return {
+        ...state,
+        registered: data.unregister
+          ? state.registered.filter((id) => id !== data.id)
+          : state.registered.concat(data.id),
+      }
+  }
+}
 
 export type FieldsetContextValue = {
   isFieldset: boolean
-  passError: (componentId: string, error: boolean) => void
-  registerComponent: (componentId: string, deregister?: boolean) => void
+  dispatch: React.Dispatch<SetErrorAction | RegisterComponentAction>
 }
 
 /**
@@ -11,8 +48,7 @@ export type FieldsetContextValue = {
  */
 const FieldsetContext = createContext<FieldsetContextValue>({
   isFieldset: false,
-  passError: () => {},
-  registerComponent: () => {},
+  dispatch: () => {},
 })
 
 FieldsetContext.displayName = 'FieldsetContext'

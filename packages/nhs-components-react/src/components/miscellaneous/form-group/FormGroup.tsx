@@ -58,7 +58,7 @@ const FormGroup = <T extends BaseFormElementRenderProps>(
   } = props
 
   const [generatedId] = useState(useIdWithPrefix(inputType))
-  const { isFieldset, passError, registerComponent } = useFieldsetContext()
+  const { isFieldset, dispatch: dispatchFieldsetAction } = useFieldsetContext()
 
   const elementId = id || generatedId
   const labelId = `${elementId}--label`
@@ -79,14 +79,28 @@ const FormGroup = <T extends BaseFormElementRenderProps>(
       return
     }
 
-    passError(elementId, Boolean(error))
+    dispatchFieldsetAction({
+      type: 'set_error',
+      data: { id: elementId, error: Boolean(error) },
+    })
 
-    return () => passError(elementId, false)
+    return () =>
+      dispatchFieldsetAction({
+        type: 'set_error',
+        data: { id: elementId, error: false },
+      })
   }, [elementId, error, isFieldset])
 
   useEffect(() => {
-    registerComponent(elementId)
-    return () => registerComponent(elementId, true)
+    dispatchFieldsetAction({
+      type: 'register_component',
+      data: { id: elementId, unregister: false },
+    })
+    return () =>
+      dispatchFieldsetAction({
+        type: 'register_component',
+        data: { id: elementId, unregister: true },
+      })
   }, [])
 
   const { className: formGroupClass, ...formGroupRest } = formGroupProps || {}

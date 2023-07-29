@@ -7,10 +7,12 @@ import {
   forwardRef,
   useCallback,
   useEffect,
+  useReducer,
   useState,
 } from 'react'
 import RadiosContext, {
   RadiosContextValue,
+  reducer,
   useRadiosContext,
 } from './RadiosContext'
 import Hint from '@/components/form-elements/hint'
@@ -87,14 +89,17 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
     getRadioId,
     leaseReference,
     releaseReference,
-    setSelected,
     selectedRadio,
-    setConditional,
+    dispatch,
   } = useRadiosContext()
   const [radioReference] = useState<string>(leaseReference())
   const inputId = id || getRadioId(radioReference)
   const shouldShowConditional =
     selectedRadio === radioReference && checked !== false
+
+  const setSelected = (reference: string): void => {
+    dispatch({ type: 'set_selected', data: { refId: reference } })
+  }
 
   useEffect(() => {
     if (defaultChecked) {
@@ -111,8 +116,15 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
   }, [checked])
 
   useEffect(() => {
-    setConditional(radioReference, Boolean(conditional))
-    return () => setConditional(radioReference, false)
+    dispatch({
+      type: 'set_conditional',
+      data: { refId: radioReference, hasConditional: Boolean(conditional) },
+    })
+    return () =>
+      dispatch({
+        type: 'set_conditional',
+        data: { refId: radioReference, hasConditional: false },
+      })
   }, [conditional])
 
   return (
@@ -185,12 +197,9 @@ const Radios: Radios = ({ children, ...rest }): JSX.Element => {
   let radioReferences: string[] = []
   let radioCount = 0
 
-  const [state, setState] = useState<{
-    selectedRadio: string
-    conditionalRadios: string[]
-  }>({
-    selectedRadio: '',
-    conditionalRadios: [],
+  const [state, dispatch] = useReducer(reducer, {
+    selected: '',
+    conditional: [],
   })
 
   const getRadioId = useCallback((id: string, reference: string) => {
@@ -218,27 +227,9 @@ const Radios: Radios = ({ children, ...rest }): JSX.Element => {
     radioReferences = radioReferences.filter((ref) => ref !== reference)
   }
 
-  const setConditional = (reference: string, conditional: boolean): void => {
-    setState((prevState) => ({
-      ...prevState,
-      conditionalRadios: conditional
-        ? prevState.conditionalRadios
-            .filter((ref) => ref !== reference)
-            .concat(reference)
-        : prevState.conditionalRadios.concat(reference),
-    }))
-  }
-
   const resetRadios = (): void => {
     radioIds = {}
     radioCount = 0
-  }
-
-  const setSelected = (reference: string): void => {
-    setState((prevState) => ({
-      ...prevState,
-      selectedRadio: reference,
-    }))
   }
 
   return (
@@ -251,11 +242,10 @@ const Radios: Radios = ({ children, ...rest }): JSX.Element => {
         const radiosContextValue: RadiosContextValue = {
           name,
           getRadioId: (reference) => getRadioId(id, reference),
-          selectedRadio: state.selectedRadio,
+          selectedRadio: state.selected,
           leaseReference,
           releaseReference,
-          setConditional,
-          setSelected,
+          dispatch,
         }
 
         return (
