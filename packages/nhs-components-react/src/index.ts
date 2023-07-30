@@ -5,7 +5,7 @@ export { default as Details } from '@/components/content-presentation/details'
 // navigation
 export { default as ActionLink } from '@/components/navigation/action-link'
 export { default as BackLink } from '@/components/navigation/back-link'
-export { default as Breadcrumb } from '@/components/navigation/breadcrumb'
+export { default as Breadcrumbs } from '@/components/navigation/breadcrumbs'
 export { default as Card } from '@/components/navigation/card'
 
 // form elements
