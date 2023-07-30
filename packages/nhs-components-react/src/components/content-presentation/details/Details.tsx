@@ -95,7 +95,7 @@ const ExpanderGroup: React.FC<HTMLProps<HTMLDivElement>> = ({
 /**
  * Make a page easier to scan by letting users reveal more detailed information only if they need it.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/details).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/details).
  *
  * @param {boolean} [props.expander] - If true, the component will be styled as an expander.
  * @param {string} [props.className] - An optional class name to add to the component.

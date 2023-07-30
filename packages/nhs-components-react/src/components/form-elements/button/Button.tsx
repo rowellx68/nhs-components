@@ -13,7 +13,7 @@ type ButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
 /**
  * Use buttons to help users carry out an action on a page like starting an application or saving their progress.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/button).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/button).
  *
  * @param {string} [props.className] - Optional additional classes to add to the button.
  * @param {boolean} [props.disabled] - Disables the button, preventing user interaction.
@@ -63,7 +63,7 @@ type ButtonLinkProps = BaseButtonProps & AsElementLink<HTMLAnchorElement>
 /**
  * Use buttons to help users carry out an action on a page like starting an application or saving their progress.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/button).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/button).
  *
  * @param {string} [props.className] - Optional additional classes to add to the button.
  * @param {boolean} [props.disabled] - Disables the button, preventing user interaction.

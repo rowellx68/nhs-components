@@ -75,7 +75,7 @@ type Split = {
 /**
  * Use breadcrumbs to help users understand where they are in the website.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/breadcrumb).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/breadcrumb).
  *
  * @param {string} [props.className] - An optional class name to apply to the container.
  * @param {string} [props.aria-label] - An optional label for the breadcrumb. Defaults to `Breadcrumb`.

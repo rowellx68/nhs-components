@@ -124,7 +124,7 @@ const GroupItem: React.FC<GroupItemProps> = ({
 /**
  * Use a card to give users a brief summary of content or a task, often with a link to more detail. You can display a card alongside other cards to group related content or tasks.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/card).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/card).
  *
  * @link https://service-manual.nhs.uk/design-system/components/card
  *

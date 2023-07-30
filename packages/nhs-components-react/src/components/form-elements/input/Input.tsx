@@ -18,7 +18,7 @@ type InputProps = {
 /**
  * Use text input to let users enter a single line of text.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/text-input).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/text-input).
  *
  * @example
  * ```tsx

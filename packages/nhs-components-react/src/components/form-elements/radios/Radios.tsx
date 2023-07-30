@@ -189,7 +189,7 @@ const RadioForwardRef = forwardRef(Radio)
 /**
  * Use radios when you want users to select only 1 option from a list.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/radios).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/radios).
  *
  * @example
  * ```tsx

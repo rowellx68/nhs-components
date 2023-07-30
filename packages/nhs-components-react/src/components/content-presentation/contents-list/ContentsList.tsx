@@ -63,7 +63,7 @@ const ContentsListItem: ContentsListItem = ({
 /**
  * Use contents lists to allow users to navigate between related pages, for example about a single condition.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/contents-list).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/contents-list).
  *
  * @param {string} [props.className] - An optional class name to add to the component.
  * @param {string} [props.visuallyHiddenText] - The header text to display to screen readers.
