@@ -1,9 +1,10 @@
-export { default as ContentsList } from './components/content-presentation/contents-list';
 export { default as Details } from './components/content-presentation/details';
 export { default as ActionLink } from './components/navigation/action-link';
 export { default as BackLink } from './components/navigation/back-link';
 export { default as Breadcrumbs } from './components/navigation/breadcrumbs';
 export { default as Card } from './components/navigation/card';
+export { default as ContentsList } from './components/navigation/contents-list';
+export { default as Footer } from './components/navigation/footer';
 export { Button, ButtonLink } from './components/form-elements/button';
 export { default as Checkboxes } from './components/form-elements/checkboxes';
 export { default as ErrorMessage } from './components/form-elements/error-message';
