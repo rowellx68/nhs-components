@@ -7,6 +7,7 @@ export { default as BackLink } from '@/components/navigation/back-link'
 export { default as Breadcrumbs } from '@/components/navigation/breadcrumbs'
 export { default as Card } from '@/components/navigation/card'
 export { default as ContentsList } from '@/components/navigation/contents-list'
+export { default as Footer } from '@/components/navigation/footer'
 
 // form elements
 export { Button, ButtonLink } from '@/components/form-elements/button'
