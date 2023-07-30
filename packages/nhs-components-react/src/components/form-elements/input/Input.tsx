@@ -1,4 +1,4 @@
-import FormGroup from '@/components/miscellaneous/form-group/FormGroup'
+import FormGroup from '@/components/core/form-group/FormGroup'
 import { FormElementProps } from '@/types/form-element-types'
 import { InputWidth } from '@/types/nhsuk-sizes'
 import clsx from 'clsx'

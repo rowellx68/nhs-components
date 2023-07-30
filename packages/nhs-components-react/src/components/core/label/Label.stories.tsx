@@ -3,7 +3,7 @@ import Label from '.'
 
 const meta: Meta<typeof Label> = {
   component: Label,
-  title: 'Components/Miscellaneous/Label',
+  title: 'Components/Core/Label',
   tags: ['autodocs'],
 }
 

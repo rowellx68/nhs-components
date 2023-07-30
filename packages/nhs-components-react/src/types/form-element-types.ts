@@ -1,5 +1,5 @@
 import { ErrorMessageProps } from '@/components/form-elements/error-message/ErrorMessage'
-import { LabelProps } from '@/components/miscellaneous/label/Label'
+import { LabelProps } from '@/components/core/label/Label'
 import { HTMLProps, ReactNode } from 'react'
 
 export type FormElementProps = {

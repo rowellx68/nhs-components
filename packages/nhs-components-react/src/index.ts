@@ -27,5 +27,6 @@ export { default as Textarea } from '@/components/form-elements/textarea'
 // core
 export { default as Container } from '@/components/core/container'
 export { default as Column } from '@/components/core/grid/column'
+export { default as Label } from '@/components/core/label'
 export { default as Main } from '@/components/core/main'
 export { default as Row } from '@/components/core/grid/row'

@@ -1,4 +1,4 @@
-import Label from '@/components/miscellaneous/label/Label'
+import Label from '@/components/core/label/Label'
 import clsx from 'clsx'
 import {
   ForwardRefRenderFunction,
@@ -16,7 +16,7 @@ import RadiosContext, {
   useRadiosContext,
 } from './RadiosContext'
 import Hint from '@/components/form-elements/hint'
-import FormGroup from '@/components/miscellaneous/form-group/FormGroup'
+import FormGroup from '@/components/core/form-group/FormGroup'
 import { FormElementProps } from '@/types/form-element-types'
 import { generateRandomString } from '@/utils/random'
 

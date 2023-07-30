@@ -1,4 +1,4 @@
-import FormGroup from '@/components/miscellaneous/form-group/FormGroup'
+import FormGroup from '@/components/core/form-group/FormGroup'
 import { FormElementProps } from '@/types/form-element-types'
 import clsx from 'clsx'
 import { ForwardRefRenderFunction, HTMLProps, forwardRef } from 'react'

@@ -1,7 +1,7 @@
 import { HTMLProps, ReactNode, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import useIdWithPrefix from '@/hooks/use-id-with-prefix'
-import Label from '@/components/miscellaneous/label/Label'
+import Label from '@/components/core/label/Label'
 import ErrorMessage from '@/components/form-elements/error-message/ErrorMessage'
 import Hint from '@/components/form-elements/hint/Hint'
 import { useFieldsetContext } from '@/index'

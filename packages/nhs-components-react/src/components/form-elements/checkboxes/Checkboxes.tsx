@@ -1,4 +1,4 @@
-import FormGroup from '@/components/miscellaneous/form-group/FormGroup'
+import FormGroup from '@/components/core/form-group/FormGroup'
 import { FormElementProps } from '@/types/form-element-types'
 import clsx from 'clsx'
 import {
@@ -18,7 +18,7 @@ import CheckboxesContext, {
 } from './CheckboxesContext'
 import { generateRandomString } from '@/utils/random'
 import Hint from '@/components/form-elements/hint'
-import Label from '@/components/miscellaneous/label/Label'
+import Label from '@/components/core/label/Label'
 
 type Checkboxes = {
   Box: typeof BoxForwardRef
