@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container > should match snapshot - fluid 1`] = `
+<div
+  class="nhsuk-width-container nhsuk-width-container-fluid"
+  data-testid="container"
+>
+  What is your name?
+</div>
+`;
+
+exports[`Container > should match snapshot 1`] = `
+<div
+  class="nhsuk-width-container"
+  data-testid="container"
+>
+  What is your name?
+</div>
+`;
