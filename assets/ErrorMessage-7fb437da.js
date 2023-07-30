@@ -1,0 +1,4 @@
+import{j as s}from"./jsx-runtime-ffb262ed.js";import{c as t}from"./clsx-1229b3e0.js";const e=({children:r,className:a,visuallyHiddenText:n="Error",...o})=>s.jsxs("span",{className:t("nhsuk-error-message",a),...o,children:[s.jsxs("span",{className:"nhsuk-u-visually-hidden",children:[n,":"]}),r]});e.displayName="ErrorMessage";try{e.displayName="ErrorMessage",e.__docgenInfo={description:`Use an error message when there is a validation error. Explain what went wrong and how to fix it.
+
+For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/error-message).`,displayName:"ErrorMessage",props:{visuallyHiddenText:{defaultValue:{value:"Error"},description:"",name:"visuallyHiddenText",required:!1,type:{name:"string"}}}}}catch{}export{e as E};
+//# sourceMappingURL=ErrorMessage-7fb437da.js.map

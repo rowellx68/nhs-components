@@ -29,7 +29,7 @@ type Fieldset = {
 /**
  * Use a fieldset to group related form inputs.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/fieldset).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/fieldset).
  *
  * @param {string} [props.className] - Optional additional classes to add to the fieldset.
  * @param {boolean} [props.disableErrorLine] - Disables the error line on the fieldset.

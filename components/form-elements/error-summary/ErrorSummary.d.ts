@@ -14,7 +14,7 @@ declare const ErrorSummary: ForwardRefRenderFunction<HTMLDivElement, HTMLProps<H
 /**
  * Include an error summary at the top of a page to summarise any mistakes a user has made.
  *
- * For more information on when to use this component, go the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/error-summary).
+ * For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/error-summary).
  *
  * @param {string} [props.className] - An optional class name to apply to the container.
  * @param {React.ForwardedRef<HTMLDivElement>} [ref] - Optional ref to be passed to the container.
