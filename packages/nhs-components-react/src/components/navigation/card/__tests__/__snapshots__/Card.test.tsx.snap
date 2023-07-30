@@ -1,0 +1,197 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Card > should match the snapshot - clickable 1`] = `
+<div
+  class="nhsuk-card nhsuk-card--clickable"
+  data-testid="card"
+>
+  <div
+    class="nhsuk-card__content"
+  >
+    <h2
+      class="nhsuk-card__heading nhsuk-heading-m"
+    >
+      <a
+        class="nhsuk-card__link"
+        href="#care-support"
+      >
+        Card heading
+      </a>
+    </h2>
+    <p
+      class="nhsuk-card__description"
+    >
+      Card description
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Card > should match the snapshot - image and clickable 1`] = `
+<div
+  class="nhsuk-card nhsuk-card--clickable"
+  data-testid="card"
+>
+  <img
+    alt="A lady smiling"
+    class="nhsuk-card__img"
+    src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg"
+  />
+  <div
+    class="nhsuk-card__content"
+  >
+    <h2
+      class="nhsuk-card__heading nhsuk-heading-m"
+    >
+      Card heading
+    </h2>
+    <p
+      class="nhsuk-card__description"
+    >
+      Card description
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Card > should match the snapshot - width one-half 1`] = `
+<ul
+  class="nhsuk-grid-row nhsuk-card-group"
+  data-testid="card"
+>
+  <li
+    class="nhsuk-card-group__item nhsuk-grid-column-one-half"
+  >
+    <div
+      class="nhsuk-card"
+    >
+      <div
+        class="nhsuk-card__content"
+      >
+        <h2
+          class="nhsuk-card__heading nhsuk-heading-m"
+        >
+          Card heading
+        </h2>
+        <p
+          class="nhsuk-card__description"
+        >
+          Card description
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Card > should match the snapshot - width one-quarter 1`] = `
+<ul
+  class="nhsuk-grid-row nhsuk-card-group"
+  data-testid="card"
+>
+  <li
+    class="nhsuk-card-group__item nhsuk-grid-column-one-quarter"
+  >
+    <div
+      class="nhsuk-card"
+    >
+      <div
+        class="nhsuk-card__content"
+      >
+        <h2
+          class="nhsuk-card__heading nhsuk-heading-m"
+        >
+          Card heading
+        </h2>
+        <p
+          class="nhsuk-card__description"
+        >
+          Card description
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Card > should match the snapshot - width one-third 1`] = `
+<ul
+  class="nhsuk-grid-row nhsuk-card-group"
+  data-testid="card"
+>
+  <li
+    class="nhsuk-card-group__item nhsuk-grid-column-one-third"
+  >
+    <div
+      class="nhsuk-card"
+    >
+      <div
+        class="nhsuk-card__content"
+      >
+        <h2
+          class="nhsuk-card__heading nhsuk-heading-m"
+        >
+          Card heading
+        </h2>
+        <p
+          class="nhsuk-card__description"
+        >
+          Card description
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Card > should match the snapshot - width undefined 1`] = `
+<ul
+  class="nhsuk-grid-row nhsuk-card-group"
+  data-testid="card"
+>
+  <li
+    class="nhsuk-card-group__item nhsuk-grid-column-one-half"
+  >
+    <div
+      class="nhsuk-card"
+    >
+      <div
+        class="nhsuk-card__content"
+      >
+        <h2
+          class="nhsuk-card__heading nhsuk-heading-m"
+        >
+          Card heading
+        </h2>
+        <p
+          class="nhsuk-card__description"
+        >
+          Card description
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Card > should match the snapshot 1`] = `
+<div
+  class="nhsuk-card"
+  data-testid="card"
+>
+  <div
+    class="nhsuk-card__content"
+  >
+    <h2
+      class="nhsuk-card__heading nhsuk-heading-m"
+    >
+      Card heading
+    </h2>
+    <p
+      class="nhsuk-card__description"
+    >
+      Card description
+    </p>
+  </div>
+</div>
+`;
