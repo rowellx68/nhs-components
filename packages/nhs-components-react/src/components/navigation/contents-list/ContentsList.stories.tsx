@@ -3,7 +3,7 @@ import ContentsList from '.'
 
 const meta: Meta<typeof ContentsList> = {
   component: ContentsList,
-  title: 'Components/Content Presentation/ContentsList',
+  title: 'Components/Navigation/ContentsList',
   tags: ['autodocs'],
 }
 

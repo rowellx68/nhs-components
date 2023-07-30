@@ -1,5 +1,4 @@
 // content-presentation
-export { default as ContentsList } from '@/components/content-presentation/contents-list'
 export { default as Details } from '@/components/content-presentation/details'
 
 // navigation
@@ -7,6 +6,7 @@ export { default as ActionLink } from '@/components/navigation/action-link'
 export { default as BackLink } from '@/components/navigation/back-link'
 export { default as Breadcrumbs } from '@/components/navigation/breadcrumbs'
 export { default as Card } from '@/components/navigation/card'
+export { default as ContentsList } from '@/components/navigation/contents-list'
 
 // form elements
 export { Button, ButtonLink } from '@/components/form-elements/button'
