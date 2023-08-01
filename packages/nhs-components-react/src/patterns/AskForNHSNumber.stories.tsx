@@ -3,7 +3,7 @@ import { Container, Main, Row, Column, Input, Button } from '../index'
 
 const meta: Meta<typeof Container> = {
   component: Container,
-  title: 'Patters/Ask for their NHS number',
+  title: 'Patterns/Ask for their NHS number',
   tags: ['autodocs'],
 }
 

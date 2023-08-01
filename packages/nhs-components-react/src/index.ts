@@ -1,5 +1,6 @@
 // content-presentation
 export { default as Details } from '@/components/content-presentation/details'
+export { default as WarningCallout } from '@/components/content-presentation/warning-callout'
 
 // navigation
 export { default as ActionLink } from '@/components/navigation/action-link'
