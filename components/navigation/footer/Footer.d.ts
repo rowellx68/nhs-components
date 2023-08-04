@@ -1,11 +1,11 @@
 import { ContainerProps } from '../../../components/core/container/Container';
 import { HTMLProps } from 'react';
 import { AsElementLink } from '../../../types/link-like';
+import { VisuallyHiddenProps } from '../../../types/visually-hidden';
 type FooterProps = {
-    visuallyHiddenText?: string;
     containerProps?: ContainerProps;
     footerProps?: HTMLProps<HTMLDivElement>;
-} & HTMLProps<HTMLDivElement>;
+} & HTMLProps<HTMLDivElement> & Partial<VisuallyHiddenProps>;
 type ListItemProps = {
     containerProps?: HTMLProps<HTMLLIElement>;
 } & AsElementLink<HTMLAnchorElement>;
