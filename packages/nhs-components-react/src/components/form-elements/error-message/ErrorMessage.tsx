@@ -1,9 +1,9 @@
+import { VisuallyHiddenProps } from '@/types/visually-hidden'
 import clsx from 'clsx'
 import { HTMLProps } from 'react'
 
-export type ErrorMessageProps = {
-  visuallyHiddenText?: string
-} & HTMLProps<HTMLSpanElement>
+export type ErrorMessageProps = HTMLProps<HTMLSpanElement> &
+  Partial<VisuallyHiddenProps>
 
 /**
  * Use an error message when there is a validation error. Explain what went wrong and how to fix it.

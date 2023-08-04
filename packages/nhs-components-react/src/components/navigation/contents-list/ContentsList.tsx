@@ -1,4 +1,5 @@
 import { AsElementLink } from '@/types/link-like'
+import { VisuallyHiddenProps } from '@/types/visually-hidden'
 import clsx from 'clsx'
 import { HTMLProps, LiHTMLAttributes } from 'react'
 
@@ -6,9 +7,8 @@ type ContentsListItemProps = {
   current?: boolean
 } & AsElementLink<HTMLAnchorElement>
 
-type ContentsListProps = {
-  visuallyHiddenText?: string
-} & HTMLProps<HTMLDivElement>
+type ContentsListProps = HTMLProps<HTMLDivElement> &
+  Partial<VisuallyHiddenProps>
 
 type ContentsListItem = React.FC<ContentsListItemProps>
 

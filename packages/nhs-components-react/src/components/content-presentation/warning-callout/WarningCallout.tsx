@@ -1,5 +1,6 @@
 import { HTMLProps } from 'react'
 import clsx from 'clsx'
+import { VisuallyHiddenProps } from '@/types/visually-hidden'
 
 type WarningCallout = {
   Label: typeof Label
@@ -7,8 +8,8 @@ type WarningCallout = {
 
 type WarningCalloutLabelProps = {
   asElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-  visuallyHiddenText?: string
-} & HTMLProps<HTMLHeadingElement>
+} & HTMLProps<HTMLHeadingElement> &
+  Partial<VisuallyHiddenProps>
 
 /**
  * The label for the `WarningCallout` component.
