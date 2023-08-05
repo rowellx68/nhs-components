@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Image > should match snapshot - figure props 1`] = `
+<figure
+  class="nhsuk-image custom-class"
+>
+  <img
+    alt="Lots of sore red patches with small blisters spread across white skin on a woman's chest."
+    class="nhsuk-image__img"
+    data-testid="image"
+    src="image.jpg"
+  />
+</figure>
+`;
+
+exports[`Image > should match snapshot - no caption 1`] = `
+<figure
+  class="nhsuk-image"
+>
+  <img
+    alt="Lots of sore red patches with small blisters spread across white skin on a woman's chest."
+    class="nhsuk-image__img"
+    data-testid="image"
+    src="image.jpg"
+  />
+</figure>
+`;
+
+exports[`Image > should match snapshot 1`] = `
+<figure
+  class="nhsuk-image"
+>
+  <img
+    alt="Lots of sore red patches with small blisters spread across white skin on a woman's chest."
+    class="nhsuk-image__img"
+    data-testid="image"
+    src="image.jpg"
+  />
+  <figcaption
+    class="nhsuk-image__caption"
+  >
+    It can affect large areas of the body or limbs.
+  </figcaption>
+</figure>
+`;

@@ -1,5 +1,6 @@
 // content-presentation
 export { default as Details } from '@/components/content-presentation/details'
+export { default as Image } from '@/components/content-presentation/image'
 export { default as InsetText } from '@/components/content-presentation/inset-text'
 export { default as Tag } from '@/components/content-presentation/tag'
 export { default as WarningCallout } from '@/components/content-presentation/warning-callout'
