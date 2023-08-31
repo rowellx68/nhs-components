@@ -12,11 +12,16 @@ type Card = {
 } & React.FC<CardProps>;
 type CardProps = {
     clickable?: boolean;
-} & HTMLProps<HTMLDivElement>;
+} & Partial<CardContextValue> & HTMLProps<HTMLDivElement>;
 type GroupItemProps = {
     width?: GroupItemWidth;
 } & HTMLProps<HTMLLIElement>;
 type HeadingProps = AsElementHeadingProps & HTMLProps<HTMLHeadingElement>;
+type CardContextValue = {
+    withChevron: boolean;
+    primary: boolean;
+    secondary: boolean;
+};
 export type GroupItemWidth = 'one-half' | 'one-third' | 'one-quarter';
 declare const Content: React.FC<HTMLProps<HTMLDivElement>>;
 declare const Heading: React.FC<HeadingProps>;
