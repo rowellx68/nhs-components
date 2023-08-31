@@ -1,5 +1,6 @@
 import { HTMLProps } from 'react';
 import { AsElementLink } from '../../../types/link-like';
+import { AsElementHeadingProps } from '../../../types/heading';
 type Card = {
     Content: typeof Content;
     Description: typeof Description;
@@ -15,9 +16,7 @@ type CardProps = {
 type GroupItemProps = {
     width?: GroupItemWidth;
 } & HTMLProps<HTMLLIElement>;
-type HeadingProps = {
-    asElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-} & HTMLProps<HTMLHeadingElement>;
+type HeadingProps = AsElementHeadingProps & HTMLProps<HTMLHeadingElement>;
 export type GroupItemWidth = 'one-half' | 'one-third' | 'one-quarter';
 declare const Content: React.FC<HTMLProps<HTMLDivElement>>;
 declare const Heading: React.FC<HeadingProps>;

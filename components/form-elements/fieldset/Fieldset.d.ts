@@ -1,10 +1,10 @@
-import { ElementType, HTMLProps } from 'react';
+import { HTMLProps } from 'react';
 import { Size } from '../../../types/nhsuk-sizes';
+import { AsElementHeadingProps } from '../../../types/heading';
 type LegendProps = {
     isPageHeading?: boolean;
-    asElement?: ElementType;
     size?: Size;
-} & Omit<HTMLProps<HTMLLegendElement>, 'size'>;
+} & AsElementHeadingProps & Omit<HTMLProps<HTMLLegendElement>, 'size'>;
 type Legend = React.FC<LegendProps>;
 /**
  * Use a legend to provide a heading for a fieldset.

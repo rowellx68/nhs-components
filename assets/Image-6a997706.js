@@ -1,0 +1,4 @@
+import{j as n}from"./jsx-runtime-ffb262ed.js";import{c as r}from"./clsx-1229b3e0.js";const o=({children:e,className:a,...i})=>n.jsx("figcaption",{className:r("nhsuk-image__caption",a),...i,children:e}),s=({figureProps:e,children:a,className:i,...t})=>{const{className:m,...p}=e||{};return n.jsxs("figure",{className:r("nhsuk-image",m),...p,children:[n.jsx("img",{className:r("nhsuk-image__img",i),...t}),a]})};s.displayName="Image";o.displayName="Image.Caption";s.Caption=o;try{s.displayName="Image",s.__docgenInfo={description:`Use images only if there is a real user need. Avoid unnecessary decoration.
+
+For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/images).`,displayName:"Image",props:{figureProps:{defaultValue:null,description:"",name:"figureProps",required:!1,type:{name:"HTMLProps<HTMLDivElement>"}}}}}catch{}export{s as I};
+//# sourceMappingURL=Image-6a997706.js.map

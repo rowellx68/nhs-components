@@ -1,11 +1,10 @@
 import { HTMLProps } from 'react';
 import { VisuallyHiddenProps } from '../../../types/visually-hidden';
+import { AsElementHeadingProps } from '../../../types/heading';
 type WarningCallout = {
     Label: typeof Label;
 } & React.FC<HTMLProps<HTMLDivElement>>;
-type WarningCalloutLabelProps = {
-    asElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-} & HTMLProps<HTMLHeadingElement> & Partial<VisuallyHiddenProps>;
+type WarningCalloutLabelProps = AsElementHeadingProps & HTMLProps<HTMLHeadingElement> & Partial<VisuallyHiddenProps>;
 /**
  * The label for the `WarningCallout` component.
  *
