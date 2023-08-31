@@ -106,6 +106,7 @@ ErrorSummaryRef.displayName = 'ErrorSummary'
 ErrorSummaryBody.displayName = 'ErrorSummary.Body'
 ErrorSummaryList.displayName = 'ErrorSummary.List'
 ErrorSummaryListItem.displayName = 'ErrorSummary.Item'
+ErrorSummaryTitle.displayName = 'ErrorSummary.Title'
 
 ErrorSummaryRef.Title = ErrorSummaryTitle
 ErrorSummaryRef.Body = ErrorSummaryBody
