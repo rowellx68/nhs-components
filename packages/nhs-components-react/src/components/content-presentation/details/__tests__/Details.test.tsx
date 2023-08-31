@@ -1,5 +1,5 @@
 import { render, screen } from '@/utils/test-utils'
-import { describe } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import Details from '..'
 
 describe('Details', () => {

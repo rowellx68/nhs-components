@@ -1,5 +1,5 @@
 import { render, screen, userEvent } from '@/utils/test-utils'
-import { describe, test } from 'vitest'
+import { describe, test, expect } from 'vitest'
 import Checkboxes from '..'
 
 describe('Checkboxes', () => {

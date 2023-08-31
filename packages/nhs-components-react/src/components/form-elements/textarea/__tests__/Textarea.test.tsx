@@ -1,6 +1,6 @@
-import { describe, test } from 'vitest'
-import Textarea from '..'
 import { render, screen } from '@/utils/test-utils'
+import { describe, test, expect } from 'vitest'
+import Textarea from '..'
 
 describe('Textarea', () => {
   test('should match the snapshot', () => {

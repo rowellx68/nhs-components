@@ -1,5 +1,5 @@
 import { render, screen } from '@/utils/test-utils'
-import { describe, test } from 'vitest'
+import { describe, test, expect } from 'vitest'
 import Image from '..'
 
 describe('Image', () => {

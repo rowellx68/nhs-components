@@ -1,5 +1,5 @@
 import { render, screen } from '@/utils/test-utils'
-import { describe, test } from 'vitest'
+import { describe, expect, test } from 'vitest'
 import ErrorSummary from '..'
 
 describe('ErrorSummary', () => {
