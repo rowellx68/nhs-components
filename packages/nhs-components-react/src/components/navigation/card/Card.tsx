@@ -1,7 +1,8 @@
-import { HTMLProps } from 'react'
+import { HTMLProps, createContext, useContext } from 'react'
 import clsx from 'clsx'
 import { AsElementLink } from '@/types/link-like'
 import { AsElementHeadingProps } from '@/types/heading'
+import { ChevronRightCircleIcon } from '@/icons'
 
 type Card = {
   Content: typeof Content
@@ -15,7 +16,8 @@ type Card = {
 
 type CardProps = {
   clickable?: boolean
-} & HTMLProps<HTMLDivElement>
+} & Partial<CardContextValue> &
+  HTMLProps<HTMLDivElement>
 
 type GroupItemProps = {
   width?: GroupItemWidth
@@ -23,16 +25,42 @@ type GroupItemProps = {
 
 type HeadingProps = AsElementHeadingProps & HTMLProps<HTMLHeadingElement>
 
+type CardContextValue = {
+  withChevron: boolean
+  primary: boolean
+  secondary: boolean
+}
+
 export type GroupItemWidth = 'one-half' | 'one-third' | 'one-quarter'
+
+const CardContext = createContext<CardContextValue>({
+  withChevron: false,
+  primary: false,
+  secondary: false,
+})
 
 const Content: React.FC<HTMLProps<HTMLDivElement>> = ({
   children,
   className,
   ...rest
 }) => {
+  const { primary, secondary, withChevron } = useContext(CardContext)
+
   return (
-    <div className={clsx('nhsuk-card__content', className)} {...rest}>
+    <div
+      className={clsx(
+        'nhsuk-card__content',
+        {
+          'nhsuk-card__content--primary': primary,
+          'nhsuk-card__content--secondary': secondary && !primary,
+        },
+        className,
+      )}
+      {...rest}
+    >
       {children}
+
+      {withChevron && primary && <ChevronRightCircleIcon />}
     </div>
   )
 }
@@ -141,20 +169,35 @@ const GroupItem: React.FC<GroupItemProps> = ({
  * </Card>
  * ```
  */
-const Card: Card = ({ children, className, clickable, ...rest }) => {
+const Card: Card = ({
+  children,
+  className,
+  clickable,
+  withChevron = false,
+  primary = false,
+  secondary = false,
+  ...rest
+}) => {
   return (
     <div
       className={clsx(
         'nhsuk-card',
-        { 'nhsuk-card--clickable': clickable },
+        {
+          'nhsuk-card--clickable': clickable,
+          'nhsuk-card--secondary': secondary && !primary,
+        },
         className,
       )}
       {...rest}
     >
-      {children}
+      <CardContext.Provider value={{ withChevron, primary, secondary }}>
+        {children}
+      </CardContext.Provider>
     </div>
   )
 }
+
+CardContext.displayName = 'CardContext'
 
 Card.Content = Content
 Card.Description = Description

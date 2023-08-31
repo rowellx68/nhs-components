@@ -55,6 +55,50 @@ export const Clickable: Story = {
 }
 
 /**
+ * Card with clickable prop set to true and primary prop set to true.
+ */
+export const PrimaryWithChevron: Story = {
+  args: {
+    primary: true,
+    withChevron: true,
+    clickable: true,
+  },
+  render: (args) => (
+    <Card {...args}>
+      <Card.Content>
+        <Card.Heading>
+          <Card.Link href="#site">Introduction to care and support</Card.Link>
+        </Card.Heading>
+        <Card.Description>
+          A quick guide for people who have care and support needs and their
+          carers
+        </Card.Description>
+      </Card.Content>
+    </Card>
+  ),
+}
+
+export const Secondary: Story = {
+  args: {
+    secondary: true,
+    clickable: true,
+  },
+  render: (args) => (
+    <Card {...args}>
+      <Card.Content>
+        <Card.Heading>
+          <Card.Link href="#site">Introduction to care and support</Card.Link>
+        </Card.Heading>
+        <Card.Description>
+          A quick guide for people who have care and support needs and their
+          carers
+        </Card.Description>
+      </Card.Content>
+    </Card>
+  ),
+}
+
+/**
  * Card with clickable prop set to true and an image.
  */
 export const ClickableWithImage: Story = {
