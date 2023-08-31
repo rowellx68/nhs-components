@@ -1,16 +1,17 @@
 import clsx from 'clsx'
-import { ElementType, HTMLProps, memo, useReducer } from 'react'
+import { HTMLProps, memo, useReducer } from 'react'
 import FieldsetContext, {
   FieldsetContextValue,
   reducer,
 } from './FieldsetContext'
 import { Size } from '@/types/nhsuk-sizes'
+import { AsElementHeadingProps } from '@/types/heading'
 
 type LegendProps = {
   isPageHeading?: boolean
-  asElement?: ElementType
   size?: Size
-} & Omit<HTMLProps<HTMLLegendElement>, 'size'>
+} & AsElementHeadingProps &
+  Omit<HTMLProps<HTMLLegendElement>, 'size'>
 
 type Legend = React.FC<LegendProps>
 

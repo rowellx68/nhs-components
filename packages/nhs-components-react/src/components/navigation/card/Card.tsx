@@ -1,6 +1,7 @@
 import { HTMLProps } from 'react'
 import clsx from 'clsx'
 import { AsElementLink } from '@/types/link-like'
+import { AsElementHeadingProps } from '@/types/heading'
 
 type Card = {
   Content: typeof Content
@@ -20,9 +21,7 @@ type GroupItemProps = {
   width?: GroupItemWidth
 } & HTMLProps<HTMLLIElement>
 
-type HeadingProps = {
-  asElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
-} & HTMLProps<HTMLHeadingElement>
+type HeadingProps = AsElementHeadingProps & HTMLProps<HTMLHeadingElement>
 
 export type GroupItemWidth = 'one-half' | 'one-third' | 'one-quarter'
 
