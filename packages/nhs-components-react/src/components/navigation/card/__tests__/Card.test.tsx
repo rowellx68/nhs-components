@@ -64,4 +64,40 @@ describe('Card', () => {
     )
     expect(screen.getByTestId('card')).toMatchSnapshot()
   })
+
+  test('should match the snapshot - primary', () => {
+    render(
+      <Card data-testid="card" primary>
+        <Card.Content>
+          <Card.Heading>Card heading</Card.Heading>
+          <Card.Description>Card description</Card.Description>
+        </Card.Content>
+      </Card>,
+    )
+    expect(screen.getByTestId('card')).toMatchSnapshot()
+  })
+
+  test('should match the snapshot - primary & withChevron', () => {
+    render(
+      <Card data-testid="card" primary withChevron>
+        <Card.Content>
+          <Card.Heading>Card heading</Card.Heading>
+          <Card.Description>Card description</Card.Description>
+        </Card.Content>
+      </Card>,
+    )
+    expect(screen.getByTestId('card')).toMatchSnapshot()
+  })
+
+  test('should match the snapshot - secondary', () => {
+    render(
+      <Card data-testid="card" secondary>
+        <Card.Content>
+          <Card.Heading>Card heading</Card.Heading>
+          <Card.Description>Card description</Card.Description>
+        </Card.Content>
+      </Card>,
+    )
+    expect(screen.getByTestId('card')).toMatchSnapshot()
+  })
 })
