@@ -22,9 +22,9 @@ export const ChevronRightCircleIcon: React.FC<Icon> = ({
         data-name="Group 1"
         fill="none"
         stroke="#fff"
-        stroke-linecap="round"
-        stroke-miterlimit="10"
-        stroke-width="2.667"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="2.667"
       >
         <path d="M15.438 13l-3.771 3.771" />
         <path data-name="Path" d="M11.667 9.229L15.438 13" />
