@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Expander > should match snapshot 1`] = `
+<details
+  class="nhsuk-details nhsuk-expander"
+  data-testid="expander"
+>
+  <summary
+    class="nhsuk-details__summary"
+  >
+    <span
+      class="nhsuk-details__summary-text"
+    >
+      Summary text
+    </span>
+  </summary>
+  <div
+    class="nhsuk-details__text"
+  >
+    Details text
+  </div>
+</details>
+`;
