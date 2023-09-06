@@ -1,0 +1,128 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SummaryList > should match snapshot - borderless 1`] = `
+<dl
+  class="nhsuk-summary-list nhsuk-summary-list--no-border"
+  data-testid="summary-list"
+>
+  <div
+    class="nhsuk-summary-list__row"
+  >
+    <dt
+      class="nhsuk-summary-list__key"
+    >
+      Label
+    </dt>
+    <dd
+      class="nhsuk-summary-list__value"
+    >
+      Value
+    </dd>
+  </div>
+  <div
+    class="nhsuk-summary-list__row"
+  >
+    <dt
+      class="nhsuk-summary-list__key"
+    >
+      Label
+    </dt>
+    <dd
+      class="nhsuk-summary-list__value"
+    >
+      Value
+    </dd>
+  </div>
+  <div
+    class="nhsuk-summary-list__row"
+  >
+    <dt
+      class="nhsuk-summary-list__key"
+    >
+      Label
+    </dt>
+    <dd
+      class="nhsuk-summary-list__value"
+    >
+      Value
+    </dd>
+  </div>
+</dl>
+`;
+
+exports[`SummaryList > should match snapshot 1`] = `
+<dl
+  class="nhsuk-summary-list"
+  data-testid="summary-list"
+>
+  <div
+    class="nhsuk-summary-list__row"
+  >
+    <dt
+      class="nhsuk-summary-list__key"
+    >
+      Label
+    </dt>
+    <dd
+      class="nhsuk-summary-list__value"
+    >
+      Value
+    </dd>
+    <dd
+      class="nhsuk-summary-list__actions"
+    >
+      <a
+        href="#/change"
+      >
+        Change
+      </a>
+    </dd>
+  </div>
+  <div
+    class="nhsuk-summary-list__row"
+  >
+    <dt
+      class="nhsuk-summary-list__key"
+    >
+      Label
+    </dt>
+    <dd
+      class="nhsuk-summary-list__value"
+    >
+      Value
+    </dd>
+    <dd
+      class="nhsuk-summary-list__actions"
+    >
+      <a
+        href="#/change"
+      >
+        Change
+      </a>
+    </dd>
+  </div>
+  <div
+    class="nhsuk-summary-list__row"
+  >
+    <dt
+      class="nhsuk-summary-list__key"
+    >
+      Label
+    </dt>
+    <dd
+      class="nhsuk-summary-list__value"
+    >
+      Value
+    </dd>
+    <dd
+      class="nhsuk-summary-list__actions"
+    >
+      <a
+        href="#/change"
+      >
+        Change
+      </a>
+    </dd>
+  </div>
+</dl>
+`;
