@@ -15,6 +15,7 @@ export { default as Card } from '@/components/navigation/card'
 export { default as ContentsList } from '@/components/navigation/contents-list'
 export { default as Footer } from '@/components/navigation/footer'
 export { default as Pagination } from '@/components/navigation/pagination'
+export { default as SkipLink } from '@/components/navigation/skip-link'
 
 // form elements
 export { Button, ButtonLink } from '@/components/form-elements/button'
