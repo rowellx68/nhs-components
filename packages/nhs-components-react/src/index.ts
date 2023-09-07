@@ -4,6 +4,7 @@ export { default as DoDontList } from '@/components/content-presentation/do-dont
 export { default as Image } from '@/components/content-presentation/image'
 export { default as InsetText } from '@/components/content-presentation/inset-text'
 export { default as SummaryList } from '@/components/content-presentation/summary-list'
+export { default as Table } from '@/components/content-presentation/table'
 export { default as Tag } from '@/components/content-presentation/tag'
 export { default as WarningCallout } from '@/components/content-presentation/warning-callout'
 
