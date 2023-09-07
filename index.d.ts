@@ -3,6 +3,7 @@ export { default as DoDontList } from './components/content-presentation/do-dont
 export { default as Image } from './components/content-presentation/image';
 export { default as InsetText } from './components/content-presentation/inset-text';
 export { default as SummaryList } from './components/content-presentation/summary-list';
+export { default as Table } from './components/content-presentation/table';
 export { default as Tag } from './components/content-presentation/tag';
 export { default as WarningCallout } from './components/content-presentation/warning-callout';
 export { default as ActionLink } from './components/navigation/action-link';
@@ -11,6 +12,8 @@ export { default as Breadcrumbs } from './components/navigation/breadcrumbs';
 export { default as Card } from './components/navigation/card';
 export { default as ContentsList } from './components/navigation/contents-list';
 export { default as Footer } from './components/navigation/footer';
+export { default as Pagination } from './components/navigation/pagination';
+export { default as SkipLink } from './components/navigation/skip-link';
 export { Button, ButtonLink } from './components/form-elements/button';
 export { default as Checkboxes } from './components/form-elements/checkboxes';
 export { default as ErrorMessage } from './components/form-elements/error-message';
