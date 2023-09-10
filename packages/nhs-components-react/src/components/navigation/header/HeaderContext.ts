@@ -7,8 +7,10 @@ export type HeaderContextValue = {
   serviceName?: string
   setHasSearch: (toggle: boolean) => void
   setHasMenuToggle: (toggle: boolean) => void
+  setHasTransactionalLink: (toggle: boolean) => void
   toggleMenu: () => void
   toggleSearch: () => void
+  hasTransactionalLink: boolean
   hasSearch: boolean
   hasMenuToggle: boolean
   menuOpen: boolean
@@ -21,6 +23,8 @@ const HeaderContext = createContext<HeaderContextValue>({
   setHasMenuToggle: /* istanbul ignore next */ () => {},
   toggleMenu: /* istanbul ignore next */ () => {},
   toggleSearch: /* istanbul ignore next */ () => {},
+  setHasTransactionalLink: /* istanbul ignore next */ () => {},
+  hasTransactionalLink: false,
   hasSearch: false,
   hasMenuToggle: false,
   menuOpen: false,

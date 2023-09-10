@@ -80,9 +80,9 @@ const Logo: React.FC<LogoProps> = ({
     orgDescriptor,
     orgSplit,
     serviceName,
-    transactional,
     hasMenuToggle,
     hasSearch,
+    hasTransactionalLink,
   } = useHeaderContext()
 
   const label = orgName
@@ -92,7 +92,8 @@ const Logo: React.FC<LogoProps> = ({
   return (
     <div
       className={clsx('nhsuk-header__logo', {
-        'nhsuk-header__logo--only': !hasMenuToggle && !hasSearch,
+        'nhsuk-header__logo--only':
+          !hasMenuToggle && !hasSearch && hasTransactionalLink,
       })}
     >
       <Component
@@ -125,7 +126,7 @@ const Logo: React.FC<LogoProps> = ({
           </>
         )}
 
-        {!orgName && !transactional && serviceName && (
+        {!hasTransactionalLink && serviceName && (
           <span className="nhsuk-header__service-name">{serviceName}</span>
         )}
       </Component>
@@ -136,7 +137,13 @@ const Logo: React.FC<LogoProps> = ({
 const TransactionalServiceName: React.FC<
   Omit<AsElementLink<HTMLAnchorElement>, 'children'>
 > = ({ className, asElement: Component = 'a', ...rest }): JSX.Element => {
-  const { serviceName } = useHeaderContext()
+  const { serviceName, setHasTransactionalLink } = useHeaderContext()
+
+  useEffect(() => {
+    setHasTransactionalLink(true)
+
+    return () => setHasTransactionalLink(false)
+  }, [])
 
   return (
     <div className="nhsuk-header__transactional-service-name">
@@ -400,10 +407,12 @@ const Header: Header = ({
   white,
   ...rest
 }): JSX.Element => {
-  const [hasMenuToggle, setMenuToggle] = useState<boolean>(false)
+  const [hasMenuToggle, setHasMenuToggle] = useState<boolean>(false)
   const [menuOpen, toggleMenu] = useState<boolean>(false)
   const [searchOpen, toggleSearch] = useState<boolean>(false)
-  const [hasSearch, setSearch] = useState<boolean>(false)
+  const [hasSearch, setHasSearch] = useState<boolean>(false)
+  const [hasTransactionalLink, setHasTransactionalLink] =
+    useState<boolean>(false)
 
   const value: HeaderContextValue = {
     orgName,
@@ -415,9 +424,11 @@ const Header: Header = ({
     searchOpen,
     menuOpen,
     hasMenuToggle,
-    setHasMenuToggle: setMenuToggle,
+    hasTransactionalLink,
+    setHasTransactionalLink,
+    setHasMenuToggle,
+    setHasSearch,
     toggleMenu: () => toggleMenu(!menuOpen),
-    setHasSearch: setSearch,
     toggleSearch: () => toggleSearch(!searchOpen),
   }
 
