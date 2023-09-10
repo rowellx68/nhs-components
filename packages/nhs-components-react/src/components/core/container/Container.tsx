@@ -1,8 +1,10 @@
 import clsx from 'clsx'
+import { HTMLAttributes, PropsWithChildren } from 'react'
 
 export type ContainerProps = {
   fluid?: boolean
-} & React.HTMLAttributes<HTMLDivElement>
+} & HTMLAttributes<HTMLDivElement> &
+  PropsWithChildren
 
 const Container: React.FC<ContainerProps> = ({
   children,
