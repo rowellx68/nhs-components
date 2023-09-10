@@ -1,6 +1,6 @@
-/// <reference types="react" />
+import { HTMLAttributes, PropsWithChildren } from 'react';
 export type ContainerProps = {
     fluid?: boolean;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & HTMLAttributes<HTMLDivElement> & PropsWithChildren;
 declare const Container: React.FC<ContainerProps>;
 export default Container;
