@@ -6,8 +6,10 @@ export type HeaderContextValue = {
     serviceName?: string;
     setHasSearch: (toggle: boolean) => void;
     setHasMenuToggle: (toggle: boolean) => void;
+    setHasTransactionalLink: (toggle: boolean) => void;
     toggleMenu: () => void;
     toggleSearch: () => void;
+    hasTransactionalLink: boolean;
     hasSearch: boolean;
     hasMenuToggle: boolean;
     menuOpen: boolean;
