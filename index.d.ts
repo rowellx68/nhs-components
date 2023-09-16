@@ -17,6 +17,7 @@ export { default as Pagination } from './components/navigation/pagination';
 export { default as SkipLink } from './components/navigation/skip-link';
 export { Button, ButtonLink } from './components/form-elements/button';
 export { default as Checkboxes } from './components/form-elements/checkboxes';
+export { default as DateInput, type DateInputChangeEvent, type DateInputValue, } from './components/form-elements/date-input';
 export { default as ErrorMessage } from './components/form-elements/error-message';
 export { default as ErrorSummary } from './components/form-elements/error-summary';
 export { default as Fieldset, FieldsetContext, type FieldsetContextValue, useFieldsetContext, } from './components/form-elements/fieldset';

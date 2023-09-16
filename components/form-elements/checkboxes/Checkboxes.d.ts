@@ -23,7 +23,7 @@ declare const BoxForwardRef: import("react").ForwardRefExoticComponent<Omit<Chec
 /**
  * Use checkboxes to let users select 1 or more options on a form.
  *
- * For more information on when to use this component, got to the [NHS Digital service manual](https://beta.nhs.uk/service-manual/styles-components-patterns/checkboxes).
+ * For more information on when to use this component, got to the [NHS Digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes).
  *
  * @example
  * ```tsx
