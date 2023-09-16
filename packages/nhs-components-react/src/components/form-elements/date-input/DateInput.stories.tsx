@@ -17,7 +17,8 @@ type Story = StoryObj<typeof DateInput>
 export const Basic: Story = {
   args: {
     label: 'What is your date of birth?',
-    hint: 'For example, 31 03 1980',
+    labelProps: { size: 'l' },
+    hint: 'For example, 15 3 1984',
     error: '',
   },
   render: (args) => <DateInput {...args} />,
@@ -29,7 +30,7 @@ export const Basic: Story = {
 export const SeparateFields: Story = {
   args: {
     label: 'What is your date of birth?',
-    hint: 'For example, 31 03 1980',
+    hint: 'For example, 15 3 1984',
   },
   render: (args) => (
     <DateInput {...args}>
