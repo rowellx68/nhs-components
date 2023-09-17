@@ -1,5 +1,5 @@
 {
-  "name": "nhsuk-react-components",
+  "name": "nhsuk-components/react",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/nhsuk-react-components/src",
   "projectType": "library",
