@@ -1,0 +1,4 @@
+import{j as n}from"./jsx-runtime-94f6e698.js";import{A as a}from"./index-0ae08daa.js";import{c as r}from"./clsx-1229b3e0.js";const s=({children:t,className:e,asElement:i="a",...o})=>n.jsx("div",{className:"nhsuk-action-link",children:n.jsxs(i,{className:r("nhsuk-action-link__link",e),...o,children:[n.jsx(a,{}),n.jsx("span",{className:"nhsuk-action-link__text",children:t})]})});s.displayName="ActionLink";try{s.displayName="ActionLink",s.__docgenInfo={description:`Use action links to help users get to the next stage of a journey quickly by signposting the start of a digital service.
+
+For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/action-link).`,displayName:"ActionLink",props:{}}}catch{}export{s as A};
+//# sourceMappingURL=ActionLink-e8d4a535.js.map

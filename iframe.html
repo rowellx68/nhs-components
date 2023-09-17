@@ -16,10 +16,10 @@
   <script>
     window.CONFIG_TYPE = 'PRODUCTION';
     window.LOGLEVEL = 'info';
-    window.FRAMEWORK_OPTIONS = {};
+    window.FRAMEWORK_OPTIONS = {"builder":{"viteConfigPath":"packages/nhsuk-react-components/vite.config.ts"}};
     window.CHANNEL_OPTIONS = {};
     window.FEATURES = {"warnOnLegacyHierarchySeparator":true,"buildStoriesJson":false,"storyStoreV7":true,"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false};
-    window.STORIES = [{"titlePrefix":"","directory":"./src","files":"**/*.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.@(js|jsx|mjs|ts|tsx)","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|mjs|ts|tsx))$"}];
+    window.STORIES = [{"titlePrefix":"","directory":"./packages/nhsuk-react-components/src","files":"**/*.mdx","importPathMatcher":"^\\.[\\\\/](?:packages\\/nhsuk-react-components\\/src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./packages/nhsuk-react-components/src/lib","files":"**/*.stories.@(js|jsx|ts|tsx|mdx)","importPathMatcher":"^\\.[\\\\/](?:packages\\/nhsuk-react-components\\/src\\/lib(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(js|jsx|ts|tsx|mdx))$"}];
     window.DOCS_OPTIONS = {"defaultName":"Docs","autodocs":"tag"};
 
     // We do this so that "module && module.hot" etc. in Storybook source code
@@ -357,7 +357,7 @@
   }
 </script>
 
-  <script type="module" crossorigin src="./assets/iframe-98560b6f.js"></script>
+  <script type="module" crossorigin src="./assets/iframe-b4a93141.js"></script>
 </head>
 
 <body>

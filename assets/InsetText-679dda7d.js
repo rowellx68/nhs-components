@@ -1,4 +1,0 @@
-import{j as n}from"./jsx-runtime-ffb262ed.js";import{c as o}from"./clsx-1229b3e0.js";const e=({children:t,className:s,visuallyHiddenText:a="Information: ",...i})=>n.jsxs("div",{className:o("nhsuk-inset-text",s),...i,children:[n.jsx("span",{className:"nhsuk-u-visually-hidden",children:a}),t]});e.displayName="InsetText";try{e.displayName="InsetText",e.__docgenInfo={description:`Use inset text to help users identify and understand important content on the page, even if they do not read the whole page.
-
-For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/inset-text).`,displayName:"InsetText",props:{visuallyHiddenText:{defaultValue:{value:"Information:"},description:"",name:"visuallyHiddenText",required:!1,type:{name:"string"}}}}}catch{}export{e as I};
-//# sourceMappingURL=InsetText-679dda7d.js.map
