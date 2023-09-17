@@ -47,7 +47,7 @@ jobs:
 
       - name: Build Storybook
         run: |
-          npx nx affected -t build-storybook --parallel=3
+          npx nx build-storybook nhsuk-react-components
           touch dist/storybook/nhsuk-react-components/.nojekyll
 
       - name: Deploy
