@@ -15,19 +15,19 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 ```bash
 # Using pnpm
-pnpm add nhs-components-react
+pnpm add nhsuk-react-components
 
 # Using npm
-npm install nhs-components-react
+npm install nhsuk-react-components
 
 # Using yarn
-yarn add nhs-components-react
+yarn add nhsuk-react-components
 ```
 
 ## Example Usage
 
 ```tsx
-import { Button, Fieldset, Input } from "nhs-components-react";
+import { Button, Fieldset, Input } from "nhsuk-react-components";
 
 const Component = () => (
   <>

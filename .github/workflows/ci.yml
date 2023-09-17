@@ -10,7 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        with:
+          fetch-depth: 0
         uses: actions/checkout@v3
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -40,9 +44,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build all packages
-        run: pnpm build
+      - name: Lint updated packages
+        run: npx nx affected -t lint --parallel=3
 
-      - name: Run all tests
-        run: pnpm test
+      - name: Test updated packages
+        run: npx nx affected -t test --parallel=3
 
+      - name: Build updated packages
+        run: npx nx affected -t build --parallel=3

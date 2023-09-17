@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        with:
+          fetch-depth: 0
         uses: actions/checkout@v3
 
       - name: Install Node.js
@@ -44,12 +46,11 @@ jobs:
         run: pnpm install
 
       - name: Build Storybook
-        working-directory: packages/nhs-components-react
         run: |
-          pnpm run build-storybook
-          touch storybook-static/.nojekyll
+          npx nx affected -t build-storybook --parallel=3
+          touch dist/storybook/nhsuk-react-components/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: packages/nhs-components-react/storybook-static
+          folder: dist/storybook/nhsuk-react-components
