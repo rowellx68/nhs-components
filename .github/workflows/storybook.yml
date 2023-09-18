@@ -47,10 +47,10 @@ jobs:
 
       - name: Build Storybook
         run: |
-          npx nx build-storybook nhsuk-react-components
-          touch dist/storybook/nhsuk-react-components/.nojekyll
+          npx nx build-storybook nhsuk-frontend-react
+          touch dist/storybook/nhsuk-frontend-react/.nojekyll
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/storybook/nhsuk-react-components
+          folder: dist/storybook/nhsuk-frontend-react

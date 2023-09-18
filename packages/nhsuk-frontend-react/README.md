@@ -27,7 +27,7 @@ yarn add nhsuk-frontend-react
 ## Example Usage
 
 ```tsx
-import { Button, Fieldset, Input } from "nhsuk-frontend-react";
+import { Button, Fieldset, Input } from 'nhsuk-frontend-react'
 
 const Component = () => (
   <>
@@ -38,7 +38,7 @@ const Component = () => (
         hint={
           <>
             Your NHS number is a 10 digit number that you find on any letter the
-            NHS has sent you. For example,{" "}
+            NHS has sent you. For example,{' '}
             <span className="nhsuk-u-nowrap">485 777 3456</span>.
           </>
         }
@@ -46,12 +46,14 @@ const Component = () => (
     </Fieldset>
     <Button>Continue</Button>
   </>
-);
+)
 ```
 
 ## Contributing
 
 ## Testing
+
+
 
 ## License
 

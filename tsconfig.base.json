@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nhsuk-components/nhsuk-react-components": [
-        "packages/nhsuk-react-components/src/index.ts"
+      "@nhsuk-components/nhsuk-frontend-react": [
+        "packages/nhsuk-frontend-react/src/index.ts"
       ]
     }
   },
