@@ -15,19 +15,19 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 ```bash
 # Using pnpm
-pnpm add nhsuk-frontend-react
+pnpm add nhsuk-frontend-react nhsuk-frontend
 
 # Using npm
-npm install nhsuk-frontend-react
+npm install nhsuk-frontend-react nhsuk-frontend
 
 # Using yarn
-yarn add nhsuk-frontend-react
+yarn add nhsuk-frontend-react nhsuk-frontend
 ```
 
 ## Example Usage
 
 ```tsx
-import { Button, Fieldset, Input } from 'nhsuk-frontend-react'
+import { Button, Fieldset, Input } from "nhsuk-frontend-react";
 
 const Component = () => (
   <>
@@ -38,7 +38,7 @@ const Component = () => (
         hint={
           <>
             Your NHS number is a 10 digit number that you find on any letter the
-            NHS has sent you. For example,{' '}
+            NHS has sent you. For example,{" "}
             <span className="nhsuk-u-nowrap">485 777 3456</span>.
           </>
         }
@@ -46,12 +46,25 @@ const Component = () => (
     </Fieldset>
     <Button>Continue</Button>
   </>
-)
+);
 ```
 
 ## Contributing
 
 ## Testing
+
+To run the tests, you can use the following command:
+
+```bash
+# Using pnpm
+pnpm test
+
+# Using npm
+npm test
+
+# Using yarn
+yarn test
+```
 
 ## License
 

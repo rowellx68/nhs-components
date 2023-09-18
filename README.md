@@ -15,13 +15,13 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 ```bash
 # Using pnpm
-pnpm add nhsuk-frontend-react
+pnpm add nhsuk-frontend-react nhsuk-frontend
 
 # Using npm
-npm install nhsuk-frontend-react
+npm install nhsuk-frontend-react nhsuk-frontend
 
 # Using yarn
-yarn add nhsuk-frontend-react
+yarn add nhsuk-frontend-react nhsuk-frontend
 ```
 
 ## Example Usage
@@ -52,6 +52,19 @@ const Component = () => (
 ## Contributing
 
 ## Testing
+
+To run the tests, you can use the following command:
+
+```bash
+# Using pnpm
+pnpm test
+
+# Using npm
+npm test
+
+# Using yarn
+yarn test
+```
 
 ## License
 
