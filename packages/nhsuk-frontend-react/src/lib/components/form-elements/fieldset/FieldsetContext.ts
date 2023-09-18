@@ -25,8 +25,8 @@ export const reducer: FieldsetReducer = (state, { type, data }) => {
       return {
         ...state,
         errored: data.error
-          ? state.errored.filter((id) => id !== data.id).concat(data.id)
-          : state.errored.concat(data.id),
+          ? state.errored.concat(data.id)
+          : state.errored.filter((id) => id !== data.id),
       }
     case 'register_component':
       return {
