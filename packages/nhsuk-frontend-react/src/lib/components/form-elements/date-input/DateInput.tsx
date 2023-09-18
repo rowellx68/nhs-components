@@ -91,7 +91,7 @@ const DatePart: ForwardRefRenderFunction<
     if (!event.isPropagationStopped()) {
       ctxHandleChange(part, event)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const passedRef = ref as ((element: HTMLInputElement | null) => void) | null
@@ -194,7 +194,12 @@ const DateInput: DateInput = ({
 
   useEffect(() => {
     setInternalValue((old) => {
-      if (!value || old.values === value) {
+      if (
+        !value ||
+        (old.values.day === value.day &&
+          old.values.month === value.month &&
+          old.values.year === value.year)
+      ) {
         return old
       }
 
