@@ -2,7 +2,10 @@
   "name": "@nhsuk-components/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "nx run-many -t test --parallel=3",
+    "build": "nx run-many -t build --parallel=3"
+  },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.2",

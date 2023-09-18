@@ -16,5 +16,10 @@
     "react",
     "components",
     "nhs"
-  ]
+  ],
+  "peerDependencies": {
+    "nhsuk-frontend": ">=7.1.0 <8.0.0",
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  }
 }
