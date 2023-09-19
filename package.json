@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "@codemod/cli": "^3.3.0",
     "@swc/helpers": "~0.5.2",
     "clsx": "^2.0.0",
     "react": "18.2.0",

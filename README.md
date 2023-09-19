@@ -24,10 +24,20 @@ npm install nhsuk-frontend-react nhsuk-frontend
 yarn add nhsuk-frontend-react nhsuk-frontend
 ```
 
+## Migration from `nhsuk-react-components`
+
+To automate migration from `nhsuk-react-components`, you can run the following codemod:
+
+```bash
+npx codemod --plugin ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts ./src
+```
+
+For the most part, this will update your imports and component usages. However, there will be some cases where you will need to manually update your codebase.
+
 ## Example Usage
 
 ```tsx
-import { Button, Fieldset, Input } from "nhsuk-frontend-react";
+import { Button, Fieldset, Input } from 'nhsuk-frontend-react'
 
 const Component = () => (
   <>
@@ -37,16 +47,14 @@ const Component = () => (
         width="10"
         hint={
           <>
-            Your NHS number is a 10 digit number that you find on any letter the
-            NHS has sent you. For example,{" "}
-            <span className="nhsuk-u-nowrap">485 777 3456</span>.
+            Your NHS number is a 10 digit number that you find on any letter the NHS has sent you. For example, <span className="nhsuk-u-nowrap">485 777 3456</span>.
           </>
         }
       />
     </Fieldset>
     <Button>Continue</Button>
   </>
-);
+)
 ```
 
 ## Contributing
