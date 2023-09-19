@@ -2,7 +2,7 @@
 
 [![main branch](https://github.com/rowellx68/nhs-components/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rowellx68/nhs-components/actions?query=branch%3Amain)
 
-This is an unofficial React implementation of the [NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend) library. It is heavily inspired by [nhsuk-frontend-react](https://github.com/NHSDigital/nhsuk-frontend-react), originally written by [Thomas Judd-Cooper](https://github.com/Tomdangov) and [other contributors](https://github.com/NHSDigital/nhsuk-frontend-react/graphs/contributors).
+This is an unofficial React implementation of the [NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend) library. It is heavily inspired by [nhsuk-react-components](https://github.com/NHSDigital/nhsuk-react-components), originally written by [Thomas Judd-Cooper](https://github.com/Tomdangov) and [other contributors](https://github.com/NHSDigital/nhsuk-react-components/graphs/contributors).
 
 ## Requirements
 
@@ -15,19 +15,29 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 ```bash
 # Using pnpm
-pnpm add nhsuk-frontend-react
+pnpm add nhsuk-frontend-react nhsuk-frontend
 
 # Using npm
-npm install nhsuk-frontend-react
+npm install nhsuk-frontend-react nhsuk-frontend
 
 # Using yarn
-yarn add nhsuk-frontend-react
+yarn add nhsuk-frontend-react nhsuk-frontend
 ```
+
+## Migration from `nhsuk-react-components`
+
+To automate migration from `nhsuk-react-components`, you can run the following codemod:
+
+```bash
+npx codemod --plugin ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts ./src
+```
+
+For the most part, this will update your imports and component usages. However, there will be some cases where you will need to manually update your codebase.
 
 ## Example Usage
 
 ```tsx
-import { Button, Fieldset, Input } from "nhsuk-frontend-react";
+import { Button, Fieldset, Input } from 'nhsuk-frontend-react'
 
 const Component = () => (
   <>
@@ -37,21 +47,32 @@ const Component = () => (
         width="10"
         hint={
           <>
-            Your NHS number is a 10 digit number that you find on any letter the
-            NHS has sent you. For example,{" "}
-            <span className="nhsuk-u-nowrap">485 777 3456</span>.
+            Your NHS number is a 10 digit number that you find on any letter the NHS has sent you. For example, <span className="nhsuk-u-nowrap">485 777 3456</span>.
           </>
         }
       />
     </Fieldset>
     <Button>Continue</Button>
   </>
-);
+)
 ```
 
 ## Contributing
 
 ## Testing
+
+To run the tests, you can use the following command:
+
+```bash
+# Using pnpm
+pnpm test
+
+# Using npm
+npm test
+
+# Using yarn
+yarn test
+```
 
 ## License
 
