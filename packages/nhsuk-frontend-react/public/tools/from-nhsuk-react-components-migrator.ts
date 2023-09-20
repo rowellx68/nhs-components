@@ -1,74 +1,118 @@
-import { defineCodemod } from '@codemod/cli'
+import type { Transform } from 'jscodeshift'
 
-export default defineCodemod(({ t }) => {
-  const formLocalNames = ['Form']
+const transform: Transform = (file, api, options) => {
+  const j = api.jscodeshift
+  const printOptions = options.printOptions || {}
 
-  return {
-    visitor: {
-      ImportDeclaration({ node }) {
-        if (node.source.value !== 'nhsuk-react-components') {
-          return
-        }
+  const root = j(file.source)
 
-        node.source.value = 'nhsuk-frontend-react'
+  const oldImports = root
+    .find(j.ImportDeclaration, { type: 'ImportDeclaration' })
+    .filter(({ value }) => {
+      return (
+        (value.source.type === 'Literal' ||
+          value.source.type === 'StringLiteral') &&
+        value.source.value === 'nhsuk-react-components'
+      )
+    })
 
-        node.specifiers = node.specifiers.filter((specifier) => {
-          if (specifier.type !== 'ImportSpecifier') {
-            return true
-          }
-
-          if (specifier.imported.type !== 'Identifier') {
-            return true
-          }
-
-          if (
-            specifier.imported.name === 'Form' &&
-            specifier.local.name !== 'Form'
-          ) {
-            formLocalNames.push(specifier.local.name)
-          }
-
-          return specifier.imported.name !== 'Form'
-        })
-      },
-      JSXOpeningElement({ node }) {
-        if (node.name.type !== 'JSXIdentifier') {
-          return
-        }
-
-        if (formLocalNames.includes(node.name.name)) {
-          node.name.name = 'form'
-          node.attributes = node.attributes.filter((attr) => {
-            return !(
-              attr.type === 'JSXAttribute' && attr.name.name === 'disabled'
-            )
-          })
-        }
-
-        if (node.name.name === 'Input') {
-          node.attributes.map((attr) => {
-            if (
-              attr.type === 'JSXAttribute' &&
-              attr.name.name === 'width' &&
-              attr.value?.type === 'JSXExpressionContainer' &&
-              attr.value?.expression.type === 'NumericLiteral'
-            ) {
-              attr.value = t.stringLiteral(`${attr.value.expression.value}`)
-            }
-
-            return attr
-          })
-        }
-      },
-      JSXClosingElement({ node }) {
-        if (node.name.type !== 'JSXIdentifier') {
-          return
-        }
-
-        if (formLocalNames.includes(node.name.name)) {
-          node.name.name = 'form'
-        }
-      },
-    },
+  if (oldImports.length === 0) {
+    return file.source
   }
-})
+
+  const formSpecifiers: string[] = []
+  const inputSpecifiers: string[] = []
+
+  // update old imports
+  oldImports.forEach(({ node }) => {
+    node.specifiers = node.specifiers?.filter((specifier) => {
+      if (specifier.type !== 'ImportSpecifier') {
+        return true
+      }
+
+      let shouldKeep = false
+
+      switch (specifier.imported.name) {
+        case 'Form':
+          formSpecifiers.push(specifier.local?.name ?? specifier.imported.name)
+          shouldKeep = false
+          break
+        case 'Input':
+          inputSpecifiers.push(specifier.local?.name ?? specifier.imported.name)
+          shouldKeep = true
+          break
+        default:
+          shouldKeep = true
+          break
+      }
+
+      return shouldKeep
+    })
+
+    node.source.value = 'nhsuk-frontend-react'
+  })
+
+  const formOpenTags = formSpecifiers.map((name) => {
+    return j.jsxOpeningElement(j.jsxIdentifier(name), [])
+  })
+
+  const formAttributesToRemove = ['disabled', 'disableErrorFromComponents']
+
+  // update form opening tags
+  formOpenTags.forEach((tag) => {
+    if (tag.name.type !== 'JSXIdentifier') {
+      return
+    }
+
+    tag.attributes?.forEach((attribute) => {
+      if (attribute.type !== 'JSXAttribute') {
+        return
+      }
+
+      if (formAttributesToRemove.includes(attribute.name.name as string)) {
+        j(attribute).remove()
+      }
+    })
+
+    tag.name.name = 'form'
+  })
+
+  const formCloseTags = formSpecifiers.map((name) => {
+    return j.jsxClosingElement(j.jsxIdentifier(name))
+  })
+
+  // update form closing tags
+  formCloseTags.forEach((tag) => {
+    if (tag.name.type !== 'JSXIdentifier') {
+      return
+    }
+
+    tag.name.name = 'form'
+  })
+
+  const inputTags = inputSpecifiers.map((name) => {
+    return j.jsxOpeningElement(j.jsxIdentifier(name), [])
+  })
+
+  // update input tags attribute
+  inputTags.forEach((tag) => {
+    if (tag.name.type !== 'JSXIdentifier') {
+      return
+    }
+
+    tag.attributes?.forEach((attribute) => {
+      if (
+        attribute.type === 'JSXAttribute' &&
+        attribute.name.name === 'width' &&
+        attribute.value?.type === 'JSXExpressionContainer' &&
+        attribute.value?.expression.type === 'NumericLiteral'
+      ) {
+        attribute.value = j.stringLiteral(`${attribute.value.expression.value}`)
+      }
+    })
+  })
+
+  return root.toSource(printOptions)
+}
+
+export default transform

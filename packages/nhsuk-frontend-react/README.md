@@ -29,7 +29,10 @@ yarn add nhsuk-frontend-react nhsuk-frontend
 To automate migration from `nhsuk-react-components`, you can run the following codemod:
 
 ```bash
-npx codemod --plugin ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts ./src
+npx jscodeshift -t ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts \
+  --parser=tsx \
+  --extensions=tsx \
+  ./src/**/**/*.tsx
 ```
 
 For the most part, this will update your imports and component usages. However, there will be some cases where you will need to manually update your codebase.
