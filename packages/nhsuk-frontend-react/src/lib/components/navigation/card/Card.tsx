@@ -111,7 +111,9 @@ const Image: React.FC<HTMLProps<HTMLImageElement>> = ({
   alt,
   ...rest
 }) => {
-  return <img className={clsx('nhsuk-card__img', className)} alt={alt} {...rest} />
+  return (
+    <img className={clsx('nhsuk-card__img', className)} alt={alt} {...rest} />
+  )
 }
 
 const Group: React.FC<HTMLProps<HTMLUListElement>> = ({

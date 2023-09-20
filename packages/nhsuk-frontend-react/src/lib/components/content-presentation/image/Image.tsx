@@ -48,7 +48,11 @@ const Image: Image = ({ figureProps, children, className, alt, ...rest }) => {
       className={clsx('nhsuk-image', figureClassName)}
       {...restFigureProps}
     >
-      <img className={clsx('nhsuk-image__img', className)} alt={alt} {...rest} />
+      <img
+        className={clsx('nhsuk-image__img', className)}
+        alt={alt}
+        {...rest}
+      />
       {children}
     </figure>
   )

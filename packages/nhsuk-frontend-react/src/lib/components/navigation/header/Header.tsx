@@ -143,7 +143,7 @@ const TransactionalServiceName: React.FC<
     setHasTransactionalLink(true)
 
     return () => setHasTransactionalLink(false)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -176,7 +176,7 @@ const MenuToggle: React.FC<MenuToggleProps> = ({
   useEffect(() => {
     setHasMenuToggle(true)
     return () => setHasMenuToggle(false)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -314,7 +314,7 @@ const Search: React.FC<SearchProps> = ({
     setHasSearch(true)
 
     return () => setHasSearch(false)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

@@ -100,14 +100,14 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
     }
 
     return () => releaseReference(radioReference)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     if (checked) {
       setSelected(radioReference)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked])
 
   useEffect(() => {
@@ -121,7 +121,7 @@ const Radio: ForwardRefRenderFunction<HTMLInputElement, RadioProps> = (
         type: 'set_conditional',
         data: { refId: radioReference, hasConditional: false },
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conditional])
 
   return (

@@ -89,7 +89,7 @@ const FormGroup = <T extends BaseFormElementRenderProps>(
         type: 'set_error',
         data: { id: elementId, error: false },
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [elementId, error, isFieldset])
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const FormGroup = <T extends BaseFormElementRenderProps>(
         type: 'register_component',
         data: { id: elementId, unregister: true },
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const { className: formGroupClass, ...formGroupRest } = formGroupProps || {}

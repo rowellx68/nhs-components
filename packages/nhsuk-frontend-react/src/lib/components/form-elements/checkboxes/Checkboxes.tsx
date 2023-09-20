@@ -74,7 +74,7 @@ const Box: ForwardRefRenderFunction<HTMLInputElement, CheckboxProps> = (
 
   useEffect(() => {
     return () => releaseReference(checkboxReference)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const Box: ForwardRefRenderFunction<HTMLInputElement, CheckboxProps> = (
         type: 'set_conditional',
         data: { refId: checkboxReference, hasConditional: false },
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conditional])
 
   return (
