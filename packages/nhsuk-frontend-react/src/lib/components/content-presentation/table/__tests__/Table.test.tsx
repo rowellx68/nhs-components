@@ -33,7 +33,7 @@ describe('Table', () => {
 
   test('should match snapshot - responsive', () => {
     render(
-      <Table data-testid="table" isResponsive>
+      <Table data-testid="table" responsive>
         <Table.Head>
           <Table.Row>
             <Table.Cell>Age</Table.Cell>
@@ -117,7 +117,7 @@ describe('Table', () => {
 
   test('should match snapshot - other children', () => {
     render(
-      <Table data-testid="table" isResponsive>
+      <Table data-testid="table" responsive>
         <Table.Head>
           <Table.Row>
             <Table.Cell>Age</Table.Cell>

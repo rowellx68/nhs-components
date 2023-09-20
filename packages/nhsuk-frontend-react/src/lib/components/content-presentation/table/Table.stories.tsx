@@ -46,7 +46,7 @@ export const Basic: Story = {
 export const Responsive: Story = {
   args: {
     caption: 'Ibuprofen tablet dosages for children',
-    isResponsive: true,
+    responsive: true,
   },
   render: (args) => (
     <Table {...args}>

@@ -3,6 +3,7 @@ import React, {
   HTMLProps,
   PropsWithChildren,
   ReactElement,
+  ReactNode,
   useEffect,
   useState,
 } from 'react'
@@ -25,8 +26,9 @@ type TableCellProps = {
   HTMLProps<HTMLTableCellElement>
 
 type TableProps = {
-  isResponsive?: boolean
-  caption?: string
+  responsive?: boolean
+  caption?: ReactNode
+  captionProps?: HTMLProps<HTMLTableCaptionElement>
 } & HTMLProps<HTMLTableElement>
 
 type Table = {
@@ -197,12 +199,16 @@ const TableCell: React.FC<TableCellProps> = ({
  */
 const Table: Table = ({
   children,
-  isResponsive = false,
+  responsive: isResponsive = false,
   caption,
+  captionProps,
   className,
   ...rest
 }): JSX.Element => {
   const [headings, setHeadings] = useState<string[]>([])
+
+  const { className: captionClassName, ...restCaptionProps } =
+    captionProps || {}
 
   return (
     <TableContext.Provider value={{ isResponsive, headings, setHeadings }}>
@@ -217,7 +223,12 @@ const Table: Table = ({
         {...rest}
       >
         {caption && (
-          <caption className="nhsuk-table__caption">{caption}</caption>
+          <caption
+            className={clsx('nhsuk-table__caption', captionClassName)}
+            {...restCaptionProps}
+          >
+            {caption}
+          </caption>
         )}
         {children}
       </table>
