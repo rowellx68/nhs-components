@@ -1,8 +1,8 @@
 # NHS.UK Components React
 
-[![main branch](https://github.com/rowellx68/nhs-components/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rowellx68/nhs-components/actions?query=branch%3Amain)
-
 This is an unofficial React implementation of the [NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend) library. It is heavily inspired by [nhsuk-react-components](https://github.com/NHSDigital/nhsuk-react-components), originally written by [Thomas Judd-Cooper](https://github.com/Tomdangov) and [other contributors](https://github.com/NHSDigital/nhsuk-react-components/graphs/contributors).
+
+[![npm version](https://badge.fury.io/js/nhsuk-frontend-react.svg)](https://badge.fury.io/js/nhsuk-frontend-react) [![main branch](https://github.com/rowellx68/nhs-components/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rowellx68/nhs-components/actions?query=branch%3Amain)
 
 ## Requirements
 
@@ -29,7 +29,10 @@ yarn add nhsuk-frontend-react nhsuk-frontend
 To automate migration from `nhsuk-react-components`, you can run the following codemod:
 
 ```bash
-npx codemod --plugin ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts ./src
+npx jscodeshift -t ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts \
+  --parser=tsx \
+  --extensions=tsx \
+  ./src/**/**/*.tsx
 ```
 
 For the most part, this will update your imports and component usages. However, there will be some cases where you will need to manually update your codebase.
