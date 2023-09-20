@@ -1,0 +1,19 @@
+{
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "infile": "packages/nhsuk-frontend-react/CHANGELOG.md"
+    },
+    "@release-it/bumper": {
+      "in": "packages/nhsuk-frontend-react/package.json",
+      "out": "dist/packages/nhsuk-frontend-react/package.json"
+    }
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:bump": "npx nx build nhsuk-frontend-react",
+    "after:bump": ["git checkout -- package.json"]
+  }
+}
