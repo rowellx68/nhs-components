@@ -1,16 +1,30 @@
 {
   "plugins": {
     "@release-it/conventional-changelog": {
-      "preset": "conventionalcommits",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "docs",
+            "section": "Documentation"
+          }
+        ]
+      },
+      "header": "# CHANGELOG",
       "infile": "packages/nhsuk-frontend-react/CHANGELOG.md"
     },
     "@release-it/bumper": {
       "in": "packages/nhsuk-frontend-react/package.json",
       "out": "dist/packages/nhsuk-frontend-react/package.json"
     }
-  },
-  "npm": {
-    "publish": false
   },
   "hooks": {
     "before:bump": "npx nx build nhsuk-frontend-react",
