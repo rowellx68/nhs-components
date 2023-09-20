@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps, ReactNode } from 'react';
 type WithInternalProps = {
     _responsiveHeading?: string;
 };
@@ -7,8 +7,9 @@ type TableCellProps = {
     isNumeric?: boolean;
 } & WithInternalProps & HTMLProps<HTMLTableCellElement>;
 type TableProps = {
-    isResponsive?: boolean;
-    caption?: string;
+    responsive?: boolean;
+    caption?: ReactNode;
+    captionProps?: HTMLProps<HTMLTableCaptionElement>;
 } & HTMLProps<HTMLTableElement>;
 type Table = {
     Row: typeof TableRow;
