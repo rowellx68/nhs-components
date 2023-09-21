@@ -1,5 +1,7 @@
 import type { Transform } from 'jscodeshift'
 
+const formAttributesToRemove = ['disabled', 'disableErrorFromComponents']
+
 const transform: Transform = (file, api, options) => {
   const j = api.jscodeshift
   const printOptions = options.printOptions || {}
@@ -22,10 +24,11 @@ const transform: Transform = (file, api, options) => {
 
   const formSpecifiers: string[] = []
   const inputSpecifiers: string[] = []
+  const colSpecifiers: string[] = []
 
   // update old imports
-  oldImports.forEach(({ node }) => {
-    node.specifiers = node.specifiers?.filter((specifier) => {
+  oldImports.forEach((path) => {
+    path.node.specifiers = path.node.specifiers?.filter((specifier) => {
       if (specifier.type !== 'ImportSpecifier') {
         return true
       }
@@ -41,6 +44,11 @@ const transform: Transform = (file, api, options) => {
           inputSpecifiers.push(specifier.local?.name ?? specifier.imported.name)
           shouldKeep = true
           break
+        case 'Col':
+          specifier.imported.name = 'Column'
+          !specifier.local && colSpecifiers.push(specifier.imported.name)
+          shouldKeep = true
+          break
         default:
           shouldKeep = true
           break
@@ -49,68 +57,65 @@ const transform: Transform = (file, api, options) => {
       return shouldKeep
     })
 
-    node.source.value = 'nhsuk-frontend-react'
+    path.node.source.value = 'nhsuk-frontend-react'
   })
 
-  const formOpenTags = formSpecifiers.map((name) => {
-    return j.jsxOpeningElement(j.jsxIdentifier(name), [])
-  })
+  formSpecifiers
+    .map((name) => root.findJSXElements(name))
+    .forEach((formUsage) => {
+      formUsage.forEach((form) => {
+        const attributes = form.node.openingElement.attributes?.filter(
+          (attribute) => {
+            if (attribute.type !== 'JSXAttribute') {
+              return true
+            }
 
-  const formAttributesToRemove = ['disabled', 'disableErrorFromComponents']
+            return !formAttributesToRemove.includes(
+              attribute.name.name as string,
+            )
+          },
+        )
 
-  // update form opening tags
-  formOpenTags.forEach((tag) => {
-    if (tag.name.type !== 'JSXIdentifier') {
-      return
-    }
-
-    tag.attributes?.forEach((attribute) => {
-      if (attribute.type !== 'JSXAttribute') {
-        return
-      }
-
-      if (formAttributesToRemove.includes(attribute.name.name as string)) {
-        j(attribute).remove()
-      }
+        form.node.openingElement = j.jsxOpeningElement(
+          j.jsxIdentifier('form'),
+          attributes,
+        )
+        form.node.closingElement = j.jsxClosingElement(j.jsxIdentifier('form'))
+      })
     })
 
-    tag.name.name = 'form'
-  })
-
-  const formCloseTags = formSpecifiers.map((name) => {
-    return j.jsxClosingElement(j.jsxIdentifier(name))
-  })
-
-  // update form closing tags
-  formCloseTags.forEach((tag) => {
-    if (tag.name.type !== 'JSXIdentifier') {
-      return
-    }
-
-    tag.name.name = 'form'
-  })
-
-  const inputTags = inputSpecifiers.map((name) => {
-    return j.jsxOpeningElement(j.jsxIdentifier(name), [])
-  })
-
-  // update input tags attribute
-  inputTags.forEach((tag) => {
-    if (tag.name.type !== 'JSXIdentifier') {
-      return
-    }
-
-    tag.attributes?.forEach((attribute) => {
-      if (
-        attribute.type === 'JSXAttribute' &&
-        attribute.name.name === 'width' &&
-        attribute.value?.type === 'JSXExpressionContainer' &&
-        attribute.value?.expression.type === 'NumericLiteral'
-      ) {
-        attribute.value = j.stringLiteral(`${attribute.value.expression.value}`)
-      }
+  inputSpecifiers
+    .map((name) => root.findJSXElements(name))
+    .forEach((inputUsage) => {
+      inputUsage.forEach((input) => {
+        input.node.openingElement.attributes?.forEach((attribute) => {
+          if (
+            attribute.type === 'JSXAttribute' &&
+            attribute.name.name === 'width' &&
+            attribute.value?.type === 'JSXExpressionContainer' &&
+            attribute.value?.expression.type === 'NumericLiteral'
+          ) {
+            attribute.value = j.stringLiteral(
+              `${attribute.value.expression.value}`,
+            )
+          }
+        })
+      })
     })
-  })
+
+  colSpecifiers
+    .map((name) => root.findJSXElements(name))
+    .forEach((colUsage) => {
+      colUsage.forEach((col) => {
+        const attributes = col.node.openingElement.attributes
+
+        col.node.openingElement = j.jsxOpeningElement(
+          j.jsxIdentifier('Column'),
+          attributes,
+        )
+        col.node.closingElement = j.jsxClosingElement(j.jsxIdentifier('Column'))
+      })
+    })
 
   return root.toSource(printOptions)
 }
