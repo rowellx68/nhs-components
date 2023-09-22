@@ -2,7 +2,7 @@ import { HTMLProps } from 'react';
 export type TagColour = 'white' | 'grey' | 'green' | 'aqua-green' | 'blue' | 'purple' | 'pink' | 'red' | 'orange' | 'yellow';
 type TagProps = {
     colour?: TagColour;
-} & HTMLProps<HTMLSpanElement>;
+} & Omit<HTMLProps<HTMLSpanElement>, 'color'>;
 /**
  * Use the tag component when it's possible for something to have more than 1 status and it's useful for the user to know about that status. For example, you can use a tag to show whether an item in a task list has been "completed".
  *
