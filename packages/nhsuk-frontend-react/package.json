@@ -1,6 +1,6 @@
 {
   "name": "nhsuk-frontend-react",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/rowellx68/nhs-components",
   "main": "./index.js",
   "types": "./index.d.ts",
@@ -18,6 +18,9 @@
     "components",
     "nhs"
   ],
+  "dependencies": {
+    "clsx": "^2.0.0"
+  },
   "peerDependencies": {
     "nhsuk-frontend": "^7.0.0",
     "react": "^18.0.0",

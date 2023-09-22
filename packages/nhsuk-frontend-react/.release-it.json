@@ -23,11 +23,19 @@
     },
     "@release-it/bumper": {
       "in": "packages/nhsuk-frontend-react/package.json",
-      "out": "dist/packages/nhsuk-frontend-react/package.json"
+      "out": [
+        "packages/nhsuk-frontend-react/package.json",
+        "dist/packages/nhsuk-frontend-react/package.json"
+      ]
     }
+  },
+  "git": {
+    "commitMessage": "chore: release v${version}"
   },
   "hooks": {
     "before:bump": "npx nx build nhsuk-frontend-react",
-    "after:bump": ["git checkout -- package.json"]
+    "after:bump": [
+      "git checkout -- package.json"
+    ]
   }
 }
