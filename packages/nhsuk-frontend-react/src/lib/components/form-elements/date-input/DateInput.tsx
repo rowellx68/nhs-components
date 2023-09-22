@@ -7,9 +7,7 @@ import {
   HTMLProps,
   forwardRef,
   useCallback,
-  useEffect,
   useRef,
-  useState,
 } from 'react'
 import {
   DateInputContext,
@@ -188,7 +186,7 @@ const DateInput: DateInput = ({
       month: value?.month ?? '',
       year: value?.year ?? '',
     },
-  };
+  }
 
   const monthRef = useRef<HTMLInputElement | null>(null)
   const yearRef = useRef<HTMLInputElement | null>(null)

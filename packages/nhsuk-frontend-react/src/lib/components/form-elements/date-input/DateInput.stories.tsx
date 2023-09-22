@@ -47,8 +47,13 @@ const WithOnChangeComponent = (): JSX.Element => {
 
   return (
     <>
-      <p>Value: {state?.day} {state?.month} {state?.year}</p>
-      <DateInput value={state} onChange={(ev: DateInputChangeEvent) => setState(ev.target.value)} />
+      <p>
+        Value: {state?.day} {state?.month} {state?.year}
+      </p>
+      <DateInput
+        value={state}
+        onChange={(ev: DateInputChangeEvent) => setState(ev.target.value)}
+      />
     </>
   )
 }
