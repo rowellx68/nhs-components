@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import DateInput from '.'
+import DateInput, { DateInputChangeEvent, DateInputValue } from '.'
+import { useState } from 'react'
 
 const meta: Meta<typeof DateInput> = {
   component: DateInput,
@@ -39,4 +40,22 @@ export const SeparateFields: Story = {
       <DateInput.Year />
     </DateInput>
   ),
+}
+
+const WithOnChangeComponent = (): JSX.Element => {
+  const [state, setState] = useState<DateInputValue>()
+
+  return (
+    <>
+      <p>Value: {state?.day} {state?.month} {state?.year}</p>
+      <DateInput value={state} onChange={(ev: DateInputChangeEvent) => setState(ev.target.value)} />
+    </>
+  )
+}
+
+/**
+ * Date Input with onChange handler.
+ */
+export const WithOnChange: Story = {
+  render: () => <WithOnChangeComponent />,
 }

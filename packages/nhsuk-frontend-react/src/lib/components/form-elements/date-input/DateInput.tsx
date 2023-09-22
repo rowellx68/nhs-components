@@ -182,38 +182,13 @@ const DateInput: DateInput = ({
   onChange,
   ...rest
 }): JSX.Element => {
-  const [, setInternalValue] = useState<{
-    values: DateInputValue
-  }>({
+  let state = {
     values: {
       day: value?.day ?? '',
       month: value?.month ?? '',
       year: value?.year ?? '',
     },
-  })
-
-  useEffect(() => {
-    setInternalValue((old) => {
-      if (
-        !value ||
-        (old.values.day === value.day &&
-          old.values.month === value.month &&
-          old.values.year === value.year)
-      ) {
-        return old
-      }
-
-      const { day, month, year } = value
-
-      return {
-        values: {
-          day: day && old.values.day !== day ? day : old.values.day,
-          month: month && old.values.month !== month ? month : old.values.month,
-          year: year && old.values.year !== year ? year : old.values.year,
-        },
-      }
-    })
-  }, [value])
+  };
 
   const monthRef = useRef<HTMLInputElement | null>(null)
   const yearRef = useRef<HTMLInputElement | null>(null)
@@ -250,26 +225,24 @@ const DateInput: DateInput = ({
   ) => {
     handleSelectNext(part, event.target.value)
     event.stopPropagation()
-    setInternalValue((old) => {
-      const newValue = {
-        ...old.values,
-        [part]: event.target.value,
-      }
+    const newValue = {
+      ...state.values,
+      [part]: event.target.value,
+    }
 
-      if (onChange) {
-        const newEvent = {
-          ...event,
-          target: { ...event.target, value: newValue },
-          currentTarget: { ...event.currentTarget, value: newValue },
-        } as DateInputChangeEvent
+    if (onChange) {
+      const newEvent = {
+        ...event,
+        target: { ...event.target, value: newValue },
+        currentTarget: { ...event.currentTarget, value: newValue },
+      } as DateInputChangeEvent
 
-        onChange(newEvent)
-      }
+      onChange(newEvent)
+    }
 
-      return {
-        values: newValue,
-      }
-    })
+    state = {
+      values: newValue,
+    }
   }
 
   return (
