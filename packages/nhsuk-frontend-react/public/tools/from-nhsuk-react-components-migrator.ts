@@ -25,6 +25,7 @@ const transform: Transform = (file, api, options) => {
   const formSpecifiers: string[] = []
   const inputSpecifiers: string[] = []
   const colSpecifiers: string[] = []
+  const tagSpecifiers: string[] = []
 
   // update old imports
   oldImports.forEach((path) => {
@@ -35,18 +36,24 @@ const transform: Transform = (file, api, options) => {
 
       let shouldKeep = false
 
+      console.log(specifier.imported.name)
+
       switch (specifier.imported.name) {
         case 'Form':
-          formSpecifiers.push(specifier.local?.name ?? specifier.imported.name)
+          formSpecifiers.push(specifier.local?.name ?? 'Form')
           shouldKeep = false
           break
         case 'Input':
-          inputSpecifiers.push(specifier.local?.name ?? specifier.imported.name)
+          inputSpecifiers.push(specifier.local?.name ?? 'Input')
           shouldKeep = true
           break
         case 'Col':
+          specifier.local?.name === 'Col' && colSpecifiers.push('Col')
           specifier.imported.name = 'Column'
-          !specifier.local && colSpecifiers.push(specifier.imported.name)
+          shouldKeep = true
+          break
+        case 'Tag':
+          tagSpecifiers.push(specifier.local?.name ?? 'Tag')
           shouldKeep = true
           break
         default:
@@ -114,6 +121,21 @@ const transform: Transform = (file, api, options) => {
           attributes,
         )
         col.node.closingElement = j.jsxClosingElement(j.jsxIdentifier('Column'))
+      })
+    })
+
+  tagSpecifiers
+    .map((name) => root.findJSXElements(name))
+    .forEach((tagUsage) => {
+      tagUsage.forEach((tag) => {
+        tag.node.openingElement.attributes?.forEach((attribute) => {
+          if (
+            attribute.type === 'JSXAttribute' &&
+            attribute.name.name === 'color'
+          ) {
+            attribute.name.name = 'colour'
+          }
+        })
       })
     })
 
