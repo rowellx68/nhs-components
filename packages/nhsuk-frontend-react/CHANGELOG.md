@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [0.2.3](https://github.com/rowellx68/nhs-components/compare/0.2.2...0.2.3) (2023-09-22)
+
+
+### Bug Fixes
+
+* code transform for Tag and Col ([4cf00bb](https://github.com/rowellx68/nhs-components/commit/4cf00bb187891621e85ced33bafeca1933b9de1b))
+* re-rendering of DateInput ([5a06e0b](https://github.com/rowellx68/nhs-components/commit/5a06e0bed63a5bf24d87da4c5e6240ab59fe0d2f))
+
 ## [0.2.2](https://github.com/rowellx68/nhs-components/compare/0.2.1...0.2.2) (2023-09-21)
 
 
