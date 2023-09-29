@@ -42,7 +42,9 @@ type MenuToggleProps = {
   type?: 'button' | 'submit' | 'reset'
 } & Omit<HTMLProps<HTMLButtonElement>, 'children'>
 
-type LogoProps = Omit<AsElementLink<HTMLAnchorElement>, 'children'>
+type LogoProps = {
+  image?: HTMLProps<HTMLImageElement>
+} & Omit<AsElementLink<HTMLAnchorElement>, 'children'>
 
 type HeaderNavProps = {
   containerProps?: ComponentProps<typeof Container>
@@ -73,6 +75,7 @@ type SearchProps = {
 const Logo: React.FC<LogoProps> = ({
   className,
   asElement: Component = 'a',
+  image,
   ...rest
 }): JSX.Element => {
   const {
@@ -88,6 +91,13 @@ const Logo: React.FC<LogoProps> = ({
   const label = orgName
     ? `${orgName} ${orgSplit} ${orgDescriptor} homepage`
     : 'NHS homepage'
+
+  const {
+    src: imageSrc,
+    className: imageClassName,
+    alt: imageAlt,
+    ...restImageProps
+  } = image || {}
 
   return (
     <div
@@ -107,7 +117,16 @@ const Logo: React.FC<LogoProps> = ({
         aria-label={label}
         {...rest}
       >
-        <NhsLogo />
+        {imageSrc ? (
+          <img
+            className={clsx('nhsuk-org-logo', imageClassName)}
+            src={imageSrc}
+            alt={imageAlt}
+            {...restImageProps}
+          />
+        ) : (
+          <NhsLogo />
+        )}
         {orgName && (
           <>
             <span className="nhsuk-organisation-name">

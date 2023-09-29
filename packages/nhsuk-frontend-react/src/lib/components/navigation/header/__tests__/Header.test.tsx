@@ -72,6 +72,48 @@ describe('Header', () => {
     expect(screen.getByTestId('header')).toMatchSnapshot()
   })
 
+  test('should match the snapshot - image', async () => {
+    const container = document.createElement('div')
+    container.style.width = '414px'
+    container.style.height = '896px'
+
+    render(
+      <Header
+        data-testid="header"
+        orgName="Anytown Anyplace"
+        orgSplit="Anywhere"
+        orgDescriptor="NHS Foundation Trust"
+      >
+        <Header.Container>
+          <Header.Logo
+            image={{
+              src: 'nhsuk-75.png',
+              className: 'custom',
+              alt: 'Celebrating 75 years of NHS',
+            }}
+          />
+          <Header.Content>
+            <Header.MenuToggle data-testid="menu-toggle" />
+          </Header.Content>
+        </Header.Container>
+        <Header.Nav>
+          <Header.NavItem mobileOnly href="#">
+            Home
+          </Header.NavItem>
+          <Header.NavItem href="#">Get involved</Header.NavItem>
+          <Header.NavItem href="#">About us</Header.NavItem>
+          <Header.NavItem href="#">About us</Header.NavItem>
+        </Header.Nav>
+      </Header>,
+      { container: document.body.appendChild(container) },
+    )
+
+    await userEvent.click(screen.getByTestId('menu-toggle'))
+    await userEvent.click(screen.getByTestId('menu-toggle'))
+
+    expect(screen.getByTestId('header')).toMatchSnapshot()
+  })
+
   test('should match the snapshot - search', async () => {
     const container = document.createElement('div')
     container.style.width = '414px'
