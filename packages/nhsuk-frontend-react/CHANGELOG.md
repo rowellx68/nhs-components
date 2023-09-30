@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## [0.3.1](https://github.com/rowellx68/nhs-components/compare/0.3.0...0.3.1) (2023-09-30)
+
 ## [0.3.0](https://github.com/rowellx68/nhs-components/compare/0.2.4...0.3.0) (2023-09-30)
 
 
