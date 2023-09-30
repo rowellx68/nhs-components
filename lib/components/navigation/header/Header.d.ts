@@ -22,7 +22,9 @@ type HeaderProps = Partial<{
 type MenuToggleProps = {
     type?: 'button' | 'submit' | 'reset';
 } & Omit<HTMLProps<HTMLButtonElement>, 'children'>;
-type LogoProps = Omit<AsElementLink<HTMLAnchorElement>, 'children'>;
+type LogoProps = {
+    image?: HTMLProps<HTMLImageElement>;
+} & Omit<AsElementLink<HTMLAnchorElement>, 'children'>;
 type HeaderNavProps = {
     containerProps?: ComponentProps<typeof Container>;
 } & HTMLProps<HTMLDivElement> & PropsWithChildren;
