@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [0.3.0](https://github.com/rowellx68/nhs-components/compare/0.2.4...0.3.0) (2023-09-30)
+
+
+### Features
+
+* add custom logo prop ([8828d8b](https://github.com/rowellx68/nhs-components/commit/8828d8bfef08d0e31161b5a1a311ee14fd19ec79))
+
 ## [0.2.4](https://github.com/rowellx68/nhs-components/compare/0.2.3...0.2.4) (2023-09-22)
 
 ## [0.2.3](https://github.com/rowellx68/nhs-components/compare/0.2.2...0.2.3) (2023-09-22)
