@@ -51,7 +51,9 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: npx release-it -c ./packages/nhsuk-frontend-react/.release-it.json
+        run: npx release-it -c ./packages/nhsuk-frontend-react/.release-it.json --no-increment --no-git --no-npm
 
       - name: Publish
         run: npm publish ./dist/packages/nhsuk-frontend-react --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
