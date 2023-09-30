@@ -32,10 +32,15 @@
   "git": {
     "commitMessage": "chore: release v${version}"
   },
+  "npm": {
+    "publish": false
+  },
+  "github": {
+    "release": true
+  },
   "hooks": {
+    "before:init": "npx nx test nhsuk-frontend-react",
     "before:bump": "npx nx build nhsuk-frontend-react",
-    "after:bump": [
-      "git checkout -- package.json"
-    ]
+    "after:bump": ["git checkout -- package.json"]
   }
 }
