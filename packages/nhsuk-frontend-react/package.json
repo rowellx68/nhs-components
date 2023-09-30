@@ -2,6 +2,10 @@
   "name": "nhsuk-frontend-react",
   "version": "0.3.0",
   "homepage": "https://github.com/rowellx68/nhs-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowellx68/nhs-components"
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "private": false,
