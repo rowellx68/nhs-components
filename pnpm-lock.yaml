@@ -98,13 +98,13 @@ devDependencies:
     specifier: ^0.11.10
     version: 0.11.10
   '@types/node':
-    specifier: 18.14.2
+    specifier: ~18.14.2
     version: 18.14.2
   '@types/react':
-    specifier: 18.2.24
+    specifier: ~18.2.24
     version: 18.2.24
   '@types/react-dom':
-    specifier: 18.2.9
+    specifier: ~18.2.9
     version: 18.2.9
   '@typescript-eslint/eslint-plugin':
     specifier: 6.10.0
