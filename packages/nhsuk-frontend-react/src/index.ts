@@ -1,11 +1,11 @@
 // content-presentation
 export { default as Details } from '@/components/content-presentation/details'
-export { default as DoDontList } from '@/components/content-presentation/do-dont-list'
+export { default as DoDontList, type DoDontListType } from '@/components/content-presentation/do-dont-list'
 export { default as Image } from '@/components/content-presentation/image'
 export { default as InsetText } from '@/components/content-presentation/inset-text'
 export { default as SummaryList } from '@/components/content-presentation/summary-list'
 export { default as Table } from '@/components/content-presentation/table'
-export { default as Tag } from '@/components/content-presentation/tag'
+export { default as Tag, type TagColour } from '@/components/content-presentation/tag'
 export { default as WarningCallout } from '@/components/content-presentation/warning-callout'
 
 // navigation
@@ -43,7 +43,8 @@ export { default as Textarea } from '@/components/form-elements/textarea'
 
 // core
 export { default as Container } from '@/components/core/container'
-export { default as Column } from '@/components/core/grid/column'
+export { default as Column, type ColumnWidth } from '@/components/core/grid/column'
+export { default as FormGroup } from '@/components/core/form-group/FormGroup'
 export { default as Label } from '@/components/core/label'
 export { default as Main } from '@/components/core/main'
 export { default as Row } from '@/components/core/grid/row'

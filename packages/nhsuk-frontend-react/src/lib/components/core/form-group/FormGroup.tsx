@@ -36,6 +36,7 @@ type FormGroupProps<T> = FormElementProps & {
     | 'checkboxes'
     | 'dateinput'
     | 'textarea'
+    | string
 }
 
 const FormGroup = <T extends BaseFormElementRenderProps>(
