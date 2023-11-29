@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [0.3.3](https://github.com/rowellx68/nhs-components/compare/0.3.2...0.3.3) (2023-11-29)
+
+
+### Bug Fixes
+
+* expose types for some components ([677b695](https://github.com/rowellx68/nhs-components/commit/677b695bfba286f6c00be6d65fdbce30ff238977))
+* update lockfile ([114d692](https://github.com/rowellx68/nhs-components/commit/114d6921b072937347405a6fdbef05c00d6e851b))
+
 ## [0.3.2](https://github.com/rowellx68/nhs-components/compare/0.3.1...0.3.2) (2023-10-11)
 
 
