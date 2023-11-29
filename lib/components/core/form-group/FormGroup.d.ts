@@ -10,7 +10,7 @@ type FormElementRenderProps<T> = Omit<T, ExcludedProps> & {
 };
 type FormGroupProps<T> = FormElementProps & {
     render: (props: FormElementRenderProps<T>) => ReactNode;
-    inputType: 'input' | 'radios' | 'select' | 'checkboxes' | 'dateinput' | 'textarea';
+    inputType: 'input' | 'radios' | 'select' | 'checkboxes' | 'dateinput' | 'textarea' | string;
 };
 declare const FormGroup: {
     <T extends BaseFormElementRenderProps>(props: FormGroupProps<T>): JSX.Element;
