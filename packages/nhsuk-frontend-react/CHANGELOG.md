@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [1.0.0-beta.0](https://github.com/rowellx68/nhs-components/compare/0.3.3...1.0.0-beta.0) (2023-11-30)
+
+
+### Features
+
+* add character count component ([9e888e8](https://github.com/rowellx68/nhs-components/commit/9e888e8b70ad0d5f8f44aef16e15fb807d559a91))
+* add tab component ([a9e7564](https://github.com/rowellx68/nhs-components/commit/a9e756494566dc5076c25b1333aab183ecf1b3a4))
+
 ## [0.3.3](https://github.com/rowellx68/nhs-components/compare/0.3.2...0.3.3) (2023-11-29)
 
 
