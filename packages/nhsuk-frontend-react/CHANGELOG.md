@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.0](https://github.com/rowellx68/nhs-components/compare/1.0.0-beta.0...1.0.0) (2023-12-04)
+
+
+### Bug Fixes
+
+* update word count logic ([f6d6f3c](https://github.com/rowellx68/nhs-components/commit/f6d6f3c8a05d7e7f34b8c423dcc7b91dcfe9b03a))
+
 ## [1.0.0-beta.0](https://github.com/rowellx68/nhs-components/compare/0.3.3...1.0.0-beta.0) (2023-11-30)
 
 
