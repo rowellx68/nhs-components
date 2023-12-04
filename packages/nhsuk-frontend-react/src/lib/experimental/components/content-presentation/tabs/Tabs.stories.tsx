@@ -21,13 +21,13 @@ export const Basic: Story = {
   render: (args) => (
     <Tabs {...args}>
       <Tabs.Tab id='item-1'>
-        <Tabs.Item>Item 1</Tabs.Item>
+        <Tabs.Title>Item 1</Tabs.Title>
         <Tabs.Panel>
           Content goes here 1
         </Tabs.Panel>
       </Tabs.Tab>
       <Tabs.Tab id='item-2'>
-        <Tabs.Item>Item 2</Tabs.Item>
+        <Tabs.Title>Item 2</Tabs.Title>
         <Tabs.Panel>
           Content goes here 2
         </Tabs.Panel>

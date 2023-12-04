@@ -1,19 +1,21 @@
-import React, { HTMLProps, PropsWithChildren, ReactElement, useState } from 'react'
+import React, {
+  HTMLProps,
+  PropsWithChildren,
+  ReactElement,
+  useState,
+} from 'react'
 import clsx from 'clsx'
-import {
-  TabsContext,
-  useTabsContext,
-} from './TabsContext'
+import { TabsContext, useTabsContext } from './TabsContext'
 import useIdWithPrefix from '@/hooks/use-id-with-prefix'
 
 type TabsProps = {
   title?: string
   titleProps?: HTMLProps<HTMLHeadingElement>
+  listProps?: HTMLProps<HTMLUListElement>
 } & HTMLProps<HTMLDivElement>
 
 type Tabs = {
-  List: typeof TabList
-  Item: typeof TabListItem
+  Title: typeof TabListItem
   Tab: typeof Tab
   Panel: typeof TabPanel
 } & React.FC<TabsProps>
@@ -65,7 +67,7 @@ const TabListItem: React.FC<TabListItemProps> = ({
     <li
       className={clsx(
         'nhsuk-tabs__list-item',
-        { 'nhsuk-tabs__list-item--selected': (_targetId) === selectedTab },
+        { 'nhsuk-tabs__list-item--selected': _targetId === selectedTab },
         listItemClassName,
       )}
       role="presentation"
@@ -73,7 +75,7 @@ const TabListItem: React.FC<TabListItemProps> = ({
     >
       <a
         className={clsx('nhsuk-tabs__tab', className)}
-        aria-selected={(_targetId) === selectedTab}
+        aria-selected={_targetId === selectedTab}
         role={role}
         tabIndex={tabIndex}
         id={linkId}
@@ -122,6 +124,7 @@ const Tabs: Tabs = ({
   className,
   title,
   titleProps,
+  listProps = {},
   ...rest
 }): JSX.Element => {
   const { className: titleClassName, ...restTitleProps } = titleProps || {}
@@ -151,7 +154,7 @@ const Tabs: Tabs = ({
     return React.cloneElement(tabPanel as ReactElement<TabPanelProps>, {
       key: i,
       _targetId: tab.props.id,
-      "aria-labelledby": tab.props.id,
+      'aria-labelledby': tab.props.id,
     })
   }, [])
 
@@ -166,21 +169,19 @@ const Tabs: Tabs = ({
         >
           {title}
         </h2>
-        <TabList>{listItems}</TabList>
+        <TabList {...listProps}>{listItems}</TabList>
         {tabPanels}
       </div>
     </TabsContext.Provider>
   )
 }
 
-Tabs.List = TabList
-Tabs.Item = TabListItem
+Tabs.Title = TabListItem
 Tabs.Tab = Tab
 Tabs.Panel = TabPanel
 
 Tabs.displayName = 'Tabs'
-TabList.displayName = 'Tabs.List'
-TabListItem.displayName = 'Tabs.ListItem'
+TabListItem.displayName = 'Tabs.Title'
 TabPanel.displayName = 'Tabs.Panel'
 Tab.displayName = 'Tabs.Tab'
 
