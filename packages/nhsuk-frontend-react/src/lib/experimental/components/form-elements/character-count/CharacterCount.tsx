@@ -44,7 +44,10 @@ const CharacterCount: ForwardRefRenderFunction<
     ev: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     const { value } = ev.target
-    const length = mode === 'word' ? value.split(' ').length : value.length
+    const length =
+      mode === 'word'
+        ? value.split(' ').filter((val) => !!val).length
+        : value.length
     const remaining = limit - length
 
     setState({
