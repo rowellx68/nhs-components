@@ -2,10 +2,10 @@ import React, { HTMLProps, PropsWithChildren } from 'react';
 type TabsProps = {
     title?: string;
     titleProps?: HTMLProps<HTMLHeadingElement>;
+    listProps?: HTMLProps<HTMLUListElement>;
 } & HTMLProps<HTMLDivElement>;
 type Tabs = {
-    List: typeof TabList;
-    Item: typeof TabListItem;
+    Title: typeof TabListItem;
     Tab: typeof Tab;
     Panel: typeof TabPanel;
 } & React.FC<TabsProps>;
@@ -19,7 +19,6 @@ type TabProps = {
 type TabPanelProps = {
     _targetId?: string;
 } & Omit<HTMLProps<HTMLDivElement>, 'id'>;
-declare const TabList: React.FC<HTMLProps<HTMLUListElement>>;
 declare const TabListItem: React.FC<TabListItemProps>;
 declare const TabPanel: React.FC<TabPanelProps>;
 declare const Tab: React.FC<TabProps>;
