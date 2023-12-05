@@ -89,7 +89,9 @@ const Logo: React.FC<LogoProps> = ({
   } = useHeaderContext()
 
   const label = orgName
-    ? `${orgName} ${orgSplit} ${orgDescriptor} homepage`
+    ? [orgName, orgSplit, orgDescriptor, 'homepage']
+      .filter((val) => !!val)
+      .join(' ')
     : 'NHS homepage'
 
   const {
