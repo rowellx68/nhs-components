@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.1](https://github.com/rowellx68/nhs-components/compare/1.0.0...1.0.1) (2023-12-05)
+
+
+### Bug Fixes
+
+* filter empty organisation labels ([f482964](https://github.com/rowellx68/nhs-components/commit/f4829644e8b46664127f69369828fb04490d4aca))
+
 ## [1.0.0](https://github.com/rowellx68/nhs-components/compare/1.0.0-beta.0...1.0.0) (2023-12-04)
 
 
