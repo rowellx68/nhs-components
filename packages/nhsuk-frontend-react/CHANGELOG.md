@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [2.0.0-beta.0](https://github.com/rowellx68/nhs-components/compare/1.0.1...2.0.0-beta.0) (2023-12-06)
+
+
+### Features
+
+* add prefix/suffix for input ([4e71504](https://github.com/rowellx68/nhs-components/commit/4e715041d129e2e128c11e264c3550ca0f283198))
+
+
+### Documentation
+
+* update readme ([680732e](https://github.com/rowellx68/nhs-components/commit/680732e2ddfd34116ed36c7614fda1125072442a))
+
 ## [1.0.1](https://github.com/rowellx68/nhs-components/compare/1.0.0...1.0.1) (2023-12-05)
 
 
