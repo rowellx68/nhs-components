@@ -71,6 +71,48 @@ exports[`Input > should match the snapshot - label 1`] = `
 </div>
 `;
 
+exports[`Input > should match the snapshot - prefix 1`] = `
+<div
+  class="nhsuk-input__wrapper"
+>
+  <div
+    aria-hidden="true"
+    class="nhsuk-input__prefix"
+  >
+    £
+  </div>
+  <input
+    class="nhsuk-input"
+    data-testid="input"
+    id="input_:r5:"
+    name="input_:r5:"
+    prefix="£"
+    type="text"
+  />
+</div>
+`;
+
+exports[`Input > should match the snapshot - suffix 1`] = `
+<div
+  class="nhsuk-input__wrapper"
+>
+  <input
+    class="nhsuk-input"
+    data-testid="input"
+    id="input_:r6:"
+    name="input_:r6:"
+    suffix="mmHg"
+    type="text"
+  />
+  <div
+    aria-hidden="true"
+    class="nhsuk-input__suffix"
+  >
+    mmHg
+  </div>
+</div>
+`;
+
 exports[`Input > should match the snapshot - type password 1`] = `
 <div
   class="nhsuk-form-group"
