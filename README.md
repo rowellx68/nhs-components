@@ -4,6 +4,13 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 [![npm version](https://badge.fury.io/js/nhsuk-frontend-react.svg)](https://badge.fury.io/js/nhsuk-frontend-react) [![main branch](https://github.com/rowellx68/nhs-components/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rowellx68/nhs-components/actions?query=branch%3Amain)
 
+## Supported NHS.UK Frontend versions
+
+| NHS.UK Frontend | NHS.UK Components React |
+| --------------- | ----------------------- |
+| v7              | `^1.0.0`                |
+| v8              | `^2.0.0`                |
+
 ## Requirements
 
 - [nhsuk-frontend v7+](https://github.com/nhsuk/nhsuk-frontend)
