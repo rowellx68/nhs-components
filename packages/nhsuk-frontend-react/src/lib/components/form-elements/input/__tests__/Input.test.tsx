@@ -34,4 +34,16 @@ describe('Input', () => {
 
     expect(screen.getByTestId('input').parentNode).toMatchSnapshot()
   })
+
+  test('should match the snapshot - prefix', () => {
+    render(<Input data-testid="input" prefix="£" />)
+
+    expect(screen.getByTestId('input').parentNode).toMatchSnapshot()
+  })
+
+  test('should match the snapshot - suffix', () => {
+    render(<Input data-testid="input" suffix="mmHg" />)
+
+    expect(screen.getByTestId('input').parentNode).toMatchSnapshot()
+  })
 })

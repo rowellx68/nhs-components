@@ -6,12 +6,15 @@ import {
   ForwardRefRenderFunction,
   HTMLInputTypeAttribute,
   HTMLProps,
+  ReactNode,
   forwardRef,
 } from 'react'
 
 type InputProps = {
   width?: InputWidth
   type?: HTMLInputTypeAttribute
+  prefix?: ReactNode
+  suffix?: ReactNode
 } & Omit<HTMLProps<HTMLInputElement>, 'type'> &
   FormElementProps
 
@@ -33,31 +36,49 @@ const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
     <FormGroup<InputProps>
       {...props}
       inputType="input"
-      render={({
-        id,
-        name,
-        className,
-        error,
-        width,
-        type = 'text',
-        ...rest
-      }) => (
-        <input
-          id={id}
-          name={name}
-          className={clsx(
-            'nhsuk-input',
-            {
-              [`nhsuk-input--width-${width}`]: width,
-              'nhsuk-input--error': error,
-            },
-            className,
-          )}
-          type={type}
-          ref={ref}
-          {...rest}
-        />
-      )}
+      render={({ id, name, className, error, width, type = 'text', ...rest }) =>
+        props.prefix || props.suffix ? (
+          <div className="nhsuk-input__wrapper">
+            {props.prefix && (
+              <div className="nhsuk-input__prefix" aria-hidden="true">{props.prefix}</div>
+            )}
+            <input
+              id={id}
+              name={name}
+              className={clsx(
+                'nhsuk-input',
+                {
+                  [`nhsuk-input--width-${width}`]: width,
+                  'nhsuk-input--error': error,
+                },
+                className,
+              )}
+              type={type}
+              ref={ref}
+              {...rest}
+            />
+            {props.suffix && (
+              <div className="nhsuk-input__suffix" aria-hidden="true">{props.suffix}</div>
+            )}
+          </div>
+        ) : (
+          <input
+            id={id}
+            name={name}
+            className={clsx(
+              'nhsuk-input',
+              {
+                [`nhsuk-input--width-${width}`]: width,
+                'nhsuk-input--error': error,
+              },
+              className,
+            )}
+            type={type}
+            ref={ref}
+            {...rest}
+          />
+        )
+      }
     />
   )
 }
