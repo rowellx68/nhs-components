@@ -80,3 +80,45 @@ export const Transactional: Story = {
     </Header>
   ),
 }
+
+/**
+ * The basic usage of the Header component.
+ */
+export const NewHeader: Story = {
+  args: {
+    orgName: 'Anytown Anyplace',
+    orgSplit: 'Anywhere',
+    orgDescriptor: 'NHS Foundation Trust',
+    white: false,
+  },
+  render: (args) => (
+    <Header {...args}>
+      <Header.Container>
+        <Header.Logo />
+      </Header.Container>
+      <Header.Navigation>
+        <Header.NavigationItem href="#">
+          Health A-Z
+        </Header.NavigationItem>
+        <Header.NavigationItem href="#">
+          Live Well
+        </Header.NavigationItem>
+        <Header.NavigationItem href="#">
+          Mental health
+        </Header.NavigationItem>
+        <Header.NavigationItem href="#">
+          Care and support
+        </Header.NavigationItem>
+        <Header.NavigationItem href="#">
+          Pregnancy
+        </Header.NavigationItem>
+        <Header.NavigationItem href="#">
+          NHS services
+        </Header.NavigationItem>
+        <Header.NavigationItem href="#">
+          Home
+        </Header.NavigationItem>
+      </Header.Navigation>
+    </Header>
+  ),
+}

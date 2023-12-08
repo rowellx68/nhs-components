@@ -4,7 +4,10 @@ import React, {
   HTMLProps,
   MouseEventHandler,
   PropsWithChildren,
+  ReactElement,
+  useCallback,
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import HeaderContext, {
@@ -15,15 +18,27 @@ import { AsElementLink } from '@/types/link-like'
 import { NhsLogo } from '@/assets/nhs-logo'
 import { ChevronRightIcon, CloseIcon, SearchIcon } from '@/icons'
 import Container from '@/components/core/container'
+import { VisuallyHiddenProps } from '@/types/visually-hidden'
 
 type Header = {
   Logo: typeof Logo
   TransactionalLink: typeof TransactionalServiceName
   Container: typeof HeaderContainer
+  /**
+   * @deprecated This component will be removed in a future release.
+   */
   MenuToggle: typeof MenuToggle
   Content: typeof HeaderContent
+  /**
+   * @deprecated This component will be removed in a future release. Use {@link Header.Navigation} instead.
+   */
   Nav: typeof HeaderNav
+  /**
+   * @deprecated This component will be removed in a future release. Use {@link Header.NavigationItem} instead.
+   * */
   NavItem: typeof NavItem
+  Navigation: typeof HeaderNavigation
+  NavigationItem: typeof NavigationItem
   Search: typeof Search
 } & React.FC<HeaderProps>
 
@@ -51,10 +66,28 @@ type HeaderNavProps = {
 } & HTMLProps<HTMLDivElement> &
   PropsWithChildren
 
+type HeaderNavigationProps = {
+  containerProps?: HTMLProps<HTMLDivElement>
+  listProps?: HTMLProps<HTMLUListElement>
+  moreToggleProps?: Omit<NavigationMoreToggleProps, 'visible' | 'expanded'>
+} & HTMLProps<HTMLDivElement> &
+  PropsWithChildren
+
 type NavItemProps = {
   mobileOnly?: boolean
 } & AsElementLink<HTMLAnchorElement> &
   PropsWithChildren
+
+type NavigationItemProps = {
+  // mobileOnly?: boolean
+} & AsElementLink<HTMLAnchorElement> &
+  PropsWithChildren
+
+type NavigationMoreToggleProps = {
+  visible?: boolean
+  expanded?: boolean
+} & HTMLProps<HTMLButtonElement> &
+  Partial<VisuallyHiddenProps>
 
 type HeaderContentProps = HTMLProps<HTMLDivElement> & PropsWithChildren
 
@@ -90,8 +123,8 @@ const Logo: React.FC<LogoProps> = ({
 
   const label = orgName
     ? [orgName, orgSplit, orgDescriptor, 'homepage']
-      .filter((val) => !!val)
-      .join(' ')
+        .filter((val) => !!val)
+        .join(' ')
     : 'NHS homepage'
 
   const {
@@ -182,6 +215,9 @@ const TransactionalServiceName: React.FC<
   )
 }
 
+/**
+ * @deprecated This component will be removed in a future release.
+ */
 const MenuToggle: React.FC<MenuToggleProps> = ({
   className,
   onClick,
@@ -249,6 +285,9 @@ const HeaderContent: React.FC<HeaderContentProps> = ({
   )
 }
 
+/**
+ * @deprecated This component will be removed in a future release. Use {@link Header.Navigation} instead.
+ */
 const HeaderNav: React.FC<HeaderNavProps> = ({
   children,
   className,
@@ -291,6 +330,110 @@ const HeaderNav: React.FC<HeaderNavProps> = ({
   )
 }
 
+const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
+  children,
+  className,
+  role = 'navigation',
+  containerProps = {},
+  listProps = {},
+  moreToggleProps = {
+    visuallyHiddenText: 'Browse',
+    children: 'More',
+  },
+  ...rest
+}): React.JSX.Element => {
+  const { className: containerClassName, ...restContainerProps } =
+    containerProps
+  const { className: listClassName, ...restListProps } = listProps
+
+  const navigationRef = useRef<HTMLDivElement>(null)
+  const [breakpoints, setBreakpoints] = useState<number[]>([])
+  const [visibleToIndex, setVisibleToIndex] = useState<number>(0)
+  const items = React.Children.toArray(children).filter(
+    (child) => React.isValidElement(child) && child.type === NavigationItem,
+  ) as ReactElement<NavigationItemProps>[]
+
+  useEffect(() => {
+    const links = navigationRef.current?.querySelectorAll<HTMLLIElement>(
+      '.nhsuk-header__navigation-item',
+    )
+
+    const containerWidth = navigationRef.current?.offsetWidth ?? 0
+
+    if (!links) {
+      return
+    }
+
+    const bp = Array.from(links).map((link) => link.offsetWidth)
+    bp.reduce((acc, cur, index) => {
+      const total = acc + cur
+
+      if (total <= containerWidth) {
+        setVisibleToIndex(index)
+      }
+
+      return total
+    }, 0)
+    setBreakpoints(bp)
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      // find the index of the breakpoint that totals the value of the container width
+      const containerWidth = navigationRef.current?.offsetWidth ?? 0
+
+      breakpoints.reduce((acc, cur, index) => {
+        const total = acc + cur
+
+        if (total <= containerWidth) {
+          setVisibleToIndex(index)
+        }
+
+        return total
+      }, 0)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [navigationRef, breakpoints, setVisibleToIndex])
+
+  return (
+    <div
+      className={clsx('nhsuk-navigation-container', containerClassName)}
+      {...restContainerProps}
+    >
+      <nav
+        className={clsx('nhsuk-navigation', className)}
+        role={role}
+        {...rest}
+        ref={navigationRef}
+      >
+        <ul
+          className={clsx('nhsuk-header__navigation-list', listClassName)}
+          {...restListProps}
+        >
+          {/* items go here */}
+          {breakpoints.length ? items.slice(0, visibleToIndex) : children}
+          <li
+            className={clsx('nhsuk-mobile-menu-container', {
+              'nhsuk-mobile-menu-container--visible': true,
+            })}
+          >
+            <NavigationMenuToggle {...moreToggleProps} visible />
+            <ul className="nhsuk-header__drop-down nhsuk-header__drop-down--hidden">
+              {items.slice(visibleToIndex)}
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  )
+}
+
+/**
+ * @deprecated This component will be removed in a future release. Use {@link Header.NavigationItem} instead.
+ */
 const NavItem: React.FC<NavItemProps> = ({
   children,
   className,
@@ -311,6 +454,57 @@ const NavItem: React.FC<NavItemProps> = ({
         <ChevronRightIcon />
       </Component>
     </li>
+  )
+}
+
+const NavigationItem: React.FC<NavigationItemProps> = ({
+  children,
+  className,
+  asElement: Component = 'a',
+  ...rest
+}): JSX.Element => {
+  return (
+    <li className={clsx('nhsuk-header__navigation-item', className)}>
+      <Component className="nhsuk-header__navigation-link" {...rest}>
+        {children}
+      </Component>
+    </li>
+  )
+}
+
+const NavigationMenuToggle: React.FC<NavigationMoreToggleProps> = ({
+  children,
+  className,
+  id = 'toggle-menu',
+  visuallyHiddenText = 'Browse',
+  visible,
+  expanded,
+  type = 'button',
+  ...rest
+}): JSX.Element => {
+  return (
+    <button
+      className={clsx(
+        'nhsuk-header__menu-toggle nhsuk-header__navigation-link',
+        {
+          'nhsuk-header__menu-toggle--visible': visible,
+        },
+      )}
+      aria-expanded={expanded ? 'true' : 'false'}
+      {...rest}
+    >
+      <span className="nhsuk-u-visually-hidden">{visuallyHiddenText}</span>
+      {children}
+      <svg
+        className="nhsuk-icon nhsuk-icon__chevron-down"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+      </svg>
+    </button>
   )
 }
 
@@ -459,7 +653,7 @@ const Header: Header = ({
   return (
     <header
       className={clsx(
-        'nhsuk-header',
+        'nhsuk-header js-enabled',
         {
           'nhsuk-header--transactional': transactional,
           'nhsuk-header--organisation': orgName,
@@ -483,6 +677,8 @@ Header.Content = HeaderContent
 Header.Nav = HeaderNav
 Header.NavItem = NavItem
 Header.Search = Search
+Header.Navigation = HeaderNavigation
+Header.NavigationItem = NavigationItem
 
 Header.displayName = 'Header'
 HeaderContainer.displayName = 'Header.Container'
@@ -492,6 +688,8 @@ MenuToggle.displayName = 'Header.MenuToggle'
 HeaderContent.displayName = 'Header.Content'
 HeaderNav.displayName = 'Header.Nav'
 NavItem.displayName = 'Header.NavItem'
+HeaderNavigation.displayName = 'Header.Navigation'
+NavigationItem.displayName = 'Header.NavigationItem'
 Search.displayName = 'Header.Search'
 
 export default Header
