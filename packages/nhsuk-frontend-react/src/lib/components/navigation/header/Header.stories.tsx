@@ -29,16 +29,15 @@ export const Basic: Story = {
       <Header.Container>
         <Header.Logo />
         <Header.Content>
-          <Header.MenuToggle />
+          <Header.Search />
         </Header.Content>
       </Header.Container>
       <Header.Nav>
-        <Header.NavItem mobileOnly href="#">
-          Home
-        </Header.NavItem>
-        <Header.NavItem href="#">Get involved</Header.NavItem>
-        <Header.NavItem href="#">About us</Header.NavItem>
-        <Header.NavItem href="#">About us</Header.NavItem>
+        <Header.NavItem href="#">Your hospital visit</Header.NavItem>
+        <Header.NavItem href="#">Wards and departments</Header.NavItem>
+        <Header.NavItem href="#">Conditions and treatments</Header.NavItem>
+        <Header.NavItem href="#">Our people</Header.NavItem>
+        <Header.NavItem href="#">Our research</Header.NavItem>
       </Header.Nav>
     </Header>
   ),

@@ -2,9 +2,12 @@ import clsx from 'clsx'
 import React, {
   ComponentProps,
   HTMLProps,
-  MouseEventHandler,
   PropsWithChildren,
+  ReactElement,
+  createContext,
+  useContext,
   useEffect,
+  useRef,
   useState,
 } from 'react'
 import HeaderContext, {
@@ -13,14 +16,14 @@ import HeaderContext, {
 } from './HeaderContext'
 import { AsElementLink } from '@/types/link-like'
 import { NhsLogo } from '@/assets/nhs-logo'
-import { ChevronRightIcon, CloseIcon, SearchIcon } from '@/icons'
+import { SearchIcon } from '@/icons'
 import Container from '@/components/core/container'
+import { VisuallyHiddenProps } from '@/types/visually-hidden'
 
 type Header = {
   Logo: typeof Logo
   TransactionalLink: typeof TransactionalServiceName
   Container: typeof HeaderContainer
-  MenuToggle: typeof MenuToggle
   Content: typeof HeaderContent
   Nav: typeof HeaderNav
   NavItem: typeof NavItem
@@ -38,23 +41,22 @@ type HeaderProps = Partial<{
   HTMLProps<HTMLDivElement> &
   PropsWithChildren
 
-type MenuToggleProps = {
-  type?: 'button' | 'submit' | 'reset'
-} & Omit<HTMLProps<HTMLButtonElement>, 'children'>
-
 type LogoProps = {
   image?: HTMLProps<HTMLImageElement>
 } & Omit<AsElementLink<HTMLAnchorElement>, 'children'>
 
 type HeaderNavProps = {
-  containerProps?: ComponentProps<typeof Container>
+  containerProps?: HTMLProps<HTMLDivElement>
+  listProps?: HTMLProps<HTMLUListElement>
+  moreToggleProps?: Omit<NavMoreToggleProps, 'visible' | 'expanded'>
 } & HTMLProps<HTMLDivElement> &
   PropsWithChildren
 
-type NavItemProps = {
-  mobileOnly?: boolean
-} & AsElementLink<HTMLAnchorElement> &
-  PropsWithChildren
+type NavItemProps = AsElementLink<HTMLAnchorElement> &
+  PropsWithChildren & {
+    __navIndex?: number
+    __mobileMenu?: boolean
+  }
 
 type HeaderContentProps = HTMLProps<HTMLDivElement> & PropsWithChildren
 
@@ -72,6 +74,38 @@ type SearchProps = {
   closeProps?: ButtonToggleProps
 } & Omit<HTMLProps<HTMLInputElement>, 'children'>
 
+type NavMoreToggleProps = {
+  visible?: boolean
+  label: string
+} & HTMLProps<HTMLButtonElement> &
+  Partial<VisuallyHiddenProps>
+
+type HeaderNavContextValue = {
+  breakpoints: number[]
+  setBreakpoints: (breakpoints: number[]) => void
+  availableWidth: number
+  setAvailableWidth: (width: number) => void
+  dropdownHeight: number
+  setDropdownHeight: (height: number) => void
+  expanded: boolean
+  setExpanded: (expanded: boolean) => void
+}
+
+const HeaderNavContext = createContext<HeaderNavContextValue>({
+  breakpoints: [],
+  setBreakpoints: () => {},
+  availableWidth: 0,
+  setAvailableWidth: () => {},
+  dropdownHeight: 0,
+  setDropdownHeight: () => {},
+  expanded: false,
+  setExpanded: () => {},
+})
+
+HeaderNavContext.displayName = 'HeaderNavContext'
+
+export const useHeaderNavContext = () => useContext(HeaderNavContext)
+
 const Logo: React.FC<LogoProps> = ({
   className,
   asElement: Component = 'a',
@@ -83,15 +117,13 @@ const Logo: React.FC<LogoProps> = ({
     orgDescriptor,
     orgSplit,
     serviceName,
-    hasMenuToggle,
-    hasSearch,
     hasTransactionalLink,
   } = useHeaderContext()
 
   const label = orgName
     ? [orgName, orgSplit, orgDescriptor, 'homepage']
-      .filter((val) => !!val)
-      .join(' ')
+        .filter((val) => !!val)
+        .join(' ')
     : 'NHS homepage'
 
   const {
@@ -104,8 +136,7 @@ const Logo: React.FC<LogoProps> = ({
   return (
     <div
       className={clsx('nhsuk-header__logo', {
-        'nhsuk-header__logo--only':
-          !hasMenuToggle && !hasSearch && hasTransactionalLink,
+        'nhsuk-header__logo--only': hasTransactionalLink,
       })}
     >
       <Component
@@ -182,39 +213,6 @@ const TransactionalServiceName: React.FC<
   )
 }
 
-const MenuToggle: React.FC<MenuToggleProps> = ({
-  className,
-  onClick,
-  ...rest
-}): JSX.Element => {
-  const { toggleMenu, setHasMenuToggle, menuOpen } = useHeaderContext()
-
-  const onToggleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
-    toggleMenu()
-    onClick?.(e)
-  }
-
-  useEffect(() => {
-    setHasMenuToggle(true)
-    return () => setHasMenuToggle(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  return (
-    <div className="nhsuk-header__menu">
-      <button
-        className={clsx('nhsuk-header__menu-toggle', className)}
-        aria-label="Open menu"
-        aria-expanded={menuOpen ? 'true' : 'false'}
-        onClick={onToggleClick}
-        {...rest}
-      >
-        Menu
-      </button>
-    </div>
-  )
-}
-
 const HeaderContainer: React.FC<ComponentProps<typeof Container>> = ({
   children,
   className,
@@ -233,20 +231,22 @@ const HeaderContent: React.FC<HeaderContentProps> = ({
   id = 'content-header',
   ...rest
 }): JSX.Element => {
-  const { searchOpen } = useHeaderContext()
   return (
-    <div
-      className={clsx(
-        'nhsuk-header__content',
-        { 'js-show': searchOpen },
-        className,
-      )}
-      id={id}
-      {...rest}
-    >
+    <div className={clsx('nhsuk-header__content', className)} id={id} {...rest}>
       {children}
     </div>
   )
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+const debounce = (func: Function, timeout = 100) => {
+  let timer: number
+  return (...args: unknown[]) => {
+    clearTimeout(timer)
+    timer = window.setTimeout(() => {
+      func.apply(this, args)
+    }, timeout)
+  }
 }
 
 const HeaderNav: React.FC<HeaderNavProps> = ({
@@ -255,61 +255,220 @@ const HeaderNav: React.FC<HeaderNavProps> = ({
   open,
   role = 'navigation',
   containerProps = {},
+  listProps = {},
+  moreToggleProps = {
+    visuallyHiddenText: 'Browse',
+    label: 'More',
+  },
   ...rest
 }): JSX.Element => {
-  const { menuOpen, toggleMenu } = useHeaderContext()
+  const { className: containerClassName, ...restContainerProps } =
+    containerProps
+  const { className: listClassName, ...restListProps } = listProps
+
+  const navigationRef = useRef<HTMLDivElement>(null)
+
+  const [breakpoints, setBreakpoints] = useState<number[]>([])
+  const [availableWidth, setAvailableWidth] = useState<number>(0)
+  const [dropdownHeight, setDropdownHeight] = useState<number>(0)
+  const [expanded, setExpanded] = useState<boolean>(false)
+
+  const items = React.Children.toArray(children).filter(
+    (child) => React.isValidElement(child) && child.type === NavItem,
+  ) as ReactElement<NavItemProps>[]
+
+  const calculateBreakpoints = () => {
+    const links = Array.from<HTMLLIElement>(
+      navigationRef.current?.querySelectorAll(
+        '.nhsuk-header__navigation-item',
+      ) ?? [],
+    )
+
+    links?.reduce((acc, item) => {
+      acc += item.offsetWidth
+
+      setBreakpoints((prev) => {
+        return [...prev, acc]
+      })
+
+      return acc
+    }, 0)
+  }
+
+  const updateAvailableWidth = () => {
+    const width = navigationRef.current?.offsetWidth ?? 0
+
+    const moreToggleWidth =
+      (
+        navigationRef.current?.querySelector(
+          '.nhsuk-mobile-menu-container',
+        ) as HTMLLIElement
+      )?.offsetWidth ?? 0
+
+    setAvailableWidth(width - moreToggleWidth)
+  }
+
+  const handleResize = debounce(() => {
+    updateAvailableWidth()
+  })
+
+  useEffect(() => {
+    calculateBreakpoints()
+    updateAvailableWidth()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
-    <nav
-      className={clsx(
-        'nhsuk-header__navigation',
-        {
-          'js-show': open ?? menuOpen,
-        },
-        className,
-      )}
-      aria-label="Primary navigation"
-      aria-labelledby="label-navigation"
-      role={role}
-      {...rest}
+    <div
+      className={clsx('nhsuk-navigation-container', containerClassName)}
+      {...restContainerProps}
     >
-      <Container {...containerProps}>
-        <p className="nhsuk-header__navigation-title">
-          <span id="label-navigation">Menu</span>
-          <button
-            className="nhsuk-header__navigation-close"
-            id="close-menu"
-            onClick={toggleMenu}
+      <nav
+        className={clsx('nhsuk-navigation', 'js-enabled', className)}
+        aria-label="Primary navigation"
+        role={role}
+        {...rest}
+        ref={navigationRef}
+      >
+        <ul
+          className={clsx('nhsuk-header__navigation-list', listClassName)}
+          {...restListProps}
+        >
+          <HeaderNavContext.Provider
+            value={{
+              breakpoints,
+              setBreakpoints,
+              availableWidth,
+              setAvailableWidth,
+              dropdownHeight,
+              setDropdownHeight,
+              expanded,
+              setExpanded,
+            }}
           >
-            <CloseIcon />
-            <span className="nhsuk-u-visually-hidden">Close menu</span>
-          </button>
-        </p>
-        <ul className="nhsuk-header__navigation-list">{children}</ul>
-      </Container>
-    </nav>
+            {items.map((item, index) => {
+              return React.cloneElement(item, {
+                __navIndex: index,
+                __mobileMenu: false,
+              })
+            })}
+
+            <NavMoreToggle {...moreToggleProps}>
+              {items.map((item, index) => {
+                return React.cloneElement(item, {
+                  __navIndex: index,
+                  __mobileMenu: true,
+                })
+              })}
+            </NavMoreToggle>
+          </HeaderNavContext.Provider>
+        </ul>
+      </nav>
+    </div>
   )
 }
 
 const NavItem: React.FC<NavItemProps> = ({
   children,
   className,
-  mobileOnly,
   asElement: Component = 'a',
+  __navIndex,
+  __mobileMenu,
   ...rest
-}): JSX.Element => {
-  return (
-    <li
-      className={clsx(
-        'nhsuk-header__navigation-item',
-        { 'nhsuk-header__navigation-item--for-mobile': mobileOnly },
-        className,
-      )}
-    >
+}) => {
+  const { breakpoints, availableWidth } = useHeaderNavContext()
+  const [visible, setVisible] = useState<boolean>(true)
+
+  useEffect(() => {
+    if (
+      __navIndex === undefined ||
+      __mobileMenu === undefined ||
+      !availableWidth
+    ) {
+      return
+    }
+
+    if (__mobileMenu) {
+      setVisible(breakpoints[__navIndex] > availableWidth)
+
+      return
+    }
+
+    setVisible(breakpoints[__navIndex] < availableWidth)
+  }, [breakpoints, availableWidth, __navIndex, __mobileMenu])
+
+  return visible ? (
+    <li className={clsx('nhsuk-header__navigation-item', className)}>
       <Component className="nhsuk-header__navigation-link" {...rest}>
         {children}
-        <ChevronRightIcon />
       </Component>
+    </li>
+  ) : null
+}
+
+const NavMoreToggle: React.FC<NavMoreToggleProps> = ({
+  visible,
+  visuallyHiddenText,
+  children,
+  label,
+  className,
+  type = 'button',
+  ...rest
+}) => {
+  const {
+    availableWidth,
+    breakpoints,
+    setDropdownHeight,
+    expanded,
+    setExpanded,
+  } = useHeaderNavContext()
+
+  const ulRef = useRef<HTMLUListElement>(null)
+
+  useEffect(() => {
+    if (ulRef.current && expanded) {
+      setDropdownHeight(ulRef.current.offsetHeight)
+
+      return
+    }
+
+    setDropdownHeight(0)
+    setExpanded(false)
+  }, [ulRef, expanded, setDropdownHeight, setExpanded])
+
+  return availableWidth > breakpoints[breakpoints.length - 1] ? null : (
+    <li className="nhsuk-mobile-menu-container nhsuk-mobile-menu-container--visible">
+      <button
+        className="nhsuk-header__menu-toggle nhsuk-header__navigation-link nhsuk-header__menu-toggle--visible"
+        aria-expanded={expanded}
+        {...rest}
+        onClick={() => setExpanded(!expanded)}
+      >
+        <span className="nhsuk-u-visually-hidden">{visuallyHiddenText}</span>
+        {label}
+        <svg
+          className="nhsuk-icon nhsuk-icon__chevron-down"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+        </svg>
+      </button>
+      <ul
+        className={clsx('nhsuk-header__drop-down', {
+          'nhsuk-header__drop-down--hidden': !expanded,
+        })}
+        ref={ulRef}
+      >
+        {children}
+      </ul>
     </li>
   )
 }
@@ -329,32 +488,9 @@ const Search: React.FC<SearchProps> = ({
   closeProps = {},
   ...rest
 }): JSX.Element => {
-  const { toggleSearch, setHasSearch, searchOpen } = useHeaderContext()
-
-  useEffect(() => {
-    setHasSearch(true)
-
-    return () => setHasSearch(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   return (
     <div className={clsx('nhsuk-header__search', className)}>
-      <button
-        className={clsx('nhsuk-header__search-toggle', {
-          'is-active': searchOpen,
-        })}
-        onClick={toggleSearch}
-        {...toggleProps}
-      >
-        <span className="nhsuk-u-visually-hidden">{visuallyHiddenText}</span>
-        <SearchIcon />
-      </button>
-      <div
-        className={clsx('nhsuk-header__search-wrap', {
-          'js-show': searchOpen,
-        })}
-      >
+      <div className="nhsuk-header__search-wrap">
         <form
           className="nhsuk-header__search-form"
           action={action}
@@ -369,25 +505,16 @@ const Search: React.FC<SearchProps> = ({
             id={id}
             type={type}
             placeholder={placeholder}
-            autoComplete={autoComplete}
+            autoComplete="off"
             {...rest}
           />
           <button
             className="nhsuk-search__submit"
             type="submit"
-            aria-label="Submit search"
             {...submitProps}
           >
             <SearchIcon />
-          </button>
-          <button
-            className="nhsuk-search__close"
-            type="button"
-            onClick={toggleSearch}
-            {...closeProps}
-          >
-            <CloseIcon />
-            <span className="nhsuk-u-visually-hidden">Close search</span>
+            <span className="nhsuk-u-visually-hidden">Search</span>
           </button>
         </form>
       </div>
@@ -408,11 +535,11 @@ const Search: React.FC<SearchProps> = ({
  *  <Header.Container>
  *   <Header.Logo href="/" />
  *   <Header.Content>
- *    <Header.MenuToggle />
+ *    <Header.Search />
  *   </Header.Content>
  *  </Header.Container>
  *  <Header.Nav>
- *   <Header.NavItem mobileOnly href="/">Home</Header.NavItem>
+ *   <Header.NavItem href="/">Home</Header.NavItem>
  *   <Header.NavItem href="/service-one">Service one</Header.NavItem>
  *   <Header.NavItem href="/service-two">Service two</Header.NavItem>
  *  </Header.Nav>
@@ -431,10 +558,6 @@ const Header: Header = ({
   white,
   ...rest
 }): JSX.Element => {
-  const [hasMenuToggle, setHasMenuToggle] = useState<boolean>(false)
-  const [menuOpen, toggleMenu] = useState<boolean>(false)
-  const [searchOpen, toggleSearch] = useState<boolean>(false)
-  const [hasSearch, setHasSearch] = useState<boolean>(false)
   const [hasTransactionalLink, setHasTransactionalLink] =
     useState<boolean>(false)
 
@@ -444,16 +567,8 @@ const Header: Header = ({
     orgDescriptor,
     serviceName,
     transactional: transactional ?? false,
-    hasSearch,
-    searchOpen,
-    menuOpen,
-    hasMenuToggle,
     hasTransactionalLink,
     setHasTransactionalLink,
-    setHasMenuToggle,
-    setHasSearch,
-    toggleMenu: () => toggleMenu(!menuOpen),
-    toggleSearch: () => toggleSearch(!searchOpen),
   }
 
   return (
@@ -478,7 +593,6 @@ const Header: Header = ({
 Header.Container = HeaderContainer
 Header.Logo = Logo
 Header.TransactionalLink = TransactionalServiceName
-Header.MenuToggle = MenuToggle
 Header.Content = HeaderContent
 Header.Nav = HeaderNav
 Header.NavItem = NavItem
@@ -488,7 +602,6 @@ Header.displayName = 'Header'
 HeaderContainer.displayName = 'Header.Container'
 Logo.displayName = 'Header.Logo'
 TransactionalServiceName.displayName = 'Header.TransactionalLink'
-MenuToggle.displayName = 'Header.MenuToggle'
 HeaderContent.displayName = 'Header.Content'
 HeaderNav.displayName = 'Header.Nav'
 NavItem.displayName = 'Header.NavItem'
