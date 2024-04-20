@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2.0.0](https://github.com/rowellx68/nhs-components/compare/2.0.0-beta.0...2.0.0) (2024-04-20)
+
+
+### Features
+
+* implement v8 header ([af64dd1](https://github.com/rowellx68/nhs-components/commit/af64dd188ac40dd47be6ac8302688668d6519323))
+
 ## [2.0.0-beta.0](https://github.com/rowellx68/nhs-components/compare/1.0.1...2.0.0-beta.0) (2023-12-06)
 
 
