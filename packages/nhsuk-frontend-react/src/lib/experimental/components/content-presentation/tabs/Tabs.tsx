@@ -82,7 +82,10 @@ const TabListItem: React.FC<TabListItemProps> = ({
         href={`#${_targetId}`}
         aria-controls={_targetId}
         {...rest}
-        onClick={() => setSelectedTab(_targetId!)}
+        onClick={() => {
+          // @typescript-eslint/no-non-null-assertion
+          setSelectedTab(_targetId!)
+        }}
       >
         {children}
       </a>

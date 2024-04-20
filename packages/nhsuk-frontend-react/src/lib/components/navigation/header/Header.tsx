@@ -93,13 +93,17 @@ type HeaderNavContextValue = {
 
 const HeaderNavContext = createContext<HeaderNavContextValue>({
   breakpoints: [],
-  setBreakpoints: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setBreakpoints: /* istanbul ignore next */ () => {},
   availableWidth: 0,
-  setAvailableWidth: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setAvailableWidth: /* istanbul ignore next */ () => {},
   dropdownHeight: 0,
-  setDropdownHeight: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setDropdownHeight: /* istanbul ignore next */ () => {},
   expanded: false,
-  setExpanded: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setExpanded: /* istanbul ignore next */ () => {},
 })
 
 HeaderNavContext.displayName = 'HeaderNavContext'
@@ -321,6 +325,7 @@ const HeaderNav: React.FC<HeaderNavProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

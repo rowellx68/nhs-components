@@ -7,7 +7,8 @@ type TabsContextValue = {
 
 export const TabsContext = createContext<TabsContextValue>({
   selectedTab: '',
-  setSelectedTab: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setSelectedTab: /* istanbul ignore next */ () => {},
 })
 
 TabsContext.displayName = 'TabsContext'

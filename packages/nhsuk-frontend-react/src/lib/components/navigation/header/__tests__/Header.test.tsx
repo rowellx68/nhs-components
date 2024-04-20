@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from '@/utils/test-utils'
+import { render, screen } from '@/utils/test-utils'
 import { describe, expect, test } from 'vitest'
 
 import Header from '..'
@@ -17,12 +17,9 @@ describe('Header', () => {
         >
           <Header.Container>
             <Header.Logo />
-            <Header.Content>
-              <Header.MenuToggle />
-            </Header.Content>
           </Header.Container>
           <Header.Nav>
-            <Header.NavItem mobileOnly href="#">
+            <Header.NavItem href="#">
               Home
             </Header.NavItem>
             <Header.NavItem href="#">Get involved</Header.NavItem>
@@ -35,84 +32,6 @@ describe('Header', () => {
       expect(screen.getByTestId('header')).toMatchSnapshot()
     },
   )
-
-  test('should match the snapshot - menu', async () => {
-    const container = document.createElement('div')
-    container.style.width = '414px'
-    container.style.height = '896px'
-
-    render(
-      <Header
-        data-testid="header"
-        orgName="Anytown Anyplace"
-        orgSplit="Anywhere"
-        orgDescriptor="NHS Foundation Trust"
-      >
-        <Header.Container>
-          <Header.Logo />
-          <Header.Content>
-            <Header.MenuToggle data-testid="menu-toggle" />
-          </Header.Content>
-        </Header.Container>
-        <Header.Nav>
-          <Header.NavItem mobileOnly href="#">
-            Home
-          </Header.NavItem>
-          <Header.NavItem href="#">Get involved</Header.NavItem>
-          <Header.NavItem href="#">About us</Header.NavItem>
-          <Header.NavItem href="#">About us</Header.NavItem>
-        </Header.Nav>
-      </Header>,
-      { container: document.body.appendChild(container) },
-    )
-
-    await userEvent.click(screen.getByTestId('menu-toggle'))
-    await userEvent.click(screen.getByTestId('menu-toggle'))
-
-    expect(screen.getByTestId('header')).toMatchSnapshot()
-  })
-
-  test('should match the snapshot - image', async () => {
-    const container = document.createElement('div')
-    container.style.width = '414px'
-    container.style.height = '896px'
-
-    render(
-      <Header
-        data-testid="header"
-        orgName="Anytown Anyplace"
-        orgSplit="Anywhere"
-        orgDescriptor="NHS Foundation Trust"
-      >
-        <Header.Container>
-          <Header.Logo
-            image={{
-              src: 'nhsuk-75.png',
-              className: 'custom',
-              alt: 'Celebrating 75 years of NHS',
-            }}
-          />
-          <Header.Content>
-            <Header.MenuToggle data-testid="menu-toggle" />
-          </Header.Content>
-        </Header.Container>
-        <Header.Nav>
-          <Header.NavItem mobileOnly href="#">
-            Home
-          </Header.NavItem>
-          <Header.NavItem href="#">Get involved</Header.NavItem>
-          <Header.NavItem href="#">About us</Header.NavItem>
-          <Header.NavItem href="#">About us</Header.NavItem>
-        </Header.Nav>
-      </Header>,
-      { container: document.body.appendChild(container) },
-    )
-
-    await userEvent.click(screen.getByTestId('menu-toggle'))
-    await userEvent.click(screen.getByTestId('menu-toggle'))
-
-    expect(screen.getByTestId('header')).toMatchSnapshot()
-  })
 
   test('should match the snapshot - search', async () => {
     const container = document.createElement('div')
@@ -129,7 +48,6 @@ describe('Header', () => {
         <Header.Container>
           <Header.Logo />
           <Header.Content>
-            <Header.MenuToggle />
             <Header.Search
               data-testid="search"
               toggleProps={{ 'data-testid': 'search-toggle' }}
@@ -138,7 +56,7 @@ describe('Header', () => {
           </Header.Content>
         </Header.Container>
         <Header.Nav>
-          <Header.NavItem mobileOnly href="#">
+          <Header.NavItem href="#">
             Home
           </Header.NavItem>
           <Header.NavItem href="#">Get involved</Header.NavItem>
@@ -148,10 +66,6 @@ describe('Header', () => {
       </Header>,
       { container: document.body.appendChild(container) },
     )
-
-    await userEvent.click(screen.getByTestId('search-toggle'))
-    await userEvent.type(screen.getByTestId('search'), 'test')
-    await userEvent.click(screen.getByTestId('search-close'))
 
     expect(screen.getByTestId('header')).toMatchSnapshot()
   })
