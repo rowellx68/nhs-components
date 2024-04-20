@@ -1,4 +1,4 @@
-import React, { HTMLProps, ReactNode } from 'react';
+import React, { HTMLProps, ReactNode } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type WithInternalProps = {
     _responsiveHeading?: string;
 };

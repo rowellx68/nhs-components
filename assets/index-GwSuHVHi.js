@@ -1,0 +1,12 @@
+import{E as e}from"./ErrorMessage-qXgaBtKk.js";e.__docgenInfo={description:`Use an error message when there is a validation error. Explain what went wrong and how to fix it.
+
+For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/error-message).
+
+
+@param {string} [props.className] - Optional additional className to add to the component.
+@param {string} [props.visuallyHiddenText] - Visually hidden text for screen readers. Defaults to 'Error'.
+
+@example
+\`\`\`tsx
+<ErrorMessage>Example error message</ErrorMessage>
+\`\`\``,methods:[],displayName:"ErrorMessage",props:{visuallyHiddenText:{defaultValue:{value:"'Error'",computed:!1},required:!1}}};

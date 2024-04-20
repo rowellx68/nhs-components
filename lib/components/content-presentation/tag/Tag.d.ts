@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react';
+import { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 export type TagColour = 'white' | 'grey' | 'green' | 'aqua-green' | 'blue' | 'purple' | 'pink' | 'red' | 'orange' | 'yellow';
 type TagProps = {
     colour?: TagColour;

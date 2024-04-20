@@ -1,5 +1,5 @@
 import { FormElementProps } from '../../../types/form-element-types';
-import { ChangeEvent, HTMLProps } from 'react';
+import { ChangeEvent, HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 import { LabelProps } from '../../../components/core/label/Label';
 export type DateInputPart = 'day' | 'month' | 'year';
 export type DateInputValue = {
@@ -31,9 +31,9 @@ type DateInput = {
     Month: typeof Month;
     Year: typeof Year;
 } & React.FC<DateInputProps>;
-declare const Day: import("react").ForwardRefExoticComponent<Omit<DatePartProps, "ref" | "part"> & import("react").RefAttributes<HTMLInputElement>>;
-declare const Month: import("react").ForwardRefExoticComponent<Omit<DatePartProps, "ref" | "part"> & import("react").RefAttributes<HTMLInputElement>>;
-declare const Year: import("react").ForwardRefExoticComponent<Omit<DatePartProps, "ref" | "part"> & import("react").RefAttributes<HTMLInputElement>>;
+declare const Day: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<DatePartProps, "ref" | "part"> & import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLInputElement>>;
+declare const Month: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<DatePartProps, "ref" | "part"> & import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLInputElement>>;
+declare const Year: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<DatePartProps, "ref" | "part"> & import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLInputElement>>;
 /**
  * Use date input to help users enter a memorable date, like their date of birth.
  *

@@ -1,0 +1,1 @@
+import{j as a}from"./jsx-runtime-DRTy3Uxn.js";import{c as e}from"./clsx-CH7BE6MN.js";const n=({children:i,className:o,fluid:s,...t})=>a.jsx("div",{className:e("nhsuk-width-container",{"nhsuk-width-container-fluid":s},o),...t,children:i});n.displayName="Container";n.__docgenInfo={description:"",methods:[],displayName:"Container"};export{n as C};

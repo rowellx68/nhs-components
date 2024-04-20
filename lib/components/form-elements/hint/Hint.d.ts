@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react';
+import { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 /**
  * Use hint text to help users understand a question.
  *

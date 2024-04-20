@@ -1,5 +1,5 @@
 import { FormElementProps } from '../../../types/form-element-types';
-import { ForwardRefExoticComponent, ForwardRefRenderFunction, HTMLProps, RefAttributes } from 'react';
+import { ForwardRefExoticComponent, ForwardRefRenderFunction, HTMLProps, RefAttributes } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type Select = {
     Option: React.FC<OptionProps>;
 } & ForwardRefExoticComponent<Omit<SelectProps, 'ref'>> & RefAttributes<HTMLSelectElement>;

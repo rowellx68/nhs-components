@@ -1,5 +1,5 @@
 import { AsElementLink } from '../../../types/link-like';
-import { HTMLProps, ForwardRefRenderFunction, ForwardRefExoticComponent, PropsWithoutRef, RefAttributes } from 'react';
+import { HTMLProps, ForwardRefRenderFunction, ForwardRefExoticComponent, PropsWithoutRef, RefAttributes } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type ErrorSummary = {
     Title: typeof ErrorSummaryTitle;
     Body: typeof ErrorSummaryBody;

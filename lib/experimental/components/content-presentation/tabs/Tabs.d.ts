@@ -1,4 +1,4 @@
-import React, { HTMLProps, PropsWithChildren } from 'react';
+import React, { HTMLProps, PropsWithChildren } from '../../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type TabsProps = {
     title?: string;
     titleProps?: HTMLProps<HTMLHeadingElement>;

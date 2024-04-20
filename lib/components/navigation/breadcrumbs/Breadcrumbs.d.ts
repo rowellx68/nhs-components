@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import React, { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 import { AsElementLink } from '../../../types/link-like';
 type BreadcrumbItem = React.FC<AsElementLink<HTMLAnchorElement>>;
 type BreadcrumbBackItem = React.FC<AsElementLink<HTMLAnchorElement>>;

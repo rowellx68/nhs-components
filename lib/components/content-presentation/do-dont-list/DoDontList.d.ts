@@ -1,5 +1,5 @@
 import { AsElementHeadingProps } from '../../../types/heading';
-import { HTMLProps } from 'react';
+import { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 export type DoDontListType = 'do' | 'dont';
 type DoDontListItemProps = HTMLProps<HTMLLIElement>;
 type HeadingProps = AsElementHeadingProps & HTMLProps<HTMLHeadingElement>;

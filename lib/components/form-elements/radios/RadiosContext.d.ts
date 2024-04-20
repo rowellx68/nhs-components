@@ -21,6 +21,6 @@ export type RadiosContextValue = {
     leaseReference: () => string;
     releaseReference: (reference: string) => void;
 };
-declare const RadiosContext: import("react").Context<RadiosContextValue>;
+declare const RadiosContext: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').Context<RadiosContextValue>;
 export declare const useRadiosContext: () => RadiosContextValue;
 export default RadiosContext;

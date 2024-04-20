@@ -1,5 +1,5 @@
 import { AsElementLink } from '../../../types/link-like';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type BaseButtonProps = {
     disabled?: boolean;
     secondary?: boolean;

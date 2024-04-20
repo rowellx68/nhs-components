@@ -1,11 +1,11 @@
-import React, { ComponentProps, HTMLProps, PropsWithChildren } from 'react';
+import React, { ComponentProps, HTMLProps, PropsWithChildren } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 import { AsElementLink } from '../../../types/link-like';
 import Container from '../../../components/core/container';
+import { VisuallyHiddenProps } from '../../../types/visually-hidden';
 type Header = {
     Logo: typeof Logo;
     TransactionalLink: typeof TransactionalServiceName;
     Container: typeof HeaderContainer;
-    MenuToggle: typeof MenuToggle;
     Content: typeof HeaderContent;
     Nav: typeof HeaderNav;
     NavItem: typeof NavItem;
@@ -19,18 +19,18 @@ type HeaderProps = Partial<{
     serviceName: string;
     white: boolean;
 }> & HTMLProps<HTMLDivElement> & PropsWithChildren;
-type MenuToggleProps = {
-    type?: 'button' | 'submit' | 'reset';
-} & Omit<HTMLProps<HTMLButtonElement>, 'children'>;
 type LogoProps = {
     image?: HTMLProps<HTMLImageElement>;
 } & Omit<AsElementLink<HTMLAnchorElement>, 'children'>;
 type HeaderNavProps = {
-    containerProps?: ComponentProps<typeof Container>;
+    containerProps?: HTMLProps<HTMLDivElement>;
+    listProps?: HTMLProps<HTMLUListElement>;
+    moreToggleProps?: Omit<NavMoreToggleProps, 'visible' | 'expanded'>;
 } & HTMLProps<HTMLDivElement> & PropsWithChildren;
-type NavItemProps = {
-    mobileOnly?: boolean;
-} & AsElementLink<HTMLAnchorElement> & PropsWithChildren;
+type NavItemProps = AsElementLink<HTMLAnchorElement> & PropsWithChildren & {
+    __navIndex?: number;
+    __mobileMenu?: boolean;
+};
 type HeaderContentProps = HTMLProps<HTMLDivElement> & PropsWithChildren;
 type ButtonToggleProps = {
     'data-testid'?: string;
@@ -41,9 +41,23 @@ type SearchProps = {
     submitProps?: ButtonToggleProps;
     closeProps?: ButtonToggleProps;
 } & Omit<HTMLProps<HTMLInputElement>, 'children'>;
+type NavMoreToggleProps = {
+    visible?: boolean;
+    label: string;
+} & HTMLProps<HTMLButtonElement> & Partial<VisuallyHiddenProps>;
+type HeaderNavContextValue = {
+    breakpoints: number[];
+    setBreakpoints: (breakpoints: number[]) => void;
+    availableWidth: number;
+    setAvailableWidth: (width: number) => void;
+    dropdownHeight: number;
+    setDropdownHeight: (height: number) => void;
+    expanded: boolean;
+    setExpanded: (expanded: boolean) => void;
+};
+export declare const useHeaderNavContext: () => HeaderNavContextValue;
 declare const Logo: React.FC<LogoProps>;
 declare const TransactionalServiceName: React.FC<Omit<AsElementLink<HTMLAnchorElement>, 'children'>>;
-declare const MenuToggle: React.FC<MenuToggleProps>;
 declare const HeaderContainer: React.FC<ComponentProps<typeof Container>>;
 declare const HeaderContent: React.FC<HeaderContentProps>;
 declare const HeaderNav: React.FC<HeaderNavProps>;
@@ -62,11 +76,11 @@ declare const Search: React.FC<SearchProps>;
  *  <Header.Container>
  *   <Header.Logo href="/" />
  *   <Header.Content>
- *    <Header.MenuToggle />
+ *    <Header.Search />
  *   </Header.Content>
  *  </Header.Container>
  *  <Header.Nav>
- *   <Header.NavItem mobileOnly href="/">Home</Header.NavItem>
+ *   <Header.NavItem href="/">Home</Header.NavItem>
  *   <Header.NavItem href="/service-one">Service one</Header.NavItem>
  *   <Header.NavItem href="/service-two">Service two</Header.NavItem>
  *  </Header.Nav>

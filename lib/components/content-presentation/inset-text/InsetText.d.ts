@@ -1,4 +1,4 @@
-import { HTMLProps } from 'react';
+import { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 import { VisuallyHiddenProps } from '../../../types/visually-hidden';
 type InsetProps = HTMLProps<HTMLDivElement> & Partial<VisuallyHiddenProps>;
 /**

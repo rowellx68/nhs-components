@@ -1,5 +1,5 @@
 import { FormElementProps } from '../../../types/form-element-types';
-import { HTMLProps } from 'react';
+import { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type TextareaProps = Omit<HTMLProps<HTMLTextAreaElement>, 'width'> & FormElementProps;
 /**
  * Use textarea to let users enter more than 1 line of text.
@@ -14,5 +14,5 @@ type TextareaProps = Omit<HTMLProps<HTMLTextAreaElement>, 'width'> & FormElement
  * <Textarea id="example" label="Example" />
  * ```
  */
-declare const TextareaForwardRef: import("react").ForwardRefExoticComponent<Omit<TextareaProps, "ref"> & import("react").RefAttributes<HTMLTextAreaElement>>;
+declare const TextareaForwardRef: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<TextareaProps, "ref"> & import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLTextAreaElement>>;
 export default TextareaForwardRef;

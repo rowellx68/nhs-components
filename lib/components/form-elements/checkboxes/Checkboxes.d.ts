@@ -1,5 +1,5 @@
 import { FormElementProps } from '../../../types/form-element-types';
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLProps, ReactNode } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type Checkboxes = {
     Box: typeof BoxForwardRef;
 } & React.FC<CheckboxContainerProps>;
@@ -19,7 +19,7 @@ type CheckboxProps = {
  * <Checkboxes.Box value="GP Practice">GP Practice</Checkboxes.Box>
  * ```
  */
-declare const BoxForwardRef: import("react").ForwardRefExoticComponent<Omit<CheckboxProps, "ref"> & import("react").RefAttributes<HTMLInputElement>>;
+declare const BoxForwardRef: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<CheckboxProps, "ref"> & import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLInputElement>>;
 /**
  * Use checkboxes to let users select 1 or more options on a form.
  *

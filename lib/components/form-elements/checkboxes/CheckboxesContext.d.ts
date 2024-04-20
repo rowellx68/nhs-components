@@ -16,6 +16,6 @@ export type CheckboxesContextValue = {
     leaseReference: () => string;
     releaseReference: (reference: string) => void;
 };
-declare const CheckboxesContext: import("react").Context<CheckboxesContextValue>;
+declare const CheckboxesContext: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').Context<CheckboxesContextValue>;
 export declare const useCheckboxesContext: () => CheckboxesContextValue;
 export default CheckboxesContext;

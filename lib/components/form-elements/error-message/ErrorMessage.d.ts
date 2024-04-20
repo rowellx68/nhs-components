@@ -1,5 +1,5 @@
 import { VisuallyHiddenProps } from '../../../types/visually-hidden';
-import { HTMLProps } from 'react';
+import { HTMLProps } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 export type ErrorMessageProps = HTMLProps<HTMLSpanElement> & Partial<VisuallyHiddenProps>;
 /**
  * Use an error message when there is a validation error. Explain what went wrong and how to fix it.

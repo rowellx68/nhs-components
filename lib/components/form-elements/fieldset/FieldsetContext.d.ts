@@ -21,7 +21,7 @@ export type FieldsetContextValue = {
 /**
  * Context to pass the `FieldsetContextValue` to the `Fieldset` and `Fieldset.Legend` components.
  */
-declare const FieldsetContext: import("react").Context<FieldsetContextValue>;
+declare const FieldsetContext: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').Context<FieldsetContextValue>;
 /**
  * Hook to get the `FieldsetContext`.
  *

@@ -1,4 +1,0 @@
-import{j as s}from"./jsx-runtime-94f6e698.js";import{c as o}from"./clsx-1229b3e0.js";const l=({children:n,className:e,asElement:t="h3",visuallyHiddenText:r="Important",...i})=>s.jsxs(t,{className:o("nhsuk-warning-callout__label",e),...i,children:[s.jsx("span",{className:"nhsuk-u-visually-hidden",children:r}),n]}),a=({children:n,className:e,...t})=>s.jsx("div",{className:o("nhsuk-warning-callout",e),...t,children:n});a.displayName="WarningCallout";l.displayName="WarningCallout.Label";a.Label=l;try{a.displayName="WarningCallout",a.__docgenInfo={description:`Use a warning callout to help users identify and understand warning content on the page, even if they do not read the whole page.
-
-For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/warning-callout).`,displayName:"WarningCallout",props:{}}}catch{}export{a as W};
-//# sourceMappingURL=WarningCallout-aa793a7c.js.map

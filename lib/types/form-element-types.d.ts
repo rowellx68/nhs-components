@@ -1,6 +1,6 @@
 import { ErrorMessageProps } from '../components/form-elements/error-message/ErrorMessage';
 import { LabelProps } from '../components/core/label/Label';
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLProps, ReactNode } from '../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 export type FormElementProps = {
     label?: string;
     labelProps?: LabelProps;

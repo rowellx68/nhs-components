@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode } from 'react';
+import { HTMLProps, ReactNode } from '../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 import { FormElementProps } from '../../../types/form-element-types';
 type Radios = {
     Divider: typeof Divider;
@@ -27,7 +27,7 @@ declare const Divider: React.FC<HTMLProps<HTMLDivElement>>;
  * </Radios.Radio>
  * ```
  */
-declare const RadioForwardRef: import("react").ForwardRefExoticComponent<Omit<RadioProps, "ref"> & import("react").RefAttributes<HTMLInputElement>>;
+declare const RadioForwardRef: import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<RadioProps, "ref"> & import('../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLInputElement>>;
 /**
  * Use radios when you want users to select only 1 option from a list.
  *

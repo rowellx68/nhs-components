@@ -1,5 +1,5 @@
 import { FormElementProps } from '../../../../types/form-element-types';
-import { ForwardRefRenderFunction, HTMLProps } from 'react';
+import { ForwardRefRenderFunction, HTMLProps } from '../../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react';
 type CharacterCount = Omit<HTMLProps<HTMLTextAreaElement>, 'width'> & FormElementProps & {
     mode: 'word' | 'character';
     limit: number;
@@ -23,5 +23,5 @@ declare const CharacterCount: ForwardRefRenderFunction<HTMLTextAreaElement, Char
  * <CharacterCount  id="example" label="Example" />
  * ```
  */
-declare const CharacterCountForwardRef: import("react").ForwardRefExoticComponent<Omit<CharacterCount, "ref"> & import("react").RefAttributes<HTMLTextAreaElement>>;
+declare const CharacterCountForwardRef: import('../../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').ForwardRefExoticComponent<Omit<CharacterCount, "ref"> & import('../../../../../../../../node_modules/.pnpm/react@18.2.0/node_modules/react').RefAttributes<HTMLTextAreaElement>>;
 export default CharacterCountForwardRef;

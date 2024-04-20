@@ -1,4 +1,0 @@
-import{j as t}from"./jsx-runtime-94f6e698.js";import{F as x}from"./FormGroup-7a85a743.js";import{c}from"./clsx-1229b3e0.js";import{r as d}from"./index-8db94870.js";const e=(r,a)=>t.jsx(x,{...r,inputType:"textarea",render:({id:o,name:s,error:n,className:m,rows:p,...i})=>t.jsx("textarea",{id:o,name:s,className:c("nhsuk-textarea",{"nhsuk-textarea--error":n},m),ref:a,rows:p,...i})}),u=d.forwardRef(e);u.displayName="Textarea";try{e.displayName="Textarea",e.__docgenInfo={description:`Use textarea to let users enter more than 1 line of text.
-
-For more information on when to use this component, go to the [NHS Service Manuals website](https://service-manual.nhs.uk/design-system/components/textarea).`,displayName:"Textarea",props:{}}}catch{}export{u as T};
-//# sourceMappingURL=Textarea-7262c86d.js.map
