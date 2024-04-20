@@ -6,6 +6,7 @@ import dts from 'vite-plugin-dts'
 import * as path from 'path'
 
 export default defineConfig({
+  root: __dirname,
   cacheDir: '../../node_modules/.vite/nhsuk-frontend-react',
 
   plugins: [
@@ -32,12 +33,12 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
+    outDir: '../../dist/packages/nhsuk-frontend-react',
+    reportCompressedSize: true,
+    commonjsOptions: { transformMixedEsModules: true },
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: [
-        'src/index.ts',
-        'src/experimental.ts',
-      ],
+      entry: ['src/index.ts', 'src/experimental.ts'],
       name: 'nhsuk-frontend-react',
       fileName: (format, entryName) => {
         return `${entryName}.${format === 'es' ? 'mjs' : 'js'}`
@@ -53,6 +54,11 @@ export default defineConfig({
   },
 
   test: {
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '../../coverage/packages/nhsuk-frontend-react',
+      provider: 'v8',
+    },
     globals: true,
     cache: {
       dir: '../../node_modules/.vitest',

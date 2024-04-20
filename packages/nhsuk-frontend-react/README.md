@@ -13,7 +13,7 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 ## Requirements
 
-- [nhsuk-frontend v7+](https://github.com/nhsuk/nhsuk-frontend)
+- [nhsuk-frontend v8+](https://github.com/nhsuk/nhsuk-frontend)
 - [React v18+](https://reactjs.org/)
 
 ## Installation
