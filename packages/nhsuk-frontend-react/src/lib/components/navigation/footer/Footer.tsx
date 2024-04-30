@@ -8,6 +8,7 @@ import { VisuallyHiddenProps } from '@/types/visually-hidden'
 
 type FooterProps = {
   containerProps?: ContainerProps
+  footerContainerProps?: HTMLProps<HTMLDivElement>
   footerProps?: HTMLProps<HTMLDivElement>
 } & HTMLProps<HTMLDivElement> &
   Partial<VisuallyHiddenProps>
@@ -74,18 +75,23 @@ const Footer: Footer = ({
   children,
   className,
   containerProps,
+  footerContainerProps,
   footerProps = { role: 'contentinfo' },
   visuallyHiddenText = 'Support links',
   ...rest
 }): JSX.Element => {
+  const { className: footerContainerClassName, ...footerContainerRest } = footerContainerProps || {}
+
   return (
     <footer {...{ role: 'contentinfo', ...footerProps }}>
-      <div className={clsx('nhsuk-footer', className)} {...rest}>
+      <div className={clsx('nhsuk-footer-container', footerContainerClassName)} {...footerContainerRest}>
         <Container {...containerProps}>
-          {visuallyHiddenText && (
-            <h2 className="nhsuk-u-visually-hidden">{visuallyHiddenText}</h2>
-          )}
-          {children}
+          <div className={clsx('nhsuk-footer', className)} {...rest}>
+              {visuallyHiddenText && (
+                <h2 className="nhsuk-u-visually-hidden">{visuallyHiddenText}</h2>
+              )}
+              {children}
+          </div>
         </Container>
       </div>
     </footer>
@@ -95,6 +101,7 @@ const Footer: Footer = ({
 Footer.displayName = 'Footer'
 List.displayName = 'Footer.List'
 ListItem.displayName = 'Footer.ListItem'
+Copyright.displayName = 'Footer.Copyright'
 
 Footer.List = List
 Footer.ListItem = ListItem
