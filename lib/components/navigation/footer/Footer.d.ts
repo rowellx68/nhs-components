@@ -4,6 +4,7 @@ import { AsElementLink } from '../../../types/link-like';
 import { VisuallyHiddenProps } from '../../../types/visually-hidden';
 type FooterProps = {
     containerProps?: ContainerProps;
+    footerContainerProps?: HTMLProps<HTMLDivElement>;
     footerProps?: HTMLProps<HTMLDivElement>;
 } & HTMLProps<HTMLDivElement> & Partial<VisuallyHiddenProps>;
 type ListItemProps = {
