@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [2.0.1](https://github.com/rowellx68/nhs-components/compare/2.0.0...2.0.1) (2024-04-30)
+
+
+### Bug Fixes
+
+* update footer structure ([0d35602](https://github.com/rowellx68/nhs-components/commit/0d35602a3fd028c6bce20fd711d8a94fec7aaf44))
+
 ## [2.0.0](https://github.com/rowellx68/nhs-components/compare/2.0.0-beta.0...2.0.0) (2024-04-20)
 
 
