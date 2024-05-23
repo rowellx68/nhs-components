@@ -1,0 +1,308 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the Checkbox component 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <fieldset
+      aria-labelledby="checkboxes_:r0:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend nhsuk-fieldset__legend--l"
+        for="checkboxes_:r0:"
+        id="checkboxes_:r0:--label"
+      >
+        <h1
+          class="nhsuk-fieldset__heading"
+        >
+          How would you like to be contacted?
+        </h1>
+      </legend>
+      <div
+        as="div"
+        class="nhsuk-checkboxes"
+        id="checkboxes_:r0:"
+      >
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            id="checkbox-item_:r2:"
+            type="checkbox"
+            value="email"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:r2:"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            id="checkbox-item_:r5:"
+            type="checkbox"
+            value="phone"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:r5:"
+          >
+            Phone
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            id="checkbox-item_:r8:"
+            type="checkbox"
+            value="sms"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:r8:"
+          >
+            Text message
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`should render the Checkbox with conditional content 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <fieldset
+      aria-describedby="hintId"
+      aria-labelledby="checkboxes_:rp:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend nhsuk-fieldset__legend--l"
+        for="checkboxes_:rp:"
+        id="checkboxes_:rp:--label"
+      >
+        <h1
+          class="nhsuk-fieldset__heading"
+        >
+          How would you like to be contacted?
+        </h1>
+      </legend>
+      <div
+        class="nhsuk-hint"
+        id="checkboxes_:rp:_:rq:--hint"
+      >
+        Select all options that are relevant to you.
+      </div>
+      <div
+        as="div"
+        class="nhsuk-checkboxes nhsuk-checkboxes--conditional"
+        id="checkboxes_:rp:"
+      >
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            aria-controls="checkbox-item-conditional_:rt:"
+            aria-expanded="false"
+            class="nhsuk-checkboxes__input"
+            id="checkbox-item_:rr:"
+            type="checkbox"
+            value="email"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:rr:"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
+          id="checkbox-item-conditional_:rt:"
+        >
+          <input
+            type="email"
+          />
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            aria-controls="checkbox-item-conditional_:r10:"
+            aria-expanded="false"
+            class="nhsuk-checkboxes__input"
+            id="checkbox-item_:ru:"
+            type="checkbox"
+            value="phone"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:ru:"
+          >
+            Phone
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
+          id="checkbox-item-conditional_:r10:"
+        >
+          <input
+            type="tel"
+          />
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            aria-controls="checkbox-item-conditional_:r13:"
+            aria-expanded="false"
+            class="nhsuk-checkboxes__input"
+            id="checkbox-item_:r11:"
+            type="checkbox"
+            value="sms"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:r11:"
+          >
+            Text message
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
+          id="checkbox-item-conditional_:r13:"
+        >
+          <input
+            type="tel"
+          />
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`should render the Checkbox with exclusive option 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <fieldset
+      aria-describedby="hintId"
+      aria-labelledby="checkboxes_:rb:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend nhsuk-fieldset__legend--l"
+        for="checkboxes_:rb:"
+        id="checkboxes_:rb:--label"
+      >
+        <h1
+          class="nhsuk-fieldset__heading"
+        >
+          Do you have any of these symptoms?
+        </h1>
+      </legend>
+      <div
+        class="nhsuk-hint"
+        id="checkboxes_:rb:_:rc:--hint"
+      >
+        Select all the symptoms you have.
+      </div>
+      <div
+        as="div"
+        class="nhsuk-checkboxes"
+        id="checkboxes_:rb:"
+      >
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            data-checkbox-exclusive-group="symptoms-list"
+            id="checkbox-item_:rd:"
+            type="checkbox"
+            value="sore throat"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:rd:"
+          >
+            Sore throat
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            data-checkbox-exclusive-group="symptoms-list"
+            id="checkbox-item_:rg:"
+            type="checkbox"
+            value="runny nose"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:rg:"
+          >
+            Runny nose
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            data-checkbox-exclusive-group="symptoms-list"
+            id="checkbox-item_:rj:"
+            type="checkbox"
+            value="muscle or joint pain"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:rj:"
+          >
+            Muscle or joint pain
+          </label>
+        </div>
+        <div
+          class="nhsuk-checkboxes__divider"
+        >
+          or
+        </div>
+        <div
+          class="nhsuk-checkboxes__item"
+        >
+          <input
+            class="nhsuk-checkboxes__input"
+            data-checkbox-exclusive="true"
+            data-checkbox-exclusive-group="symptoms-list"
+            id="checkbox-item_:rm:"
+            type="checkbox"
+            value="none"
+          />
+          <label
+            class="nhsuk-label nhsuk-checkboxes__label"
+            for="checkbox-item_:rm:"
+          >
+            No, I do not have any of these symptoms
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;

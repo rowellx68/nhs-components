@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the CharacterCount component 1`] = `
+<div>
+  <div
+    class="nhsuk-character-count"
+    data-maxlength="10"
+    data-module="nhsuk-character-count"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="character-count"
+        id="character-count--label"
+      >
+        Character count
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="character-count_:r1:--hint"
+      >
+        This is a hint
+      </div>
+      <textarea
+        aria-describedby="hintId"
+        aria-labelledby="character-count--label"
+        as="textarea"
+        class="nhsuk-textarea nhsuk-js-character-count"
+        id="character-count"
+      />
+      <div
+        class="nhsuk-hint nhsuk-character-count__message"
+        id="character-count-info"
+      >
+        You have 10 characters remaining
+      </div>
+    </div>
+  </div>
+</div>
+`;

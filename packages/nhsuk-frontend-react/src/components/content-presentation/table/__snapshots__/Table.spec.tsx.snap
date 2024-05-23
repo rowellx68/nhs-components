@@ -1,0 +1,264 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render a three column table 1`] = `
+<div>
+  <table
+    class="nhsuk-table-responsive"
+  >
+    <caption
+      class="nhsuk-table__caption"
+    >
+      Ibuprofen tablet dosages for children
+    </caption>
+    <thead
+      class="nhsuk-table__head"
+      role="rowgroup"
+    >
+      <tr
+        class=""
+        role="row"
+      >
+        <th
+          data-responsive-heading="Age"
+          role="columnheader"
+          scope="col"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          />
+          Age
+        </th>
+        <th
+          data-responsive-heading="How much?"
+          role="columnheader"
+          scope="col"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          />
+          How much
+        </th>
+        <th
+          data-responsive-heading="How often?"
+          role="columnheader"
+          scope="col"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          />
+          How often
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="nhsuk-table__body"
+    >
+      <tr
+        class="nhsuk-table__row"
+        role="row"
+      >
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            Age
+          </span>
+          7 to 9 years
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            How much?
+          </span>
+          200mg
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            How often?
+          </span>
+          Max 3 times in 24 hours
+        </td>
+      </tr>
+      <tr
+        class="nhsuk-table__row"
+        role="row"
+      >
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            Age
+          </span>
+          10 to 11 years
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            How much?
+          </span>
+          200mg to 300mg
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            How often?
+          </span>
+          Max 3 times in 24 hours
+        </td>
+      </tr>
+      <tr
+        class="nhsuk-table__row"
+        role="row"
+      >
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            Age
+          </span>
+          12 to 17 years
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            How much?
+          </span>
+          200mg to 400mg
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          <span
+            class="nhsuk-table-responsive__heading"
+          >
+            How often?
+          </span>
+          Max 3 times in 24 hours
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`should render a two column table 1`] = `
+<div>
+  <table
+    class="nhsuk-table"
+  >
+    <caption
+      class="nhsuk-table__caption"
+    >
+      Skin symptoms and possible causes
+    </caption>
+    <thead
+      class="nhsuk-table__head"
+      role="rowgroup"
+    >
+      <tr
+        class=""
+        role="row"
+      >
+        <th
+          role="columnheader"
+          scope="col"
+        >
+          Skin symptoms
+        </th>
+        <th
+          role="columnheader"
+          scope="col"
+        >
+          Possible cause
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      class="nhsuk-table__body"
+    >
+      <tr
+        class="nhsuk-table__row"
+        role="row"
+      >
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          Blisters on lips or around the mouth
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          cold sores
+        </td>
+      </tr>
+      <tr
+        class="nhsuk-table__row"
+        role="row"
+      >
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          Itchy, dry, cracked, sore
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          eczema
+        </td>
+      </tr>
+      <tr
+        class="nhsuk-table__row"
+        role="row"
+      >
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          Red, scaly patches
+        </td>
+        <td
+          class="nhsuk-table__cell"
+          role="cell"
+        >
+          psoriasis
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

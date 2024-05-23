@@ -1,9 +1,9 @@
 name: Build and publish Storybook
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types:
+      - published
 
 permissions:
   contents: write
@@ -12,45 +12,27 @@ jobs:
   build_and_deploy_storybook:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-        uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: 18
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
+          version: 9
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: './pnpm-lock.yaml'
 
-      - name: Install dependencies
-        run: pnpm install
+      - run: pnpm install --frozen-lockfile
 
-      - name: Build Storybook
-        run: |
-          npx nx build-storybook nhsuk-frontend-react
-          touch dist/storybook/nhsuk-frontend-react/.nojekyll
+      - run: |
+          pnpm -F ./packages/nhsuk-frontend-react sb:build -o ./out-sb
+          touch ./packages/nhsuk-frontend-react/out-sb/.nojekyll
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/storybook/nhsuk-frontend-react
+          folder: ./packages/nhsuk-frontend-react/out-sb

@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the InsetText component 1`] = `
+<div>
+  <div
+    class="nhsuk-inset-text"
+  >
+    <span
+      class="nhsuk-u-visually-hidden"
+    >
+      Important: 
+    </span>
+    <p>
+      You can report any suspected side effect to the
+       
+      <a
+        href="https://yellowcard.mhra.gov.uk/"
+        title="External website"
+      >
+        UK safety scheme
+      </a>
+      .
+    </p>
+  </div>
+</div>
+`;

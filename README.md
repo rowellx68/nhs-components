@@ -1,87 +1,204 @@
-# NHS.UK Components React
+# `nhsuk-frontend-react`
+
+![MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![CI](https://img.shields.io/github/actions/workflow/status/rowellx68/nhs-components/publish.yml?style=flat-square&label=Build%20and%20Publish)
+<a href="https://www.npmjs.com/package/nhsuk-frontend-react">
+![NPM](https://img.shields.io/npm/v/nhsuk-frontend-react?style=flat-square&label=Version)
+</a>
 
 This is an unofficial React implementation of the [NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend) library. It is heavily inspired by [nhsuk-react-components](https://github.com/NHSDigital/nhsuk-react-components), originally written by [Thomas Judd-Cooper](https://github.com/Tomdangov) and [other contributors](https://github.com/NHSDigital/nhsuk-react-components/graphs/contributors).
 
-[![npm version](https://badge.fury.io/js/nhsuk-frontend-react.svg)](https://badge.fury.io/js/nhsuk-frontend-react) [![main branch](https://github.com/rowellx68/nhs-components/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/rowellx68/nhs-components/actions?query=branch%3Amain)
+This implementation supports the latest version of the NHS.UK Frontend library and is written in TypeScript. It is designed to be used with modern React applications and is compatible with Next.js and React Server Components.
 
-## Supported NHS.UK Frontend versions
+## Features
 
-| NHS.UK Frontend | NHS.UK Components React |
-| --------------- | ----------------------- |
-| v7              | `^1.0.0`                |
-| v8              | `^2.0.0`                |
+- Written in TypeScript
+- Polymorphic components for easy customisation
+- Compatible with Next.js and React Server Components
+- Supports the latest version of the NHS.UK Frontend library
+- Supports all components from the NHS.UK Frontend library
+
+## Polymorphic Components
+
+A few components in this library are polymorphic, meaning they can accept a different component as a prop. This is particularly useful when you want to use a custom component, say a `Link` component from a routing library, instead of the default `a` tag.
+
+Here is an example of how you can use a custom `Link` component with the `Header.Logo` component:
+
+```tsx
+import { Header, HeaderContainer, HeaderLogo } from 'nhsuk-frontend-react';
+import Link from 'next/link';
+
+export const AppHeader = () => (
+  <Header>
+    <HeaderContainer>
+      {/* Now HeaderLogo will have the same prop type as Link. That means that href is now required. */}
+      <HeaderLogo
+        as={Link}
+        href="/"
+        variant="logo-only"
+        aria-label="NHS homepage"
+      />
+    </HeaderContainer>
+  </Header>
+);
+```
+
+### Full List of Polymorphic Components
+
+<details>
+<summary>Click to expand</summary>
+
+- `DoDontList.Label`
+- `Figure.Image`
+- `SummaryList.Row.ActionLink`
+- `Tabs.Title`
+- `WarningCallout.Label`
+- `VisuallyHidden`
+- `Button`
+- `ErrorSummary.ListItem`
+- `Fieldset.Legend`
+- `ActionLink`
+- `BackLink`
+- `Breadcrumb.ListItem` and `Breadcrumb.BackLink`
+- `ContentList.ListItem`
+- `Footer.ListItem`
+- `Header.Logo`, `Header.TransactionLink` and `Header.NavItem`
+- `Pagination.Item`
+- `Heading`
+- `Link`
+
+</details>
 
 ## Requirements
 
-- [nhsuk-frontend v7+](https://github.com/nhsuk/nhsuk-frontend)
-- [React v18+](https://reactjs.org/)
+- [nhsuk-frontend v8+](https://github.com/nhsuk/nhsuk-frontend)
+- [React v18.\*](https://reactjs.org/)
 
 ## Installation
 
-⚠️ You will need to install `nhsuk-frontend` separately ⚠️
-
 ```bash
-# Using pnpm
-pnpm add nhsuk-frontend-react nhsuk-frontend
-
-# Using npm
-npm install nhsuk-frontend-react nhsuk-frontend
-
-# Using yarn
-yarn add nhsuk-frontend-react nhsuk-frontend
+pnpm add nhsuk-frontend nhsuk-frontend-react
 ```
 
-## Migration from `nhsuk-react-components`
+## Example
 
-To automate migration from `nhsuk-react-components`, you can run the following codemod:
+Both usages below will render the following:
 
-```bash
-npx jscodeshift -t ./node_modules/nhsuk-frontend-react/tools/from-nhsuk-react-components-migrator.ts \
-  --parser=tsx \
-  --extensions=tsx \
-  ./src/**/**/*.tsx
-```
+![Example](./assets/ask-users-for-their-nhs-number--ask-users-for-their-nhs-number.png)
 
-For the most part, this will update your imports and component usages. However, there will be some cases where you will need to manually update your codebase.
+### Usage with React
 
-## Example Usage
+<details>
+<summary>Code</summary>
 
 ```tsx
-import { Button, Fieldset, Input } from 'nhsuk-frontend-react'
+import {
+  Input,
+  Header,
+  Container,
+  Main,
+  Column,
+  Row,
+  Button,
+} from 'nhsuk-frontend-react';
 
 const Component = () => (
   <>
-    <Fieldset>
-      <Fieldset.Legend isPageHeading>What is your NHS number?</Fieldset.Legend>
-      <Input
-        width="10"
-        hint={
-          <>
-            Your NHS number is a 10 digit number that you find on any letter the NHS has sent you. For example, <span className="nhsuk-u-nowrap">485 777 3456</span>.
-          </>
-        }
-      />
-    </Fieldset>
-    <Button>Continue</Button>
+    <Header>
+      <Header.Container>
+        <Header.Logo href="/" variant="logo-only" aria-label="NHS homepage" />
+      </Header.Container>
+      <Header.Nav />
+    </Header>
+    <Container>
+      <Main>
+        <Row>
+          <Column width="two-thirds">
+            <form>
+              <Input
+                label="What is your NHS number?"
+                labelProps={{ variant: 'page-heading', size: 'l' }}
+                width="10"
+                hint={
+                  <>
+                    Your NHS number is a 10 digit number that you find on any
+                    letter the NHS has sent you. For example,{' '}
+                    <span className="nhsuk-u-nowrap">485 777 3456</span>.
+                  </>
+                }
+              />
+              <Button>Continue</Button>
+            </form>
+          </Column>
+        </Row>
+      </Main>
+    </Container>
   </>
-)
+);
 ```
 
-## Contributing
+</details>
+
+### Usage with Next.js
+
+<details>
+<summary>Code</summary>
+
+```tsx
+import {
+  Input,
+  Header,
+  HeaderContainer, // notice how we have to import HeaderContainer separately
+  HeaderLogo, // RSC does not work with nested components yet
+  Container,
+  Main,
+  Column,
+  Row,
+  Button,
+} from 'nhsuk-frontend-react';
+
+const Component = () => (
+  <>
+    <Header>
+      <HeaderContainer>
+        <HeaderLogo href="/" variant="logo-only" aria-label="NHS homepage" />
+      </HeaderContainer>
+    </Header>
+    <Container>
+      <Main>
+        <Row>
+          <Column width="two-thirds">
+            <form>
+              <Input
+                label="What is your NHS number?"
+                labelProps={{ variant: 'page-heading', size: 'l' }}
+                width="10"
+                hint={
+                  <>
+                    Your NHS number is a 10 digit number that you find on any
+                    letter the NHS has sent you. For example,{' '}
+                    <span className="nhsuk-u-nowrap">485 777 3456</span>.
+                  </>
+                }
+              />
+              <Button>Continue</Button>
+            </form>
+          </Column>
+        </Row>
+      </Main>
+    </Container>
+  </>
+);
+```
+
+</details>
 
 ## Testing
 
 To run the tests, you can use the following command:
 
 ```bash
-# Using pnpm
 pnpm test
-
-# Using npm
-npm test
-
-# Using yarn
-yarn test
 ```
 
 ## License

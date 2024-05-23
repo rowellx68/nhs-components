@@ -4,6 +4,8 @@
 dist
 tmp
 /out-tsc
+out-sb
+.next
 
 # dependencies
 node_modules
@@ -37,5 +39,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-.nx/cache
