@@ -2,8 +2,7 @@ name: Build and publish Storybook
 
 on:
   release:
-    types:
-      - published
+    types: [created]
 
 permissions:
   contents: write
