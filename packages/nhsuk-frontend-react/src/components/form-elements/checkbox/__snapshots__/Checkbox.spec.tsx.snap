@@ -85,7 +85,7 @@ exports[`should render the Checkbox with conditional content 1`] = `
     class="nhsuk-form-group"
   >
     <fieldset
-      aria-describedby="hintId"
+      aria-describedby="checkboxes_:rp:_:rq:--hint"
       aria-labelledby="checkboxes_:rp:--label"
       class="nhsuk-fieldset"
     >
@@ -201,7 +201,7 @@ exports[`should render the Checkbox with exclusive option 1`] = `
     class="nhsuk-form-group"
   >
     <fieldset
-      aria-describedby="hintId"
+      aria-describedby="checkboxes_:rb:_:rc:--hint"
       aria-labelledby="checkboxes_:rb:--label"
       class="nhsuk-fieldset"
     >

@@ -128,7 +128,9 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
 
     const arias = {
       'aria-labelledby': labelId,
-      'aria-describedby': clsx({ hintId: hint, errorId: error }) || undefined,
+      'aria-describedby':
+        clsx({ [`${hintId.join(' ')}`]: hint, [`${errorId}`]: error }) ||
+        undefined,
     };
 
     const wrapWithFieldset =

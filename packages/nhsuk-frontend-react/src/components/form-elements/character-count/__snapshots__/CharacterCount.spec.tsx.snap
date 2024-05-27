@@ -24,7 +24,7 @@ exports[`should render the CharacterCount component 1`] = `
         This is a hint
       </div>
       <textarea
-        aria-describedby="hintId"
+        aria-describedby="character-count_:r1:--hint"
         aria-labelledby="character-count--label"
         as="textarea"
         class="nhsuk-textarea nhsuk-js-character-count"
