@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.0.0
+
+### Major Changes
+
+- [`1fbf05e`](https://github.com/rowellx68/nhs-components/commit/1fbf05e1967bc307fe3f029a582e850c42ab2efb) Thanks [@rowellx68](https://github.com/rowellx68)! - refactor: replace with polymorphic components
+
+  Rewrite all of the components and use factory and polymorphicFactory wherever possible.
+
+  BREAKING CHANGE: replaced a lot of the props passed onto components
+
 ## [2.0.1](https://github.com/rowellx68/nhs-components/compare/2.0.0...2.0.1) (2024-04-30)
 
 ### Bug Fixes
