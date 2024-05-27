@@ -5,6 +5,7 @@
     "build": "pnpm -r build",
     "test": "pnpm -r test",
     "format": "pnpm -r format",
+    "lint": "pnpm -r lint",
     "sb": "pnpm -r sb",
     "release": "pnpm changeset publish",
     "cc:changeset": "pnpm changeset-conventional"

@@ -182,7 +182,6 @@ const BaseDatePart = factory<DateInputPartFactory>(
       inputSize = '2';
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     const inputValue = value || ctxValue?.[part];
 
     const _error =
