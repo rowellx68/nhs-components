@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.0.1
+
+### Patch Changes
+
+- [`622fe21`](https://github.com/rowellx68/nhs-components/commit/622fe21d3098c84fe8d47d21014ad28c50ebcd97) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: issue with aria-label for form elements
+
 ## 3.0.0
 
 ### Major Changes
