@@ -330,7 +330,6 @@
     "@storybook/addon-essentials": "^8.1.4",
     "@storybook/addon-interactions": "^8.1.4",
     "@storybook/addon-links": "^8.1.4",
-    "@storybook/addon-onboarding": "^8.1.4",
     "@storybook/blocks": "^8.1.4",
     "@storybook/react": "^8.1.4",
     "@storybook/react-vite": "^8.1.4",
