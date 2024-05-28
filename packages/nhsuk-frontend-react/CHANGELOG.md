@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.0.2
+
+### Patch Changes
+
+- [`26a9c23`](https://github.com/rowellx68/nhs-components/commit/26a9c233ca4e4e0879b20ffe7c5391c115083595) Thanks [@rowellx68](https://github.com/rowellx68)! - build: add missing files to package.json
+
 ## 3.0.1
 
 ### Patch Changes
