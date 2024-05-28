@@ -10,6 +10,9 @@ import { ContentsList } from './ContentsList';
 const meta: Meta<typeof ContentsList> = {
   title: 'Components/Navigation/Contents List',
   component: ContentsList,
+  subcomponents: {
+    'ContentsList.Item': ContentsList.Item,
+  } as Record<string, React.ComponentType<any>>,
   argTypes: {
     visuallyHiddenText: {
       control: {

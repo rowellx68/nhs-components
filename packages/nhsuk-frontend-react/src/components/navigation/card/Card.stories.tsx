@@ -10,6 +10,15 @@ import { Card } from './Card';
 const meta: Meta<typeof Card> = {
   title: 'Components/Navigation/Card',
   component: Card,
+  subcomponents: {
+    'Card.Content': Card.Content,
+    'Card.Description': Card.Description,
+    'Card.Heading': Card.Heading,
+    'Card.Image': Card.Image,
+    'Card.Link': Card.Link,
+    'Card.Group': Card.Group,
+    'Card.GroupItem': Card.GroupItem,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

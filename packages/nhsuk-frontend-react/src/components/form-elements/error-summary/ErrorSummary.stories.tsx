@@ -10,6 +10,12 @@ import { ErrorSummary } from './ErrorSummary';
 const meta: Meta<typeof ErrorSummary> = {
   title: 'Components/Form Elements/Error Summary',
   component: ErrorSummary,
+  subcomponents: {
+    'ErrorSummary.Title': ErrorSummary.Title,
+    'ErrorSummary.Body': ErrorSummary.Body,
+    'ErrorSummary.List': ErrorSummary.List,
+    'ErrorSummary.ListItem': ErrorSummary.ListItem,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

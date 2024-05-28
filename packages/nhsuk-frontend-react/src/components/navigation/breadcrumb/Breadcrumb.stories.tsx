@@ -10,6 +10,11 @@ import { Breadcrumb } from './Breadcrumb';
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
+  subcomponents: {
+    'Breadcrumb.List': Breadcrumb.List,
+    'Breadcrumb.ListItem': Breadcrumb.ListItem,
+    'Breadcrumb.BackLink': Breadcrumb.BackLink,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

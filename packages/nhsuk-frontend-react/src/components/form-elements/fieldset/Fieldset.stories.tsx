@@ -12,6 +12,9 @@ import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden
 const meta: Meta<typeof Fieldset> = {
   title: 'Components/Form Elements/Fieldset',
   component: Fieldset,
+  subcomponents: {
+    'Fieldset.Legend': Fieldset.Legend,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

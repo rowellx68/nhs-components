@@ -10,6 +10,9 @@ import { WarningCallout } from './WarningCallout';
 const meta: Meta<typeof WarningCallout> = {
   title: 'Components/Content Presentation/Warning Callout',
   component: WarningCallout,
+  subcomponents: {
+    'WarningCallout.Label': WarningCallout.Label,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

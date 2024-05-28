@@ -10,6 +10,26 @@ import { Table } from './Table';
 const meta: Meta<typeof Table> = {
   title: 'Components/Content Presentation/Table',
   component: Table,
+  subcomponents: {
+    'Table.Caption': Table.Caption,
+    'Table.Head': Table.Head,
+    'Table.Body': Table.Body,
+    'Table.Row': Table.Row,
+    'Table.Cell': Table.Cell,
+  } as Record<string, React.ComponentType<any>>,
+  argTypes: {
+    variant: {
+      control: false,
+      table: {
+        type: {
+          summary: 'responsive | undefined',
+        },
+        defaultValue: {
+          summary: 'undefined',
+        },
+      },
+    },
+  },
 };
 
 export default meta;
@@ -21,9 +41,9 @@ export const TwoColumn: Story = {
     <Table {...args}>
       <Table.Caption>Skin symptoms and possible causes</Table.Caption>
       <Table.Head>
-        <Table.Row variant="head">
-          <Table.Cell variant="head">Skin symptoms</Table.Cell>
-          <Table.Cell variant="head">Possible cause</Table.Cell>
+        <Table.Row>
+          <Table.Cell>Skin symptoms</Table.Cell>
+          <Table.Cell>Possible cause</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
@@ -49,16 +69,10 @@ export const ThreeColumn: Story = {
     <Table {...args} variant="responsive">
       <Table.Caption>Ibuprofen tablet dosages for children</Table.Caption>
       <Table.Head>
-        <Table.Row variant="head">
-          <Table.Cell variant="head" responsiveHeading="Age">
-            Age
-          </Table.Cell>
-          <Table.Cell variant="head" responsiveHeading="How much?">
-            How much
-          </Table.Cell>
-          <Table.Cell variant="head" responsiveHeading="How often?">
-            How often
-          </Table.Cell>
+        <Table.Row>
+          <Table.Cell responsiveHeading="Age">Age</Table.Cell>
+          <Table.Cell responsiveHeading="How much?">How much</Table.Cell>
+          <Table.Cell responsiveHeading="How often?">How often</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>

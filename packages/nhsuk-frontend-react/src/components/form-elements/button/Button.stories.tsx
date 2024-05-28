@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { expect, within } from '@storybook/test';
 import { Button } from './Button';
 
 /**
@@ -69,14 +68,6 @@ export const Primary: Story = {
       data-testid="button"
     />
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const button = await canvas.findByTestId('button');
-
-    await expect(button).toHaveAttribute('type');
-    await expect(button).toHaveClass('nhsuk-button');
-  },
 };
 
 export const Secondary: Story = {
@@ -94,14 +85,6 @@ export const Secondary: Story = {
       data-testid="button"
     />
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const button = await canvas.findByTestId('button');
-
-    await expect(button).toHaveAttribute('type');
-    await expect(button).toHaveClass('nhsuk-button--secondary');
-  },
 };
 
 export const Reverse: Story = {
@@ -119,14 +102,6 @@ export const Reverse: Story = {
       data-testid="button"
     />
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const button = await canvas.findByTestId('button');
-
-    await expect(button).toHaveAttribute('type');
-    await expect(button).toHaveClass('nhsuk-button--reverse');
-  },
 };
 
 export const PrimaryButtonAsLink: Story = {
@@ -143,17 +118,6 @@ export const PrimaryButtonAsLink: Story = {
       disabled={disabled}
     />
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const button = await canvas.findByTestId('button');
-
-    await expect(button).not.toHaveAttribute('type');
-    await expect(button).toHaveClass('nhsuk-button');
-    await expect(button).toHaveAttribute('href');
-    await expect(button).toHaveAttribute('role', 'button');
-    await expect(button).toHaveAttribute('draggable', 'false');
-  },
 };
 
 export const SecondaryButtonAsLink: Story = {
@@ -171,17 +135,6 @@ export const SecondaryButtonAsLink: Story = {
       disabled={disabled}
     />
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const button = await canvas.findByTestId('button');
-
-    await expect(button).not.toHaveAttribute('type');
-    await expect(button).toHaveClass('nhsuk-button--secondary');
-    await expect(button).toHaveAttribute('href');
-    await expect(button).toHaveAttribute('role', 'button');
-    await expect(button).toHaveAttribute('draggable', 'false');
-  },
 };
 
 export const ReverseButtonAsLink: Story = {
@@ -199,15 +152,4 @@ export const ReverseButtonAsLink: Story = {
       disabled={disabled}
     />
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    const button = await canvas.findByTestId('button');
-
-    await expect(button).not.toHaveAttribute('type');
-    await expect(button).toHaveClass('nhsuk-button--reverse');
-    await expect(button).toHaveAttribute('href');
-    await expect(button).toHaveAttribute('role', 'button');
-    await expect(button).toHaveAttribute('draggable', 'false');
-  },
 };

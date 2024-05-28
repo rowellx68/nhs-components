@@ -12,6 +12,11 @@ import { Link } from '@/components/styles/typography/link/Link';
 const meta: Meta<typeof Expander> = {
   title: 'Components/Content Presentation/Expander',
   component: Expander,
+  subcomponents: {
+    'Expander.Summary': Expander.Summary,
+    'Expander.Text': Expander.Text,
+    'Expander.Group': Expander.Group,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

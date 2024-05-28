@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { within, userEvent } from '@storybook/test';
 import { Details } from './Details';
 
 /**
@@ -11,6 +10,10 @@ import { Details } from './Details';
 const meta: Meta<typeof Details> = {
   title: 'Components/Content Presentation/Details',
   component: Details,
+  subcomponents: {
+    'Details.Summary': Details.Summary,
+    'Details.Text': Details.Text,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;
@@ -39,13 +42,4 @@ export const Default: Story = {
       </Details.Text>
     </Details>
   ),
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await canvas.findByTestId('details');
-    await canvas.findByTestId('details-text');
-    const summary = await canvas.findByTestId('details-summary');
-
-    await userEvent.click(summary);
-  },
 };

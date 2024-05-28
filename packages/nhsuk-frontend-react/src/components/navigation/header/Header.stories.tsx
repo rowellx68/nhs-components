@@ -10,6 +10,17 @@ import { Header } from './Header';
 const meta: Meta<typeof Header> = {
   title: 'Components/Navigation/Header',
   component: Header,
+  subcomponents: {
+    'Header.Container': Header.Container,
+    'Header.Logo': Header.Logo,
+    'Header.Content': Header.Content,
+    'Header.Search': Header.Search,
+    'Header.Nav': Header.Nav,
+    'Header.NavList': Header.NavList,
+    'Header.NavItem': Header.NavItem,
+    'Header.MobileMenu': Header.MobileMenu,
+    'Header.TransactionLink': Header.TransactionLink,
+  } as Record<string, React.ComponentType<any>>,
   parameters: {
     layout: 'fullscreen',
   },

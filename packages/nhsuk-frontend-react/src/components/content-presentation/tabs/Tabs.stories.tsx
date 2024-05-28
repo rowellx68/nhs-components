@@ -10,6 +10,12 @@ import { Tabs } from './Tabs';
 const meta: Meta<typeof Tabs> = {
   title: 'Components/Content Presentation/Tabs',
   component: Tabs,
+  subcomponents: {
+    'Tabs.Title': Tabs.Title,
+    'Tabs.List': Tabs.List,
+    'Tabs.ListItem': Tabs.ListItem,
+    'Tabs.Panel': Tabs.Panel,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

@@ -32,26 +32,16 @@ const Details = factory<DetailsFactory>(
   },
 );
 
-export type DetailsSummaryProps = {
-  textContainerProps?: ElementProps<'span'>;
-} & ElementProps<'summary'>;
+export type DetailsSummaryProps = ElementProps<'summary'>;
 
 const DetailsSummary = ({
-  textContainerProps,
   className,
   children,
   ...props
 }: DetailsSummaryProps) => {
-  const { className: textContainerClassName, ...restTextContainerProps } =
-    textContainerProps || {};
   return (
     <summary className={clsx('nhsuk-details__summary', className)} {...props}>
-      <span
-        className={clsx('nhsuk-details__summary-text', textContainerClassName)}
-        {...restTextContainerProps}
-      >
-        {children}
-      </span>
+      <span className="nhsuk-details__summary-text">{children}</span>
     </summary>
   );
 };

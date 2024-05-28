@@ -11,6 +11,11 @@ const meta: Meta<typeof DoDontList> = {
   // eslint-disable-next-line @stylistic/quotes
   title: "Components/Content Presentation/Do Don't List",
   component: DoDontList,
+  subcomponents: {
+    'DoDontList.Label': DoDontList.Label,
+    'DoDontList.List': DoDontList.List,
+    'DoDontList.Item': DoDontList.Item,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;
@@ -49,7 +54,9 @@ export const DontList: Story = {
     <DoDontList {...args}>
       <DoDontList.Label as="h2">Don't</DoDontList.Label>
       <DoDontList.List>
-        <DoDontList.Item>do not burst a blister yourself</DoDontList.Item>
+        <DoDontList.Item>
+          do not burst a blister yourself
+        </DoDontList.Item>
         <DoDontList.Item>
           do not peel the skin off a burst blister
         </DoDontList.Item>
