@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render a textarea element 1`] = `
+<div>
+  <div
+    class="nhsuk-character-count"
+    data-module="nhsuk-character-count"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="textarea_:r0:"
+        id="textarea_:r0:--label"
+      >
+        Textarea
+      </label>
+      <textarea
+        aria-labelledby="textarea_:r0:--label"
+        as="textarea"
+        class="nhsuk-textarea nhsuk-js-character-count"
+        id="textarea_:r0:"
+      />
+      <div
+        class="nhsuk-hint nhsuk-character-count__message"
+        id="textarea_:r0:-info"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render a textarea element with a hint 1`] = `
+<div>
+  <div
+    class="nhsuk-character-count"
+    data-module="nhsuk-character-count"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="textarea_:r2:"
+        id="textarea_:r2:--label"
+      >
+        Textarea
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="textarea_:r2:_:r3:--hint"
+      >
+        Hint
+      </div>
+      <textarea
+        aria-describedby="textarea_:r2:_:r3:--hint"
+        aria-labelledby="textarea_:r2:--label"
+        as="textarea"
+        class="nhsuk-textarea nhsuk-js-character-count"
+        id="textarea_:r2:"
+      />
+      <div
+        class="nhsuk-hint nhsuk-character-count__message"
+        id="textarea_:r2:-info"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render a textarea element with an error 1`] = `
+<div>
+  <div
+    class="nhsuk-character-count"
+    data-module="nhsuk-character-count"
+  >
+    <div
+      class="nhsuk-form-group nhsuk-form-group--error"
+    >
+      <label
+        class="nhsuk-label"
+        for="textarea_:r4:"
+        id="textarea_:r4:--label"
+      >
+        Textarea
+      </label>
+      <span
+        class="nhsuk-error-message"
+        id="textarea_:r4:--error-message"
+      >
+        <span
+          class="nhsuk-u-visually-hidden"
+        >
+          Error: 
+        </span>
+        Error
+      </span>
+      <textarea
+        aria-describedby="textarea_:r4:--error-message"
+        aria-labelledby="textarea_:r4:--label"
+        as="textarea"
+        class="nhsuk-textarea nhsuk-textarea--error nhsuk-js-character-count"
+        id="textarea_:r4:"
+      />
+      <div
+        class="nhsuk-hint nhsuk-character-count__message"
+        id="textarea_:r4:-info"
+      />
+    </div>
+  </div>
+</div>
+`;

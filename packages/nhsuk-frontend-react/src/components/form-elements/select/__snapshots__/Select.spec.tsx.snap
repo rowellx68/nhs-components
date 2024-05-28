@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render a select element 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="select"
+      id="select--label"
+    >
+      Select
+    </label>
+    <select
+      aria-labelledby="select--label"
+      as="select"
+      class="nhsuk-select"
+      id="select"
+      name="select"
+    >
+      <option
+        value="Select.Option1"
+      >
+        Option 1
+      </option>
+      <option
+        value="Select.Option2"
+      >
+        Option 2
+      </option>
+      <option
+        value="Select.Option3"
+      >
+        Option 3
+      </option>
+    </select>
+  </div>
+</div>
+`;

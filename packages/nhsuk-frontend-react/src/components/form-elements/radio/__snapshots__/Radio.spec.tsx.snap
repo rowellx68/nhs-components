@@ -1,0 +1,264 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the radio component 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <fieldset
+      aria-labelledby="radios_:r0:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend"
+        for="radios_:r0:"
+        id="radios_:r0:--label"
+      >
+        Are you 18 or over?
+      </legend>
+      <div
+        as="div"
+        class="nhsuk-radios"
+        id="radios_:r0:"
+      >
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:r2:"
+            name="adult"
+            type="radio"
+            value="yes"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:r2:"
+          >
+            Yes
+          </label>
+        </div>
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:r5:"
+            name="adult"
+            type="radio"
+            value="no"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:r5:"
+          >
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`should render the radio component with error 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group nhsuk-form-group--error"
+  >
+    <fieldset
+      aria-describedby="radios_:rg:--error-message"
+      aria-labelledby="radios_:rg:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend"
+        for="radios_:rg:"
+        id="radios_:rg:--label"
+      >
+        Are you 18 or over?
+      </legend>
+      <span
+        class="nhsuk-error-message"
+        id="radios_:rg:--error-message"
+      >
+        <span
+          class="nhsuk-u-visually-hidden"
+        >
+          Error: 
+        </span>
+        Select yes or no
+      </span>
+      <div
+        as="div"
+        class="nhsuk-radios"
+        id="radios_:rg:"
+      >
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:ri:"
+            name="adult"
+            type="radio"
+            value="yes"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:ri:"
+          >
+            Yes
+          </label>
+        </div>
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:rl:"
+            name="adult"
+            type="radio"
+            value="no"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:rl:"
+          >
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`should render the radio component with hint 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <fieldset
+      aria-describedby="radios_:r8:_:r9:--hint"
+      aria-labelledby="radios_:r8:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend"
+        for="radios_:r8:"
+        id="radios_:r8:--label"
+      >
+        Are you 18 or over?
+      </legend>
+      <div
+        class="nhsuk-hint"
+        id="radios_:r8:_:r9:--hint"
+      >
+        You must be 18 or over to continue
+      </div>
+      <div
+        as="div"
+        class="nhsuk-radios"
+        id="radios_:r8:"
+      >
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:ra:"
+            name="adult"
+            type="radio"
+            value="yes"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:ra:"
+          >
+            Yes
+          </label>
+        </div>
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:rd:"
+            name="adult"
+            type="radio"
+            value="no"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:rd:"
+          >
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`should render the radio component with inline items 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <fieldset
+      aria-labelledby="radios_:ro:--label"
+      class="nhsuk-fieldset"
+    >
+      <legend
+        class="nhsuk-legend"
+        for="radios_:ro:"
+        id="radios_:ro:--label"
+      >
+        Are you 18 or over?
+      </legend>
+      <div
+        as="div"
+        class="nhsuk-radios nhsuk-radios--inline"
+        id="radios_:ro:"
+      >
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:rq:"
+            name="adult"
+            type="radio"
+            value="yes"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:rq:"
+          >
+            Yes
+          </label>
+        </div>
+        <div
+          class="nhsuk-radios__item"
+        >
+          <input
+            class="nhsuk-radios__input"
+            id="radio-item_:rt:"
+            name="adult"
+            type="radio"
+            value="no"
+          />
+          <label
+            class="nhsuk-label nhsuk-radios__label"
+            for="radio-item_:rt:"
+          >
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
