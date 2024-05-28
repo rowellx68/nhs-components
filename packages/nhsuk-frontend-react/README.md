@@ -48,24 +48,29 @@ export const AppHeader = () => (
 <details>
 <summary>Click to expand</summary>
 
-- `DoDontList.Label`
-- `Figure.Image`
-- `SummaryList.Row.ActionLink`
-- `Tabs.Title`
-- `WarningCallout.Label`
-- `VisuallyHidden`
-- `Button`
-- `ErrorSummary.ListItem`
-- `Fieldset.Legend`
 - `ActionLink`
 - `BackLink`
-- `Breadcrumb.ListItem` and `Breadcrumb.BackLink`
+- `Breadcrumb.BackLink`
+- `Breadcrumb.ListItem`
+- `Button`
+- `Card.Image`
+- `Card.Link`
 - `ContentList.ListItem`
+- `DoDontList.Label`
+- `ErrorSummary.ListItem`
+- `Fieldset.Legend`
+- `Figure.Image`
 - `Footer.ListItem`
-- `Header.Logo`, `Header.TransactionLink` and `Header.NavItem`
-- `Pagination.Item`
+- `Header.Logo`
+- `Header.NavItem`
+- `Header.TransactionLink`
 - `Heading`
 - `Link`
+- `Pagination.Item`
+- `SummaryList.Row.ActionLink`
+- `Tabs.Title`
+- `VisuallyHidden`
+- `WarningCallout.Label`
 
 </details>
 

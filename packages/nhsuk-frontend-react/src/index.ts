@@ -33,6 +33,7 @@ export * from '@/components/form-elements/textarea/Textarea';
 export * from '@/components/navigation/action-link/ActionLink';
 export * from '@/components/navigation/back-link/BackLink';
 export * from '@/components/navigation/breadcrumb/Breadcrumb';
+export * from '@/components/navigation/card/Card';
 export * from '@/components/navigation/contents-list/ContentsList';
 export * from '@/components/navigation/footer/Footer';
 export * from '@/components/navigation/header/Header';

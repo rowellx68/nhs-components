@@ -229,6 +229,11 @@
       "require": "./dist/components/navigation/breadcrumb/Breadcrumb.js",
       "types": "./dist/components/navigation/breadcrumb/Breadcrumb.d.ts"
     },
+    "./components/navigation/card": {
+      "import": "./dist/components/navigation/card/Card.mjs",
+      "require": "./dist/components/navigation/card/Card.js",
+      "types": "./dist/components/navigation/card/Card.d.ts"
+    },
     "./components/navigation/contents-list": {
       "import": "./dist/components/navigation/contents-list/ContentsList.mjs",
       "require": "./dist/components/navigation/contents-list/ContentsList.js",
