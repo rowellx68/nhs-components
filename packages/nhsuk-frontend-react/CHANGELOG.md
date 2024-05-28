@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.0.4
+
+### Patch Changes
+
+- [`159aa1d`](https://github.com/rowellx68/nhs-components/commit/159aa1d8ef892ce32aefe60f6eaaaf42025dc82a) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing card component
+
 ## 3.0.3
 
 ### Patch Changes
