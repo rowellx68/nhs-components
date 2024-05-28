@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.0.3
+
+### Patch Changes
+
+- [`a3faf3e`](https://github.com/rowellx68/nhs-components/commit/a3faf3e9da63d47ac7898917cfba81fdea920227) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: date input issue not persisting internal state
+
 ## 3.0.2
 
 ### Patch Changes
