@@ -48,6 +48,11 @@ export const WithError: Story = {
     label: 'Date of birth',
     hint: 'For example, 31 3 1980',
     error: 'Please enter a valid date of birth',
+    value: {
+      day: '',
+      month: '',
+      year: '',
+    },
   },
   render: (args) => <DateInput {...args} />,
 };
@@ -59,6 +64,11 @@ export const WithErrorObject: Story = {
     error: {
       day: 'Please enter a valid day.',
       month: 'Please enter a valid month.',
+    },
+    value: {
+      day: '',
+      month: '',
+      year: '',
     },
   },
   render: (args) => <DateInput {...args} />,

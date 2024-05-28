@@ -28,6 +28,7 @@ export type DateInputChangeEvent = ChangeEvent<HTMLInputElement> & {
 export type DateInputProps = {
   value?: DateInputValue;
   error?: string | Record<string, string>;
+  onChange?: (event: DateInputChangeEvent) => void;
 } & BaseFormElementProps &
   ElementProps<'div'>;
 
@@ -41,21 +42,30 @@ type DateInputFactory = Factory<{
   };
 }>;
 
-const defaultDateInputValue: DateInputValue = {
-  day: '',
-  month: '',
-  year: '',
-};
-
 const DateInput = factory<DateInputFactory>(
-  ({ onChange, value = defaultDateInputValue, ...props }, ref) => {
-    const [state, setState] = useState(value);
+  ({ onChange, value, ...props }, ref) => {
+    const [state, setState] = useState({
+      day: value?.day ?? '',
+      month: value?.month ?? '',
+      year: value?.year ?? '',
+    });
+
+    const internalState = useMemo(
+      () => ({
+        values: {
+          day: value?.day ?? '',
+          month: value?.month ?? '',
+          year: value?.year ?? '',
+        },
+      }),
+      [],
+    );
 
     const handleChange = useCallback(
       (part: DateInputPart, event: ChangeEvent<HTMLInputElement>) => {
         event.stopPropagation();
         const newValue = {
-          ...state,
+          ...internalState.values,
           [part]: event.target.value,
         };
 
@@ -70,8 +80,9 @@ const DateInput = factory<DateInputFactory>(
         }
 
         setState(newValue);
+        internalState.values = { ...newValue };
       },
-      [onChange, state, setState],
+      [state, setState, onChange],
     );
 
     return (
