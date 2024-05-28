@@ -21,7 +21,7 @@ const ActionLink = polymorphicFactory<ActionLinkFactory>(
     {
       className,
       children,
-      as: component,
+      as: component = 'a',
       ...props
     }: ActionLinkProps & AsElementProps,
     ref,
@@ -29,7 +29,7 @@ const ActionLink = polymorphicFactory<ActionLinkFactory>(
     return (
       <div className="nhsuk-action-link">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx('nhsuk-action-link__link', className)}
           {...props}
           ref={ref}

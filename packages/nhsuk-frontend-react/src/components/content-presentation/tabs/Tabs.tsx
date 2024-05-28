@@ -68,9 +68,9 @@ type TabsTitleFactory = PolymorphicFactory<{
 }>;
 
 const TabsTitle = polymorphicFactory<TabsTitleFactory>(
-  ({ className, children, as: component, ...props }, ref) => (
+  ({ className, children, as: component = 'h2', ...props }, ref) => (
     <Base
-      as={component || 'h2'}
+      as={component}
       className={clsx('nhsuk-tabs__title', className)}
       {...props}
       ref={ref}
@@ -101,14 +101,14 @@ const TabsListItem = polymorphicFactory<TabsListItemFactory>(
     {
       className,
       children,
-      as: component,
+      as: component = 'a',
       ...props
     }: BaseProps & AsElementProps,
     ref,
   ) => (
     <li className="nhsuk-tabs__list-item">
       <Base
-        as={component || 'a'}
+        as={component}
         className={clsx('nhsuk-tabs__tab', className)}
         {...props}
         ref={ref}

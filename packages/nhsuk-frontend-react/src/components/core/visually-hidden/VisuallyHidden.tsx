@@ -20,14 +20,14 @@ const VisuallyHidden = polymorphicFactory<VisuallyHiddenFactory>(
     {
       className,
       children,
-      as: component,
+      as: component = 'span',
       ...props
     }: VisuallyHiddenProps & AsElementProps,
     ref,
   ) => {
     return (
       <Base
-        as={component || 'span'}
+        as={component}
         className={clsx('nhsuk-u-visually-hidden', className)}
         {...props}
         ref={ref}

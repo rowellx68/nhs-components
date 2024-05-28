@@ -81,7 +81,7 @@ const FooterList = ({
 };
 
 export type FooterListItemProps = {
-  default?: boolean;
+  variant?: 'default';
 } & BaseProps;
 
 type FooterListItemFactory = PolymorphicFactory<{
@@ -95,8 +95,8 @@ const FooterListItem = polymorphicFactory<FooterListItemFactory>(
     {
       className,
       children,
-      as: component,
-      default: _default,
+      as: component = 'a',
+      variant = 'default',
       ...props
     }: FooterListItemProps & AsElementProps,
     ref,
@@ -104,11 +104,11 @@ const FooterListItem = polymorphicFactory<FooterListItemFactory>(
     return (
       <li
         className={clsx('nhsuk-footer__list-item', {
-          'nhsuk-footer-default__list-item': _default,
+          'nhsuk-footer-default__list-item': variant === 'default',
         })}
       >
         <Base<any>
-          as={component || 'a'}
+          as={component}
           className={clsx('nhsuk-footer__list-item-link', className)}
           {...props}
           ref={ref}

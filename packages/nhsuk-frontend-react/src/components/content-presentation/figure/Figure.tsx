@@ -39,12 +39,16 @@ type FigureImageFactory = PolymorphicFactory<{
 
 const FigureImage = polymorphicFactory<FigureImageFactory>(
   (
-    { className, as: component, ...props }: FigureImageProps & AsElementProps,
+    {
+      className,
+      as: component = 'img',
+      ...props
+    }: FigureImageProps & AsElementProps,
     ref,
   ) => {
     return (
       <Base
-        as={component || 'img'}
+        as={component}
         className={clsx('nhsuk-image__img', className)}
         {...props}
         ref={ref}

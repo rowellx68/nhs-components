@@ -66,7 +66,7 @@ const BreadcrumbListItem = polymorphicFactory<BaseCrumpListItemFactory>(
   (
     {
       className,
-      as: component,
+      as: component = 'a',
       ...props
     }: BreadcrumbListItemProps & AsElementProps,
     ref,
@@ -74,7 +74,7 @@ const BreadcrumbListItem = polymorphicFactory<BaseCrumpListItemFactory>(
     return (
       <li className="nhsuk-breadcrumb__item">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx('nhsuk-breadcrumb__link', className)}
           {...props}
           ref={ref}
@@ -97,7 +97,7 @@ const BreadcrumbBackLink = polymorphicFactory<BreadcrumbBackLinkFactory>(
       className,
       children,
       visuallyHiddenText = 'Back to &nbsp;',
-      as: component,
+      as: component = 'a',
       ...props
     }: BreadcrumbBackLinkProps & AsElementProps,
     ref,
@@ -105,7 +105,7 @@ const BreadcrumbBackLink = polymorphicFactory<BreadcrumbBackLinkFactory>(
     return (
       <p className="nhsuk-breadcrumb__back">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx('nhsuk-breadcrumb__backlink', className)}
           {...props}
           ref={ref}

@@ -22,14 +22,14 @@ const Link = polymorphicFactory<LinkFactory>(
     {
       className,
       noVisitedState,
-      as: component,
+      as: component = 'a',
       ...props
     }: LinkProps & AsElementProps,
     ref,
   ) => {
     return (
       <Base
-        as={component || 'a'}
+        as={component}
         className={clsx(
           'nhsuk-link',
           { 'nhsuk-link--no-visited-state': noVisitedState },

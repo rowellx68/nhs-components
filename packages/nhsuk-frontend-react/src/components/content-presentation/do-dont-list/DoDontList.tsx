@@ -53,10 +53,13 @@ type DoDontListLabelFactory = PolymorphicFactory<{
 }>;
 
 const DoDontListLabel = polymorphicFactory<DoDontListLabelFactory>(
-  ({ className, as: component, ...props }: DoDontListLabelProps, ref) => {
+  (
+    { className, as: component = 'h2', ...props }: DoDontListLabelProps,
+    ref,
+  ) => {
     return (
       <Base
-        as={component || 'h2'}
+        as={component}
         className={clsx('nhsuk-do-dont-list__label', className)}
         {...props}
         ref={ref}

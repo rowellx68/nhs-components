@@ -19,10 +19,10 @@ type HeadingFactory = PolymorphicFactory<{
 }>;
 
 const Heading = polymorphicFactory<HeadingFactory>(
-  ({ className, size, as: component, ...props }: HeadingProps, ref) => {
+  ({ className, size, as: component = 'h1', ...props }: HeadingProps, ref) => {
     return (
       <Base
-        as={component || 'h1'}
+        as={component}
         className={clsx({ [`nhsuk-heading-${size}`]: size }, className)}
         {...props}
         ref={ref}

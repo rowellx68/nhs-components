@@ -260,7 +260,10 @@ type HeaderTransactionLinkFactory = PolymorphicFactory<{
 }>;
 
 const HeaderTransactionLink = polymorphicFactory<HeaderTransactionLinkFactory>(
-  ({ className, as: component, ...props }: HeaderTransactionLinkProps, ref) => {
+  (
+    { className, as: component = 'a', ...props }: HeaderTransactionLinkProps,
+    ref,
+  ) => {
     const { transactional } = useHeaderContext();
 
     if (!transactional) {
@@ -270,7 +273,7 @@ const HeaderTransactionLink = polymorphicFactory<HeaderTransactionLinkFactory>(
     return (
       <div className="nhsuk-header__transactional-service-name">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx(
             'nhsuk-header__transactional-service-name--link',
             className,
@@ -327,7 +330,7 @@ const HeaderNavItem = polymorphicFactory<HeaderNavItemFactory>(
     {
       className,
       variant,
-      as: component,
+      as: component = 'a',
       ...props
     }: HeaderNavItemProps & AsElementProps,
     ref,
@@ -335,7 +338,7 @@ const HeaderNavItem = polymorphicFactory<HeaderNavItemFactory>(
     return (
       <li className="nhsuk-header__navigation-item">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx(
             'nhsuk-header__navigation-link',
             { 'nhsuk-header__navigation-item--home': variant === 'home-link' },

@@ -21,7 +21,7 @@ const BackLink = polymorphicFactory<BackLinkFactory>(
     {
       className,
       children,
-      as: component,
+      as: component = 'a',
       ...props
     }: BackLinkProps & AsElementProps,
     ref,
@@ -29,7 +29,7 @@ const BackLink = polymorphicFactory<BackLinkFactory>(
     return (
       <div className="nhsuk-back-link">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx('nhsuk-back-link__link', className)}
           {...props}
           ref={ref}

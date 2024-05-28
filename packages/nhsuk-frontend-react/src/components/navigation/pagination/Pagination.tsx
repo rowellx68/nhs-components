@@ -61,7 +61,7 @@ const PaginationPrevious = polymorphicFactory<PaginationItemFactory>(
       title = 'Previous',
       visuallyHiddenText = ':',
       pageTitle,
-      as: component,
+      as: component = 'a',
       ...props
     }: PaginationItemProps & AsElementProps,
     ref,
@@ -69,7 +69,7 @@ const PaginationPrevious = polymorphicFactory<PaginationItemFactory>(
     return (
       <li className="nhsuk-pagination-item--previous">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx(
             'nhsuk-pagination__link nhsuk-pagination__link--previous',
             className,
@@ -94,7 +94,7 @@ const PaginationNext = polymorphicFactory<PaginationItemFactory>(
       title = 'Next',
       visuallyHiddenText = ':',
       pageTitle,
-      as: component,
+      as: component = 'a',
       ...props
     }: PaginationItemProps & AsElementProps,
     ref,
@@ -102,7 +102,7 @@ const PaginationNext = polymorphicFactory<PaginationItemFactory>(
     return (
       <li className="nhsuk-pagination-item--next">
         <Base
-          as={component || 'a'}
+          as={component}
           className={clsx(
             'nhsuk-pagination__link nhsuk-pagination__link--next',
             className,
