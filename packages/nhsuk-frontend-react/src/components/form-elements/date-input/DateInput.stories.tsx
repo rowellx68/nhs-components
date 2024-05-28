@@ -11,6 +11,11 @@ import { fn } from '@storybook/test';
 const meta: Meta<typeof DateInput> = {
   title: 'Components/Form Elements/Date Input',
   component: DateInput,
+  subcomponents: {
+    'DateInput.Day': DateInput.Day,
+    'DateInput.Month': DateInput.Month,
+    'DateInput.Year': DateInput.Year,
+  } as Record<string, React.ComponentType<any>>,
   args: {
     onChange: fn(),
   },

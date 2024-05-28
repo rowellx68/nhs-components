@@ -14,9 +14,19 @@ import { ElementProps } from '@/types/shared';
 import { Factory, factory } from '@/internal/factory/factory';
 import clsx from 'clsx';
 import { Base } from '@/components/core/base/Base';
-import { TableProvider, useTableContext } from './Table.context';
+import {
+  TableHeadProvider,
+  TableProvider,
+  useTableContext,
+  useTableHeadContext,
+} from './Table.context';
 
-export type TableProps = { variant?: 'responsive' } & ElementProps<'table'>;
+export type TableProps = {
+  /**
+   * The variant of the table. Defaults to a non-responsive table.
+   */
+  variant?: 'responsive';
+} & ElementProps<'table'>;
 
 type TableFactory = Factory<{
   props: TableProps;
@@ -66,11 +76,13 @@ const TableHead = ({
   role = 'rowgroup',
   ...props
 }: TableHeadProps) => (
-  <thead
-    className={clsx('nhsuk-table__head', className)}
-    role={role}
-    {...props}
-  />
+  <TableHeadProvider value={{ head: true }}>
+    <thead
+      className={clsx('nhsuk-table__head', className)}
+      role={role}
+      {...props}
+    />
+  </TableHeadProvider>
 );
 
 export type TableBodyProps = ElementProps<'tbody'>;
@@ -79,10 +91,9 @@ const TableBody = ({ className, ...props }: TableBodyProps) => (
   <tbody className={clsx('nhsuk-table__body', className)} {...props} />
 );
 
-export type TableRowProps = { variant?: 'head' } & ElementProps<'tr'>;
+export type TableRowProps = ElementProps<'tr'>;
 
 const TableRow = ({
-  variant,
   role = 'row',
   className,
   children,
@@ -94,8 +105,10 @@ const TableRow = ({
     registerHeadings,
   } = useTableContext();
 
+  const { head } = useTableHeadContext();
+
   useEffect(() => {
-    if (variant === 'head' && tableVariant === 'responsive') {
+    if (head && tableVariant === 'responsive') {
       const _headings: ReactNode[] = [];
       Children.forEach(children, (child) => {
         if (isValidElement(child) && child.type === TableCell) {
@@ -111,11 +124,11 @@ const TableRow = ({
 
       registerHeadings(_headings);
     }
-  }, [children, registerHeadings, variant, tableVariant]);
+  }, [children, registerHeadings, head, tableVariant]);
 
   let _children = children;
 
-  if (tableVariant === 'responsive' && variant !== 'head') {
+  if (!head && tableVariant === 'responsive') {
     _children = Children.map(children, (child, index) => {
       if (isValidElement(child) && child.type === TableCell) {
         return cloneElement(child as ReactElement<TableCellProps>, {
@@ -129,7 +142,7 @@ const TableRow = ({
   return (
     <tr
       className={clsx({
-        'nhsuk-table__row': !variant,
+        'nhsuk-table__row': !head,
         className,
       })}
       role={role}
@@ -144,7 +157,7 @@ export type TableCellProps = {
   /**
    * The variant of the cell. Defaults to none.
    */
-  variant?: 'head' | 'numeric';
+  variant?: 'numeric';
   /**
    * The heading to display in when the table is in responsive mode and on small screens. If not provided, the children will be used.
    */
@@ -165,25 +178,25 @@ const TableCell = ({
   ...props
 }: TableCellProps) => {
   const { variant: tableVariant } = useTableContext();
+  const { head } = useTableHeadContext();
 
-  const baseProps =
-    variant === 'head'
-      ? {
-          as: 'th',
-          scope: 'col',
-          role: role || 'columnheader',
-          className: className,
-          'data-responsive-heading': responsiveHeading,
-        }
-      : {
-          as: 'td',
-          role: role || 'cell',
-          className: clsx(
-            'nhsuk-table__cell',
-            { 'nhsuk-table__cell--numeric': variant === 'numeric' },
-            className,
-          ),
-        };
+  const baseProps = head
+    ? {
+        as: 'th',
+        scope: 'col',
+        role: role || 'columnheader',
+        className: className,
+        'data-responsive-heading': responsiveHeading,
+      }
+    : {
+        as: 'td',
+        role: role || 'cell',
+        className: clsx(
+          'nhsuk-table__cell',
+          { 'nhsuk-table__cell--numeric': variant === 'numeric' },
+          className,
+        ),
+      };
 
   return (
     <Base<any> {...baseProps} {...props}>

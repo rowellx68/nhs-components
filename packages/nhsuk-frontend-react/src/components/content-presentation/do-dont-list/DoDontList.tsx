@@ -112,9 +112,9 @@ const DoDontListItem = ({
 };
 
 DoDontList.displayName = 'DoDontList';
-DoDontListLabel.displayName = 'DoDontListLabel';
-DoDontListList.displayName = 'DoDontListList';
-DoDontListItem.displayName = 'DoDontListListItem';
+DoDontListLabel.displayName = 'DoDontList.Label';
+DoDontListList.displayName = 'DoDontList.List';
+DoDontListItem.displayName = 'DoDontList.Item';
 
 DoDontList.Label = DoDontListLabel;
 DoDontList.List = DoDontListList;

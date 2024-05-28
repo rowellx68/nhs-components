@@ -10,6 +10,12 @@ import { Footer } from './Footer';
 const meta: Meta<typeof Footer> = {
   title: 'Components/Navigation/Footer',
   component: Footer,
+  subcomponents: {
+    'Footer.Content': Footer.Content,
+    'Footer.List': Footer.List,
+    'Footer.ListItem': Footer.ListItem,
+    'Footer.Copyright': Footer.Copyright,
+  } as Record<string, React.ComponentType<any>>,
   parameters: {
     layout: 'fullscreen',
   },
@@ -24,21 +30,11 @@ export const FooterWithKeyLinksOnly: Story = {
     <Footer {...args}>
       <Footer.Content>
         <Footer.List>
-          <Footer.ListItem default href="#">
-            Accessibility statement
-          </Footer.ListItem>
-          <Footer.ListItem default href="#">
-            Contact us
-          </Footer.ListItem>
-          <Footer.ListItem default href="#">
-            Cookies
-          </Footer.ListItem>
-          <Footer.ListItem default href="#">
-            Privacy policy
-          </Footer.ListItem>
-          <Footer.ListItem default href="#">
-            Terms and conditions
-          </Footer.ListItem>
+          <Footer.ListItem href="#">Accessibility statement</Footer.ListItem>
+          <Footer.ListItem href="#">Contact us</Footer.ListItem>
+          <Footer.ListItem href="#">Cookies</Footer.ListItem>
+          <Footer.ListItem href="#">Privacy policy</Footer.ListItem>
+          <Footer.ListItem href="#">Terms and conditions</Footer.ListItem>
         </Footer.List>
         <Footer.Copyright>NHS England</Footer.Copyright>
       </Footer.Content>

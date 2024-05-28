@@ -10,6 +10,10 @@ import { Figure } from './Figure';
 const meta: Meta<typeof Figure> = {
   title: 'Components/Content Presentation/Figure',
   component: Figure,
+  subcomponents: {
+    'Figure.Image': Figure.Image,
+    'Figure.Caption': Figure.Caption,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

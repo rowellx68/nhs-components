@@ -7,7 +7,7 @@ import {
 import clsx from 'clsx';
 import { ElementProps } from '@/types/shared';
 
-export type ListProps = { type?: 'ordered' | 'unordered' } & ElementProps<
+export type ListProps = { variant?: 'ordered' | 'unordered' } & ElementProps<
   'ul',
   'type'
 >;
@@ -22,8 +22,8 @@ type ListFactory = PolymorphicFactory<{
 }>;
 
 const List = polymorphicFactory<ListFactory>(
-  ({ className, type, ...props }, ref) => {
-    const component = type === 'ordered' ? 'ol' : 'ul';
+  ({ className, variant, ...props }, ref) => {
+    const component = variant === 'ordered' ? 'ol' : 'ul';
 
     return (
       <Base<any>
@@ -31,8 +31,8 @@ const List = polymorphicFactory<ListFactory>(
         className={clsx(
           'nhsuk-list',
           {
-            'nhsuk-list--bullet': type === 'unordered',
-            'nhsuk-list--number': type === 'ordered',
+            'nhsuk-list--bullet': variant === 'unordered',
+            'nhsuk-list--number': variant === 'ordered',
           },
           className,
         )}

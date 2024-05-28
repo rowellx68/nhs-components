@@ -8,6 +8,24 @@ const meta: Meta<typeof Hero> = {
   parameters: {
     layout: 'fullscreen',
   },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['content-only', 'image-and-content', 'image-only'],
+    },
+    imageUrl: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
+  subcomponents: {
+    'Hero.Container': Hero.Container,
+    'Hero.Heading': Hero.Heading,
+    'Hero.Paragraph': Hero.Paragraph,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

@@ -11,5 +11,16 @@ const TableContext = createContext<TableContextValue>({
   registerHeadings: () => {},
 });
 
+export type TableHeadContextValue = {
+  head: boolean;
+};
+
+const TableHeadContext = createContext<TableHeadContextValue>({
+  head: false,
+});
+
 export const useTableContext = () => useContext(TableContext);
 export const TableProvider = TableContext.Provider;
+
+export const useTableHeadContext = () => useContext(TableHeadContext);
+export const TableHeadProvider = TableHeadContext.Provider;

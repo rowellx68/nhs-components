@@ -10,6 +10,9 @@ import { SummaryList } from './SummaryList';
 const meta: Meta<typeof SummaryList> = {
   title: 'Components/Content Presentation/Summary List',
   component: SummaryList,
+  subcomponents: {
+    'SummaryList.Row': SummaryList.Row,
+  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

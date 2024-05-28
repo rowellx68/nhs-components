@@ -160,6 +160,9 @@ const HeaderContainer = ({
 
 export type HeaderLogoProps = {
   'aria-label': string;
+  /**
+   * If set, there will be extra space around the logo to account for the lack of a service/oganisation name
+   */
   variant?: 'logo-only';
 } & Omit<BaseProps, 'children'>;
 
