@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the fieldset component 1`] = `
+<div>
+  <fieldset
+    class="nhsuk-fieldset"
+  >
+    <legend
+      class="nhsuk-legend nhsuk-fieldset__legend--l"
+    >
+      <h1
+        class="nhsuk-fieldset__heading"
+      >
+        What is your address?
+      </h1>
+    </legend>
+  </fieldset>
+</div>
+`;

@@ -1,0 +1,333 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the date input component 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <fieldset
+        aria-labelledby="dateinput_:r0:--label"
+        class="nhsuk-fieldset"
+        role="group"
+      >
+        <div
+          class="nhsuk-date-input"
+          id="dateinput_:r0:"
+        >
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:r0:-day"
+                id="dateinput_:r0:-day--label"
+              >
+                Day
+              </label>
+              <input
+                aria-labelledby="dateinput_:r0:-day--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
+                id="dateinput_:r0:-day"
+                inputmode="numeric"
+                name="dateinput_:r0:-day"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:r0:-month"
+                id="dateinput_:r0:-month--label"
+              >
+                Month
+              </label>
+              <input
+                aria-labelledby="dateinput_:r0:-month--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
+                id="dateinput_:r0:-month"
+                inputmode="numeric"
+                name="dateinput_:r0:-month"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:r0:-year"
+                id="dateinput_:r0:-year--label"
+              >
+                Year
+              </label>
+              <input
+                aria-labelledby="dateinput_:r0:-year--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input"
+                id="dateinput_:r0:-year"
+                inputmode="numeric"
+                name="dateinput_:r0:-year"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the date input component with a label and hint 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <fieldset
+        aria-describedby="dateinput_:rs:_:rt:--hint"
+        aria-labelledby="dateinput_:rs:--label"
+        class="nhsuk-fieldset"
+        role="group"
+      >
+        <legend
+          class="nhsuk-legend"
+          for="dateinput_:rs:"
+          id="dateinput_:rs:--label"
+        >
+          Date of birth
+        </legend>
+        <div
+          class="nhsuk-hint"
+          id="dateinput_:rs:_:rt:--hint"
+        >
+          For example, 31 3 1980
+        </div>
+        <div
+          class="nhsuk-date-input"
+          id="dateinput_:rs:"
+        >
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:rs:-day"
+                id="dateinput_:rs:-day--label"
+              >
+                Day
+              </label>
+              <input
+                aria-labelledby="dateinput_:rs:-day--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
+                id="dateinput_:rs:-day"
+                inputmode="numeric"
+                name="dateinput_:rs:-day"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:rs:-month"
+                id="dateinput_:rs:-month--label"
+              >
+                Month
+              </label>
+              <input
+                aria-labelledby="dateinput_:rs:-month--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
+                id="dateinput_:rs:-month"
+                inputmode="numeric"
+                name="dateinput_:rs:-month"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:rs:-year"
+                id="dateinput_:rs:-year--label"
+              >
+                Year
+              </label>
+              <input
+                aria-labelledby="dateinput_:rs:-year--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input"
+                id="dateinput_:rs:-year"
+                inputmode="numeric"
+                name="dateinput_:rs:-year"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the date input component with an error message 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group nhsuk-form-group--error"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <fieldset
+        aria-describedby="dateinput_:r1a:--error-message"
+        aria-labelledby="dateinput_:r1a:--label"
+        class="nhsuk-fieldset"
+        role="group"
+      >
+        <span
+          class="nhsuk-error-message"
+          id="dateinput_:r1a:--error-message"
+        >
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+            Error: 
+          </span>
+          Error message
+        </span>
+        <div
+          class="nhsuk-date-input"
+          id="dateinput_:r1a:"
+        >
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:r1a:-day"
+                id="dateinput_:r1a:-day--label"
+              >
+                Day
+              </label>
+              <input
+                aria-labelledby="dateinput_:r1a:-day--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input nhsuk-input--error"
+                id="dateinput_:r1a:-day"
+                inputmode="numeric"
+                name="dateinput_:r1a:-day"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:r1a:-month"
+                id="dateinput_:r1a:-month--label"
+              >
+                Month
+              </label>
+              <input
+                aria-labelledby="dateinput_:r1a:-month--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input nhsuk-input--error"
+                id="dateinput_:r1a:-month"
+                inputmode="numeric"
+                name="dateinput_:r1a:-month"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="nhsuk-date-input__item"
+          >
+            <div
+              class="nhsuk-form-group"
+            >
+              <label
+                class="nhsuk-label nhsuk-date-input__label"
+                for="dateinput_:r1a:-year"
+                id="dateinput_:r1a:-year--label"
+              >
+                Year
+              </label>
+              <input
+                aria-labelledby="dateinput_:r1a:-year--label"
+                as="input"
+                class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input nhsuk-input--error"
+                id="dateinput_:r1a:-year"
+                inputmode="numeric"
+                name="dateinput_:r1a:-year"
+                pattern="[0-9]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;

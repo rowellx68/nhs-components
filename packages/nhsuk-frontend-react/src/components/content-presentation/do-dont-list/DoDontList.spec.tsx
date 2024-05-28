@@ -8,17 +8,17 @@ it('should render the do variant of the DoDontList component', () => {
     <DoDontList variant="do">
       <DoDontList.Label as="h2">Do</DoDontList.Label>
       <DoDontList.List>
-        <DoDontList.Item>
+        <DoDontList.ListItem>
           cover blisters that are likely to burst with a soft plaster or
           dressing
-        </DoDontList.Item>
-        <DoDontList.Item>
+        </DoDontList.ListItem>
+        <DoDontList.ListItem>
           wash your hands before touching a burst blister{' '}
-        </DoDontList.Item>
-        <DoDontList.Item>
+        </DoDontList.ListItem>
+        <DoDontList.ListItem>
           allow the fluid in a burst blister to drain before covering it with a
           plaster or dressing{' '}
-        </DoDontList.Item>
+        </DoDontList.ListItem>
       </DoDontList.List>
     </DoDontList>,
   );
@@ -34,17 +34,19 @@ it('should render the dont variant of the DoDontList component', () => {
       <DoDontList.Label as="h2">Don’t</DoDontList.Label>
       <DoDontList.Label as="h2">Don't</DoDontList.Label>
       <DoDontList.List>
-        <DoDontList.Item>do not burst a blister yourself</DoDontList.Item>
-        <DoDontList.Item>
+        <DoDontList.ListItem>
+          do not burst a blister yourself
+        </DoDontList.ListItem>
+        <DoDontList.ListItem>
           do not peel the skin off a burst blister
-        </DoDontList.Item>
-        <DoDontList.Item>
+        </DoDontList.ListItem>
+        <DoDontList.ListItem>
           do not pick at the edges of the remaining skin
-        </DoDontList.Item>
-        <DoDontList.Item>
+        </DoDontList.ListItem>
+        <DoDontList.ListItem>
           do not wear the shoes or use the equipment that caused your blister
           until it heals
-        </DoDontList.Item>
+        </DoDontList.ListItem>
       </DoDontList.List>
     </DoDontList>,
   );

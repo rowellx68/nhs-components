@@ -8,9 +8,9 @@ it('should render a two column table', () => {
     <Table>
       <Table.Caption>Skin symptoms and possible causes</Table.Caption>
       <Table.Head>
-        <Table.Row variant="head">
-          <Table.Cell variant="head">Skin symptoms</Table.Cell>
-          <Table.Cell variant="head">Possible cause</Table.Cell>
+        <Table.Row>
+          <Table.Cell>Skin symptoms</Table.Cell>
+          <Table.Cell>Possible cause</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
@@ -41,16 +41,10 @@ it('should render a three column table', () => {
     <Table variant="responsive">
       <Table.Caption>Ibuprofen tablet dosages for children</Table.Caption>
       <Table.Head>
-        <Table.Row variant="head">
-          <Table.Cell variant="head" responsiveHeading="Age">
-            Age
-          </Table.Cell>
-          <Table.Cell variant="head" responsiveHeading="How much?">
-            How much
-          </Table.Cell>
-          <Table.Cell variant="head" responsiveHeading="How often?">
-            How often
-          </Table.Cell>
+        <Table.Row>
+          <Table.Cell responsiveHeading="Age">Age</Table.Cell>
+          <Table.Cell responsiveHeading="How much?">How much</Table.Cell>
+          <Table.Cell responsiveHeading="How often?">How often</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>

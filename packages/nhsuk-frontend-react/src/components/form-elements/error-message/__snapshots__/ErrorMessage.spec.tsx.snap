@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the error message component 1`] = `
+<div>
+  <span
+    class="nhsuk-error-message"
+  >
+    <span
+      class="nhsuk-u-visually-hidden"
+    >
+      Error: 
+    </span>
+    There was an error with your input
+  </span>
+</div>
+`;

@@ -1,0 +1,414 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the input component 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r0:"
+      id="input_:r0:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:r0:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-full"
+      id="input_:r0:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with error 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group nhsuk-form-group--error"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r4:"
+      id="input_:r4:--label"
+    >
+      First name
+    </label>
+    <span
+      class="nhsuk-error-message"
+      id="input_:r4:--error-message"
+    >
+      <span
+        class="nhsuk-u-visually-hidden"
+      >
+        Error: 
+      </span>
+      Error message goes here
+    </span>
+    <input
+      aria-describedby="input_:r4:--error-message"
+      aria-labelledby="input_:r4:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-full nhsuk-input--error"
+      id="input_:r4:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with hint 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r2:"
+      id="input_:r2:--label"
+    >
+      First name
+    </label>
+    <div
+      class="nhsuk-hint"
+      id="input_:r2:_:r3:--hint"
+    >
+      Enter your first name
+    </div>
+    <input
+      aria-describedby="input_:r2:_:r3:--hint"
+      aria-labelledby="input_:r2:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-full"
+      id="input_:r2:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width 2 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r6:"
+      id="input_:r6:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:r6:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-2"
+      id="input_:r6:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width 3 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r8:"
+      id="input_:r8:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:r8:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-3"
+      id="input_:r8:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width 4 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:ra:"
+      id="input_:ra:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:ra:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-4"
+      id="input_:ra:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width 5 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:rc:"
+      id="input_:rc:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:rc:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-5"
+      id="input_:rc:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width 10 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:re:"
+      id="input_:re:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:re:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-10"
+      id="input_:re:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width 20 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:rg:"
+      id="input_:rg:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:rg:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-20"
+      id="input_:rg:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width full 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:ri:"
+      id="input_:ri:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:ri:--label"
+      as="input"
+      class="nhsuk-input"
+      id="input_:ri:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width one-half 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:rk:"
+      id="input_:rk:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:rk:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-one-half"
+      id="input_:rk:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width one-quarter 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:rm:"
+      id="input_:rm:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:rm:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-one-quarter"
+      id="input_:rm:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width one-third 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:ro:"
+      id="input_:ro:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:ro:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-one-third"
+      id="input_:ro:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width three-quarters 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:rq:"
+      id="input_:rq:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:rq:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-three-quarters"
+      id="input_:rq:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input component with width two-thirds 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:rs:"
+      id="input_:rs:--label"
+    >
+      First name
+    </label>
+    <input
+      aria-labelledby="input_:rs:--label"
+      as="input"
+      class="nhsuk-input nhsuk-u-width-two-thirds"
+      id="input_:rs:"
+    />
+  </div>
+</div>
+`;
+
+exports[`should render the input with prefix 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:ru:"
+      id="input_:ru:--label"
+    >
+      Cost
+    </label>
+    <div
+      class="nhsuk-input__wrapper"
+    >
+      <div
+        aria-hidden="true"
+        class="nhsuk-input__prefix"
+      >
+        £
+      </div>
+      <input
+        aria-labelledby="input_:ru:--label"
+        as="input"
+        class="nhsuk-input nhsuk-u-width-full"
+        id="input_:ru:"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the input with suffix 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r10:"
+      id="input_:r10:--label"
+    >
+      Weight
+    </label>
+    <div
+      class="nhsuk-input__wrapper"
+    >
+      <input
+        aria-labelledby="input_:r10:--label"
+        as="input"
+        class="nhsuk-input nhsuk-u-width-full"
+        id="input_:r10:"
+      />
+      <div
+        aria-hidden="true"
+        class="nhsuk-input__suffix"
+      >
+        in grams
+      </div>
+    </div>
+  </div>
+</div>
+`;
