@@ -300,6 +300,12 @@
       "types": "./dist/components/styles/typography/section-break/SectionBreak.d.ts"
     }
   },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "rollup -c && rollup -c ./rollup.dts.config.mjs",
