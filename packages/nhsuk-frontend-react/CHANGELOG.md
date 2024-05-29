@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 3.1.0
+
+### Minor Changes
+
+- [#18](https://github.com/rowellx68/nhs-components/pull/18) [`669e187`](https://github.com/rowellx68/nhs-components/commit/669e1875b18eae3fbfcb1d57a889317607a48c35) Thanks [@rowellx68](https://github.com/rowellx68)! - test: add tests for various components
+  feat: rename components and variants
+  docs: add missing subcomponents for pagination docs
+  build: add script to copy js files from nhsuk-frontend
+  refactor: update script usage for components
+  fix: add missing dependency
+  docs: add missing subcomponents for pagination docs
+  fix: textarea script registration
+
 ## 3.0.4
 
 ### Patch Changes
