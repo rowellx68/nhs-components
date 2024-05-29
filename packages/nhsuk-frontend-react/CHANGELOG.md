@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.1.1
+
+### Patch Changes
+
+- [#20](https://github.com/rowellx68/nhs-components/pull/20) [`4a89ec7`](https://github.com/rowellx68/nhs-components/commit/4a89ec7d69f0a3a2e6482635ac1a2028c7cd3a7b) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing use client directive
+
 ## 3.1.0
 
 ### Minor Changes
