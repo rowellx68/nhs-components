@@ -8,8 +8,8 @@ import {
 } from '@/internal/factory/polymorphic-factory';
 import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
 import clsx from 'clsx';
-import initTabs from 'nhsuk-frontend/packages/components/tabs/tabs';
 import { Factory, factory } from '@/internal/factory/factory';
+import initTabs from '@/resources/tabs/tabs';
 
 export type TabsProps = ElementProps<'div'>;
 
@@ -35,16 +35,14 @@ const Tabs = factory<TabsFactory>(
         return;
       }
 
-      const parentNode = internalRef.current?.parentNode;
+      const parent = internalRef.current?.parentElement;
 
-      if (!parentNode) {
+      if (!parent) {
         return;
       }
 
-      setTimeout(() => {
-        initTabs({ scope: parentNode });
-      }, 0);
-    }, []);
+      initTabs({ scope: parent as any });
+    }, [internalRef]);
 
     return (
       <div

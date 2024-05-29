@@ -19,7 +19,7 @@ import {
 } from './ErrorSummary.context';
 import { List, ListProps } from '@/components/styles/typography/list/List';
 import { Base } from '@/components/core/base/Base';
-import initErrorSummary from 'nhsuk-frontend/packages/components/error-summary/error-summary';
+import initErrorSummary from '@/resources/error-summary/error-summary';
 
 export type ErrorSummaryProps = ElementProps<'div', 'role' | 'tabindex'>;
 
@@ -52,10 +52,8 @@ const ErrorSummary = factory<ErrorSummaryFactory>(
         return;
       }
 
-      setTimeout(() => {
-        initErrorSummary({ scope: parent });
-      }, 0);
-    });
+      initErrorSummary({ scope: parent as any });
+    }, [internalRef]);
 
     return (
       <ErrorSummaryContextProvider value={{ labelId }}>

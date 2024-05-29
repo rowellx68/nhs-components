@@ -54,9 +54,7 @@ export const DontList: Story = {
     <DoDontList {...args}>
       <DoDontList.Label as="h2">Don't</DoDontList.Label>
       <DoDontList.List>
-        <DoDontList.Item>
-          do not burst a blister yourself
-        </DoDontList.Item>
+        <DoDontList.Item>do not burst a blister yourself</DoDontList.Item>
         <DoDontList.Item>
           do not peel the skin off a burst blister
         </DoDontList.Item>

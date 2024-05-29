@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
-import initSkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link';
 import { Factory, factory } from '@/internal/factory/factory';
+import initSkipLink from '@/resources/skip-link/skip-link';
 
 export type SkipLinkProps = ElementProps<'a', 'href'>;
 
@@ -23,6 +23,7 @@ const SkipLink = factory<SkipLinkFactory>(
       <a
         className={clsx('nhsuk-skip-link', className)}
         href="#maincontent"
+        tabIndex={0}
         {...props}
         ref={ref}
       >

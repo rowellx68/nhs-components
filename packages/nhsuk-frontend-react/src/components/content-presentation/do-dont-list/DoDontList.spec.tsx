@@ -34,9 +34,7 @@ it('should render the dont variant of the DoDontList component', () => {
       <DoDontList.Label as="h2">Don’t</DoDontList.Label>
       <DoDontList.Label as="h2">Don't</DoDontList.Label>
       <DoDontList.List>
-        <DoDontList.Item>
-          do not burst a blister yourself
-        </DoDontList.Item>
+        <DoDontList.Item>do not burst a blister yourself</DoDontList.Item>
         <DoDontList.Item>
           do not peel the skin off a burst blister
         </DoDontList.Item>

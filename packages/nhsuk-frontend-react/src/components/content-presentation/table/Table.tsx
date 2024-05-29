@@ -91,7 +91,12 @@ const TableBody = ({ className, ...props }: TableBodyProps) => (
   <tbody className={clsx('nhsuk-table__body', className)} {...props} />
 );
 
-export type TableRowProps = ElementProps<'tr'>;
+export type TableRowProps = {
+  /**
+   * @deprecated Will be removed in a future release. It now automatically detects the variant based on the context. This is now unused within the component.
+   */
+  variant?: 'head';
+} & ElementProps<'tr'>;
 
 const TableRow = ({
   role = 'row',
