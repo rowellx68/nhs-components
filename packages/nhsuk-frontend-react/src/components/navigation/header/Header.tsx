@@ -16,7 +16,6 @@ import clsx from 'clsx';
 import { HeaderContextProvider, useHeaderContext } from './Header.context';
 import { Factory, factory } from '@/internal/factory/factory';
 import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
-import initHeader from 'nhsuk-frontend/packages/components/header/header';
 import {
   AsElementProps,
   ElementProps,
@@ -24,6 +23,7 @@ import {
 } from '@/types/shared';
 import { SearchIcon } from '@/icons/search/Search';
 import { ChevronDownIcon } from '@/icons/chevron-down/ChevronDown';
+import initHeader from '@/resources/header/header';
 
 export type HeaderProps = (
   | {
@@ -115,9 +115,7 @@ const Header = factory<HeaderFactory>(
         return;
       }
 
-      setTimeout(() => {
-        initHeader();
-      }, 0);
+      initHeader();
     }, [internalRef]);
 
     return (

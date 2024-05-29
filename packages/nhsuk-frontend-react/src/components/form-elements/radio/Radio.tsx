@@ -19,7 +19,7 @@ import React, {
 } from 'react';
 import { Hint } from '../hint/Hint';
 import { RadioProvider, useRadioContext } from './Radio.context';
-import initRadio from 'nhsuk-frontend/packages/components/radios/radios';
+import initRadio from '@/resources/radios/radios';
 
 export type RadioProps = { inline?: boolean } & BaseFormElementProps &
   ElementProps<'div'>;
@@ -34,26 +34,24 @@ type RadioFactory = Factory<{
 }>;
 
 const Radio = factory<RadioFactory>(({ children, inline, ...props }, ref) => {
-  const innerRef = useRef<HTMLDivElement>(null);
-  useImperativeHandle(ref, () => innerRef.current as HTMLDivElement);
+  const internalRef = useRef<HTMLDivElement>(null);
+  useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
   const [withConditionals, setWithConditionals] = useState(false);
 
   useEffect(() => {
-    if (!innerRef.current) {
+    if (!internalRef.current) {
       return;
     }
 
-    const parentNode = innerRef.current.closest('form')?.parentElement;
+    const parent = internalRef.current.closest('form')?.parentElement;
 
-    if (!parentNode) {
+    if (!parent) {
       return;
     }
 
-    setTimeout(() => {
-      initRadio({ scope: parentNode });
-    }, 0);
-  }, []);
+    initRadio({ scope: parent as any });
+  }, [internalRef]);
 
   const value = useMemo(
     () => ({ withConditionals, setWithConditionals }),
@@ -67,7 +65,7 @@ const Radio = factory<RadioFactory>(({ children, inline, ...props }, ref) => {
       <FormGroup
         as="div"
         {...props}
-        ref={innerRef}
+        ref={internalRef}
         inputType="radios"
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         render={({ className, withError: _withError, ...rest }) => (

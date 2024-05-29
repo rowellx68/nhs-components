@@ -1,7 +1,10 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import clsx from 'clsx';
 import { ElementProps } from '@/types/shared';
 import { Factory, factory } from '@/internal/factory/factory';
+import initDetails from '@/resources/details/details';
 
 export type DetailsProps = {
   expander?: boolean;
@@ -18,6 +21,24 @@ type DetailsFactory = Factory<{
 
 const Details = factory<DetailsFactory>(
   ({ expander, className, ...props }: DetailsProps, ref) => {
+    const internalRef = useRef<HTMLDetailsElement>(null);
+
+    useImperativeHandle(ref, () => internalRef.current as HTMLDetailsElement);
+
+    useEffect(() => {
+      if (!internalRef.current) {
+        return;
+      }
+
+      const parent = internalRef.current.parentElement;
+
+      if (!parent) {
+        return;
+      }
+
+      initDetails({ scope: parent as any });
+    }, [internalRef]);
+
     return (
       <details
         className={clsx(
@@ -26,7 +47,7 @@ const Details = factory<DetailsFactory>(
           className,
         )}
         {...props}
-        ref={ref}
+        ref={internalRef}
       />
     );
   },

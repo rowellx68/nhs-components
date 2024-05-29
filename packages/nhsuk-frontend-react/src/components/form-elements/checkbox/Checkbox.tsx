@@ -19,7 +19,7 @@ import React, {
 } from 'react';
 import { Hint } from '../hint/Hint';
 import { CheckboxProvider, useCheckboxContext } from './Checkbox.context';
-import initCheckbox from 'nhsuk-frontend/packages/components/checkboxes/checkboxes';
+import initCheckbox from '@/resources/checkboxes/checkboxes';
 
 export type CheckboxProps = BaseFormElementProps & ElementProps<'div'>;
 
@@ -38,26 +38,24 @@ type CheckboxFactory = Factory<{
  * It should contain one or more {@link Checkbox.Item} or {@link CheckboxItem} components and optionally a {@link Checkbox.Divider} or {@link CheckboxDivider} component.
  */
 const Checkbox = factory<CheckboxFactory>(({ children, ...props }, ref) => {
-  const innerRef = useRef<HTMLDivElement>(null);
-  useImperativeHandle(ref, () => innerRef.current as HTMLDivElement);
+  const internalRef = useRef<HTMLDivElement>(null);
+  useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
   const [withConditionals, setWithConditionals] = useState(false);
 
   useEffect(() => {
-    if (!innerRef.current) {
+    if (!internalRef.current) {
       return;
     }
 
-    const parentNode = innerRef.current.closest('form')?.parentElement;
+    const parent = internalRef.current.closest('form')?.parentElement;
 
-    if (!parentNode) {
+    if (!parent) {
       return;
     }
 
-    setTimeout(() => {
-      initCheckbox({ scope: parentNode });
-    }, 0);
-  }, []);
+    initCheckbox({ scope: parent as any });
+  }, [internalRef]);
 
   const value = useMemo(
     () => ({ withConditionals, setWithConditionals }),
@@ -71,7 +69,7 @@ const Checkbox = factory<CheckboxFactory>(({ children, ...props }, ref) => {
       <FormGroup
         as="div"
         {...props}
-        ref={innerRef}
+        ref={internalRef}
         inputType="checkboxes"
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         render={({ className, withError: _withError, ...rest }) => (

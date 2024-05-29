@@ -7,8 +7,8 @@ import {
   PolymorphicFactory,
 } from '@/internal/factory/polymorphic-factory';
 import clsx from 'clsx';
-import initButton from 'nhsuk-frontend/packages/components/button/button';
 import { AsElementProps } from '@/types/shared';
+import initButton from '@/resources/button/button';
 
 export type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'reverse';
@@ -46,18 +46,15 @@ const Button = polymorphicFactory<ButtonFactory>(
         return;
       }
 
-      const parentNode = (internalRef.current as unknown as HTMLElement)
-        .parentNode;
+      const parent = internalRef.current.parentElement;
 
-      if (!parentNode) {
+      if (!parent) {
         return;
       }
 
-      setTimeout(() => {
-        initButton({
-          scope: parentNode,
-        });
-      }, 0);
+      initButton({
+        scope: parent as any,
+      });
     }, [internalRef]);
 
     const notButton = component !== 'button';
