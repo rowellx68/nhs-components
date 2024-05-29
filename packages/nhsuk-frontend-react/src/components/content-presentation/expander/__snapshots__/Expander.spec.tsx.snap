@@ -7,9 +7,15 @@ exports[`should render the Expander Group component 1`] = `
   >
     <details
       class="nhsuk-details nhsuk-expander"
+      id="nhsuk-details0"
+      nhsuk-polyfilled="true"
     >
       <summary
+        aria-controls="nhsuk-details__text0"
+        aria-expanded="false"
         class="nhsuk-details__summary"
+        role="button"
+        tabindex="0"
       >
         <span
           class="nhsuk-details__summary-text"
@@ -18,7 +24,10 @@ exports[`should render the Expander Group component 1`] = `
         </span>
       </summary>
       <div
+        aria-hidden="true"
         class="nhsuk-details__text"
+        id="nhsuk-details__text0"
+        style="display: none;"
       >
         <p>
           Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.
@@ -44,9 +53,15 @@ exports[`should render the Expander Group component 1`] = `
     </details>
     <details
       class="nhsuk-details nhsuk-expander"
+      id="nhsuk-details1"
+      nhsuk-polyfilled="true"
     >
       <summary
+        aria-controls="nhsuk-details__text1"
+        aria-expanded="false"
         class="nhsuk-details__summary"
+        role="button"
+        tabindex="0"
       >
         <span
           class="nhsuk-details__summary-text"
@@ -55,7 +70,10 @@ exports[`should render the Expander Group component 1`] = `
         </span>
       </summary>
       <div
+        aria-hidden="true"
         class="nhsuk-details__text"
+        id="nhsuk-details__text1"
+        style="display: none;"
       >
         <p>
           Try to check your blood:
@@ -84,9 +102,15 @@ exports[`should render the Expander component 1`] = `
 <div>
   <details
     class="nhsuk-details nhsuk-expander"
+    id="nhsuk-details0"
+    nhsuk-polyfilled="true"
   >
     <summary
+      aria-controls="nhsuk-details__text0"
+      aria-expanded="false"
       class="nhsuk-details__summary"
+      role="button"
+      tabindex="0"
     >
       <span
         class="nhsuk-details__summary-text"
@@ -95,7 +119,10 @@ exports[`should render the Expander component 1`] = `
       </span>
     </summary>
     <div
+      aria-hidden="true"
       class="nhsuk-details__text"
+      id="nhsuk-details__text0"
+      style="display: none;"
     >
       <p>
         You can see your GP records by:
