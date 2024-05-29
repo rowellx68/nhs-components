@@ -16,9 +16,10 @@
     "sourceMap": false,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "emitDeclarationOnly": true,
     "types": ["@testing-library/jest-dom"]
   },
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts", "./src/**/*.js"],
   "exclude": ["node_modules", "dist"]
 }
