@@ -50,13 +50,15 @@ export default defineConfig([
       }),
       typescriptPaths(),
     ],
-    onwarn: (message) => {
-      if (/"use client"/.test(message)) {
+    onwarn: ({ pluginCode, message, code }, logger) => {
+      if (
+        (code === 'PLUGIN_WARNING' && pluginCode === 'TS5055') ||
+        (code === 'MODULE_LEVEL_DIRECTIVE' && /"use client"/.test(message))
+      ) {
         return;
       }
 
-      // eslint-disable-next-line no-undef
-      console.warn(message);
+      logger(message);
     },
   },
   {

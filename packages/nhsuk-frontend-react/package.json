@@ -312,7 +312,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "prebuild": "rm -rf ./dist",
+    "prebuild": "node ./prepare-resources.mjs && rm -rf ./dist",
     "build": "rollup -c && rollup -c ./rollup.dts.config.mjs",
     "postbuild": "node ./prepare-package-exports.mjs",
     "sb": "storybook dev -p 6006 --no-open",

@@ -4,7 +4,7 @@ import fg from 'fast-glob';
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 const files = fg
-  .globSync(['dist/**/*.js', '!dist/**/*.context.js'])
+  .globSync(['dist/**/*.js', '!dist/**/*.context.js', '!dist/**/resources/**'])
   .map((file) => file.replace('/index.js', ''));
 
 const exports = files.reduce((acc, file) => {
