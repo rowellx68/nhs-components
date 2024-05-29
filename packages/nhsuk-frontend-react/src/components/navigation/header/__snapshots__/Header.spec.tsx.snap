@@ -201,6 +201,9 @@ exports[`should render the Header component 1`] = `
                 />
               </svg>
             </button>
+            <ul
+              class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden"
+            />
           </li>
         </ul>
       </nav>
@@ -457,6 +460,9 @@ exports[`should render the Header component with a service name 1`] = `
                 />
               </svg>
             </button>
+            <ul
+              class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden"
+            />
           </li>
         </ul>
       </nav>
@@ -682,6 +688,9 @@ exports[`should render the Header component with an organisation 1`] = `
                 />
               </svg>
             </button>
+            <ul
+              class="nhsuk-header__drop-down nhsuk-header__drop-down--hidden"
+            />
           </li>
         </ul>
       </nav>

@@ -13,51 +13,78 @@ exports[`should render the Tabs component 1`] = `
     </h2>
     <ul
       class="nhsuk-tabs__list"
+      role="tablist"
     >
       <li
-        class="nhsuk-tabs__list-item"
+        class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected"
+        role="presentation"
       >
         <a
+          aria-controls="past-day"
+          aria-selected="true"
           class="nhsuk-tabs__tab"
           href="#past-day"
+          id="tab_past-day"
+          role="tab"
+          tabindex="0"
         >
           Past day
         </a>
       </li>
       <li
         class="nhsuk-tabs__list-item"
+        role="presentation"
       >
         <a
+          aria-controls="past-week"
+          aria-selected="false"
           class="nhsuk-tabs__tab"
           href="#past-week"
+          id="tab_past-week"
+          role="tab"
+          tabindex="-1"
         >
           Past week
         </a>
       </li>
       <li
         class="nhsuk-tabs__list-item"
+        role="presentation"
       >
         <a
+          aria-controls="past-month"
+          aria-selected="false"
           class="nhsuk-tabs__tab"
           href="#past-month"
+          id="tab_past-month"
+          role="tab"
+          tabindex="-1"
         >
           Past month
         </a>
       </li>
       <li
         class="nhsuk-tabs__list-item"
+        role="presentation"
       >
         <a
+          aria-controls="past-year"
+          aria-selected="false"
           class="nhsuk-tabs__tab"
           href="#past-year"
+          id="tab_past-year"
+          role="tab"
+          tabindex="-1"
         >
           Past year
         </a>
       </li>
     </ul>
     <div
+      aria-labelledby="tab_past-day"
       class="nhsuk-tabs__panel"
       id="past-day"
+      role="tabpanel"
     >
       <h2>
         Past day
@@ -67,8 +94,10 @@ exports[`should render the Tabs component 1`] = `
       </p>
     </div>
     <div
-      class="nhsuk-tabs__panel"
+      aria-labelledby="tab_past-week"
+      class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden"
       id="past-week"
+      role="tabpanel"
     >
       <h2>
         Past week
@@ -78,8 +107,10 @@ exports[`should render the Tabs component 1`] = `
       </p>
     </div>
     <div
-      class="nhsuk-tabs__panel"
+      aria-labelledby="tab_past-month"
+      class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden"
       id="past-month"
+      role="tabpanel"
     >
       <h2>
         Past month
@@ -89,8 +120,10 @@ exports[`should render the Tabs component 1`] = `
       </p>
     </div>
     <div
-      class="nhsuk-tabs__panel"
+      aria-labelledby="tab_past-year"
+      class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden"
       id="past-year"
+      role="tabpanel"
     >
       <h2>
         Past year
