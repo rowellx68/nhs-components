@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.1.2
+
+### Patch Changes
+
+- [#22](https://github.com/rowellx68/nhs-components/pull/22) [`8549618`](https://github.com/rowellx68/nhs-components/commit/8549618ec495f15a451145d8d98623b5cadb7760) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing exports
+
+  Add exports for SummaryList and CharacterCount components
+
 ## 3.1.1
 
 ### Patch Changes
