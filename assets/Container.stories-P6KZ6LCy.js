@@ -1,4 +1,4 @@
-import{R as c}from"./index-uCp2LrAq.js";import{C as t}from"./Container-BiuL1FC2.js";import"./_commonjsHelpers-BosuxZz1.js";import"./clsx-B-dksMZM.js";const b={title:"Styles/Layout/Container",component:t,parameters:{docs:{description:{component:`To set up your layout, you will need to create 2 wrappers. The first wrapper is a container which sets the maximum width of the content but does not add any vertical margin or padding.
+import{R as c}from"./index-uCp2LrAq.js";import{C as t}from"./Container-DcHmcJEn.js";import"./_commonjsHelpers-BosuxZz1.js";import"./clsx-B-dksMZM.js";const b={title:"Styles/Layout/Container",component:t,parameters:{docs:{description:{component:`To set up your layout, you will need to create 2 wrappers. The first wrapper is a container which sets the maximum width of the content but does not add any vertical margin or padding.
 
 You can choose from a fixed-width container (960px) or a fluid-width container (which spans the entire width of the viewport).
 
