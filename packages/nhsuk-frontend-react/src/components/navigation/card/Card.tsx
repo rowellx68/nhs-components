@@ -41,20 +41,26 @@ type CardFactory = Factory<{
   };
 }>;
 
-const Card = factory<CardFactory>(({ variant, clickable, ...props }, ref) => {
-  return (
-    <CardProvider value={{ variant: variant }}>
-      <div
-        className={clsx('nhsuk-card', {
-          'nhsuk-card--clickable': clickable,
-          [`nhsuk-card--${variant}`]: variant,
-        })}
-        {...props}
-        ref={ref}
-      />
-    </CardProvider>
-  );
-});
+const Card = factory<CardFactory>(
+  ({ variant, clickable, className, ...props }, ref) => {
+    return (
+      <CardProvider value={{ variant: variant }}>
+        <div
+          className={clsx(
+            'nhsuk-card',
+            {
+              'nhsuk-card--clickable': clickable,
+              [`nhsuk-card--${variant}`]: variant,
+            },
+            className,
+          )}
+          {...props}
+          ref={ref}
+        />
+      </CardProvider>
+    );
+  },
+);
 
 export type CardImageProps = ElementProps<'img'>;
 

@@ -51,11 +51,13 @@ const Table = factory<TableFactory>(({ variant, className, ...props }, ref) => {
   return (
     <TableProvider value={value}>
       <table
-        className={clsx({
-          'nhsuk-table': !variant,
-          [`nhsuk-table-${variant}`]: variant,
+        className={clsx(
+          {
+            'nhsuk-table': !variant,
+            [`nhsuk-table-${variant}`]: variant,
+          },
           className,
-        })}
+        )}
         {...props}
         ref={ref}
       />
@@ -146,10 +148,12 @@ const TableRow = ({
 
   return (
     <tr
-      className={clsx({
-        'nhsuk-table__row': !head,
+      className={clsx(
+        {
+          'nhsuk-table__row': !head,
+        },
         className,
-      })}
+      )}
       role={role}
       {...props}
     >

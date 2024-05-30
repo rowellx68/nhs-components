@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { act } from 'react';
 import { it, expect, vi } from 'vitest';
-import { render } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
+import { fireEvent, render } from '@testing-library/react';
 import { DateInput } from './DateInput';
 
 it('should render the date input component', () => {
@@ -39,13 +38,19 @@ it('should render the date input component with an error message', () => {
   expect(container).toMatchSnapshot();
 });
 
-it('should call the onChange function when the input is changed', async () => {
+it('should call the onChange function when the input is changed', () => {
   const onChange = vi.fn();
   const { getByLabelText } = render(<DateInput onChange={onChange} />);
 
-  await userEvent.type(getByLabelText('Day'), '1');
-  await userEvent.type(getByLabelText('Month'), '1');
-  await userEvent.type(getByLabelText('Year'), '2000');
+  act(() => {
+    fireEvent.input(getByLabelText('Day'), { target: { value: '1' } });
+    fireEvent.input(getByLabelText('Month'), { target: { value: '1' } });
+    // simulate typing user input
+    fireEvent.input(getByLabelText('Year'), { target: { value: '2' } });
+    fireEvent.input(getByLabelText('Year'), { target: { value: '20' } });
+    fireEvent.input(getByLabelText('Year'), { target: { value: '200' } });
+    fireEvent.input(getByLabelText('Year'), { target: { value: '2000' } });
+  });
 
   expect(onChange).toHaveBeenCalledTimes(6);
 });
