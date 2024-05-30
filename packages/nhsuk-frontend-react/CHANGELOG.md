@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.1.3
+
+### Patch Changes
+
+- [#24](https://github.com/rowellx68/nhs-components/pull/24) [`6fd54a7`](https://github.com/rowellx68/nhs-components/commit/6fd54a761b7778893dbc44caf5cd7969b397f1d1) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: usage of classNames
+
+  fix issue with incorrect usage of classNames with clsx in some components
+
 ## 3.1.2
 
 ### Patch Changes
