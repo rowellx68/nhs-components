@@ -119,6 +119,11 @@
       "require": "./dist/components/content-presentation/inset-text/InsetText.js",
       "types": "./dist/components/content-presentation/inset-text/InsetText.d.ts"
     },
+    "./components/content-presentation/summary-list": {
+      "import": "./dist/components/content-presentation/summary-list/SummaryList.mjs",
+      "require": "./dist/components/content-presentation/summary-list/SummaryList.js",
+      "types": "./dist/components/content-presentation/summary-list/SummaryList.d.ts"
+    },
     "./components/content-presentation/table": {
       "import": "./dist/components/content-presentation/table/Table.mjs",
       "require": "./dist/components/content-presentation/table/Table.js",
@@ -163,6 +168,11 @@
       "import": "./dist/components/form-elements/button/Button.mjs",
       "require": "./dist/components/form-elements/button/Button.js",
       "types": "./dist/components/form-elements/button/Button.d.ts"
+    },
+    "./components/form-elements/character-count": {
+      "import": "./dist/components/form-elements/character-count/CharacterCount.mjs",
+      "require": "./dist/components/form-elements/character-count/CharacterCount.js",
+      "types": "./dist/components/form-elements/character-count/CharacterCount.d.ts"
     },
     "./components/form-elements/checkbox": {
       "import": "./dist/components/form-elements/checkbox/Checkbox.mjs",

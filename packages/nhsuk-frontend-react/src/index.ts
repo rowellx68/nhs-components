@@ -5,8 +5,9 @@ export * from '@/components/content-presentation/expander/Expander';
 export * from '@/components/content-presentation/figure/Figure';
 export * from '@/components/content-presentation/hero/Hero';
 export * from '@/components/content-presentation/inset-text/InsetText';
-export * from '@/components/content-presentation/tabs/Tabs';
+export * from '@/components/content-presentation/summary-list/SummaryList';
 export * from '@/components/content-presentation/table/Table';
+export * from '@/components/content-presentation/tabs/Tabs';
 export * from '@/components/content-presentation/tag/Tag';
 export * from '@/components/content-presentation/warning-callout/WarningCallout';
 
@@ -18,6 +19,7 @@ export * from '@/components/core/visually-hidden/VisuallyHidden';
 
 // Form Elements
 export * from '@/components/form-elements/button/Button';
+export * from '@/components/form-elements/character-count/CharacterCount';
 export * from '@/components/form-elements/checkbox/Checkbox';
 export * from '@/components/form-elements/date-input/DateInput';
 export * from '@/components/form-elements/error-message/ErrorMessage';
