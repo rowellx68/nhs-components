@@ -13,11 +13,13 @@ const Container = ({
 }: ContainerProps) => {
   return (
     <div
-      className={clsx({
-        'nhsuk-width-container': variant === 'set-width',
-        'nhsuk-width-container-fluid': variant === 'fluid',
+      className={clsx(
+        {
+          'nhsuk-width-container': variant === 'set-width',
+          'nhsuk-width-container-fluid': variant === 'fluid',
+        },
         className,
-      })}
+      )}
       {...props}
     />
   );
