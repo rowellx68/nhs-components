@@ -10,7 +10,7 @@ exports[`should render the error message component 1`] = `
     >
       Error: 
     </span>
-    There was an error with your input
+    Date of birth must be in the pasts
   </span>
 </div>
 `;

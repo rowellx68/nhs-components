@@ -136,13 +136,17 @@ export const WithConditionalContent: Story = {
     <Checkbox {...args}>
       <Checkbox.Item
         value="email"
-        conditional={<Input label="Email address" width="two-thirds" />}
+        conditional={
+          <Input type="email" label="Email address" width="two-thirds" />
+        }
       >
         Email
       </Checkbox.Item>
       <Checkbox.Item
         value="phone"
-        conditional={<Input label="Phone number" width="two-thirds" />}
+        conditional={
+          <Input type="tel" label="Phone number" width="two-thirds" />
+        }
       >
         Phone
       </Checkbox.Item>

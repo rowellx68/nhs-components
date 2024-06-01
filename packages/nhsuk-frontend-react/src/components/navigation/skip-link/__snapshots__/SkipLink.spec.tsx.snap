@@ -1,13 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`should render the SkipLink component 1`] = `
-<div>
-  <a
-    class="nhsuk-skip-link"
-    href="#maincontent"
-    tabindex="0"
-  >
-    Skip to main content
-  </a>
-</div>
+<a
+  class="nhsuk-skip-link"
+  href="#maincontent"
+  tabindex="0"
+>
+  Skip to main content
+</a>
 `;

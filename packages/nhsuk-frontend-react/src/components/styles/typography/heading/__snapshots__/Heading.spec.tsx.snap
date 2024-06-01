@@ -1,0 +1,111 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the h1 Heading component 1`] = `
+<div>
+  <h1
+    class="nhsuk-heading-xl"
+  >
+    nhsuk-heading-
+    xl
+  </h1>
+</div>
+`;
+
+exports[`should render the h2 Heading component 1`] = `
+<div>
+  <h2
+    class="nhsuk-heading-xl"
+  >
+    nhsuk-heading-
+    xl
+  </h2>
+</div>
+`;
+
+exports[`should render the h3 Heading component 1`] = `
+<div>
+  <h3
+    class="nhsuk-heading-xl"
+  >
+    nhsuk-heading-
+    xl
+  </h3>
+</div>
+`;
+
+exports[`should render the h4 Heading component 1`] = `
+<div>
+  <h4
+    class="nhsuk-heading-xl"
+  >
+    nhsuk-heading-
+    xl
+  </h4>
+</div>
+`;
+
+exports[`should render the h5 Heading component 1`] = `
+<div>
+  <h5
+    class="nhsuk-heading-xl"
+  >
+    nhsuk-heading-
+    xl
+  </h5>
+</div>
+`;
+
+exports[`should render the l Heading component 1`] = `
+<div>
+  <h1
+    class="nhsuk-heading-l"
+  >
+    nhsuk-heading-
+    l
+  </h1>
+</div>
+`;
+
+exports[`should render the m Heading component 1`] = `
+<div>
+  <h1
+    class="nhsuk-heading-m"
+  >
+    nhsuk-heading-
+    m
+  </h1>
+</div>
+`;
+
+exports[`should render the s Heading component 1`] = `
+<div>
+  <h1
+    class="nhsuk-heading-s"
+  >
+    nhsuk-heading-
+    s
+  </h1>
+</div>
+`;
+
+exports[`should render the xl Heading component 1`] = `
+<div>
+  <h1
+    class="nhsuk-heading-xl"
+  >
+    nhsuk-heading-
+    xl
+  </h1>
+</div>
+`;
+
+exports[`should render the xs Heading component 1`] = `
+<div>
+  <h1
+    class="nhsuk-heading-xs"
+  >
+    nhsuk-heading-
+    xs
+  </h1>
+</div>
+`;

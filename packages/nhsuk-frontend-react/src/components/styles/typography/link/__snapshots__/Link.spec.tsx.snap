@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the Link component 1`] = `
+<div>
+  <a
+    class="nhsuk-link"
+    href="#"
+  >
+    Link
+  </a>
+</div>
+`;
+
+exports[`should render the Link component without visited state 1`] = `
+<div>
+  <a
+    class="nhsuk-link nhsuk-link--no-visited-state"
+    href="#"
+  >
+    Link nhsuk-link--no-visited-state
+  </a>
+</div>
+`;

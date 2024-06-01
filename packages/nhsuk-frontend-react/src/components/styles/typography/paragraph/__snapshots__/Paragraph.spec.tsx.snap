@@ -1,0 +1,156 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the Paragraph component 1`] = `
+<div>
+  <p
+    class="nhsuk-body"
+  >
+    nhsuk-body
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component as lead 1`] = `
+<div>
+  <p
+    class="nhsuk-body-l"
+  >
+    nhsuk-body-l
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component as small 1`] = `
+<div>
+  <p
+    class="nhsuk-body-s"
+  >
+    nhsuk-body-s
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 14 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-14"
+  >
+    nhsuk-u-font-size-
+    14
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 16 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-16"
+  >
+    nhsuk-u-font-size-
+    16
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 19 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-19"
+  >
+    nhsuk-u-font-size-
+    19
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 22 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-22"
+  >
+    nhsuk-u-font-size-
+    22
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 24 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-24"
+  >
+    nhsuk-u-font-size-
+    24
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 32 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-32"
+  >
+    nhsuk-u-font-size-
+    32
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 48 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-48"
+  >
+    nhsuk-u-font-size-
+    48
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font sizes 64 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-size-64"
+  >
+    nhsuk-u-font-size-
+    64
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font weights bold 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-weight-bold"
+  >
+    nhsuk-u-font-weight-
+    bold
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with font weights normal 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-font-weight-normal"
+  >
+    nhsuk-u-font-weight-
+    normal
+  </p>
+</div>
+`;
+
+exports[`should render the Paragraph component with text align right 1`] = `
+<div>
+  <p
+    class="nhsuk-body nhsuk-u-text-align-right"
+  >
+    تعديل اتجاه الكتابة باللغة العربية ليكون من اليمين الى اليسار
+  </p>
+  <p
+    class="nhsuk-body"
+  >
+    Modify the direction of writing in Arabic to be from right to left
+  </p>
+</div>
+`;

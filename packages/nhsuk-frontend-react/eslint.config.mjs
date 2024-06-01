@@ -37,8 +37,8 @@ export default tseslint.config(
     extends: [tseslint.configs.disableTypeChecked],
   },
   {
-    files: ['**/*.tsx', '**/*.spec.tsx'],
-    ignores: ['**/*.stories.tsx'],
+    files: ['**/*.tsx'],
+    ignores: ['**/*.stories.tsx', '**/*.spec.tsx'],
     rules: {
       'no-restricted-imports': [
         'error',
@@ -46,7 +46,8 @@ export default tseslint.config(
           patterns: [
             {
               group: ['@storybook/*'],
-              message: 'You can only use @storybook/* packages in stories.',
+              message:
+                'You can only use @storybook/* packages in stories or tests.',
             },
           ],
         },

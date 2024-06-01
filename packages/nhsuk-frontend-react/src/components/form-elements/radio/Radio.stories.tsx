@@ -172,14 +172,18 @@ export const WithConditionalContent: Story = {
       <Radio.Item
         name="contact-method"
         value="email"
-        conditional={<Input label="Email address" width="two-thirds" />}
+        conditional={
+          <Input type="email" label="Email address" width="two-thirds" />
+        }
       >
         Email
       </Radio.Item>
       <Radio.Item
         name="contact-method"
         value="phone"
-        conditional={<Input label="Phone number" width="two-thirds" />}
+        conditional={
+          <Input type="tel" label="Phone number" width="two-thirds" />
+        }
       >
         Phone
       </Radio.Item>

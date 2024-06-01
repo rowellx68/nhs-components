@@ -1,20 +1,13 @@
 import React from 'react';
 import { it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { InsetText } from './InsetText';
+import { composeStory } from '@storybook/react';
+import meta, { Default as DefaultStory } from './InsetText.stories';
+
+const Default = composeStory(DefaultStory, meta);
 
 it('should render the InsetText component', () => {
-  const { container } = render(
-    <InsetText visuallyHiddenText="Important: ">
-      <p>
-        You can report any suspected side effect to the{' '}
-        <a href="https://yellowcard.mhra.gov.uk/" title="External website">
-          UK safety scheme
-        </a>
-        .
-      </p>
-    </InsetText>,
-  );
+  const { container } = render(<Default />);
 
   expect(container.querySelector('.nhsuk-inset-text')).toBeInTheDocument();
   expect(container).toMatchSnapshot();

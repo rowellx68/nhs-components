@@ -51,7 +51,7 @@ export const WithNoVisuallyHiddenText: Story = {
 export const WithDifferentHeadingLevels: Story = {
   render: (args) => (
     <WarningCallout {...args}>
-      <WarningCallout.Label as="h3">Important</WarningCallout.Label>
+      <WarningCallout.Label as="h2">Important</WarningCallout.Label>
       <p>
         For safety, tell your doctor or pharmacist if you're taking any other
         medicines, including herbal medicines, vitamins or supplements.

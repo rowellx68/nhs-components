@@ -32,7 +32,7 @@ exports[`should render the input component with error 1`] = `
       for="input_:r4:"
       id="input_:r4:--label"
     >
-      First name
+      Full name
     </label>
     <span
       class="nhsuk-error-message"
@@ -43,7 +43,7 @@ exports[`should render the input component with error 1`] = `
       >
         Error: 
       </span>
-      Error message goes here
+      Enter your full name
     </span>
     <input
       aria-describedby="input_:r4:--error-message"
@@ -66,19 +66,19 @@ exports[`should render the input component with hint 1`] = `
       for="input_:r2:"
       id="input_:r2:--label"
     >
-      First name
+      Enter a full postcode in England
     </label>
     <div
       class="nhsuk-hint"
       id="input_:r2:_:r3:--hint"
     >
-      Enter your first name
+      For example, LS1 1AB
     </div>
     <input
       aria-describedby="input_:r2:_:r3:--hint"
       aria-labelledby="input_:r2:--label"
       as="input"
-      class="nhsuk-input nhsuk-u-width-full"
+      class="nhsuk-input nhsuk-input--width-10"
       id="input_:r2:"
     />
   </div>
@@ -359,7 +359,7 @@ exports[`should render the input with prefix 1`] = `
       for="input_:ru:"
       id="input_:ru:--label"
     >
-      Cost
+      Cost in pounds
     </label>
     <div
       class="nhsuk-input__wrapper"
@@ -373,9 +373,97 @@ exports[`should render the input with prefix 1`] = `
       <input
         aria-labelledby="input_:ru:--label"
         as="input"
-        class="nhsuk-input nhsuk-u-width-full"
+        class="nhsuk-input nhsuk-input--width-5"
         id="input_:ru:"
       />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the input with prefix and suffix 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r12:"
+      id="input_:r12:--label"
+    >
+      Cost per item, in pounds
+    </label>
+    <div
+      class="nhsuk-input__wrapper"
+    >
+      <div
+        aria-hidden="true"
+        class="nhsuk-input__prefix"
+      >
+        £
+      </div>
+      <input
+        aria-labelledby="input_:r12:--label"
+        as="input"
+        class="nhsuk-input nhsuk-input--width-5"
+        id="input_:r12:"
+      />
+      <div
+        aria-hidden="true"
+        class="nhsuk-input__suffix"
+      >
+        per item
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the input with prefix, suffix and error 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group nhsuk-form-group--error"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r14:"
+      id="input_:r14:--label"
+    >
+      Cost per item, in pounds
+    </label>
+    <span
+      class="nhsuk-error-message"
+      id="input_:r14:--error-message"
+    >
+      <span
+        class="nhsuk-u-visually-hidden"
+      >
+        Error: 
+      </span>
+      Enter a cost per item, in pounds
+    </span>
+    <div
+      class="nhsuk-input__wrapper"
+    >
+      <div
+        aria-hidden="true"
+        class="nhsuk-input__prefix"
+      >
+        £
+      </div>
+      <input
+        aria-describedby="input_:r14:--error-message"
+        aria-labelledby="input_:r14:--label"
+        as="input"
+        class="nhsuk-input nhsuk-input--width-5 nhsuk-input--error"
+        id="input_:r14:"
+      />
+      <div
+        aria-hidden="true"
+        class="nhsuk-input__suffix"
+      >
+        per item
+      </div>
     </div>
   </div>
 </div>
@@ -391,7 +479,7 @@ exports[`should render the input with suffix 1`] = `
       for="input_:r10:"
       id="input_:r10:--label"
     >
-      Weight
+      Weight in kilograms
     </label>
     <div
       class="nhsuk-input__wrapper"
@@ -399,16 +487,48 @@ exports[`should render the input with suffix 1`] = `
       <input
         aria-labelledby="input_:r10:--label"
         as="input"
-        class="nhsuk-input nhsuk-u-width-full"
+        class="nhsuk-input nhsuk-input--width-5"
         id="input_:r10:"
       />
       <div
         aria-hidden="true"
         class="nhsuk-input__suffix"
       >
-        in grams
+        kg
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`should render the input with whole numbers 1`] = `
+<div>
+  <div
+    class="nhsuk-form-group"
+  >
+    <label
+      class="nhsuk-label"
+      for="input_:r16:"
+      id="input_:r16:--label"
+    >
+      What is your NHS number?
+    </label>
+    <div
+      class="nhsuk-hint"
+      id="input_:r16:_:r17:--hint"
+    >
+      Your NHS number is a 10 digit number that you find on any letter the NHS has sent you. For example, 485 777 3456.
+    </div>
+    <input
+      aria-describedby="input_:r16:_:r17:--hint"
+      aria-labelledby="input_:r16:--label"
+      as="input"
+      class="nhsuk-input nhsuk-input--width-10"
+      id="input_:r16:"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      type="text"
+    />
   </div>
 </div>
 `;

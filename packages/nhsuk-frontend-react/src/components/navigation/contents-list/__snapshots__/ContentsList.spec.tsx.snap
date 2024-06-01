@@ -3,7 +3,7 @@
 exports[`should render a navigation element with a contents list 1`] = `
 <div>
   <nav
-    aria-label="Contents"
+    aria-label="Pages in this guide"
     class="nhsuk-contents-list"
     role="navigation"
   >

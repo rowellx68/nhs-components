@@ -215,7 +215,7 @@ exports[`should render the Header component 1`] = `
 exports[`should render the Header component as transactional 1`] = `
 <div>
   <header
-    class="nhsuk-header"
+    class="nhsuk-header nhsuk-header__transactional"
     role="banner"
   >
     <div
@@ -226,7 +226,7 @@ exports[`should render the Header component as transactional 1`] = `
       >
         <a
           aria-label="NHS homepage"
-          class="nhsuk-header__link"
+          class="nhsuk-header__link nhsuk-header__transactional--logo"
           href="#"
         >
           <svg
@@ -247,6 +247,16 @@ exports[`should render the Header component as transactional 1`] = `
               fill="#fff"
             />
           </svg>
+        </a>
+      </div>
+      <div
+        class="nhsuk-header__transactional-service-name"
+      >
+        <a
+          class="nhsuk-header__transactional-service-name--link"
+          href="#"
+        >
+          Find your NHS number
         </a>
       </div>
     </div>

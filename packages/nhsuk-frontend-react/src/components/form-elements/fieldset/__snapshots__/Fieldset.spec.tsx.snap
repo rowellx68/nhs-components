@@ -2,18 +2,116 @@
 
 exports[`should render the fieldset component 1`] = `
 <div>
-  <fieldset
-    class="nhsuk-fieldset"
+  <div
+    class="nhsuk-form-group"
   >
-    <legend
-      class="nhsuk-legend nhsuk-fieldset__legend--l"
+    <fieldset
+      class="nhsuk-fieldset"
     >
-      <h1
-        class="nhsuk-fieldset__heading"
+      <legend
+        class="nhsuk-legend nhsuk-fieldset__legend--l"
       >
-        What is your address?
-      </h1>
-    </legend>
-  </fieldset>
+        <h1
+          class="nhsuk-fieldset__heading"
+        >
+          What is your address?
+        </h1>
+      </legend>
+      <div
+        class="nhsuk-form-group"
+      >
+        <label
+          class="nhsuk-label"
+          for="input_:ra:"
+          id="input_:ra:--label"
+        >
+          Building and street 
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+            line 1 of 2
+          </span>
+        </label>
+        <input
+          aria-labelledby="input_:ra:--label"
+          as="input"
+          class="nhsuk-input nhsuk-u-width-full"
+          id="input_:ra:"
+        />
+      </div>
+      <div
+        class="nhsuk-form-group"
+      >
+        <label
+          class="nhsuk-label"
+          for="input_:rc:"
+          id="input_:rc:--label"
+        >
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+            Building and street line 2 of 2
+          </span>
+        </label>
+        <input
+          aria-labelledby="input_:rc:--label"
+          as="input"
+          class="nhsuk-input nhsuk-u-width-full"
+          id="input_:rc:"
+        />
+      </div>
+      <div
+        class="nhsuk-form-group"
+      >
+        <label
+          class="nhsuk-label"
+          for="input_:re:"
+          id="input_:re:--label"
+        >
+          Town or city
+        </label>
+        <input
+          aria-labelledby="input_:re:--label"
+          as="input"
+          class="nhsuk-input nhsuk-u-width-two-thirds"
+          id="input_:re:"
+        />
+      </div>
+      <div
+        class="nhsuk-form-group"
+      >
+        <label
+          class="nhsuk-label"
+          for="input_:rg:"
+          id="input_:rg:--label"
+        >
+          County
+        </label>
+        <input
+          aria-labelledby="input_:rg:--label"
+          as="input"
+          class="nhsuk-input nhsuk-u-width-two-thirds"
+          id="input_:rg:"
+        />
+      </div>
+      <div
+        class="nhsuk-form-group"
+      >
+        <label
+          class="nhsuk-label"
+          for="input_:ri:"
+          id="input_:ri:--label"
+        >
+          Postcode
+        </label>
+        <input
+          aria-labelledby="input_:ri:--label"
+          as="input"
+          class="nhsuk-input nhsuk-input--width-10"
+          id="input_:ri:"
+        />
+      </div>
+    </fieldset>
+  </div>
 </div>
 `;

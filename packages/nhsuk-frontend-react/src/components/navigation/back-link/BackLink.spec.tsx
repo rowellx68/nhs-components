@@ -1,10 +1,17 @@
 import React from 'react';
 import { it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { BackLink } from './BackLink';
+import { composeStory } from '@storybook/react';
+import meta, {
+  Default as DefaultStory,
+  AsButton as AsButtonStory,
+} from './BackLink.stories';
+
+const Default = composeStory(DefaultStory, meta);
+const AsButton = composeStory(AsButtonStory, meta);
 
 it('should render an anchor element with a back link', () => {
-  const { container } = render(<BackLink href="#">Go back</BackLink>);
+  const { container } = render(<Default />);
 
   expect(container.querySelector('a')).toBeInTheDocument();
   expect(container).toHaveTextContent('Go back');
@@ -12,7 +19,7 @@ it('should render an anchor element with a back link', () => {
 });
 
 it('should render a button element', () => {
-  const { container } = render(<BackLink as="button">Go back</BackLink>);
+  const { container } = render(<AsButton />);
 
   expect(container.querySelector('button')).toBeInTheDocument();
   expect(container).toHaveTextContent('Go back');

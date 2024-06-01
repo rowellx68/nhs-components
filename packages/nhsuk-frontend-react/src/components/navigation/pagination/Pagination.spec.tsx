@@ -1,15 +1,13 @@
 import React from 'react';
 import { it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { Pagination } from './Pagination';
+import { composeStory } from '@storybook/react';
+import meta, { Default as DefaultStory } from './Pagination.stories';
+
+const Default = composeStory(DefaultStory, meta);
 
 it('should render the Pagination component', () => {
-  const { getByText, container } = render(
-    <Pagination>
-      <Pagination.Previous pageTitle="Treatments" />
-      <Pagination.Next pageTitle="Symptoms" />
-    </Pagination>,
-  );
+  const { getByText, container } = render(<Default />);
 
   expect(getByText('Treatments')).toBeDefined();
   expect(getByText('Symptoms')).toBeDefined();
