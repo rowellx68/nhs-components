@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the Container component 1`] = `
+<div>
+  <div
+    class="nhsuk-width-container"
+  >
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos qui, suscipit magni sit nisi, explicabo laborum quasi nam architecto dolorum eaque iusto libero autem? Doloribus qui laborum optio?
+  </div>
+</div>
+`;
+
+exports[`should render the Container component with fluid width 1`] = `
+<div>
+  <div
+    class="nhsuk-width-container-fluid"
+  >
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos qui, suscipit magni sit nisi, explicabo laborum quasi nam architecto dolorum eaque iusto libero autem? Doloribus qui laborum optio?
+  </div>
+</div>
+`;

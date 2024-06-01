@@ -1,0 +1,187 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the FullWidth Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-full"
+    >
+      <p>
+        nhsuk-grid-column-full
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the NestedGrid Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-two-thirds"
+    >
+      <p>
+        nhsuk-grid-column-two-thirds
+      </p>
+      <div
+        class="nhsuk-grid-row"
+      >
+        <div
+          class="nhsuk-grid-column-one-half"
+        >
+          <p>
+            nhsuk-grid-column-one-half
+          </p>
+        </div>
+        <div
+          class="nhsuk-grid-column-one-half"
+        >
+          <p>
+            nhsuk-grid-column-one-half
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the OneHalf Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-one-half"
+    >
+      <p>
+        nhsuk-grid-column-one-half
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the OneQuarter Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-one-quarter"
+    >
+      <p>
+        nhsuk-grid-column-one-quarter
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the OneThird Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-one-third"
+    >
+      <p>
+        nhsuk-grid-column-one-third
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the ThreeQuarters Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-three-quarters"
+    >
+      <p>
+        nhsuk-grid-column-three-quarters
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the TwoThirds Grid component 1`] = `
+<div>
+  <style>
+    [class^="nhsuk-grid-column"] &gt; p {
+            background-color: #005eb8;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+  </style>
+  <div
+    class="nhsuk-grid-row"
+  >
+    <div
+      class="nhsuk-grid-column-two-thirds"
+    >
+      <p>
+        nhsuk-grid-column-two-thirds
+      </p>
+    </div>
+  </div>
+</div>
+`;

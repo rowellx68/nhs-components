@@ -28,7 +28,7 @@ exports[`should render an anchor element 1`] = `
       <span
         class="nhsuk-action-link__text"
       >
-        Go to page...
+        Find a minor injuries unit
       </span>
     </a>
   </div>

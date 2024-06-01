@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the SectionBreak component 1`] = `
+<div>
+  <hr
+    class="nhsuk-section-break"
+  />
+</div>
+`;
+
+exports[`should render the SectionBreak component with visible 1`] = `
+<div>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--visible"
+  />
+</div>
+`;

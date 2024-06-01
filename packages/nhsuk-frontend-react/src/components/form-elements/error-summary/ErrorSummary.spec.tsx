@@ -1,22 +1,13 @@
 import React from 'react';
 import { it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { ErrorSummary } from './ErrorSummary';
+import { composeStory } from '@storybook/react';
+import meta, { Example as ExampleStory } from './ErrorSummary.stories';
+
+const Example = composeStory(ExampleStory, meta);
 
 it('should render the error summary component', () => {
-  const { container } = render(
-    <ErrorSummary>
-      <ErrorSummary.Title>There is a problem</ErrorSummary.Title>
-      <ErrorSummary.Body>
-        <p>Describe the errors and how to correct them</p>
-        <ErrorSummary.List>
-          <ErrorSummary.ListItem href="#">
-            Date of birth must be in the past
-          </ErrorSummary.ListItem>
-        </ErrorSummary.List>
-      </ErrorSummary.Body>
-    </ErrorSummary>,
-  );
+  const { container } = render(<Example />);
 
   expect(
     container.querySelector('.nhsuk-error-summary__title'),

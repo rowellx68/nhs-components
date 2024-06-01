@@ -58,8 +58,12 @@ export const Numbered: Story = {
     <>
       <Heading as="h3">How to gargle with salt water</Heading>
       <List {...args}>
-        <List.Item>Dissolve half a teaspoon of salt in a glass of warm water.</List.Item>
-        <List.Item>Gargle with the solution then spit it out – don't swallow it.</List.Item>
+        <List.Item>
+          Dissolve half a teaspoon of salt in a glass of warm water.
+        </List.Item>
+        <List.Item>
+          Gargle with the solution then spit it out – don't swallow it.
+        </List.Item>
         <List.Item>Repeat as often as you like.</List.Item>
       </List>
     </>

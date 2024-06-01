@@ -1,35 +1,39 @@
 import React from 'react';
 import { it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { WarningCallout } from './WarningCallout';
+import { composeStory } from '@storybook/react';
+import meta, {
+  Default as DefaultStory,
+  WithNoVisuallyHiddenText as WithNoVisuallyHiddenTextStory,
+  WithDifferentHeadingLevels as WithDifferentHeadingLevelsStory,
+} from './WarningCallout.stories';
+
+const Default = composeStory(DefaultStory, meta);
+const WithNoVisuallyHiddenText = composeStory(
+  WithNoVisuallyHiddenTextStory,
+  meta,
+);
+const WithDifferentHeadingLevels = composeStory(
+  WithDifferentHeadingLevelsStory,
+  meta,
+);
 
 it('should render the WarningCallout component', () => {
-  const { getByRole } = render(
-    <WarningCallout>
-      <WarningCallout.Label visuallyHiddenText="Important: ">
-        School, nursery or work
-      </WarningCallout.Label>
-      <p>
-        Stay away from school, nursery or work until all the spots have crusted
-        over. This is usually 5 days after the spots first appeared.
-      </p>
-    </WarningCallout>,
-  );
+  const { getByRole } = render(<Default />);
+
   expect(getByRole('text')).toHaveTextContent('Important:');
   expect(getByRole('text')).toHaveTextContent('School, nursery or work');
 });
 
 it('should render the WarningCallout component without visually hidden text', () => {
-  const { getByRole, container } = render(
-    <WarningCallout>
-      <WarningCallout.Label>Important</WarningCallout.Label>
-      <p>
-        For safety, tell your doctor or pharmacist if you're taking any other
-        medicines, including herbal medicines, vitamins or supplements.
-      </p>
-    </WarningCallout>,
-  );
+  const { getByRole, container } = render(<WithNoVisuallyHiddenText />);
 
   expect(getByRole('text')).toHaveTextContent('Important');
   expect(container.querySelector('h3')).toBeInTheDocument();
+});
+
+it('should render the WarningCallout component with different heading levels', () => {
+  const { container } = render(<WithDifferentHeadingLevels />);
+
+  expect(container.querySelector('h2')).toBeInTheDocument();
 });

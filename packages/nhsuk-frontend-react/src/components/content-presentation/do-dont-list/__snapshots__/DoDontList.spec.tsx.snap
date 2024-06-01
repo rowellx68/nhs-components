@@ -86,11 +86,6 @@ exports[`should render the dont variant of the DoDontList component 1`] = `
     <h2
       class="nhsuk-do-dont-list__label"
     >
-      Don’t
-    </h2>
-    <h2
-      class="nhsuk-do-dont-list__label"
-    >
       Don't
     </h2>
     <ul

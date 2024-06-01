@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`should render the CharacterCount component 1`] = `
+exports[`should render the CharacterCount component with max characters 1`] = `
 <div>
   <div
     class="nhsuk-character-count"
@@ -12,29 +12,70 @@ exports[`should render the CharacterCount component 1`] = `
     >
       <label
         class="nhsuk-label"
-        for="character-count"
-        id="character-count--label"
+        for="textarea_:r0:"
+        id="textarea_:r0:--label"
       >
-        Character count
+        Can you provide more detail?
       </label>
       <div
         class="nhsuk-hint"
-        id="character-count_:r1:--hint"
+        id="textarea_:r0:_:r1:--hint"
       >
-        This is a hint
+        Do not include personal or financial information, for example, your National Insurance number or credit card details.
       </div>
       <textarea
-        aria-describedby="character-count_:r1:--hint"
-        aria-labelledby="character-count--label"
+        aria-describedby="textarea_:r0:_:r1:--hint"
+        aria-labelledby="textarea_:r0:--label"
         as="textarea"
         class="nhsuk-textarea nhsuk-js-character-count"
-        id="character-count"
+        id="textarea_:r0:"
       />
       <div
         class="nhsuk-hint nhsuk-character-count__message"
-        id="character-count-info"
+        id="textarea_:r0:-info"
       >
         You have 10 characters remaining
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render the CharacterCount component with max words 1`] = `
+<div>
+  <div
+    class="nhsuk-character-count"
+    data-maxwords="5"
+    data-module="nhsuk-character-count"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="textarea_:r2:"
+        id="textarea_:r2:--label"
+      >
+        Can you provide more detail?
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="textarea_:r2:_:r3:--hint"
+      >
+        Do not include personal or financial information, for example, your National Insurance number or credit card details.
+      </div>
+      <textarea
+        aria-describedby="textarea_:r2:_:r3:--hint"
+        aria-labelledby="textarea_:r2:--label"
+        as="textarea"
+        class="nhsuk-textarea nhsuk-js-character-count"
+        id="textarea_:r2:"
+      />
+      <div
+        class="nhsuk-hint nhsuk-character-count__message"
+        id="textarea_:r2:-info"
+      >
+        You have 5 words remaining
       </div>
     </div>
   </div>

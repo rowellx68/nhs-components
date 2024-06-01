@@ -60,13 +60,7 @@ export const Primary: Story = {
     disabled: false,
   },
   render: ({ type, children, disabled, ...props }) => (
-    <Button
-      type={type}
-      children={children}
-      disabled={disabled}
-      {...props}
-      data-testid="button"
-    />
+    <Button type={type} children={children} disabled={disabled} {...props} />
   ),
 };
 
@@ -76,13 +70,13 @@ export const Secondary: Story = {
     children: 'Secondary Button',
     disabled: false,
   },
-  render: ({ type, children, disabled }) => (
+  render: ({ type, children, disabled, ...props }) => (
     <Button
       variant="secondary"
       type={type}
       children={children}
       disabled={disabled}
-      data-testid="button"
+      {...props}
     />
   ),
 };
@@ -93,13 +87,13 @@ export const Reverse: Story = {
     children: 'Reverse Button',
     disabled: false,
   },
-  render: ({ type, children, disabled }) => (
+  render: ({ type, children, disabled, ...props }) => (
     <Button
       variant="reverse"
       type={type}
       children={children}
       disabled={disabled}
-      data-testid="button"
+      {...props}
     />
   ),
 };
@@ -109,13 +103,13 @@ export const PrimaryButtonAsLink: Story = {
     children: 'Button as Link',
     disabled: false,
   },
-  render: ({ children, disabled }) => (
+  render: ({ children, disabled, ...props }) => (
     <Button
       as="a"
       href="#"
-      data-testid="button"
       children={children}
       disabled={disabled}
+      {...props}
     />
   ),
 };
@@ -125,14 +119,14 @@ export const SecondaryButtonAsLink: Story = {
     children: 'Button as Link',
     disabled: false,
   },
-  render: ({ children, disabled }) => (
+  render: ({ children, disabled, ...props }) => (
     <Button
       as="a"
       href="#"
       variant="secondary"
-      data-testid="button"
       children={children}
       disabled={disabled}
+      {...props}
     />
   ),
 };
@@ -147,7 +141,6 @@ export const ReverseButtonAsLink: Story = {
       as="a"
       href="#"
       variant="reverse"
-      data-testid="button"
       children={children}
       disabled={disabled}
     />

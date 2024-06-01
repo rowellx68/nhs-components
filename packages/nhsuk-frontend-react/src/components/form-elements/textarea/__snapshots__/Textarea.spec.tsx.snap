@@ -14,9 +14,16 @@ exports[`should render a textarea element 1`] = `
         for="textarea_:r0:"
         id="textarea_:r0:--label"
       >
-        Textarea
+        Can you provide more detail?
       </label>
+      <div
+        class="nhsuk-hint"
+        id="textarea_:r0:_:r1:--hint"
+      >
+        Do not include personal or financial information, for example, your National Insurance number or credit card details.
+      </div>
       <textarea
+        aria-describedby="textarea_:r0:_:r1:--hint"
         aria-labelledby="textarea_:r0:--label"
         as="textarea"
         class="nhsuk-textarea nhsuk-js-character-count"
@@ -45,7 +52,7 @@ exports[`should render a textarea element with a hint 1`] = `
         for="textarea_:r2:"
         id="textarea_:r2:--label"
       >
-        Textarea
+        Can you provide more detail?
       </label>
       <div
         class="nhsuk-hint"
@@ -83,7 +90,7 @@ exports[`should render a textarea element with an error 1`] = `
         for="textarea_:r4:"
         id="textarea_:r4:--label"
       >
-        Textarea
+        Why can't you provide a National Insurance number?
       </label>
       <span
         class="nhsuk-error-message"
@@ -94,7 +101,7 @@ exports[`should render a textarea element with an error 1`] = `
         >
           Error: 
         </span>
-        Error
+        You must provide an explanation.
       </span>
       <textarea
         aria-describedby="textarea_:r4:--error-message"
@@ -102,10 +109,50 @@ exports[`should render a textarea element with an error 1`] = `
         as="textarea"
         class="nhsuk-textarea nhsuk-textarea--error nhsuk-js-character-count"
         id="textarea_:r4:"
+        rows="5"
       />
       <div
         class="nhsuk-hint nhsuk-character-count__message"
         id="textarea_:r4:-info"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render a textarea element with rows 1`] = `
+<div>
+  <div
+    class="nhsuk-character-count"
+    data-module="nhsuk-character-count"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="textarea_:r6:"
+        id="textarea_:r6:--label"
+      >
+        Can you provide more detail?
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="textarea_:r6:_:r7:--hint"
+      >
+        Do not include personal or financial information, for example, your National Insurance number or credit card details.
+      </div>
+      <textarea
+        aria-describedby="textarea_:r6:_:r7:--hint"
+        aria-labelledby="textarea_:r6:--label"
+        as="textarea"
+        class="nhsuk-textarea nhsuk-js-character-count"
+        id="textarea_:r6:"
+        rows="10"
+      />
+      <div
+        class="nhsuk-hint nhsuk-character-count__message"
+        id="textarea_:r6:-info"
       />
     </div>
   </div>

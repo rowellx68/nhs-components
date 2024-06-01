@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the List component 1`] = `
+<div>
+  <ul
+    class="nhsuk-list"
+  >
+    <li>
+      <a
+        href="#"
+      >
+        Money, work and benefits
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        Care after a hospital stay
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        Support and benefits for carers
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`should render the List component with borders 1`] = `
+<div>
+  <ul
+    class="nhsuk-list nhsuk-list--bullet nhsuk-list--border"
+  >
+    <li>
+      Money, work and benefits
+    </li>
+    <li>
+      Care after a hospital stay
+    </li>
+    <li>
+      Support and benefits for carers
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`should render the List component with bulleted items 1`] = `
+<div>
+  <p>
+    Symptoms can include:
+  </p>
+  <ul
+    class="nhsuk-list nhsuk-list--bullet"
+  >
+    <li>
+      tiredness and lack of energy
+    </li>
+    <li>
+      shortness of breath
+    </li>
+    <li>
+      noticeable heartbeats (heart palpitations)
+    </li>
+    <li>
+      pale skin
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`should render the List component with numbered items 1`] = `
+<div>
+  <h3
+    class=""
+  >
+    How to gargle with salt water
+  </h3>
+  <ol
+    class="nhsuk-list nhsuk-list--number"
+  >
+    <li>
+      Dissolve half a teaspoon of salt in a glass of warm water.
+    </li>
+    <li>
+      Gargle with the solution then spit it out – don't swallow it.
+    </li>
+    <li>
+      Repeat as often as you like.
+    </li>
+  </ol>
+</div>
+`;
