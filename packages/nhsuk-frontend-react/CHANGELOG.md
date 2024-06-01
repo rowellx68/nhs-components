@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.2.0
+
+### Minor Changes
+
+- [#27](https://github.com/rowellx68/nhs-components/pull/27) [`4c0f43a`](https://github.com/rowellx68/nhs-components/commit/4c0f43a61902ab642ef512d1659bc3cff597631f) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add missing card variants
+
+- [#27](https://github.com/rowellx68/nhs-components/pull/27) [`4c0f43a`](https://github.com/rowellx68/nhs-components/commit/4c0f43a61902ab642ef512d1659bc3cff597631f) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add border option for list
+
 ## 3.1.3
 
 ### Patch Changes
