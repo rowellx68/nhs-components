@@ -20,42 +20,62 @@ type Story = StoryObj<typeof List>;
 export const Default: Story = {
   render: (args) => (
     <List {...args}>
-      <li>
+      <List.Item>
         <a href="#">Money, work and benefits</a>
-      </li>
-      <li>
+      </List.Item>
+      <List.Item>
         <a href="#">Care after a hospital stay</a>
-      </li>
-      <li>
+      </List.Item>
+      <List.Item>
         <a href="#">Support and benefits for carers</a>
-      </li>
+      </List.Item>
     </List>
   ),
 };
 
 export const Bulleted: Story = {
+  args: {
+    variant: 'unordered',
+  },
   render: (args) => (
     <>
       <p>Symptoms can include:</p>
-      <List bullet {...args}>
-        <li>tiredness and lack of energy</li>
-        <li>shortness of breath</li>
-        <li>noticeable heartbeats (heart palpitations)</li>
-        <li>pale skin</li>
+      <List {...args}>
+        <List.Item>tiredness and lack of energy</List.Item>
+        <List.Item>shortness of breath</List.Item>
+        <List.Item>noticeable heartbeats (heart palpitations)</List.Item>
+        <List.Item>pale skin</List.Item>
       </List>
     </>
   ),
 };
 
 export const Numbered: Story = {
+  args: {
+    variant: 'ordered',
+  },
   render: (args) => (
     <>
       <Heading as="h3">How to gargle with salt water</Heading>
-      <List number {...args}>
-        <li>Dissolve half a teaspoon of salt in a glass of warm water.</li>
-        <li>Gargle with the solution then spit it out – don't swallow it.</li>
-        <li>Repeat as often as you like.</li>
+      <List {...args}>
+        <List.Item>Dissolve half a teaspoon of salt in a glass of warm water.</List.Item>
+        <List.Item>Gargle with the solution then spit it out – don't swallow it.</List.Item>
+        <List.Item>Repeat as often as you like.</List.Item>
       </List>
     </>
+  ),
+};
+
+export const WithBorders: Story = {
+  args: {
+    variant: 'unordered',
+    border: true,
+  },
+  render: (args) => (
+    <List {...args}>
+      <List.Item>Money, work and benefits</List.Item>
+      <List.Item>Care after a hospital stay</List.Item>
+      <List.Item>Support and benefits for carers</List.Item>
+    </List>
   ),
 };
