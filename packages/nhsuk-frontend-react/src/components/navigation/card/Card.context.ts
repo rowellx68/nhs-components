@@ -1,7 +1,8 @@
 import { createContext, useContext } from 'react';
+import type { CardVariant } from './Card';
 
 export type CardContextValue = {
-  variant?: 'primary' | 'secondary';
+  variant?: CardVariant;
 };
 
 const CardContext = createContext<CardContextValue>({});

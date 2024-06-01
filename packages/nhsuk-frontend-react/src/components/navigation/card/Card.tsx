@@ -21,11 +21,32 @@ import {
   Row,
   RowProps,
 } from '@/components/styles/layout/grid/Grid';
+import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
 
-export type CardProps = {
-  clickable?: boolean;
-  variant?: 'primary' | 'secondary';
-} & ElementProps<'div'>;
+export type CardVariant =
+  | 'primary'
+  | 'secondary'
+  | 'feature'
+  | 'non-urgent'
+  | 'urgent'
+  | 'emergency';
+
+export type CardProps = (
+  | {
+      clickable?: boolean;
+      variant?: CardVariant;
+    }
+  | {
+      clickable?: false;
+      variant: Extract<
+        CardVariant,
+        'feature' | 'non-urgent' | 'urgent' | 'emergency'
+      >;
+    }
+) &
+  ElementProps<'div'>;
+
+const careCardVariants = ['non-urgent', 'urgent', 'emergency'];
 
 type CardFactory = Factory<{
   props: CardProps;
@@ -50,7 +71,10 @@ const Card = factory<CardFactory>(
             'nhsuk-card',
             {
               'nhsuk-card--clickable': clickable,
-              [`nhsuk-card--${variant}`]: variant,
+              [`nhsuk-card--${variant}`]:
+                variant && !careCardVariants.includes(variant),
+              [`nhsuk-card--care nhsuk-card--care--${variant}`]:
+                variant && careCardVariants.includes(variant),
             },
             className,
           )}
@@ -109,19 +133,58 @@ const CardContent = ({ className, children, ...props }: CardContentProps) => {
   );
 };
 
-export type CardHeadingProps = HeadingProps;
+export type CardHeadingProps = {
+  /**
+   * This will only be used if the Card variant is either 'non-urgent', 'urgent' or 'emergency'.
+   */
+  visuallyHiddenText?: string;
+} & HeadingProps;
 
 const CardHeading = ({
   className,
+  children,
   as: component = 'h2',
+  visuallyHiddenText,
   ...props
 }: CardHeadingProps) => {
+  const { variant } = useCardContext();
+  const careCard = variant && careCardVariants.includes(variant);
+
+  const wrapperProps = {
+    as: careCard ? 'div' : React.Fragment,
+    ...(careCard ? { className: 'nhsuk-card--care__heading-container' } : {}),
+  };
+
+  const headingTextProps = {
+    as: careCard ? 'span' : React.Fragment,
+    ...(careCard ? { role: 'text' } : {}),
+  };
+
   return (
-    <Heading
-      as={component}
-      className={clsx('nhsuk-card__heading', className)}
-      {...props}
-    />
+    <Base<any> {...wrapperProps}>
+      <Heading
+        as={component}
+        className={clsx(
+          {
+            'nhsuk-card__heading':
+              !variant || !careCardVariants.includes(variant),
+            'nhsuk-card--care__heading': careCard,
+            'nhsuk-card__heading--feature nhsuk-u-font-size-24':
+              variant === 'feature',
+          },
+          className,
+        )}
+        {...props}
+      >
+        <Base<any> {...headingTextProps}>
+          {careCard && <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden>}
+          {children}
+        </Base>
+      </Heading>
+      {careCard && (
+        <span className="nhsuk-card--care__arrow" aria-hidden="true" />
+      )}
+    </Base>
   );
 };
 
