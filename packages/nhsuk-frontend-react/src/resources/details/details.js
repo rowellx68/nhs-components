@@ -1,15 +1,16 @@
 /**
-* The contents of this file was automatically generated from the NHS.UK Frontend package v8.1.1.
-*
-* Do not make changes to this file directly.
+ * The contents of this file was automatically generated from the NHS.UK Frontend.
+ *
+ * Do not make changes to this file directly.
 */
-
-import { toggleAttribute } from '../common'
+import { toggleAttribute } from '@/resources/common'
 
 /**
  * Ensure details component is cross browser and accessible
  * Test at http://0.0.0.0:3000/components/details/index.html
- */
+ *
+ * @param {{ scope?: HTMLElement | Document | null }} params
+*/
 
 export default ({ scope = document } = {}) => {
   // Does the browser support details component

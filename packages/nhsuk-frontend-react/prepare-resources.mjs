@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import fg from 'fast-glob';
+import { run as shift } from 'jscodeshift/src/Runner.js';
 
 const commonFilePath = 'node_modules/nhsuk-frontend/packages/common.js';
 const filePaths = fg.sync([
@@ -8,36 +9,27 @@ const filePaths = fg.sync([
   '!**/*.test.js',
 ]);
 
-const nhsPackageVersion = JSON.parse(
-  fs.readFileSync('node_modules/nhsuk-frontend/package.json', 'utf8'),
-).version;
-
 const common = fs.readFileSync(commonFilePath, 'utf8');
 const files = filePaths.map((filePath) => fs.readFileSync(filePath, 'utf8'));
-
-const addBanner = (content) => `/**
-* The contents of this file was automatically generated from the NHS.UK Frontend package v${nhsPackageVersion}.
-*
-* Do not make changes to this file directly.
-*/
-
-${content}`;
 
 if (!fs.existsSync('./src/resources')) {
   fs.mkdirSync('./src/resources', { recursive: true });
 }
 
-fs.writeFileSync('./src/resources/common.js', addBanner(common), {
+fs.writeFileSync('./src/resources/common.js', common, {
   encoding: 'utf8',
 });
 
-files.forEach((file, index) => {
-  const content = addBanner(file.replace('../../common', '../common'));
+const destinations = ['./src/resources/common.js'];
+
+files.forEach(async (file, index) => {
+  const content = file;
 
   const destination = filePaths[index].replace(
     'node_modules/nhsuk-frontend/packages/components',
     './src/resources',
   );
+
   const resourceFolder = path.dirname(destination);
 
   if (!fs.existsSync(resourceFolder)) {
@@ -47,4 +39,8 @@ files.forEach((file, index) => {
   fs.writeFileSync(destination, content, {
     encoding: 'utf8',
   });
+
+  destinations.push(destination);
 });
+
+shift(path.resolve('./resource-transformer.js'), destinations, { cpus: 5 });

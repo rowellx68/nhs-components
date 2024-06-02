@@ -1,9 +1,8 @@
 /**
-* The contents of this file was automatically generated from the NHS.UK Frontend package v8.1.1.
-*
-* Do not make changes to this file directly.
+ * The contents of this file was automatically generated from the NHS.UK Frontend.
+ *
+ * Do not make changes to this file directly.
 */
-
 class CharacterCount {
   constructor($module) {
     this.$module = $module
@@ -254,9 +253,12 @@ CharacterCount.prototype.defaults = {
   wordCountAttribute: 'data-maxwords'
 }
 
+/**
+ * @param {{ scope?: HTMLElement | Document | null }} params
+*/
 export default ({ scope = document } = {}) => {
   const characterCounts = scope.querySelectorAll('[data-module="nhsuk-character-count"]')
   characterCounts.forEach((el) => {
     new CharacterCount(el).init()
   })
-}
+};
