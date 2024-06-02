@@ -154,7 +154,7 @@ import {
   Input,
   Header,
   HeaderContainer, // notice how we have to import HeaderContainer separately
-  HeaderLogo, // RSC does not work with nested components yet
+  HeaderLogo, // Next.js does not work with nested components yet
   Container,
   Main,
   Column,
@@ -197,6 +197,12 @@ const Component = () => (
 ```
 
 </details>
+
+## Storybook
+
+All of the components in this library are documented in Storybook.
+
+https://rowellx68.github.io/nhs-components/
 
 ## Testing
 
