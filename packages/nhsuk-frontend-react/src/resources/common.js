@@ -1,9 +1,8 @@
 /**
-* The contents of this file was automatically generated from the NHS.UK Frontend package v8.1.1.
-*
-* Do not make changes to this file directly.
+ * The contents of this file was automatically generated from the NHS.UK Frontend.
+ *
+ * Do not make changes to this file directly.
 */
-
 /**
  * Toggle a boolean attribute on a HTML element
  * @param {HTMLElement} element

@@ -1,9 +1,8 @@
 /**
-* The contents of this file was automatically generated from the NHS.UK Frontend package v8.1.1.
-*
-* Do not make changes to this file directly.
+ * The contents of this file was automatically generated from the NHS.UK Frontend.
+ *
+ * Do not make changes to this file directly.
 */
-
 /**
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/error-summary/error-summary.js
  */
@@ -107,6 +106,9 @@ function handleClick(event) {
   }
 }
 
+/**
+ * @param {{ focusOnPageLoad?: boolean, scope?: HTMLElement | Document | null }} params
+*/
 export default ({ focusOnPageLoad = true, scope = document } = {}) => {
   // Error summary component
   const errorSummary = scope.querySelector('.nhsuk-error-summary')
@@ -119,4 +121,4 @@ export default ({ focusOnPageLoad = true, scope = document } = {}) => {
     }
     errorSummary.addEventListener('click', handleClick)
   }
-}
+};

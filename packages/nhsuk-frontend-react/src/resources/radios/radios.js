@@ -1,15 +1,16 @@
 /**
-* The contents of this file was automatically generated from the NHS.UK Frontend package v8.1.1.
-*
-* Do not make changes to this file directly.
+ * The contents of this file was automatically generated from the NHS.UK Frontend.
+ *
+ * Do not make changes to this file directly.
 */
-
-import { toggleConditionalInput } from '../common'
+import { toggleConditionalInput } from '@/resources/common'
 
 /**
  * Conditionally show content when a radio button is checked
  * Test at http://0.0.0.0:3000/components/radios/conditional.html
- */
+ *
+ * @param {{ scope?: HTMLElement | Document | null }} params
+*/
 
 export default ({ scope = document } = {}) => {
   // Radio input HTMLElements inside a conditional form group
