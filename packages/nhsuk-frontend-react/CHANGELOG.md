@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 3.3.0
+
+### Minor Changes
+
+- [#29](https://github.com/rowellx68/nhs-components/pull/29) [`30ca2c7`](https://github.com/rowellx68/nhs-components/commit/30ca2c796bdf8b43105c810a3f9d5e6655e941c8) Thanks [@rowellx68](https://github.com/rowellx68)! - refactor: decrease component nesting
+  docs: update readme
+
 ## 3.2.0
 
 ### Minor Changes
