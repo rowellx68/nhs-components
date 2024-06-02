@@ -16,6 +16,10 @@ type SummaryListFactory = Factory<{
   ref: HTMLDListElement;
   staticComponents: {
     Row: typeof SummaryListRow;
+    Key: typeof SummaryListKey;
+    Value: typeof SummaryListValue;
+    Actions: typeof SummaryListActions;
+    ActionLink: typeof SummaryListActionLink;
   };
 }>;
 
@@ -36,12 +40,6 @@ export type SummaryListRowProps = ElementProps<'div'>;
 type SummaryListRowFactory = Factory<{
   props: SummaryListRowProps;
   ref: HTMLDivElement;
-  staticComponents: {
-    Key: typeof SummaryListRowKey;
-    Value: typeof SummaryListRowValue;
-    Actions: typeof SummaryListRowActions;
-    ActionLink: typeof SummaryListRowActionLink;
-  };
 }>;
 
 const SummaryListRow = factory<SummaryListRowFactory>(
@@ -58,7 +56,7 @@ const SummaryListRow = factory<SummaryListRowFactory>(
 
 export type SummaryListRowKeyProps = ElementProps<'dt'>;
 
-const SummaryListRowKey = ({ className, ...props }: SummaryListRowKeyProps) => {
+const SummaryListKey = ({ className, ...props }: SummaryListRowKeyProps) => {
   return (
     <dt className={clsx('nhsuk-summary-list__key', className)} {...props} />
   );
@@ -66,7 +64,7 @@ const SummaryListRowKey = ({ className, ...props }: SummaryListRowKeyProps) => {
 
 export type SummaryListRowValueProps = ElementProps<'dd'>;
 
-const SummaryListRowValue = ({
+const SummaryListValue = ({
   className,
   ...props
 }: SummaryListRowValueProps) => {
@@ -77,7 +75,7 @@ const SummaryListRowValue = ({
 
 export type SummaryListRowActionsProps = ElementProps<'dd'>;
 
-const SummaryListRowActions = ({
+const SummaryListActions = ({
   className,
   ...props
 }: SummaryListRowActionsProps) => {
@@ -96,7 +94,7 @@ type SummaryListRowActionLinkFactory = PolymorphicFactory<{
   defaultRef: HTMLAnchorElement;
 }>;
 
-const SummaryListRowActionLink =
+const SummaryListActionLink =
   polymorphicFactory<SummaryListRowActionLinkFactory>(
     (
       {
@@ -118,23 +116,22 @@ const SummaryListRowActionLink =
 
 SummaryList.displayName = 'SummaryList';
 SummaryListRow.displayName = 'SummaryList.Row';
-SummaryListRowKey.displayName = 'SummaryList.Row.Key';
-SummaryListRowValue.displayName = 'SummaryList.Row.Value';
-SummaryListRowActions.displayName = 'SummaryList.Row.Actions';
-SummaryListRowActionLink.displayName = 'SummaryList.Row.ActionLink';
-
-SummaryListRow.Key = SummaryListRowKey;
-SummaryListRow.Value = SummaryListRowValue;
-SummaryListRow.Actions = SummaryListRowActions;
-SummaryListRow.ActionLink = SummaryListRowActionLink;
+SummaryListKey.displayName = 'SummaryList.Key';
+SummaryListValue.displayName = 'SummaryList.Value';
+SummaryListActions.displayName = 'SummaryList.Actions';
+SummaryListActionLink.displayName = 'SummaryList.ActionLink';
 
 SummaryList.Row = SummaryListRow;
+SummaryList.Key = SummaryListKey;
+SummaryList.Value = SummaryListValue;
+SummaryList.Actions = SummaryListActions;
+SummaryList.ActionLink = SummaryListActionLink;
 
 export {
   SummaryList,
   SummaryListRow,
-  SummaryListRowKey,
-  SummaryListRowValue,
-  SummaryListRowActions,
-  SummaryListRowActionLink,
+  SummaryListKey,
+  SummaryListValue,
+  SummaryListActions,
+  SummaryListActionLink,
 };
