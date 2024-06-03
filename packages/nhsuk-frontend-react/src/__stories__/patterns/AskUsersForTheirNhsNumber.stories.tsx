@@ -7,8 +7,13 @@ import { Main } from '@/components/styles/layout/main/Main';
 import { Column, Row } from '@/components/styles/layout/grid/Grid';
 import { Button } from '@/components/form-elements/button/Button';
 
+/**
+ * Use this pattern to ask people for their NHS number and help them find it.
+ *
+ * https://service-manual.nhs.uk/design-system/patterns/ask-users-for-their-nhs-number
+ */
 const meta: Meta = {
-  title: 'Patterns/Ask users for their NHS number',
+  title: 'Patterns/Tasks/Ask users for their NHS number',
   parameters: {
     layout: 'fullscreen',
   },
