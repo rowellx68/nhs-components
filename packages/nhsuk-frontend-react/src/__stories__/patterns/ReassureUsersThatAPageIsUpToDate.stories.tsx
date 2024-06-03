@@ -17,8 +17,13 @@ type Story = StoryObj<typeof meta>;
 
 export const ReassureUsersThatAPageIsUpToDate: Story = {
   render: (args) => (
-    <Paragraph {...args} variant="small" className="nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
-      Page last reviewed: 15 March 2021<br />
+    <Paragraph
+      {...args}
+      variant="small"
+      className="nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0"
+    >
+      Page last reviewed: 15 March 2021
+      <br />
       Next review due: 15 March 2024
     </Paragraph>
   ),
