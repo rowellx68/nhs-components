@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.4.1
+
+### Patch Changes
+
+- [#35](https://github.com/rowellx68/nhs-components/pull/35) [`50ae60e`](https://github.com/rowellx68/nhs-components/commit/50ae60e991259443b82d95b53c42e63d0b563770) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing imports
+
 ## 3.4.0
 
 ### Minor Changes
