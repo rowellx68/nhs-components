@@ -297,6 +297,11 @@
       "require": "./dist/components/form-elements/textarea/Textarea.js",
       "types": "./dist/components/form-elements/textarea/Textarea.d.ts"
     },
+    "./components/navigation/a-to-z": {
+      "import": "./dist/components/navigation/a-to-z/AToZ.mjs",
+      "require": "./dist/components/navigation/a-to-z/AToZ.js",
+      "types": "./dist/components/navigation/a-to-z/AToZ.d.ts"
+    },
     "./components/navigation/action-link": {
       "import": "./dist/components/navigation/action-link/ActionLink.mjs",
       "require": "./dist/components/navigation/action-link/ActionLink.js",
@@ -306,6 +311,11 @@
       "import": "./dist/components/navigation/back-link/BackLink.mjs",
       "require": "./dist/components/navigation/back-link/BackLink.js",
       "types": "./dist/components/navigation/back-link/BackLink.d.ts"
+    },
+    "./components/navigation/back-to-top-link": {
+      "import": "./dist/components/navigation/back-to-top-link/BackToTopLink.mjs",
+      "require": "./dist/components/navigation/back-to-top-link/BackToTopLink.js",
+      "types": "./dist/components/navigation/back-to-top-link/BackToTopLink.d.ts"
     },
     "./components/navigation/breadcrumb": {
       "import": "./dist/components/navigation/breadcrumb/Breadcrumb.mjs",
