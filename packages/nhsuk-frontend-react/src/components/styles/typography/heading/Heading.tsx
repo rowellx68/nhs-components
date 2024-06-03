@@ -4,13 +4,14 @@ import {
   PolymorphicFactory,
   polymorphicFactory,
 } from '@/internal/factory/polymorphic-factory';
-import { AsElementProps, HeadingLevel } from '@/types/shared';
+import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
 import clsx from 'clsx';
 
 export type HeadingSize = 'xl' | 'l' | 'm' | 's' | 'xs';
 
 export type HeadingProps = { size?: HeadingSize } & BaseProps &
-  AsElementProps<HeadingLevel>;
+  AsElementProps<HeadingLevel> &
+  ElementProps<'h1'>;
 
 type HeadingFactory = PolymorphicFactory<{
   props: HeadingProps;
