@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NonUrgentCareCard, UrgentCareCard, EmergencyCareCard } from '@/components/navigation/card/Card.stories';
+import {
+  NonUrgentCareCard,
+  UrgentCareCard,
+  EmergencyCareCard,
+} from '@/components/navigation/card/Card.stories';
 
 /**
  * Care cards help users identify and understand the care they need, who to contact and how quickly.
