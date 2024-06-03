@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.4.0
+
+### Minor Changes
+
+- [#33](https://github.com/rowellx68/nhs-components/pull/33) [`73297fd`](https://github.com/rowellx68/nhs-components/commit/73297fd0868a095e64bda363b74906ae9c8a32ad) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add a-to-z and back to top
+
+### Patch Changes
+
+- [#33](https://github.com/rowellx68/nhs-components/pull/33) [`73297fd`](https://github.com/rowellx68/nhs-components/commit/73297fd0868a095e64bda363b74906ae9c8a32ad) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing element props for heading
+
 ## 3.3.0
 
 ### Minor Changes
