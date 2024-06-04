@@ -1,8 +1,10 @@
 /**
+ *
  * The contents of this file was automatically generated from the NHS.UK Frontend.
  *
  * Do not make changes to this file directly.
-*/
+ *
+ */
 import { toggleConditionalInput } from '@/resources/common'
 
 /**
@@ -60,8 +62,10 @@ const unCheckExclusiveInputs = function unCheckExclusiveInputs(input) {
 }
 
 /**
+ *
  * @param {{ scope?: HTMLElement | Document | null }} params
-*/
+ *
+ */
 export default ({ scope = document } = {}) => {
   // Checkbox input DOMElements inside a conditional form group
   const checkboxInputs = scope.querySelectorAll('.nhsuk-checkboxes .nhsuk-checkboxes__input')

@@ -11,10 +11,12 @@ module.exports = (file, api, options) => {
   const exports = root.find(j.ExportDefaultDeclaration);
 
   const banner = j.commentBlock(`*
+ *
  * The contents of this file was automatically generated from the NHS.UK Frontend.
  *
  * Do not make changes to this file directly.
-`);
+ *
+ `);
 
   root.get().node.comments = [banner];
 
@@ -52,20 +54,33 @@ module.exports = (file, api, options) => {
 
   const exportComments = exports.get().node.comments;
 
+  let comments = [];
+
   if (exportComments) {
-    exports.get().node.comments = [
-      j.commentBlock(`${exportComments[0].value}*
+    comments = [
+      j.commentBlock(
+        `${exportComments[0].value}*
  * @param {{ ${params.join(', ')} }} params
-`),
+ *
+ `,
+        true,
+      ),
     ];
     // eslint-disable-next-line @stylistic/brace-style
   } else {
-    exports.get().node.comments = [
-      j.commentBlock(`*
+    comments = [
+      j.commentBlock(
+        `*
+ *
  * @param {{ ${params.join(', ')} }} params
-`),
+ *
+ `,
+        true,
+      ),
     ];
   }
+
+  exports.get().node.comments = comments;
 
   return root.toSource(printOptions);
 };

@@ -1,8 +1,10 @@
 /**
+ *
  * The contents of this file was automatically generated from the NHS.UK Frontend.
  *
  * Do not make changes to this file directly.
-*/
+ *
+ */
 import { toggleConditionalInput } from '@/resources/common'
 
 /**
@@ -10,7 +12,8 @@ import { toggleConditionalInput } from '@/resources/common'
  * Test at http://0.0.0.0:3000/components/radios/conditional.html
  *
  * @param {{ scope?: HTMLElement | Document | null }} params
-*/
+ *
+ */
 
 export default ({ scope = document } = {}) => {
   // Radio input HTMLElements inside a conditional form group
