@@ -1,8 +1,10 @@
 /**
+ *
  * The contents of this file was automatically generated from the NHS.UK Frontend.
  *
  * Do not make changes to this file directly.
-*/
+ *
+ */
 import { toggleAttribute } from '@/resources/common'
 
 /**
@@ -10,7 +12,8 @@ import { toggleAttribute } from '@/resources/common'
  * Test at http://0.0.0.0:3000/components/details/index.html
  *
  * @param {{ scope?: HTMLElement | Document | null }} params
-*/
+ *
+ */
 
 export default ({ scope = document } = {}) => {
   // Does the browser support details component

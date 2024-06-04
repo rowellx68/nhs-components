@@ -1,8 +1,10 @@
 /**
+ *
  * The contents of this file was automatically generated from the NHS.UK Frontend.
  *
  * Do not make changes to this file directly.
-*/
+ *
+ */
 class Tabs {
   constructor($module, namespace, responsive, historyEnabled) {
     this.$module = $module
@@ -321,7 +323,8 @@ class Tabs {
  * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
  *
  * @param {{ namespace?: string, responsive?: boolean, historyEnabled?: boolean, scope?: HTMLElement | Document | null }} params
-*/
+ *
+ */
 export default ({ namespace = 'nhsuk-tabs', responsive = true, historyEnabled = true, scope = document } = {}) => {
   const tabs = scope.querySelectorAll(`[data-module="${namespace}"]`)
   tabs.forEach((el) => {

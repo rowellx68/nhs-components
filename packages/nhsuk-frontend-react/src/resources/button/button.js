@@ -1,8 +1,10 @@
 /**
+ *
  * The contents of this file was automatically generated from the NHS.UK Frontend.
  *
  * Do not make changes to this file directly.
-*/
+ *
+ */
 class Button {
   KEY_SPACE = 32
 
@@ -68,8 +70,10 @@ class Button {
 }
 
 /**
+ *
  * @param {{ scope?: HTMLElement | Document | null }} params
-*/
+ *
+ */
 export default ({ scope = document } = {}) => {
   const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
   buttons.forEach((el) => {
