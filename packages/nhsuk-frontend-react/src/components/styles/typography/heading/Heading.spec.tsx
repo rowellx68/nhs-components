@@ -6,7 +6,7 @@ import meta, { H1 as HeadingStory } from './Heading.stories';
 
 const Heading = composeStory(HeadingStory, meta);
 
-it.each(['h1', 'h2', 'h3', 'h4', 'h5'])(
+it.each(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])(
   'should render the %s Heading component',
   (heading) => {
     const { container } = render(<Heading as={heading} />);
