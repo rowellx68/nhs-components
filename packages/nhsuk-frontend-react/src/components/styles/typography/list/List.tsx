@@ -46,7 +46,7 @@ const List = polymorphicFactory<ListFactory>(
 
 export type ListItemProps = ElementProps<'li'>;
 
-export const ListItem = ({ ...props }: ListItemProps) => {
+const ListItem = ({ ...props }: ListItemProps) => {
   return <li {...props} />;
 };
 
@@ -55,4 +55,4 @@ ListItem.displayName = 'List.Item';
 
 List.Item = ListItem;
 
-export { List };
+export { List, ListItem };
