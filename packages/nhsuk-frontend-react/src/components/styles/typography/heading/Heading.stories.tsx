@@ -143,3 +143,29 @@ export const H5: Story = {
     </Heading>
   ),
 };
+
+export const H6: Story = {
+  args: {
+    as: 'h6',
+    size: 'xs',
+  },
+  argTypes: {
+    as: {
+      control: false,
+      table: {
+        type: {
+          summary: 'union',
+        },
+        defaultValue: {
+          summary: 'h1',
+        },
+      },
+    },
+  },
+  render: (args) => (
+    <Heading {...args}>
+      nhsuk-heading-
+      {args.size}
+    </Heading>
+  ),
+};

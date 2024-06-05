@@ -21,7 +21,7 @@ export type ElementProps<
   TPropsToOmit extends string = never,
 > = Omit<ComponentPropsWithoutRef<TElementType>, 'style' | TPropsToOmit>;
 
-export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+export type HeadingLevel = `h${1 | 2 | 3 | 4 | 5 | 6}`;
 
 export type ColumnWidth =
   | 'full'
