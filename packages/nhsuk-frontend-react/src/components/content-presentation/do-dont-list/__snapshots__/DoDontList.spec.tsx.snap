@@ -11,7 +11,7 @@ exports[`should render the do variant of the DoDontList component 1`] = `
       Do
     </h2>
     <ul
-      class="nhsuk-list nhsuk-list nhsuk-list--tick"
+      class="nhsuk-list nhsuk-list--tick"
       role="list"
     >
       <li>
@@ -89,7 +89,7 @@ exports[`should render the dont variant of the DoDontList component 1`] = `
       Don't
     </h2>
     <ul
-      class="nhsuk-list nhsuk-list nhsuk-list--cross"
+      class="nhsuk-list nhsuk-list--cross"
       role="list"
     >
       <li>

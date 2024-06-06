@@ -25,7 +25,7 @@ export type TableProps = {
   /**
    * The variant of the table. Defaults to a non-responsive table.
    */
-  variant?: 'responsive';
+  variant?: 'default' | 'responsive';
 } & ElementProps<'table'>;
 
 type TableFactory = Factory<{
@@ -97,11 +97,12 @@ export type TableRowProps = {
   /**
    * @deprecated Will be removed in a future release. It now automatically detects the variant based on the context. This is now unused within the component.
    */
-  variant?: 'head';
+  variant?: 'default' | 'head';
 } & ElementProps<'tr'>;
 
 const TableRow = ({
   role = 'row',
+  variant,
   className,
   children,
   ...props
@@ -115,7 +116,7 @@ const TableRow = ({
   const { head } = useTableHeadContext();
 
   useEffect(() => {
-    if (head && tableVariant === 'responsive') {
+    if ((variant === 'head' || head) && tableVariant === 'responsive') {
       const _headings: ReactNode[] = [];
       Children.forEach(children, (child) => {
         if (isValidElement(child) && child.type === TableCell) {
@@ -135,7 +136,7 @@ const TableRow = ({
 
   let _children = children;
 
-  if (!head && tableVariant === 'responsive') {
+  if ((variant === 'default' || !head) && tableVariant === 'responsive') {
     _children = Children.map(children, (child, index) => {
       if (isValidElement(child) && child.type === TableCell) {
         return cloneElement(child as ReactElement<TableCellProps>, {
@@ -150,7 +151,7 @@ const TableRow = ({
     <tr
       className={clsx(
         {
-          'nhsuk-table__row': !head,
+          'nhsuk-table__row': variant === 'default' || !head,
         },
         className,
       )}
@@ -166,7 +167,7 @@ export type TableCellProps = {
   /**
    * The variant of the cell. Defaults to none.
    */
-  variant?: 'numeric';
+  variant?: 'default' | 'numeric';
   /**
    * The heading to display in when the table is in responsive mode and on small screens. If not provided, the children will be used.
    */

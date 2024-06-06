@@ -16,11 +16,6 @@ export type TextareaProps = BaseFormElementProps &
   ElementProps<'textarea'> &
   (
     | {
-        variant?: 'character-count' | 'word-count' | 'textarea';
-        maxWords?: number;
-        maxLength?: number;
-      }
-    | {
         variant: 'character-count';
         maxWords?: undefined;
         maxLength: number;
