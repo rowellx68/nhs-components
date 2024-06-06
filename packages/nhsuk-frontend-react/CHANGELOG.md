@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.4.3
+
+### Patch Changes
+
+- [#41](https://github.com/rowellx68/nhs-components/pull/41) [`f0f7c9a`](https://github.com/rowellx68/nhs-components/commit/f0f7c9a9bef67b73a8ee3f68c3f552a7fabed3dc) Thanks [@rowellx68](https://github.com/rowellx68)! - refactor: add and cleanup variants
+
 ## 3.4.2
 
 ### Patch Changes
