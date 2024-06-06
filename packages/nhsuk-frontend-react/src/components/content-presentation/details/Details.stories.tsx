@@ -18,7 +18,7 @@ const meta: Meta<typeof Details> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Details>;
 
 export const Default: Story = {
   render: (args) => (

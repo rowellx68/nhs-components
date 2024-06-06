@@ -82,8 +82,8 @@ const DoDontListList = ({
       className={clsx(
         'nhsuk-list',
         {
-          'nhsuk-list nhsuk-list--tick': variant === 'do',
-          'nhsuk-list nhsuk-list--cross': variant === 'dont',
+          'nhsuk-list--tick': variant === 'do',
+          'nhsuk-list--cross': variant === 'dont',
         },
         className,
       )}

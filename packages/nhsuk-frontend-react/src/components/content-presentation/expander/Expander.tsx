@@ -8,10 +8,10 @@ import {
 import clsx from 'clsx';
 import { ElementProps } from '@/types/shared';
 
-export type ExpanderProps = Omit<DetailsProps, 'expander'>;
+export type ExpanderProps = Omit<DetailsProps, 'expander' | 'variant'>;
 
 const Expander = ({ ...props }: ExpanderProps) => {
-  return <Details expander={true} {...props} />;
+  return <Details {...props} variant="expander" />;
 };
 
 export type ExpanderSummaryProps = DetailsSummaryProps;
