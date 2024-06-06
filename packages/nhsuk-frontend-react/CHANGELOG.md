@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.4.2
+
+### Patch Changes
+
+- [#39](https://github.com/rowellx68/nhs-components/pull/39) [`58ce453`](https://github.com/rowellx68/nhs-components/commit/58ce4530447cc2816d0b16e5e72bddebd747db86) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing export for ListItem
+
+- [#39](https://github.com/rowellx68/nhs-components/pull/39) [`58ce453`](https://github.com/rowellx68/nhs-components/commit/58ce4530447cc2816d0b16e5e72bddebd747db86) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing h6 variant
+
 ## 3.4.1
 
 ### Patch Changes
