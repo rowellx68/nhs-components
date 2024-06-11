@@ -1,0 +1,117 @@
+{
+  "name": "nhsuk-frontend-react-extension",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rowellx68/nhs-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowellx68/nhs-components"
+  },
+  "bugs": {
+    "url": "https://github.com/rowellx68/nhs-components/issues"
+  },
+  "description": "An extension to the NHSUK Frontend React Components Library",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "build": "rollup -c && rollup -c ./rollup.dts.config.mjs",
+    "postbuild": "node ./prepare-package-exports.mjs",
+    "sb": "storybook dev -p 6007 --no-open",
+    "sb:build": "storybook build",
+    "format": "prettier --write .",
+    "lint": "eslint ./src",
+    "test": "vitest"
+  },
+  "keywords": [
+    "nhsuk",
+    "nhs",
+    "react",
+    "components",
+    "design",
+    "nhsuk frontend",
+    "library"
+  ],
+  "author": "Rowell Heria",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-a11y": "^8.1.6",
+    "@storybook/addon-essentials": "^8.1.6",
+    "@storybook/addon-links": "^8.1.6",
+    "@storybook/blocks": "^8.1.6",
+    "@storybook/react": "^8.1.6",
+    "@storybook/react-vite": "^8.1.6",
+    "@storybook/test": "^8.1.6",
+    "@stylistic/eslint-plugin": "^2.1.0",
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jscodeshift": "^0.11.11",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^9.4.0",
+    "fast-glob": "^3.3.2",
+    "happy-dom": "^14.12.0",
+    "nhsuk-frontend": "^8.1.1",
+    "prettier": "^3.3.1",
+    "rollup": "^4.18.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-typescript-paths": "^1.5.0",
+    "sass": "^1.77.4",
+    "storybook": "^8.1.6",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.12.0",
+    "vite": "^5.2.13",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "peerDependencies": {
+    "nhsuk-frontend": "^8.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tslib": "^2.6.2"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./components/navigation/numbered-pagination": {
+      "import": "./dist/components/navigation/numbered-pagination/NumberedPagination.mjs",
+      "require": "./dist/components/navigation/numbered-pagination/NumberedPagination.js",
+      "types": "./dist/components/navigation/numbered-pagination/NumberedPagination.d.ts"
+    },
+    "./nhsuk-extension.css": {
+      "import": "./dist/nhsuk-extension.css",
+      "require": "./dist/nhsuk-extension.css"
+    },
+    "./components/navigation/numbered-pagination.scss": {
+      "import": "./dist/components/navigation/numbered-pagination.scss",
+      "require": "./dist/components/navigation/numbered-pagination.scss"
+    }
+  }
+}

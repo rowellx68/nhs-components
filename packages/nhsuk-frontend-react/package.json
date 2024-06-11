@@ -46,6 +46,7 @@
   "author": "Rowell Heria",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.24.7",
     "@eslint/js": "^9.4.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -87,6 +88,7 @@
     "clsx": "^2.1.1"
   },
   "peerDependencies": {
+    "@babel/preset-env": "^7.24.7",
     "nhsuk-frontend": "^8.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
