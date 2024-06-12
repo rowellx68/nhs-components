@@ -1,5 +1,13 @@
 # nhsuk-frontend-react-extension
 
+## 0.1.1
+
+### Patch Changes
+
+- [#55](https://github.com/rowellx68/nhs-components/pull/55) [`4f1a6b5`](https://github.com/rowellx68/nhs-components/commit/4f1a6b52aff2c7b373aef9811e2d4a173ac62b20) Thanks [@rowellx68](https://github.com/rowellx68)! - test(nhsuk-frontend-react-extension): add missing tests
+
+- [#55](https://github.com/rowellx68/nhs-components/pull/55) [`4f1a6b5`](https://github.com/rowellx68/nhs-components/commit/4f1a6b52aff2c7b373aef9811e2d4a173ac62b20) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react-extension): add missing button styles
+
 ## 0.1.0
 
 ### Minor Changes
