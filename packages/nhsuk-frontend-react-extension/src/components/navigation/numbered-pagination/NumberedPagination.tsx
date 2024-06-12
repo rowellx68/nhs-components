@@ -1,14 +1,12 @@
-import clsx from 'clsx';
 import React from 'react';
-import { AsElementProps, ElementProps, Base } from 'nhsuk-frontend-react';
+import clsx from 'clsx';
+import { AsElementProps, ElementProps } from '@/types/shared';
 import {
   PolymorphicFactory,
   polymorphicFactory,
-} from 'nhsuk-frontend-react/internal/factory/polymorphic-factory';
-import {
-  Factory,
-  factory,
-} from 'nhsuk-frontend-react/internal/factory/factory';
+} from '@/internal/factory/polymorphic-factory';
+import { Factory, factory } from '@/internal/factory/factory';
+import { Base } from '@/components/core/base/Base';
 
 export type NumberedPaginationPreviousProps = ElementProps<'a'> &
   AsElementProps;
@@ -119,8 +117,7 @@ export type NumberedPaginationListItemProps = (
     }
   | { ellipses?: undefined; current: boolean }
   | { ellipses: boolean; current?: undefined }
-) &
-  ElementProps<'a'>;
+) & { 'aria-label': string } & ElementProps<'a', 'aria-label'>;
 
 type NumberedPaginationListItemFactory = PolymorphicFactory<{
   props: NumberedPaginationListItemProps;
@@ -137,6 +134,7 @@ const NumberedPaginationListItem =
         ellipses,
         current,
         as: component = 'a',
+        'aria-label': ariaLabel,
         ...props
       }: NumberedPaginationListItemProps & AsElementProps,
       ref,
@@ -158,8 +156,9 @@ const NumberedPaginationListItem =
                 className,
               )}
               {...props}
-              aria-label={`Page ${children}`}
+              aria-label={ariaLabel}
               aria-current={current ? 'page' : undefined}
+              ref={ref}
             >
               {children}
             </Base>
