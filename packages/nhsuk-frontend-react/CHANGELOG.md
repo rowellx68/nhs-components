@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.4.5
+
+### Patch Changes
+
+- [#48](https://github.com/rowellx68/nhs-components/pull/48) [`a07d561`](https://github.com/rowellx68/nhs-components/commit/a07d56150e660ba8e49f811a9ab7a8daef0f8b27) Thanks [@rowellx68](https://github.com/rowellx68)! - build: move eslint and prettier to root
+
 ## 3.4.4
 
 ### Patch Changes
