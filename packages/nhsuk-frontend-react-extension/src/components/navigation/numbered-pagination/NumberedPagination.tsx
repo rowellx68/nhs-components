@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import React from 'react';
-
-import { AsElementProps, ElementProps } from '@/types/shared';
+import { AsElementProps, ElementProps, Base } from 'nhsuk-frontend-react';
 import {
   PolymorphicFactory,
   polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { Base } from '@/components/core/base/Base';
-import { Factory, factory } from '@/internal/factory/factory';
+} from 'nhsuk-frontend-react/internal/factory/polymorphic-factory';
+import {
+  Factory,
+  factory,
+} from 'nhsuk-frontend-react/internal/factory/factory';
 
 export type NumberedPaginationPreviousProps = ElementProps<'a'> &
   AsElementProps;

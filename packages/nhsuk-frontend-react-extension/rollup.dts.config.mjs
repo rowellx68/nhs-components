@@ -22,5 +22,12 @@ export default defineConfig([
       }),
       dts(),
     ],
+    onwarn: (warning, logger) => {
+      if (warning.code === 'UNRESOLVED_IMPORT') {
+        return;
+      }
+
+      logger(warning);
+    },
   },
 ]);
