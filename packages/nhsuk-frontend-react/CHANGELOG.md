@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.4.4
+
+### Patch Changes
+
+- [#46](https://github.com/rowellx68/nhs-components/pull/46) [`7d93ed7`](https://github.com/rowellx68/nhs-components/commit/7d93ed74233c909df537250c1b1306e037f85a5c) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: update script to export internals correctly
+
+- [#46](https://github.com/rowellx68/nhs-components/pull/46) [`7d93ed7`](https://github.com/rowellx68/nhs-components/commit/7d93ed74233c909df537250c1b1306e037f85a5c) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: export types
+
 ## 3.4.3
 
 ### Patch Changes
