@@ -32,3 +32,52 @@ export default meta;
 type Story = StoryObj<typeof LoginButton>;
 
 export const Example: Story = {};
+
+export const CareIdentityNoCallToAction: Story = {
+  args: {
+    variant: 'cis2-no-cta',
+    disabled: false,
+  },
+};
+
+export const CareIdentityReverse: Story = {
+  args: {
+    variant: 'cis2-reverse',
+    disabled: false,
+  },
+};
+
+export const CareIdentityReverseNoCallToAction: Story = {
+  args: {
+    variant: 'cis2-reverse-no-cta',
+    disabled: false,
+  },
+};
+
+export const NHSLogin: Story = {
+  args: {
+    variant: 'nhs-login',
+    disabled: false,
+  },
+};
+
+export const NHSLoginReverse: Story = {
+  args: {
+    variant: 'nhs-login-reverse',
+    disabled: false,
+  },
+};
+
+export const NHSLoginNoLogo: Story = {
+  args: {
+    variant: 'nhs-login-no-logo',
+    disabled: false,
+  },
+};
+
+export const NHSLoginReverseNoLogo: Story = {
+  args: {
+    variant: 'nhs-login-reverse-no-logo',
+    disabled: false,
+  },
+};
