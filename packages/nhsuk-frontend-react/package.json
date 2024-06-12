@@ -153,12 +153,22 @@
       "require": "./dist/icons/tick/Tick.js",
       "types": "./dist/icons/tick/Tick.d.ts"
     },
-    "./internal/factory": {
+    "./internal/factory/create-polymorphic-factory": {
+      "import": "./dist/internal/factory/create-polymorphic-factory.mjs",
+      "require": "./dist/internal/factory/create-polymorphic-factory.js",
+      "types": "./dist/internal/factory/create-polymorphic-factory.d.ts"
+    },
+    "./internal/factory/factory": {
+      "import": "./dist/internal/factory/factory.mjs",
+      "require": "./dist/internal/factory/factory.js",
+      "types": "./dist/internal/factory/factory.d.ts"
+    },
+    "./internal/factory/polymorphic-factory": {
       "import": "./dist/internal/factory/polymorphic-factory.mjs",
       "require": "./dist/internal/factory/polymorphic-factory.js",
       "types": "./dist/internal/factory/polymorphic-factory.d.ts"
     },
-    "./internal/hooks": {
+    "./internal/hooks/use-id-with-prefix": {
       "import": "./dist/internal/hooks/use-id-with-prefix.mjs",
       "require": "./dist/internal/hooks/use-id-with-prefix.js",
       "types": "./dist/internal/hooks/use-id-with-prefix.d.ts"

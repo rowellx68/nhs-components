@@ -3,35 +3,35 @@ import fg from 'fast-glob';
 
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
-const files = fg
-  .globSync(['dist/**/*.js', '!dist/**/*.context.js', '!dist/**/resources/**'])
-  .map((file) => file.replace('/index.js', ''));
+const files = fg.globSync([
+  'dist/**/*.js',
+  '!dist/**/*.context.js',
+  '!dist/**/resources/**',
+]);
 
 const exports = files.reduce((acc, file) => {
   const exportKey =
-    file === 'dist'
+    file === 'dist/index.js'
       ? '.'
-      : file.split('/').slice(0, -1).join('/').replace('dist/', './');
+      : file.includes('/internal')
+        ? file.replace('dist/', './').replace('.js', '')
+        : file
+            .split('/')
+            .slice(0, -1)
+            .join('/')
+            .replace('dist/', './')
+            .replace('.js', '');
 
   const basePath = `./${file}`.replace('.js', '');
 
-  return exportKey === '.'
-    ? {
-        ...acc,
-        '.': {
-          import: './dist/index.mjs',
-          require: './dist/index.js',
-          types: './dist/index.d.ts',
-        },
-      }
-    : {
-        ...acc,
-        [exportKey]: {
-          import: `${basePath}.mjs`,
-          require: `${basePath}.js`,
-          types: `${basePath}.d.ts`,
-        },
-      };
+  return {
+    ...acc,
+    [exportKey]: {
+      import: `${basePath}.mjs`,
+      require: `${basePath}.js`,
+      types: `${basePath}.d.ts`,
+    },
+  };
 }, {});
 
 pkg['exports'] = exports;
