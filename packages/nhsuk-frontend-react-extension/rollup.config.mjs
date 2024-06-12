@@ -53,7 +53,7 @@ export default defineConfig([
           '**/*.spec.ts',
         ],
       }),
-      typescriptPaths()
+      typescriptPaths(),
     ],
     onwarn: ({ pluginCode, message, code }, logger) => {
       if (
@@ -88,7 +88,14 @@ export default defineConfig([
       }),
       copy({
         targets: [
-          { src: 'src/components/navigation/**/*.scss', dest: 'dist/components/navigation' },
+          {
+            src: 'src/components/navigation/**/*.scss',
+            dest: 'dist/components/navigation',
+          },
+          {
+            src: 'src/components/form-elements/**/*.scss',
+            dest: 'dist/components/form-elements',
+          },
         ],
       }),
     ],
