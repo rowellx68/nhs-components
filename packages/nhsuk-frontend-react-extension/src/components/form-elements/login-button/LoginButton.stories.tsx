@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { LoginButton } from './LoginButton';
 
@@ -13,7 +12,6 @@ const meta: Meta<typeof LoginButton> = {
     variant: {
       control: {
         type: 'select',
-
       },
       options: [
         'cis2',

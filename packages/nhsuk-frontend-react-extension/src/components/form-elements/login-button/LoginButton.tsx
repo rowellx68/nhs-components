@@ -1,10 +1,7 @@
 import React from 'react';
-import { Button, ElementProps } from 'nhsuk-frontend-react';
-import {
-  Factory,
-  factory,
-} from 'nhsuk-frontend-react/internal/factory/factory';
 import clsx from 'clsx';
+import { Factory, factory } from '@/internal/factory/factory';
+import { ElementProps } from '@/types/shared';
 
 export type LoginButtonProps = {
   variant:
@@ -20,14 +17,21 @@ type LoginButtonFactory = Factory<{
 }>;
 
 const LoginButton = factory<LoginButtonFactory>(
-  ({ variant, className, ...props }, ref) => {
+  ({ variant, className, disabled, ...props }, ref) => {
     const isCis2 = variant.includes('cis2');
     const isNhsLogin = variant.includes('nhs-login');
 
     return (
-      <Button
-        variant={variant.includes('reverse') ? 'reverse' : undefined}
-        className={clsx('nhsuk-button--login', className)}
+      <button
+        className={clsx(
+          'nhsuk-button nhsuk-button--login',
+          {
+            'nhsuk-button--reverse': variant.includes('reverse'),
+          },
+          className,
+        )}
+        disabled={disabled}
+        aria-disabled={disabled ? 'true' : undefined}
         {...props}
         ref={ref}
       >
@@ -56,11 +60,11 @@ const LoginButton = factory<LoginButtonFactory>(
             ? 'Care Identity'
             : 'Log in with my Care Identity')}
         {isNhsLogin && 'Continue to NHS login'}
-      </Button>
+      </button>
     );
   },
 );
 
 LoginButton.displayName = 'LoginButton';
 
-export { LoginButton }
+export { LoginButton };

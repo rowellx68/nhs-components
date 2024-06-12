@@ -84,7 +84,6 @@
   },
   "peerDependencies": {
     "nhsuk-frontend": "^8.0.0",
-    "nhsuk-frontend-react": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tslib": "^2.6.2"
