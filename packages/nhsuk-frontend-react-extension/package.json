@@ -101,6 +101,11 @@
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
+    "./components/form-elements/login-button": {
+      "import": "./dist/components/form-elements/login-button/LoginButton.mjs",
+      "require": "./dist/components/form-elements/login-button/LoginButton.js",
+      "types": "./dist/components/form-elements/login-button/LoginButton.d.ts"
+    },
     "./components/navigation/numbered-pagination": {
       "import": "./dist/components/navigation/numbered-pagination/NumberedPagination.mjs",
       "require": "./dist/components/navigation/numbered-pagination/NumberedPagination.js",
@@ -109,6 +114,10 @@
     "./nhsuk-extension.css": {
       "import": "./dist/nhsuk-extension.css",
       "require": "./dist/nhsuk-extension.css"
+    },
+    "./components/form-elements/login-button.scss": {
+      "import": "./dist/components/form-elements/login-button.scss",
+      "require": "./dist/components/form-elements/login-button.scss"
     },
     "./components/navigation/numbered-pagination.scss": {
       "import": "./dist/components/navigation/numbered-pagination.scss",
