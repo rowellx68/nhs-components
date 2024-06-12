@@ -14,12 +14,27 @@ importers:
       '@changesets/cli':
         specifier: ^2.27.5
         version: 2.27.5
+      '@eslint/js':
+        specifier: ^9.4.0
+        version: 9.4.0
+      '@stylistic/eslint-plugin':
+        specifier: ^2.1.0
+        version: 2.1.0(eslint@9.4.0)(typescript@5.4.5)
       changeset-conventional-commits:
         specifier: ^0.2.5
         version: 0.2.5
+      eslint:
+        specifier: ^9.4.0
+        version: 9.4.0
+      prettier:
+        specifier: ^3.3.1
+        version: 3.3.1
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
+      typescript-eslint:
+        specifier: ^7.12.0
+        version: 7.12.0(eslint@9.4.0)(typescript@5.4.5)
       vitest:
         specifier: ^1.6.0
         version: 1.6.0(@types/node@20.14.2)(happy-dom@14.12.0)(sass@1.77.4)
@@ -42,9 +57,6 @@ importers:
       '@babel/preset-env':
         specifier: ^7.24.7
         version: 7.24.7(@babel/core@7.24.7)
-      '@eslint/js':
-        specifier: ^9.4.0
-        version: 9.4.0
       '@rollup/plugin-commonjs':
         specifier: ^26.0.1
         version: 26.0.1(rollup@4.18.0)
@@ -75,9 +87,6 @@ importers:
       '@storybook/test':
         specifier: ^8.1.6
         version: 8.1.6(vitest@1.6.0(@types/node@20.14.2)(happy-dom@14.12.0)(sass@1.77.4))
-      '@stylistic/eslint-plugin':
-        specifier: ^2.1.0
-        version: 2.1.0(eslint@9.4.0)(typescript@5.4.5)
       '@testing-library/dom':
         specifier: ^10.1.0
         version: 10.1.0
@@ -102,9 +111,6 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.2)(happy-dom@14.12.0)(sass@1.77.4))
-      eslint:
-        specifier: ^9.4.0
-        version: 9.4.0
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
@@ -117,9 +123,6 @@ importers:
       nhsuk-frontend:
         specifier: ^8.1.1
         version: 8.1.1
-      prettier:
-        specifier: ^3.3.1
-        version: 3.3.1
       rollup:
         specifier: ^4.18.0
         version: 4.18.0
@@ -141,9 +144,6 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-      typescript-eslint:
-        specifier: ^7.12.0
-        version: 7.12.0(eslint@9.4.0)(typescript@5.4.5)
       vite:
         specifier: ^5.2.13
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.4)
@@ -169,9 +169,6 @@ importers:
         specifier: ^2.6.2
         version: 2.6.3
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.4.0
-        version: 9.4.0
       '@rollup/plugin-commonjs':
         specifier: ^26.0.1
         version: 26.0.1(rollup@4.18.0)
@@ -202,9 +199,6 @@ importers:
       '@storybook/test':
         specifier: ^8.1.6
         version: 8.1.6(vitest@1.6.0(@types/node@20.14.2)(happy-dom@14.12.0)(sass@1.77.4))
-      '@stylistic/eslint-plugin':
-        specifier: ^2.1.0
-        version: 2.1.0(eslint@9.4.0)(typescript@5.4.5)
       '@testing-library/dom':
         specifier: ^10.1.0
         version: 10.1.0
@@ -229,9 +223,6 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.2)(happy-dom@14.12.0)(sass@1.77.4))
-      eslint:
-        specifier: ^9.4.0
-        version: 9.4.0
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
@@ -274,9 +265,6 @@ importers:
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
-      typescript-eslint:
-        specifier: ^7.12.0
-        version: 7.12.0(eslint@9.4.0)(typescript@5.4.5)
       vite:
         specifier: ^5.2.13
         version: 5.2.13(@types/node@20.14.2)(sass@1.77.4)

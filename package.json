@@ -4,8 +4,8 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "vitest",
-    "format": "pnpm -r format",
-    "lint": "pnpm -r lint",
+    "format": "prettier --write .",
+    "lint": "eslint ./packages",
     "sb": "pnpm -r sb",
     "release": "pnpm changeset publish",
     "cc:changeset": "pnpm changeset-conventional"
@@ -16,8 +16,13 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.5",
+    "@eslint/js": "^9.4.0",
+    "@stylistic/eslint-plugin": "^2.1.0",
     "changeset-conventional-commits": "^0.2.5",
+    "eslint": "^9.4.0",
+    "prettier": "^3.3.1",
     "typescript": "^5.4.5",
+    "typescript-eslint": "^7.12.0",
     "vitest": "^1.6.0"
   }
 }
