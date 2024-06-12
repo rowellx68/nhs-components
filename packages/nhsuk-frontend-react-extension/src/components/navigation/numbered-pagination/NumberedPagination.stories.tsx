@@ -22,11 +22,19 @@ export const Default: Story = {
     <NumberedPagination {...args}>
       <NumberedPagination.Previous>Previous</NumberedPagination.Previous>
       <NumberedPagination.List>
-        <NumberedPagination.ListItem current>1</NumberedPagination.ListItem>
-        <NumberedPagination.ListItem>2</NumberedPagination.ListItem>
-        <NumberedPagination.ListItem ellipses>3</NumberedPagination.ListItem>
-        <NumberedPagination.ListItem>4</NumberedPagination.ListItem>
-        <NumberedPagination.ListItem>5</NumberedPagination.ListItem>
+        <NumberedPagination.ListItem aria-label="Page 1" current>
+          1
+        </NumberedPagination.ListItem>
+        <NumberedPagination.ListItem aria-label="Page 2">
+          2
+        </NumberedPagination.ListItem>
+        <NumberedPagination.ListItem ellipses />
+        <NumberedPagination.ListItem aria-label="Page 4">
+          4
+        </NumberedPagination.ListItem>
+        <NumberedPagination.ListItem aria-label="Page 5">
+          5
+        </NumberedPagination.ListItem>
       </NumberedPagination.List>
       <NumberedPagination.Next>Next</NumberedPagination.Next>
     </NumberedPagination>

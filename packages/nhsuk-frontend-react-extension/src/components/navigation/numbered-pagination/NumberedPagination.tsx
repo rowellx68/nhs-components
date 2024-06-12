@@ -114,10 +114,12 @@ export type NumberedPaginationListItemProps = (
   | {
       ellipses?: undefined;
       current?: undefined;
+      'aria-label': string;
     }
-  | { ellipses?: undefined; current: boolean }
-  | { ellipses: boolean; current?: undefined }
-) & { 'aria-label': string } & ElementProps<'a', 'aria-label'>;
+  | { ellipses?: undefined; current?: boolean; 'aria-label': string }
+  | { ellipses: boolean; current?: undefined; 'aria-label'?: undefined }
+) &
+  ElementProps<'a', 'aria-label'>;
 
 type NumberedPaginationListItemFactory = PolymorphicFactory<{
   props: NumberedPaginationListItemProps;
