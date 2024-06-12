@@ -69,3 +69,9 @@ export * from '@/icons/close/Close';
 export * from '@/icons/cross/Cross';
 export * from '@/icons/search/Search';
 export * from '@/icons/tick/Tick';
+
+// Types
+export type * from '@/types/html-props';
+export type * from '@/types/icon';
+export type * from '@/types/reducer';
+export type * from '@/types/shared';
