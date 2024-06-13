@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 0.1.2
+
+### Patch Changes
+
+- [#57](https://github.com/rowellx68/nhs-components/pull/57) [`de27824`](https://github.com/rowellx68/nhs-components/commit/de27824fba0418b0f3fc57dad4ebcd0addcde047) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react-extension): update login button style
+
 ## 0.1.1
 
 ### Patch Changes
