@@ -29,16 +29,20 @@ $nhsuk-login-button-reverse-active-color: darken($color_nhsuk-white, 5%);
     }
   }
 
+  &:focus {
+    background: $nhsuk-focus-color;
+    color: $nhsuk-login-button-active-color;
+    box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
+  }
+
   &:active,
   &:hover {
     background: $nhsuk-login-button-active-color;
     color: $color_nhsuk-white;
   }
 
-  &:focus {
-    background: $nhsuk-focus-color;
-    color: $nhsuk-login-button-active-color;
-    box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
+  &:active {
+    box-shadow: none;
   }
 
   &.nhsuk-button--disabled,
@@ -58,6 +62,12 @@ $nhsuk-login-button-reverse-active-color: darken($color_nhsuk-white, 5%);
 
     .nhsuk-logo__text {
       fill: $color_nhsuk-white;
+    }
+
+    &:focus {
+      background: $nhsuk-focus-color;
+      color: $nhsuk-login-button-active-color;
+      box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
     }
 
     &:active,
