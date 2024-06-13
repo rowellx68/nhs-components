@@ -100,6 +100,11 @@
       "require": "./dist/components/form-elements/login-button/LoginButton.js",
       "types": "./dist/components/form-elements/login-button/LoginButton.d.ts"
     },
+    "./components/form-elements/password-input": {
+      "import": "./dist/components/form-elements/password-input/PasswordInput.mjs",
+      "require": "./dist/components/form-elements/password-input/PasswordInput.js",
+      "types": "./dist/components/form-elements/password-input/PasswordInput.d.ts"
+    },
     "./components/navigation/numbered-pagination": {
       "import": "./dist/components/navigation/numbered-pagination/NumberedPagination.mjs",
       "require": "./dist/components/navigation/numbered-pagination/NumberedPagination.js",
@@ -112,6 +117,10 @@
     "./components/form-elements/login-button.scss": {
       "import": "./dist/components/form-elements/login-button.scss",
       "require": "./dist/components/form-elements/login-button.scss"
+    },
+    "./components/form-elements/password-input.scss": {
+      "import": "./dist/components/form-elements/password-input.scss",
+      "require": "./dist/components/form-elements/password-input.scss"
     },
     "./components/navigation/numbered-pagination.scss": {
       "import": "./dist/components/navigation/numbered-pagination.scss",

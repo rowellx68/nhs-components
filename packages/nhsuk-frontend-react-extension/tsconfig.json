@@ -14,7 +14,7 @@
     "declaration": true,
     "declarationDir": "dist",
     "sourceMap": false,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "emitDeclarationOnly": true,

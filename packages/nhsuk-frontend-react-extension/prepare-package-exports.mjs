@@ -8,6 +8,9 @@ const jsFiles = fg
     'dist/**/*.js',
     '!dist/**/*.context.js',
     '!dist/**/resources/**',
+    '!dist/**/core/**',
+    '!dist/**/form-elements/{error-message,fieldset,hint}/**',
+    '!dist/**/internal/**',
     '!**/factory/**',
     '!**/base',
   ])

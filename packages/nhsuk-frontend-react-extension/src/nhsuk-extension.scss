@@ -1,5 +1,6 @@
 @import 'nhsuk-frontend/packages/core/tools/_all';
 @import 'nhsuk-frontend/packages/core/settings/_all';
+@import 'nhsuk-frontend/packages/core/settings/_globals';
 @import 'nhsuk-frontend/packages/core/generic/_font-face';
 
 @include _nhsuk-font-face-frutiger;
@@ -9,6 +10,11 @@
 }
 
 @import 'nhsuk-frontend/packages/components/button/_button';
+@import 'nhsuk-frontend/packages/components/error-message/_error-message';
+@import 'nhsuk-frontend/packages/components/hint/_hint';
+@import 'nhsuk-frontend/packages/components/input/_input';
+@import 'nhsuk-frontend/packages/components/label/_label';
 
+@import './components/form-elements/password-input/password-input.scss';
 @import './components/form-elements/login-button/login-button.scss';
 @import './components/navigation/numbered-pagination/numbered-pagination.scss';
