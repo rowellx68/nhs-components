@@ -26,7 +26,7 @@ export type TextareaProps = BaseFormElementProps &
         maxLength?: undefined;
       }
     | {
-        variant: 'textarea';
+        variant?: 'textarea';
         maxWords?: undefined;
         maxLength?: undefined;
       }
@@ -38,17 +38,22 @@ type TextareaFactory = Factory<{
 }>;
 
 const Textarea = factory<TextareaFactory>(
-  ({ variant, maxLength, maxWords, ...props }, ref) => {
+  ({ variant = 'textarea', maxLength, maxWords, ...props }, ref) => {
     useImperativeHandle(ref, () => internalRef.current as HTMLTextAreaElement);
     const internalRef = useRef<HTMLTextAreaElement>(null);
 
     const characterCount = variant !== 'textarea';
     const baseProps = {
       as: characterCount ? 'div' : React.Fragment,
-      className: characterCount ? 'nhsuk-character-count' : undefined,
-      'data-module': characterCount ? 'nhsuk-character-count' : undefined,
-      'data-maxwords': variant === 'word-count' ? maxWords : undefined,
-      'data-maxlength': variant === 'character-count' ? maxLength : undefined,
+      ...(characterCount
+        ? {
+            className: 'nhsuk-character-count',
+            'data-module': 'nhsuk-character-count',
+            'data-maxwords': variant === 'word-count' ? maxWords : undefined,
+            'data-maxlength':
+              variant === 'character-count' ? maxLength : undefined,
+          }
+        : {}),
     };
 
     const message = useMemo(() => {
