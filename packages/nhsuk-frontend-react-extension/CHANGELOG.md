@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 0.1.3
+
+### Patch Changes
+
+- [#60](https://github.com/rowellx68/nhs-components/pull/60) [`76eb81f`](https://github.com/rowellx68/nhs-components/commit/76eb81f8b2613ccfef3f2e418046c6eefe44b284) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: dependency update
+
 ## 0.1.2
 
 ### Patch Changes
