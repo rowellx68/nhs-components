@@ -1,8 +1,26 @@
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: 'weekly'
+      interval: weekly
     commit-message:
-      prefix: 'chore'
+      prefix: ci
+    labels:
+      - dependencies
+    groups:
+      actions:
+        patterns: ['*']
+
+  - package-ecosystem: npm
+    versioning-strategy: increase
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+    labels:
+      - dependencies
+    groups:
+      npm:
+        patterns: ['*']
