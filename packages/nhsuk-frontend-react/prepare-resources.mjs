@@ -43,4 +43,4 @@ files.forEach(async (file, index) => {
   destinations.push(destination);
 });
 
-shift(path.resolve('./resource-transformer.js'), destinations, { cpus: 5 });
+shift(path.resolve('./resource-transformer.cjs'), destinations, { cpus: 5 });

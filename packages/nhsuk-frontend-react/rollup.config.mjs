@@ -11,6 +11,7 @@ const outputOptions = {
   sourcemap: false,
   preserveModules: true,
   preserveModulesRoot: 'src',
+  dir: 'dist',
 };
 
 export default defineConfig([
@@ -18,14 +19,12 @@ export default defineConfig([
     input: 'src/index.ts',
     output: [
       {
-        dir: 'dist',
         format: 'cjs',
-        entryFileNames: '[name].js',
+        entryFileNames: '[name].cjs',
         exports: 'auto',
         ...outputOptions,
       },
       {
-        dir: 'dist',
         format: 'esm',
         entryFileNames: '[name].mjs',
         ...outputOptions,
@@ -63,7 +62,7 @@ export default defineConfig([
   },
   {
     input: 'dist/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    output: [{ file: 'dist/index.d.ts', format: 'cjs' }],
     plugins: [
       typescriptPaths({
         transform: (path) =>

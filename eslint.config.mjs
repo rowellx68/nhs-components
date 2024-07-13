@@ -33,7 +33,13 @@ export default tseslint.config(
     },
   },
   {
-    files: ['**/*.mjs', '**/*.js', '**/vitest.config.*', '**/.storybook/*'],
+    files: [
+      '**/*.mjs',
+      '**/*.js',
+      '**/*.cjs',
+      '**/vitest.config.*',
+      '**/.storybook/*',
+    ],
     extends: [tseslint.configs.disableTypeChecked],
   },
   {
