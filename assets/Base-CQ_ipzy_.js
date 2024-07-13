@@ -1,1 +1,0 @@
-import{r as o,R as c}from"./index-uCp2LrAq.js";function i(e){return e}const s=o.forwardRef(({as:e="div",renderRoot:a,...t},r)=>a&&typeof a=="function"?a(t):c.createElement(e,{...t,ref:r}));s.displayName="Base";const f=s;s.__docgenInfo={description:"",methods:[],displayName:"Base",props:{as:{defaultValue:{value:"'div'",computed:!1},required:!1}}};export{f as B,i as c};
