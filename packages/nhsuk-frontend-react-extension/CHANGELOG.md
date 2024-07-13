@@ -1,5 +1,13 @@
 # nhsuk-frontend-react-extension
 
+## 0.1.4
+
+### Patch Changes
+
+- [#71](https://github.com/rowellx68/nhs-components/pull/71) [`33d09b9`](https://github.com/rowellx68/nhs-components/commit/33d09b9dc43a0fac708152b2a1d90f8f206c59eb) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react-extension): invalid type definitions
+
+- [#71](https://github.com/rowellx68/nhs-components/pull/71) [`33d09b9`](https://github.com/rowellx68/nhs-components/commit/33d09b9dc43a0fac708152b2a1d90f8f206c59eb) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update dependencies
+
 ## 0.1.3
 
 ### Patch Changes
