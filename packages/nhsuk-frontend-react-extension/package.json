@@ -15,9 +15,9 @@
     "access": "public",
     "provenance": true
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist",
     "README.md",
@@ -62,6 +62,7 @@
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@vitest/coverage-v8": "^1.6.0",
+    "del": "^7.1.0",
     "fast-glob": "^3.3.2",
     "happy-dom": "^14.12.3",
     "nhsuk-frontend": "^8.2.0",
@@ -92,18 +93,15 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./components/form-elements/login-button": {
       "import": "./dist/components/form-elements/login-button/LoginButton.mjs",
-      "require": "./dist/components/form-elements/login-button/LoginButton.js",
-      "types": "./dist/components/form-elements/login-button/LoginButton.d.ts"
+      "require": "./dist/components/form-elements/login-button/LoginButton.cjs"
     },
     "./components/navigation/numbered-pagination": {
       "import": "./dist/components/navigation/numbered-pagination/NumberedPagination.mjs",
-      "require": "./dist/components/navigation/numbered-pagination/NumberedPagination.js",
-      "types": "./dist/components/navigation/numbered-pagination/NumberedPagination.d.ts"
+      "require": "./dist/components/navigation/numbered-pagination/NumberedPagination.cjs"
     },
     "./nhsuk-extension.css": {
       "import": "./dist/nhsuk-extension.css",

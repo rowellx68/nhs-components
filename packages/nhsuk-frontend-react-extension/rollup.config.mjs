@@ -22,7 +22,7 @@ export default defineConfig([
       {
         dir: 'dist',
         format: 'cjs',
-        entryFileNames: '[name].js',
+        entryFileNames: '[name].cjs',
         exports: 'auto',
         ...outputOptions,
       },
@@ -68,7 +68,7 @@ export default defineConfig([
   },
   {
     input: 'dist/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+    output: [{ file: 'dist/index.d.cts', format: 'cjs' }],
     plugins: [
       typescriptPaths({
         transform: (path) =>

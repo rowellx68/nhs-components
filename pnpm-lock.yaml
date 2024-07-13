@@ -223,6 +223,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.14.10)(happy-dom@14.12.3)(sass@1.77.8))
+      del:
+        specifier: ^7.1.0
+        version: 7.1.0
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
