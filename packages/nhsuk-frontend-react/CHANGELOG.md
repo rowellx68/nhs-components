@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.4.7
+
+### Patch Changes
+
+- [#71](https://github.com/rowellx68/nhs-components/pull/71) [`33d09b9`](https://github.com/rowellx68/nhs-components/commit/33d09b9dc43a0fac708152b2a1d90f8f206c59eb) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): invalid type definitions
+
+- [#71](https://github.com/rowellx68/nhs-components/pull/71) [`33d09b9`](https://github.com/rowellx68/nhs-components/commit/33d09b9dc43a0fac708152b2a1d90f8f206c59eb) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update dependencies
+
 ## 3.4.6
 
 ### Patch Changes
