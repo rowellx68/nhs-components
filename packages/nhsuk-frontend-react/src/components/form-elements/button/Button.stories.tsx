@@ -98,6 +98,23 @@ export const Reverse: Story = {
   ),
 };
 
+export const Warning: Story = {
+  args: {
+    type: 'button',
+    children: 'Warning Button',
+    disabled: false,
+  },
+  render: ({ type, children, disabled, ...props }) => (
+    <Button
+      variant="warning"
+      type={type}
+      children={children}
+      disabled={disabled}
+      {...props}
+    />
+  ),
+};
+
 export const PrimaryButtonAsLink: Story = {
   args: {
     children: 'Button as Link',
@@ -141,6 +158,22 @@ export const ReverseButtonAsLink: Story = {
       as="a"
       href="#"
       variant="reverse"
+      children={children}
+      disabled={disabled}
+    />
+  ),
+};
+
+export const WarningButtonAsLink: Story = {
+  args: {
+    children: 'Button as Link',
+    disabled: false,
+  },
+  render: ({ children, disabled }) => (
+    <Button
+      as="a"
+      href="#"
+      variant="warning"
       children={children}
       disabled={disabled}
     />

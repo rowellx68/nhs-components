@@ -17,7 +17,7 @@ it('should render the Button component as a button', () => {
   expect(container).toHaveTextContent('Submit');
 });
 
-it.each(['secondary', 'reverse'] as const)(
+it.each(['secondary', 'reverse', 'warning'] as const)(
   'should render the Button component with the %s variant',
   (variant) => {
     const { container } = render(<Button variant={variant}>Action</Button>);
@@ -44,7 +44,7 @@ it('should render the Button component as a link', () => {
   expect(container.querySelector('a')).toBeInTheDocument();
 });
 
-it.each(['secondary', 'reverse'] as const)(
+it.each(['secondary', 'reverse', 'warning'] as const)(
   'should render the Button component as a link variant %s',
   (variant) => {
     const { container } = render(
