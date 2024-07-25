@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.5.0
+
+### Minor Changes
+
+- [#75](https://github.com/rowellx68/nhs-components/pull/75) [`e3be5fd`](https://github.com/rowellx68/nhs-components/commit/e3be5fd72bec09caf89e5c91f02186748b3c0c3b) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): add warning variant to button
+
+### Patch Changes
+
+- [#75](https://github.com/rowellx68/nhs-components/pull/75) [`e3be5fd`](https://github.com/rowellx68/nhs-components/commit/e3be5fd72bec09caf89e5c91f02186748b3c0c3b) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update dependencies
+
 ## 3.4.7
 
 ### Patch Changes
