@@ -27,3 +27,17 @@ exports[`should render the Button component as a link variant secondary 1`] = `
   </a>
 </div>
 `;
+
+exports[`should render the Button component as a link variant warning 1`] = `
+<div>
+  <a
+    class="nhsuk-button nhsuk-button--warning"
+    data-module="nhsuk-button"
+    draggable="false"
+    href="https://www.nhs.uk"
+    role="button"
+  >
+    Link
+  </a>
+</div>
+`;
