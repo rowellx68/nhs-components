@@ -24,3 +24,6 @@ updates:
     groups:
       npm:
         patterns: ['*']
+    ignore:
+      - dependency-name: '@types/node'
+        versions: ['>=22.0.0']
