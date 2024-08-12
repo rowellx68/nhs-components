@@ -3,7 +3,7 @@
  * @type {import('purgecss').UserDefinedOptions}
  */
 module.exports = {
-  content: ['./dist/**/*.js'],
+  content: ['./dist/**/*.mjs'],
   css: ['./dist/**/*.css'],
   output: './dist/nhsuk-extension.css',
 };
