@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 0.1.6
+
+### Patch Changes
+
+- [#83](https://github.com/rowellx68/nhs-components/pull/83) [`6cd1ecb`](https://github.com/rowellx68/nhs-components/commit/6cd1ecb4cf995b7572fa7c1e1a41f70c470bad21) Thanks [@rowellx68](https://github.com/rowellx68)! - build(nhsuk-frontend-react-extension): fix purgecss config
+
 ## 0.1.5
 
 ### Patch Changes
