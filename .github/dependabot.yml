@@ -27,3 +27,5 @@ updates:
     ignore:
       - dependency-name: '@types/node'
         versions: ['>=22.0.0']
+      - dependency-name: 'happy-dom'
+        versions: ['>=15.0.0']
