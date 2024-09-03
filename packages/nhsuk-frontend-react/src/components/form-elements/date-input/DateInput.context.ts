@@ -7,6 +7,7 @@ export type DateInputContextValue = {
   error?: boolean;
   errorMap?: Record<string, string>;
   value?: Partial<DateInputValue>;
+  disabled?: boolean;
   handleChange: (
     field: DateInputPart,
     event: ChangeEvent<HTMLInputElement>,

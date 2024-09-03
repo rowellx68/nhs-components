@@ -78,3 +78,17 @@ export const WithErrorObject: Story = {
   },
   render: (args) => <DateInput {...args} />,
 };
+
+export const Disabled: Story = {
+  args: {
+    label: 'Date of birth',
+    hint: 'For example, 31 3 1980',
+    disabled: true,
+    value: {
+      day: '31',
+      month: '3',
+      year: '1980',
+    },
+  },
+  render: (args) => <DateInput {...args} />,
+};
