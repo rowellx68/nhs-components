@@ -4,8 +4,13 @@
   "javascript.preferences.quoteStyle": "single",
   "javascript.preferences.jsxAttributeCompletionStyle": "none",
   "typescript.preferences.jsxAttributeCompletionStyle": "none",
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "eslint.workingDirectories": [
-    "packages/nhsuk-frontend-react"
+    "packages/nhsuk-frontend-react",
+    "packages/nhsuk-frontend-react-extension"
+  ],
+  "conventionalCommits.scopes": [
+    "nhsuk-frontend-react",
+    "nhsuk-frontend-react-extension"
   ]
 }
