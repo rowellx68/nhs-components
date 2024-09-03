@@ -43,3 +43,13 @@ export const Example: Story = {
     </Fieldset>
   ),
 };
+
+export const WithPageHeadingLegend: Story = {
+  render: (args) => (
+    <Fieldset {...args}>
+      <Fieldset.Legend size="l" variant="page-heading">
+        What is your address?
+      </Fieldset.Legend>
+    </Fieldset>
+  ),
+};
