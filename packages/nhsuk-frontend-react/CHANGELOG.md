@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 3.5.1
+
+### Patch Changes
+
+- [#96](https://github.com/rowellx68/nhs-components/pull/96) [`2f1ac59`](https://github.com/rowellx68/nhs-components/commit/2f1ac59437ff341c7f38b97f3395ca6692928e83) Thanks [@rowellx68](https://github.com/rowellx68)! - docs(nhsuk-frontend-react): add missing Fieldset.Legend example
+
+- [#96](https://github.com/rowellx68/nhs-components/pull/96) [`2f1ac59`](https://github.com/rowellx68/nhs-components/commit/2f1ac59437ff341c7f38b97f3395ca6692928e83) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add missing InputWidth
+
+- [#96](https://github.com/rowellx68/nhs-components/pull/96) [`2f1ac59`](https://github.com/rowellx68/nhs-components/commit/2f1ac59437ff341c7f38b97f3395ca6692928e83) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add missing style prop to Tag
+
+- [#96](https://github.com/rowellx68/nhs-components/pull/96) [`2f1ac59`](https://github.com/rowellx68/nhs-components/commit/2f1ac59437ff341c7f38b97f3395ca6692928e83) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add missing prop to and fix onChange in DateInput
+
 ## 3.5.0
 
 ### Minor Changes
