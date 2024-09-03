@@ -29,8 +29,9 @@ export type DateInputProps = {
   value?: DateInputValue;
   error?: string | Record<string, string>;
   onChange?: (event: DateInputChangeEvent) => void;
+  disabled?: boolean;
 } & BaseFormElementProps &
-  ElementProps<'div'>;
+  ElementProps<'div', 'onChange'>;
 
 type DateInputFactory = Factory<{
   props: DateInputProps;
@@ -43,7 +44,7 @@ type DateInputFactory = Factory<{
 }>;
 
 const DateInput = factory<DateInputFactory>(
-  ({ onChange, value, ...props }, ref) => {
+  ({ onChange, value, disabled, ...props }, ref) => {
     const [state, setState] = useState({
       day: value?.day ?? '',
       month: value?.month ?? '',
@@ -101,8 +102,9 @@ const DateInput = factory<DateInputFactory>(
               errorMap,
               handleChange,
               value: state,
+              disabled,
             }),
-            [id, withError, errorMap, state, handleChange],
+            [id, withError, errorMap, state, handleChange, disabled],
           );
 
           return (
@@ -140,6 +142,7 @@ export type DateInputPartProps = {
   name?: string;
   width?: InputWidth;
   value?: string;
+  disabled?: boolean;
 } & ElementProps<'div', 'value' | 'defaultValue' | 'type' | 'ref'>;
 
 type DateInputPartFactory = Factory<{
@@ -159,6 +162,7 @@ const BaseDatePart = factory<DateInputPartFactory>(
       width,
       labelProps = {},
       value,
+      disabled,
       onChange,
       ...props
     },
@@ -171,6 +175,7 @@ const BaseDatePart = factory<DateInputPartFactory>(
       handleChange: ctxHandleChange,
       error: ctxError,
       errorMap,
+      disabled: ctxDisabled,
     } = useDateInputContext();
 
     const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
@@ -222,6 +227,7 @@ const BaseDatePart = factory<DateInputPartFactory>(
           inputMode="numeric"
           pattern="[0-9]*"
           onChange={handleChange}
+          disabled={disabled || ctxDisabled}
           ref={ref}
         />
       </div>

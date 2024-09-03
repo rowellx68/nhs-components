@@ -4,16 +4,25 @@ import { fireEvent, render } from '@testing-library/react';
 import { composeStory } from '@storybook/react';
 import meta, {
   Default as DefaultStory,
+  Disabled as DisabledStory,
   WithError as WithErrorStory,
   WithErrorObject as WithErrorObjectStory,
 } from './DateInput.stories';
 
 const Default = composeStory(DefaultStory, meta);
+const Disabled = composeStory(DisabledStory, meta);
 const WithError = composeStory(WithErrorStory, meta);
 const WithErrorObject = composeStory(WithErrorObjectStory, meta);
 
 it('should render the date input component', () => {
   const { container } = render(<Default />);
+
+  expect(container.querySelectorAll('input')).toHaveLength(3);
+  expect(container).toMatchSnapshot();
+});
+
+it('should render the date input component with disabled inputs', () => {
+  const { container } = render(<Disabled />);
 
   expect(container.querySelectorAll('input')).toHaveLength(3);
   expect(container).toMatchSnapshot();
