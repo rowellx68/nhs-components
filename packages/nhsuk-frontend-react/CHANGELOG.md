@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.5.3
+
+### Patch Changes
+
+- [#102](https://github.com/rowellx68/nhs-components/pull/102) [`0ffc39f`](https://github.com/rowellx68/nhs-components/commit/0ffc39fcc8c04f5963799d5e9d901e219474224d) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update className usage in Tag component
+
 ## 3.5.2
 
 ### Patch Changes
