@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.5.2
+
+### Patch Changes
+
+- [#99](https://github.com/rowellx68/nhs-components/pull/99) [`c53461a`](https://github.com/rowellx68/nhs-components/commit/c53461abadc67d6feb29af8c11c1f9dcf558be97) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update Textarea prop name to prevent clash
+
+  Renamed maxLength to maxCharacterLength to prevent clashing with existing prop name.
+
 ## 3.5.1
 
 ### Patch Changes
