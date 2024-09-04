@@ -18,17 +18,17 @@ export type TextareaProps = BaseFormElementProps &
     | {
         variant: 'character-count';
         maxWords?: undefined;
-        maxLength: number;
+        maxCharacterLength: number;
       }
     | {
         variant: 'word-count';
         maxWords: number;
-        maxLength?: undefined;
+        maxCharacterLength?: undefined;
       }
     | {
         variant?: 'textarea';
         maxWords?: undefined;
-        maxLength?: undefined;
+        maxCharacterLength?: undefined;
       }
   );
 
@@ -38,7 +38,7 @@ type TextareaFactory = Factory<{
 }>;
 
 const Textarea = factory<TextareaFactory>(
-  ({ variant = 'textarea', maxLength, maxWords, ...props }, ref) => {
+  ({ variant = 'textarea', maxCharacterLength, maxWords, ...props }, ref) => {
     useImperativeHandle(ref, () => internalRef.current as HTMLTextAreaElement);
     const internalRef = useRef<HTMLTextAreaElement>(null);
 
@@ -51,14 +51,14 @@ const Textarea = factory<TextareaFactory>(
             'data-module': 'nhsuk-character-count',
             'data-maxwords': variant === 'word-count' ? maxWords : undefined,
             'data-maxlength':
-              variant === 'character-count' ? maxLength : undefined,
+              variant === 'character-count' ? maxCharacterLength : undefined,
           }
         : {}),
     };
 
     const message = useMemo(() => {
       if (variant === 'character-count') {
-        return `You have ${maxLength} characters remaining`;
+        return `You have ${maxCharacterLength} characters remaining`;
       }
 
       if (variant === 'word-count') {
@@ -66,7 +66,7 @@ const Textarea = factory<TextareaFactory>(
       }
 
       return undefined;
-    }, [variant, maxWords, maxLength]);
+    }, [variant, maxWords, maxCharacterLength]);
 
     useEffect(() => {
       if (!characterCount) {
