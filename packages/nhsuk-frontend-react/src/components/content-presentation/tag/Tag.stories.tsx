@@ -22,6 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: 'Tag',
+    className: 'custom-class',
   },
   render: (args) => <Tag {...args} />,
 };
