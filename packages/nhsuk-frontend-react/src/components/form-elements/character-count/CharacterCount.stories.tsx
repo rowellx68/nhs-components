@@ -21,7 +21,7 @@ export const WithMaxCharacters: Story = {
     label: 'Can you provide more detail?',
     hint: 'Do not include personal or financial information, for example, your National Insurance number or credit card details.',
     variant: 'character-count',
-    maxLength: 10,
+    maxCharacterLength: 10,
   },
   render: (args) => <CharacterCount {...args} />,
 };
