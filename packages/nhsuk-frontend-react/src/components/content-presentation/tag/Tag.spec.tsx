@@ -30,5 +30,6 @@ it.each([
     expect(
       container.querySelector(`.nhsuk-tag--${variant}`),
     ).toBeInTheDocument();
+    expect(container.querySelector('.custom-class')).toBeInTheDocument();
   },
 );
