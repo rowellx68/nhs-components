@@ -119,7 +119,7 @@ const FieldsetLegend = ({
   return (
     <legend
       className={clsx(
-        'nhsuk-legend',
+        'nhsuk-fieldset__legend',
         {
           'nhsuk-fieldset__legend--xl': variant === 'page-heading' && !size,
           [`nhsuk-fieldset__legend--${size}`]: size,
