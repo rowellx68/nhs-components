@@ -11,7 +11,7 @@ exports[`should render the radio component 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="radios_:r0:"
           id="radios_:r0:--label"
         >
@@ -82,7 +82,7 @@ exports[`should render the radio component with conditional content 1`] = `
           class="nhsuk-fieldset"
         >
           <legend
-            class="nhsuk-legend nhsuk-fieldset__legend--l"
+            class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
             for="radios_:r1n:"
             id="radios_:r1n:--label"
           >
@@ -247,7 +247,7 @@ exports[`should render the radio component with divider 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="radios_:r1c:"
           id="radios_:r1c:--label"
         >
@@ -337,7 +337,7 @@ exports[`should render the radio component with error 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="radios_:rk:"
           id="radios_:rk:--label"
         >
@@ -422,7 +422,7 @@ exports[`should render the radio component with hint 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="radios_:r8:"
           id="radios_:r8:--label"
         >
@@ -518,7 +518,7 @@ exports[`should render the radio component with inline items 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="radios_:rs:"
           id="radios_:rs:--label"
         >
@@ -585,7 +585,7 @@ exports[`should render the radio component with item hints 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="radios_:r14:"
           id="radios_:r14:--label"
         >

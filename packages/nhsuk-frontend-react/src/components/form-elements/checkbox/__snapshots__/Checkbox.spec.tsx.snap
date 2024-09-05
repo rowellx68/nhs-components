@@ -11,7 +11,7 @@ exports[`should render the Checkbox component 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="checkboxes_:r0:"
           id="checkboxes_:r0:--label"
         >
@@ -96,7 +96,7 @@ exports[`should render the Checkbox with conditional content 1`] = `
           class="nhsuk-fieldset"
         >
           <legend
-            class="nhsuk-legend nhsuk-fieldset__legend--l"
+            class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
             for="checkboxes_:rp:"
             id="checkboxes_:rp:--label"
           >
@@ -259,7 +259,7 @@ exports[`should render the Checkbox with error 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="checkboxes_:r2f:"
           id="checkboxes_:r2f:--label"
         >
@@ -352,7 +352,7 @@ exports[`should render the Checkbox with exclusive option 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="checkboxes_:rb:"
           id="checkboxes_:rb:--label"
         >
@@ -466,7 +466,7 @@ exports[`should render the Checkbox with hint 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="checkboxes_:r1p:"
           id="checkboxes_:r1p:--label"
         >
@@ -554,7 +554,7 @@ exports[`should render the Checkbox with item hint 1`] = `
         class="nhsuk-fieldset"
       >
         <legend
-          class="nhsuk-legend nhsuk-fieldset__legend--l"
+          class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
           for="checkboxes_:r24:"
           id="checkboxes_:r24:--label"
         >

@@ -9,7 +9,7 @@ exports[`should render the fieldset component 1`] = `
       class="nhsuk-fieldset"
     >
       <legend
-        class="nhsuk-legend nhsuk-fieldset__legend--l"
+        class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
       >
         <h1
           class="nhsuk-fieldset__heading"

@@ -15,7 +15,7 @@ exports[`should render the date input component 1`] = `
         role="group"
       >
         <legend
-          class="nhsuk-legend"
+          class="nhsuk-fieldset__legend"
           for="dateinput_:r0:"
           id="dateinput_:r0:--label"
         >
@@ -131,7 +131,7 @@ exports[`should render the date input component with a label and hint 1`] = `
         role="group"
       >
         <legend
-          class="nhsuk-legend"
+          class="nhsuk-fieldset__legend"
           for="dateinput_:r1a:"
           id="dateinput_:r1a:--label"
         >
@@ -247,7 +247,7 @@ exports[`should render the date input component with an error message 1`] = `
         role="group"
       >
         <legend
-          class="nhsuk-legend"
+          class="nhsuk-fieldset__legend"
           for="dateinput_:r1o:"
           id="dateinput_:r1o:--label"
         >
@@ -374,7 +374,7 @@ exports[`should render the date input component with an error object 1`] = `
         role="group"
       >
         <legend
-          class="nhsuk-legend"
+          class="nhsuk-fieldset__legend"
           for="dateinput_:r26:"
           id="dateinput_:r26:--label"
         >
@@ -501,7 +501,7 @@ exports[`should render the date input component with disabled inputs 1`] = `
         role="group"
       >
         <legend
-          class="nhsuk-legend"
+          class="nhsuk-fieldset__legend"
           for="dateinput_:re:"
           id="dateinput_:re:--label"
         >
