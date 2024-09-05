@@ -20,7 +20,12 @@ export type TagProps = {
 } & ElementProps<'strong'>;
 
 const Tag = ({ variant = 'grey', className, ...props }: TagProps) => {
-  return <strong className={clsx('nhsuk-tag', `nhsuk-tag--${variant}`, className)} {...props} />;
+  return (
+    <strong
+      className={clsx('nhsuk-tag', `nhsuk-tag--${variant}`, className)}
+      {...props}
+    />
+  );
 };
 
 Tag.displayName = 'Tag';
