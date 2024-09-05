@@ -106,18 +106,6 @@ const Header = factory<HeaderFactory>(
       [],
     );
 
-    const internalRef = useRef<HTMLDivElement>(null);
-
-    useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
-
-    useEffect(() => {
-      if (!internalRef.current) {
-        return;
-      }
-
-      initHeader();
-    }, [internalRef]);
-
     return (
       <HeaderContextProvider value={value}>
         <header
@@ -133,7 +121,7 @@ const Header = factory<HeaderFactory>(
           )}
           role="banner"
           {...props}
-          ref={internalRef}
+          ref={ref}
         >
           {children}
         </header>
@@ -306,17 +294,36 @@ const HeaderNav = ({ children, className, ...props }: HeaderNavProps) => {
 
 export type HeaderNavListProps = ElementProps<'ul'>;
 
-const HeaderNavList = ({
-  children,
-  className,
-  ...props
-}: HeaderNavListProps) => {
-  return (
-    <ul className={clsx('nhsuk-header__navigation-list', className)} {...props}>
-      {children}
-    </ul>
-  );
-};
+type HeaderNavListFactory = Factory<{
+  props: HeaderNavListProps;
+  ref: HTMLUListElement;
+}>;
+
+const HeaderNavList = factory<HeaderNavListFactory>(
+  ({ children, className, ...props }: HeaderNavListProps, ref) => {
+    const internalRef = useRef<HTMLUListElement>(null);
+
+    useImperativeHandle(ref, () => internalRef.current as HTMLUListElement);
+
+    useEffect(() => {
+      if (!internalRef.current) {
+        return;
+      }
+
+      initHeader();
+    }, [internalRef, children]);
+
+    return (
+      <ul
+        className={clsx('nhsuk-header__navigation-list', className)}
+        {...props}
+        ref={internalRef}
+      >
+        {children}
+      </ul>
+    );
+  },
+);
 
 export type HeaderNavItemProps = { variant?: 'home-link' } & BaseProps;
 
