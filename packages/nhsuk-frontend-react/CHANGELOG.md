@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.5.5
+
+### Patch Changes
+
+- [#106](https://github.com/rowellx68/nhs-components/pull/106) [`6d59c1c`](https://github.com/rowellx68/nhs-components/commit/6d59c1c036a5f0fb31d476baa76b7a479a768a2e) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): replace Fieldset.Legend className with the correct one
+
 ## 3.5.4
 
 ### Patch Changes
