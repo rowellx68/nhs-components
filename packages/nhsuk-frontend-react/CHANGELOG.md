@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.5.4
+
+### Patch Changes
+
+- [#104](https://github.com/rowellx68/nhs-components/pull/104) [`35dc3fd`](https://github.com/rowellx68/nhs-components/commit/35dc3fd9e8ad92aeb2852c4c45e69a051df0f6c5) Thanks [@rowellx68](https://github.com/rowellx68)! - style(nhsuk-frontend-react): format Tag source code
+
+- [#104](https://github.com/rowellx68/nhs-components/pull/104) [`35dc3fd`](https://github.com/rowellx68/nhs-components/commit/35dc3fd9e8ad92aeb2852c4c45e69a051df0f6c5) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update useEffect to trigger when NavList children update
+
+  This moves the invocation of the header script into NavList so it can react to the changes to the children. Useful for when the links are dynamically rendred.
+
 ## 3.5.3
 
 ### Patch Changes
