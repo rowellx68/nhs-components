@@ -59,7 +59,7 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jscodeshift": "^0.11.11",
-    "@types/node": "^20.16.3",
+    "@types/node": "^20.16.5",
     "@types/react": "^18.3.5",
     "@vitest/coverage-v8": "^2.0.5",
     "del": "^7.1.0",
@@ -75,10 +75,10 @@
     "rollup-plugin-preserve-directives": "^0.4.0",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-typescript-paths": "^1.5.0",
-    "sass": "^1.77.8",
+    "sass": "^1.78.0",
     "storybook": "^8.2.9",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2",
+    "vite": "^5.4.3",
     "vitest": "^2.0.5"
   },
   "dependencies": {
