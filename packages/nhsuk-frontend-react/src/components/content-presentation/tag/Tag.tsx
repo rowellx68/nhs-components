@@ -16,7 +16,6 @@ export type TagColour =
 
 export type TagProps = {
   variant?: TagColour;
-  style?: React.CSSProperties;
 } & ElementProps<'strong'>;
 
 const Tag = ({ variant = 'grey', className, ...props }: TagProps) => {
