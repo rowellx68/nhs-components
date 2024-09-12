@@ -19,7 +19,7 @@ export type AsElementProps<TComponent = any> = {
 export type ElementProps<
   TElementType extends ElementType,
   TPropsToOmit extends string = never,
-> = Omit<ComponentPropsWithoutRef<TElementType>, 'style' | TPropsToOmit>;
+> = Omit<ComponentPropsWithoutRef<TElementType>, TPropsToOmit>;
 
 export type HeadingLevel = `h${1 | 2 | 3 | 4 | 5 | 6}`;
 
