@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.5.6
+
+### Patch Changes
+
+- [#110](https://github.com/rowellx68/nhs-components/pull/110) [`77e26e3`](https://github.com/rowellx68/nhs-components/commit/77e26e390388e295630fab46aea682b1768e1190) Thanks [@rowellx68](https://github.com/rowellx68)! - revert(nhsuk-frontend-react): revert change that added style prop
+
+- [#110](https://github.com/rowellx68/nhs-components/pull/110) [`77e26e3`](https://github.com/rowellx68/nhs-components/commit/77e26e390388e295630fab46aea682b1768e1190) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: remove 'style' as omitted prop in ElementProps
+
 ## 3.5.5
 
 ### Patch Changes

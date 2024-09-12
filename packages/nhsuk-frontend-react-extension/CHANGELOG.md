@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 0.1.7
+
+### Patch Changes
+
+- [#110](https://github.com/rowellx68/nhs-components/pull/110) [`77e26e3`](https://github.com/rowellx68/nhs-components/commit/77e26e390388e295630fab46aea682b1768e1190) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: remove 'style' as omitted prop in ElementProps
+
 ## 0.1.6
 
 ### Patch Changes
