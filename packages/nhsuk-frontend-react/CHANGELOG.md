@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.5.7
+
+### Patch Changes
+
+- [#115](https://github.com/rowellx68/nhs-components/pull/115) [`077e5ed`](https://github.com/rowellx68/nhs-components/commit/077e5ed2f209976cdf3b423857ed871d0918ed1a) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add li element around ErrorSummaryListItem
+
 ## 3.5.6
 
 ### Patch Changes
