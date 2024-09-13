@@ -129,7 +129,11 @@ const ErrorSummaryListItem = polymorphicFactory<ErrorSummaryListItemFactory>(
     }: ErrorSummaryListItemProps & AsElementProps,
     ref,
   ) => {
-    return <Base as={component} ref={ref} {...props} />;
+    return (
+      <li>
+        <Base as={component} ref={ref} {...props} />
+      </li>
+    );
   },
 );
 
