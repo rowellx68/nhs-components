@@ -20,7 +20,9 @@ This implementation supports the latest version of the NHS.UK Frontend library a
 
 ## Polymorphic Components
 
-A few components in this library are polymorphic, meaning they can accept a different component as a prop. This is particularly useful when you want to use a custom component, say a `Link` component from a routing library, instead of the default `a` tag.
+A few components in this library are polymorphic, meaning they can accept a different component as a prop and render as that component. This is particularly useful when you want to use a custom component, say a `Link` component from a routing library, instead of the default `a` tag.
+
+This feature is was taken from [Mantine](https://github.com/mantinedev/mantine), have a look at their [polymorphic components documentation](https://mantine.dev/guides/polymorphic/) for more information.
 
 Here is an example of how you can use a custom `Link` component with the `Header.Logo` component:
 
@@ -43,7 +45,7 @@ export const AppHeader = () => (
 );
 ```
 
-### Full List of Polymorphic Components
+## Full List of Polymorphic Components
 
 <details>
 <summary>Click to expand</summary>

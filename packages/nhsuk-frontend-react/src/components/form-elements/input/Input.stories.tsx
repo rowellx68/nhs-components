@@ -22,6 +22,7 @@ const meta: Meta = {
         '5',
         '10',
         '20',
+        '30',
         'full',
         'one-half',
         'one-third',
@@ -47,6 +48,7 @@ export const Default: Story = {
 export const WithFixedWidth: Story = {
   render: (args) => (
     <>
+      <Input {...args} label="30 character width" width="30" />
       <Input {...args} label="20 character width" width="20" />
       <Input {...args} label="10 character width" width="10" />
       <Input {...args} label="5 character width" width="5" />
