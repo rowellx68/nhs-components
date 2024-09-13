@@ -24,11 +24,13 @@ exports[`should render the error summary component 1`] = `
         class="nhsuk-list nhsuk-error-summary__list"
         role="list"
       >
-        <a
-          href="#"
-        >
-          Date of birth must be in the past
-        </a>
+        <li>
+          <a
+            href="#"
+          >
+            Date of birth must be in the past
+          </a>
+        </li>
       </ul>
     </div>
   </div>
