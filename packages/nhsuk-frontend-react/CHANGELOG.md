@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.5.8
+
+### Patch Changes
+
+- [#117](https://github.com/rowellx68/nhs-components/pull/117) [`ad38921`](https://github.com/rowellx68/nhs-components/commit/ad3892173333186c41418e421949c22d91f8b800) Thanks [@rowellx68](https://github.com/rowellx68)! - docs(nhsuk-frontend-react): add links to mantine and their polymophic component docs
+
 ## 3.5.7
 
 ### Patch Changes
