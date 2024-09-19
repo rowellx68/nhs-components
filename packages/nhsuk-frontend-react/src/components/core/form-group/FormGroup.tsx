@@ -57,6 +57,7 @@ type FormGroupProps = BaseFormElementProps & {
     | 'other';
   fieldsetProps?: ElementProps<'fieldset'>;
   withFieldset?: boolean;
+  namePrefix?: string;
 };
 
 const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
@@ -75,10 +76,11 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
       inputType,
       id,
       withFieldset,
+      namePrefix,
       ...rest
     } = props;
 
-    const [generatedId] = useState(useIdWithPrefix(inputType));
+    const [generatedId] = useState(useIdWithPrefix(namePrefix || inputType));
     const { isFieldset, dispatch: dispatchFieldsetAction } =
       useFieldsetContext();
 
