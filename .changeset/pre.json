@@ -5,5 +5,10 @@
     "nhsuk-frontend-react": "3.5.8",
     "nhsuk-frontend-react-extension": "0.1.7"
   },
-  "changesets": []
+  "changesets": [
+    "happy-pianos-glow",
+    "metal-zebras-yell",
+    "ninety-brooms-obey",
+    "sweet-months-look"
+  ]
 }
