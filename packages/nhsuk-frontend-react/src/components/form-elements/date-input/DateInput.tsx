@@ -30,7 +30,8 @@ export type DateInputProps = {
   error?: string | Record<string, string>;
   onChange?: (event: DateInputChangeEvent) => void;
   disabled?: boolean;
-} & BaseFormElementProps &
+  namePrefix?: string;
+} & Omit<BaseFormElementProps, 'name'> &
   ElementProps<'div', 'onChange'>;
 
 type DateInputFactory = Factory<{
