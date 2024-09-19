@@ -22,6 +22,7 @@ const Select = factory<SelectFactory>((props, ref) => {
     <FormGroup
       as="select"
       inputType="select"
+      withErrorLine
       {...props}
       ref={ref}
       render={({ id, name, className, withError, ...rest }) => (

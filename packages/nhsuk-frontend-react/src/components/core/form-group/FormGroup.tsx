@@ -34,7 +34,7 @@ export type BaseFormElementProps = {
   hintProps?: HintProps;
   errorProps?: ErrorMessageProps;
   formGroupProps?: ElementProps<'div'>;
-  disableErrorLine?: boolean;
+  withErrorLine?: boolean;
 };
 
 type FormGroupProps = BaseFormElementProps & {
@@ -65,7 +65,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
       render,
       formGroupProps = {},
       fieldsetProps = {},
-      disableErrorLine,
+      withErrorLine,
       error,
       label,
       hint,
@@ -160,7 +160,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
             className: clsx(
               'nhsuk-form-group',
               {
-                'nhsuk-form-group--error': !disableErrorLine && error,
+                'nhsuk-form-group--error': withErrorLine && error,
               },
               formGroupClass,
             ),
@@ -177,7 +177,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
             className: clsx(
               'nhsuk-form-group',
               {
-                'nhsuk-form-group--error': !disableErrorLine && error,
+                'nhsuk-form-group--error': withErrorLine && error,
               },
               formGroupClass,
             ),
