@@ -8,6 +8,13 @@
 
 This is a collection of components not found in the NHS.UK Frontend library but exist in GOV.UK Frontend or are components that are commonly used in NHS.UK projects.
 
+## Version compatibility
+
+| nhsuk-frontend | nhsuk-frontend-react |
+|----------------|----------------------|
+| `8.x.x`        | `0.x.x`              |
+| `9.x.x`        | `1.x.x`              |
+
 ## Requirements
 
 - [nhsuk-frontend v8+](https://github.com/nhsuk/nhsuk-frontend)

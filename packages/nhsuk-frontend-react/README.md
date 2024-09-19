@@ -10,6 +10,13 @@ This is an unofficial React implementation of the [NHS.UK Frontend](https://gith
 
 This implementation supports the latest version of the NHS.UK Frontend library and is written in TypeScript. It is designed to be used with modern React applications and is compatible with Next.js and React Server Components.
 
+## Version compatibility
+
+| nhsuk-frontend | nhsuk-frontend-react |
+|----------------|----------------------|
+| `8.x.x`        | `3.x.x`              |
+| `9.x.x`        | `4.x.x`              |
+
 ## Features
 
 - Written in TypeScript
