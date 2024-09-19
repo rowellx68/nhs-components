@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- [`ca65799`](https://github.com/rowellx68/nhs-components/commit/ca657998cdbd26e1e699c959ea9c04ab0f11df3a) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: update peer dependency version
+
 ## 1.0.0-next.0
 
 ### Major Changes
