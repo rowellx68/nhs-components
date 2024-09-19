@@ -89,6 +89,7 @@ const DateInput = factory<DateInputFactory>(
     return (
       <FormGroup
         as="div"
+        withErrorLine
         {...props}
         ref={ref}
         fieldsetProps={{ role: 'group' }}

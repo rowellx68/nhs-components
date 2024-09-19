@@ -91,6 +91,7 @@ const Textarea = factory<TextareaFactory>(
         <FormGroup
           as="textarea"
           inputType="textarea"
+          withErrorLine
           {...props}
           ref={internalRef}
           render={({ id, name, className, withError, ...rest }) => (

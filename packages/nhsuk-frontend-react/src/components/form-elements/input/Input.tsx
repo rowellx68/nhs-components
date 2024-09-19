@@ -31,6 +31,7 @@ const Input = factory<InputFactory>(
     return (
       <FormGroup
         as="input"
+        withErrorLine
         {...props}
         ref={ref}
         inputType="input"

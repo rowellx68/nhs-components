@@ -68,6 +68,7 @@ const Checkbox = factory<CheckboxFactory>(({ children, ...props }, ref) => {
     <CheckboxProvider value={value}>
       <FormGroup
         as="div"
+        withErrorLine
         {...props}
         ref={internalRef}
         inputType="checkboxes"
