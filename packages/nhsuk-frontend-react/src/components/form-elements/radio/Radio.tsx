@@ -64,6 +64,7 @@ const Radio = factory<RadioFactory>(({ children, inline, ...props }, ref) => {
     <RadioProvider value={value}>
       <FormGroup
         as="div"
+        withErrorLine
         {...props}
         ref={internalRef}
         inputType="radios"
