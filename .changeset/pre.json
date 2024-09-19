@@ -1,0 +1,9 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "nhsuk-frontend-react": "3.5.8",
+    "nhsuk-frontend-react-extension": "0.1.7"
+  },
+  "changesets": []
+}
