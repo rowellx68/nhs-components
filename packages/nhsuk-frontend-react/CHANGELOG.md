@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [`26a4962`](https://github.com/rowellx68/nhs-components/commit/26a4962845636e9193280f05595832572e93b9f4) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): replace form group error line prop
+
+  BREAKING CHANGE: replace disableErrorLine with withErrorLine
+
+- [`26a4962`](https://github.com/rowellx68/nhs-components/commit/26a4962845636e9193280f05595832572e93b9f4) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update nhsuk-frontend to v9
+
+  BREAKING CHANGE: update nhsuk-frontend to v9
+
+### Minor Changes
+
+- [`26a4962`](https://github.com/rowellx68/nhs-components/commit/26a4962845636e9193280f05595832572e93b9f4) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): update date input to accept name prefix
+
+### Patch Changes
+
+- [`26a4962`](https://github.com/rowellx68/nhs-components/commit/26a4962845636e9193280f05595832572e93b9f4) Thanks [@rowellx68](https://github.com/rowellx68)! - refactor(nhsuk-frontend-react): update breadcrumb component
+
+  update component to remove the nhsuk-width-container inside the breadcrumb
+
 ## 3.5.8
 
 ### Patch Changes
