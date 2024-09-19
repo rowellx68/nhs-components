@@ -34,7 +34,7 @@ const Breadcrumb = factory<BreadcrumbFactory>(
         {...props}
         ref={ref}
       >
-        <div className="nhsuk-width-container">{children}</div>
+        {children}
       </nav>
     );
   },
