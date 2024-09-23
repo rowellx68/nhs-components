@@ -82,12 +82,12 @@ export type FieldsetLegendProps = (
       variant?: undefined;
     }
   | {
-      size: Size;
+      size: Exclude<Size, 'xl'>;
       variant?: undefined;
     }
   | {
       variant: 'page-heading';
-      size?: Size;
+      size?: Exclude<Size, 'xl'>;
     }
 ) &
   ElementProps<'legend', 'size' | 'as'> &
@@ -102,7 +102,7 @@ const FieldsetLegend = ({
   ...props
 }: FieldsetLegendProps & AsElementProps) => {
   const _component =
-    variant === 'page-heading' || size === 'xl'
+    variant === 'page-heading' || size === 'l'
       ? component || 'h1'
       : React.Fragment;
 
@@ -121,7 +121,7 @@ const FieldsetLegend = ({
       className={clsx(
         'nhsuk-fieldset__legend',
         {
-          'nhsuk-fieldset__legend--xl': variant === 'page-heading' && !size,
+          'nhsuk-fieldset__legend--l': variant === 'page-heading' && !size,
           [`nhsuk-fieldset__legend--${size}`]: size,
         },
         className,
