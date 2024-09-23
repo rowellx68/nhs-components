@@ -4,13 +4,16 @@ import {
   PolymorphicFactory,
   polymorphicFactory,
 } from '@/internal/factory/polymorphic-factory';
-import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
+import {
+  AsElementProps,
+  ElementProps,
+  HeadingLevel,
+  Size,
+} from '@/types/shared';
 import clsx from 'clsx';
 
-export type HeadingSize = 'xl' | 'l' | 'm' | 's' | 'xs';
-
 export type HeadingProps = {
-  size?: HeadingSize;
+  size?: Size;
   variant?: 'caption-bottom';
 } & BaseProps &
   AsElementProps<HeadingLevel> &
