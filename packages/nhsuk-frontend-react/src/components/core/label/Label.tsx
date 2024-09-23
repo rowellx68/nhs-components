@@ -9,19 +9,19 @@ export type LabelProps = (
       variant?: undefined;
     }
   | {
-      size: Size;
+      size: Exclude<Size, 'xl'>;
       variant?: undefined;
     }
   | {
       variant: 'page-heading';
-      size: Size;
+      size: Exclude<Size, 'xl'>;
     }
 ) &
   ElementProps<'label', 'size' | 'as'>;
 
 const Label = ({ className, size, variant, ...props }: LabelProps) => {
   const component =
-    variant === 'page-heading' || size === 'xl' ? 'h1' : React.Fragment;
+    variant === 'page-heading' || size === 'l' ? 'h1' : React.Fragment;
 
   const baseProps =
     component === 'h1' ? { className: 'nhsuk-label-wrapper' } : {};
@@ -32,7 +32,7 @@ const Label = ({ className, size, variant, ...props }: LabelProps) => {
         className={clsx(
           'nhsuk-label',
           {
-            'nhsuk-label--xl': variant === 'page-heading' && !size,
+            'nhsuk-label--l': variant === 'page-heading' && !size,
             [`nhsuk-label--${size}`]: size,
           },
           className,
