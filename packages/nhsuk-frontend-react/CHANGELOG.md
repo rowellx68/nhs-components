@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.6.0
+
+### Minor Changes
+
+- [#125](https://github.com/rowellx68/nhs-components/pull/125) [`e869455`](https://github.com/rowellx68/nhs-components/commit/e86945583e00d7c18e1a7cb57aab807f235dfc86) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): add heading caption component
+
+### Patch Changes
+
+- [#125](https://github.com/rowellx68/nhs-components/pull/125) [`e869455`](https://github.com/rowellx68/nhs-components/commit/e86945583e00d7c18e1a7cb57aab807f235dfc86) Thanks [@rowellx68](https://github.com/rowellx68)! - docs: format READMEs
+
 ## 3.5.8
 
 ### Patch Changes
