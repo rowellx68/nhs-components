@@ -52,6 +52,7 @@ export * from '@/components/styles/layout/reading-width/ReadingWidth';
 
 // Styles - Typography
 export * from '@/components/styles/typography/heading/Heading';
+export * from '@/components/styles/typography/heading-caption/HeadingCaption';
 export * from '@/components/styles/typography/link/Link';
 export * from '@/components/styles/typography/list/List';
 export * from '@/components/styles/typography/paragraph/Paragraph';
