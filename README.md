@@ -13,7 +13,7 @@ This implementation supports the latest version of the NHS.UK Frontend library a
 ## Version compatibility
 
 | nhsuk-frontend | nhsuk-frontend-react |
-|----------------|----------------------|
+| -------------- | -------------------- |
 | `8.x.x`        | `3.x.x`              |
 | `9.x.x`        | `4.x.x`              |
 

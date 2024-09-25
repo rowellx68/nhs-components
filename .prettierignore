@@ -2,3 +2,4 @@
 **/pnpm-lock.yaml
 **/src/resources
 .vscode
+.changeset
