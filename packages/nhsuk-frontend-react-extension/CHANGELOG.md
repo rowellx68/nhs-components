@@ -1,5 +1,13 @@
 # nhsuk-frontend-react-extension
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- [`fd35b52`](https://github.com/rowellx68/nhs-components/commit/fd35b52c466dfb53198b055a845bbf45b1ef3992) Thanks [@rowellx68](https://github.com/rowellx68)! - docs(nhsuk-frontend-react-extension): fix readme table header
+
+- [`fd35b52`](https://github.com/rowellx68/nhs-components/commit/fd35b52c466dfb53198b055a845bbf45b1ef3992) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: version packages (next)
+
 ## 1.0.0-next.1
 
 ### Patch Changes

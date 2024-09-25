@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 4.0.0-next.2
+
+### Minor Changes
+
+- [`fd35b52`](https://github.com/rowellx68/nhs-components/commit/fd35b52c466dfb53198b055a845bbf45b1ef3992) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): update possible sizes for form element labels
+
+### Patch Changes
+
+- [`fd35b52`](https://github.com/rowellx68/nhs-components/commit/fd35b52c466dfb53198b055a845bbf45b1ef3992) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: version packages (next)
+
 ## 4.0.0-next.1
 
 ### Patch Changes
