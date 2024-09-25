@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.6.1
+
+### Patch Changes
+
+- [#130](https://github.com/rowellx68/nhs-components/pull/130) [`6dfe66a`](https://github.com/rowellx68/nhs-components/commit/6dfe66a52cbc7b4b01433021f63984d7e19e5eae) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): export heading caption
+
 ## 3.6.0
 
 ### Minor Changes
