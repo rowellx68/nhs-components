@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the l HeadingCaption component 1`] = `
+<div>
+  <span
+    class="nhsuk-caption-l"
+  >
+    nhsuk-caption-
+    l
+  </span>
+</div>
+`;
+
+exports[`should render the m HeadingCaption component 1`] = `
+<div>
+  <span
+    class="nhsuk-caption-m"
+  >
+    nhsuk-caption-
+    m
+  </span>
+</div>
+`;
+
+exports[`should render the xl HeadingCaption component 1`] = `
+<div>
+  <span
+    class="nhsuk-caption-xl"
+  >
+    nhsuk-caption-
+    xl
+  </span>
+</div>
+`;
