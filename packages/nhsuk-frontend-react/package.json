@@ -324,6 +324,10 @@
       "import": "./dist/components/styles/typography/heading/Heading.mjs",
       "require": "./dist/components/styles/typography/heading/Heading.cjs"
     },
+    "./components/styles/typography/heading-caption": {
+      "import": "./dist/components/styles/typography/heading-caption/HeadingCaption.mjs",
+      "require": "./dist/components/styles/typography/heading-caption/HeadingCaption.cjs"
+    },
     "./components/styles/typography/link": {
       "import": "./dist/components/styles/typography/link/Link.mjs",
       "require": "./dist/components/styles/typography/link/Link.cjs"
