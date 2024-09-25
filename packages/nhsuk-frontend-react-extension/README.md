@@ -10,10 +10,10 @@ This is a collection of components not found in the NHS.UK Frontend library but 
 
 ## Version compatibility
 
-| nhsuk-frontend | nhsuk-frontend-react |
-|----------------|----------------------|
-| `8.x.x`        | `0.x.x`              |
-| `9.x.x`        | `1.x.x`              |
+| nhsuk-frontend | nhsuk-frontend-react-extension |
+| -------------- | ------------------------------ |
+| `8.x.x`        | `0.x.x`                        |
+| `9.x.x`        | `1.x.x`                        |
 
 ## Requirements
 
