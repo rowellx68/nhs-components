@@ -106,6 +106,33 @@ export const WithServiceName: Story = {
   ),
 };
 
+export const WithServiceNameAndLessThanFourLinks: Story = {
+  args: {
+    serviceName: 'Digital service manual',
+  },
+  render: (args) => (
+    <Header {...args}>
+      <Header.Container>
+        <Header.Logo href="#" aria-label="NHS homepage" />
+        <Header.Content>
+          <Header.Search
+            inputProps={{ visuallyHiddenText: 'Search the NHS website' }}
+            buttonProps={{ visuallyHiddenText: 'Search' }}
+          />
+        </Header.Content>
+      </Header.Container>
+      <Header.Nav>
+        <Header.NavList>
+          <Header.NavItem href="#">Health A-Z</Header.NavItem>
+          <Header.NavItem href="#">Live Well</Header.NavItem>
+          <Header.NavItem href="#">Mental health</Header.NavItem>
+          <Header.MobileMenu />
+        </Header.NavList>
+      </Header.Nav>
+    </Header>
+  ),
+};
+
 export const Transactional: Story = {
   args: {
     transactional: true,
