@@ -210,9 +210,9 @@ const TableCell = ({
 
   return (
     <Base<any> {...baseProps} {...props}>
-      {tableVariant === 'responsive' && (
-        <span className="nhsuk-table-responsive__heading">
-          {__responsiveHeading}
+      {tableVariant === 'responsive' && !head && (
+        <span className="nhsuk-table-responsive__heading" aria-hidden="true">
+          {__responsiveHeading}&nbsp;
         </span>
       )}
       {children}
