@@ -1,6 +1,7 @@
 'use client';
 
 import React, {
+  Children,
   ReactNode,
   useEffect,
   useImperativeHandle,
@@ -313,9 +314,20 @@ const HeaderNavList = factory<HeaderNavListFactory>(
       initHeader();
     }, [internalRef, children]);
 
+    const primaryLinks = Children.toArray(children).filter((child) => {
+      return React.isValidElement(child) && child.type === HeaderNavItem;
+    });
+
     return (
       <ul
-        className={clsx('nhsuk-header__navigation-list', className)}
+        className={clsx(
+          'nhsuk-header__navigation-list',
+          {
+            'nhsuk-header__navigation-list--left-aligned':
+              primaryLinks.length < 4,
+          },
+          className,
+        )}
         {...props}
         ref={internalRef}
       >
