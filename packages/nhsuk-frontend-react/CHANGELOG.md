@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 3.6.2
+
+### Patch Changes
+
+- [#132](https://github.com/rowellx68/nhs-components/pull/132) [`7f39b57`](https://github.com/rowellx68/nhs-components/commit/7f39b5701db6e543cb914d35ec675de0d3d28f0e) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add aria-hidden to responsive table heading
+
+- [#132](https://github.com/rowellx68/nhs-components/pull/132) [`7f39b57`](https://github.com/rowellx68/nhs-components/commit/7f39b5701db6e543cb914d35ec675de0d3d28f0e) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): support for left aligned header links
+
 ## 3.6.1
 
 ### Patch Changes
