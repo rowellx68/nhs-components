@@ -259,7 +259,7 @@ exports[`should render the date input component with an error message 1`] = `
         >
           For example, 31 3 1980
         </div>
-        <span
+        <p
           class="nhsuk-error-message"
           id="dateinput_:r1o:--error-message"
         >
@@ -269,7 +269,7 @@ exports[`should render the date input component with an error message 1`] = `
             Error: 
           </span>
           Please enter a valid date of birth
-        </span>
+        </p>
         <div
           class="nhsuk-date-input"
           id="dateinput_:r1o:"
@@ -386,7 +386,7 @@ exports[`should render the date input component with an error object 1`] = `
         >
           For example, 31 3 1980
         </div>
-        <span
+        <p
           class="nhsuk-error-message"
           id="dateinput_:r26:--error-message"
         >
@@ -396,7 +396,7 @@ exports[`should render the date input component with an error object 1`] = `
             Error: 
           </span>
           Please enter a valid day. Please enter a valid month.
-        </span>
+        </p>
         <div
           class="nhsuk-date-input"
           id="dateinput_:r26:"

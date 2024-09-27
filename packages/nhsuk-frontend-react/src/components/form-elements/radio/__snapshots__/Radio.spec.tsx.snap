@@ -353,7 +353,7 @@ exports[`should render the radio component with error 1`] = `
         >
           This includes changing your last name or spelling your name differently.
         </div>
-        <span
+        <p
           class="nhsuk-error-message"
           id="radios_:rk:--error-message"
         >
@@ -363,7 +363,7 @@ exports[`should render the radio component with error 1`] = `
             Error: 
           </span>
           Select yes if you have changed your name
-        </span>
+        </p>
         <div
           as="div"
           class="nhsuk-radios"

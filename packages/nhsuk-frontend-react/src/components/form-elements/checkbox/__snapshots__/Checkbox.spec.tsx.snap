@@ -269,7 +269,7 @@ exports[`should render the Checkbox with error 1`] = `
             How would you like to be contacted?
           </h1>
         </legend>
-        <span
+        <p
           class="nhsuk-error-message"
           id="checkboxes_:r2f:--error-message"
         >
@@ -279,7 +279,7 @@ exports[`should render the Checkbox with error 1`] = `
             Error: 
           </span>
           Select one option
-        </span>
+        </p>
         <div
           as="div"
           class="nhsuk-checkboxes"

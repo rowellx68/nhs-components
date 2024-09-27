@@ -50,7 +50,7 @@ exports[`should render a select element with error 1`] = `
     >
       Label text goes here
     </label>
-    <span
+    <p
       class="nhsuk-error-message"
       id="select_:r4:--error-message"
     >
@@ -60,7 +60,7 @@ exports[`should render a select element with error 1`] = `
         Error: 
       </span>
       Error message goes here
-    </span>
+    </p>
     <select
       aria-describedby="select_:r4:--error-message"
       aria-labelledby="select_:r4:--label"
