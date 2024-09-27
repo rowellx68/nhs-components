@@ -51,7 +51,7 @@ const Radio = factory<RadioFactory>(({ children, inline, ...props }, ref) => {
     }
 
     initRadio({ scope: parent as any });
-  }, [internalRef]);
+  }, [internalRef, withConditionals]);
 
   const value = useMemo(
     () => ({ withConditionals, setWithConditionals }),
