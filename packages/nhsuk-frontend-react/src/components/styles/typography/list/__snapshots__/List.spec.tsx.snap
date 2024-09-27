@@ -74,9 +74,7 @@ exports[`should render the List component with bulleted items 1`] = `
 
 exports[`should render the List component with numbered items 1`] = `
 <div>
-  <h3
-    class=""
-  >
+  <h3>
     How to gargle with salt water
   </h3>
   <ol
