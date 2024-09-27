@@ -6,12 +6,12 @@ export type CharacterCountProps = (
   | {
       variant: 'character-count';
       maxWords?: undefined;
-      maxLength: number;
+      maxCharacterLength: number;
     }
   | {
       variant: 'word-count';
       maxWords: number;
-      maxLength?: undefined;
+      maxCharacterLength?: undefined;
     }
 ) &
   Omit<TextareaProps, 'variant'>;
