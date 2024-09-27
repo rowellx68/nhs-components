@@ -54,8 +54,8 @@ const Checkbox = factory<CheckboxFactory>(({ children, ...props }, ref) => {
       return;
     }
 
-    initCheckbox({ scope: parent as any });
-  }, [internalRef]);
+    initCheckbox({ scope: parent });
+  }, [internalRef, withConditionals]);
 
   const value = useMemo(
     () => ({ withConditionals, setWithConditionals }),
