@@ -124,8 +124,8 @@ importers:
         specifier: ^17.0.0
         version: 17.0.0(@babel/preset-env@7.25.4(@babel/core@7.24.7))
       nhsuk-frontend:
-        specifier: ^9.0.0
-        version: 9.0.0
+        specifier: ^8.3.0
+        version: 8.3.0
       rollup:
         specifier: ^4.22.4
         version: 4.22.4
@@ -233,8 +233,8 @@ importers:
         specifier: ^14.12.3
         version: 14.12.3
       nhsuk-frontend:
-        specifier: ^9.0.0
-        version: 9.0.0
+        specifier: ^8.3.0
+        version: 8.3.0
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -3054,8 +3054,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  nhsuk-frontend@9.0.0:
-    resolution: {integrity: sha512-JZtrvbVqeThf8FC6Ky44zyXs0+sZHI2qCYDgTsuBcWFlASBerduCiYJ0NAL3Y4uHcsj4fe2I1Bc5zXidklDaDA==}
+  nhsuk-frontend@8.3.0:
+    resolution: {integrity: sha512-oln8/+0ZJwQgWPrEWcI7+4SeHdAfr3dkvZ5PAKswa6+66f7dbnwYq/IU+Aaqzp25EJsQuSlwElZghJHUKIUOqg==}
     engines: {node: '>=20.0.0'}
 
   node-fetch@2.7.0:
@@ -7189,7 +7189,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nhsuk-frontend@9.0.0: {}
+  nhsuk-frontend@8.3.0: {}
 
   node-fetch@2.7.0:
     dependencies:
