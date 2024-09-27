@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 3.6.3
+
+### Patch Changes
+
+- [#134](https://github.com/rowellx68/nhs-components/pull/134) [`64b3608`](https://github.com/rowellx68/nhs-components/commit/64b3608092de9ec141dde85cb683d72827182a97) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): fix empty heading classname
+
+- [#134](https://github.com/rowellx68/nhs-components/pull/134) [`64b3608`](https://github.com/rowellx68/nhs-components/commit/64b3608092de9ec141dde85cb683d72827182a97) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): support for firstCellIsHeader in table
+
+- [#134](https://github.com/rowellx68/nhs-components/pull/134) [`64b3608`](https://github.com/rowellx68/nhs-components/commit/64b3608092de9ec141dde85cb683d72827182a97) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): replace span with p in error message
+
 ## 3.6.2
 
 ### Patch Changes
