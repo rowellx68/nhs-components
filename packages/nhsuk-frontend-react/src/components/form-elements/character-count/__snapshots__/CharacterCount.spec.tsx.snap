@@ -31,8 +31,20 @@ exports[`should render the CharacterCount component with max characters 1`] = `
         id="textarea_:r0:"
       />
       <div
-        class="nhsuk-hint nhsuk-character-count__message"
+        class="nhsuk-hint nhsuk-character-count__message nhsuk-u-visually-hidden"
         id="textarea_:r0:-info"
+      >
+        You have 10 characters remaining
+      </div>
+      <div
+        aria-hidden="true"
+        class="nhsuk-hint nhsuk-character-count__message nhsuk-character-count__status"
+      >
+        You have 10 characters remaining
+      </div>
+      <div
+        aria-live="polite"
+        class="nhsuk-character-count__sr-status nhsuk-u-visually-hidden"
       >
         You have 10 characters remaining
       </div>
@@ -72,8 +84,20 @@ exports[`should render the CharacterCount component with max words 1`] = `
         id="textarea_:r2:"
       />
       <div
-        class="nhsuk-hint nhsuk-character-count__message"
+        class="nhsuk-hint nhsuk-character-count__message nhsuk-u-visually-hidden"
         id="textarea_:r2:-info"
+      >
+        You have 5 words remaining
+      </div>
+      <div
+        aria-hidden="true"
+        class="nhsuk-hint nhsuk-character-count__message nhsuk-character-count__status"
+      >
+        You have 5 words remaining
+      </div>
+      <div
+        aria-live="polite"
+        class="nhsuk-character-count__sr-status nhsuk-u-visually-hidden"
       >
         You have 5 words remaining
       </div>
