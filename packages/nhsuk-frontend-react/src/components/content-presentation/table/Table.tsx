@@ -26,6 +26,11 @@ export type TableProps = {
    * The variant of the table. Defaults to a non-responsive table.
    */
   variant?: 'default' | 'responsive';
+  /**
+   * Whether the first cell in the table is a header cell. Defaults to false.
+   * @default false
+   */
+  firstCellIsHeader?: boolean;
 } & ElementProps<'table'>;
 
 type TableFactory = Factory<{
@@ -40,30 +45,37 @@ type TableFactory = Factory<{
   };
 }>;
 
-const Table = factory<TableFactory>(({ variant, className, ...props }, ref) => {
-  const [responsiveHeadings, registerHeadings] = useState<ReactNode[]>([]);
+const Table = factory<TableFactory>(
+  ({ variant, className, firstCellIsHeader = false, ...props }, ref) => {
+    const [responsiveHeadings, registerHeadings] = useState<ReactNode[]>([]);
 
-  const value = useMemo(
-    () => ({ variant, responsiveHeadings, registerHeadings }),
-    [variant, responsiveHeadings, registerHeadings],
-  );
+    const value = useMemo(
+      () => ({
+        variant,
+        responsiveHeadings,
+        firstCellIsHeader,
+        registerHeadings,
+      }),
+      [variant, responsiveHeadings, registerHeadings],
+    );
 
-  return (
-    <TableProvider value={value}>
-      <table
-        className={clsx(
-          {
-            'nhsuk-table': !variant,
-            [`nhsuk-table-${variant}`]: variant,
-          },
-          className,
-        )}
-        {...props}
-        ref={ref}
-      />
-    </TableProvider>
-  );
-});
+    return (
+      <TableProvider value={value}>
+        <table
+          className={clsx(
+            {
+              'nhsuk-table': !variant,
+              [`nhsuk-table-${variant}`]: variant,
+            },
+            className,
+          )}
+          {...props}
+          ref={ref}
+        />
+      </TableProvider>
+    );
+  },
+);
 
 export type TableCaptionProps = ElementProps<'caption'>;
 
@@ -110,6 +122,7 @@ const TableRow = ({
   const {
     variant: tableVariant,
     responsiveHeadings,
+    firstCellIsHeader,
     registerHeadings,
   } = useTableContext();
 
@@ -147,14 +160,27 @@ const TableRow = ({
     });
   }
 
+  if (variant === 'default' || !head) {
+    _children = Children.map(_children, (child, index) => {
+      if (isValidElement(child) && child.type === TableCell) {
+        return cloneElement(child as ReactElement<TableCellProps>, {
+          __firstCellIsHeader: index === 0 && firstCellIsHeader,
+        });
+      }
+      return child;
+    });
+  }
+
   return (
     <tr
-      className={clsx(
-        {
-          'nhsuk-table__row': variant === 'default' || !head,
-        },
-        className,
-      )}
+      className={
+        clsx(
+          {
+            'nhsuk-table__row': variant === 'default' || !head,
+          },
+          className,
+        ) || undefined
+      }
       role={role}
       {...props}
     >
@@ -176,6 +202,11 @@ export type TableCellProps = {
    * For internal use only
    */
   __responsiveHeading?: ReactNode;
+
+  /**
+   * For internal use only
+   */
+  __firstCellIsHeader?: boolean;
 } & ElementProps<'td'>;
 
 const TableCell = ({
@@ -185,34 +216,46 @@ const TableCell = ({
   children,
   responsiveHeading,
   __responsiveHeading,
+  __firstCellIsHeader,
   ...props
 }: TableCellProps) => {
   const { variant: tableVariant } = useTableContext();
   const { head } = useTableHeadContext();
 
-  const baseProps = head
-    ? {
-        as: 'th',
-        scope: 'col',
-        role: role || 'columnheader',
-        className: className,
-        'data-responsive-heading': responsiveHeading,
-      }
-    : {
-        as: 'td',
-        role: role || 'cell',
-        className: clsx(
-          'nhsuk-table__cell',
-          { 'nhsuk-table__cell--numeric': variant === 'numeric' },
-          className,
-        ),
-      };
+  const headerCellClassNames = clsx(
+    {
+      'nhsuk-table__header': __firstCellIsHeader,
+      'nhsuk-table__header--numeric': variant === 'numeric',
+    },
+    className,
+  );
+
+  const cellClassNames = clsx(
+    'nhsuk-table__cell',
+    {
+      'nhsuk-table__cell--numeric': variant === 'numeric',
+    },
+    className,
+  );
+
+  const baseProps =
+    head || __firstCellIsHeader
+      ? {
+          as: 'th',
+          scope: __firstCellIsHeader ? 'row' : 'col',
+          role: __firstCellIsHeader ? role : role || 'columnheader',
+          ...(headerCellClassNames && { className: headerCellClassNames }),
+        }
+      : {
+          as: 'td',
+          ...(cellClassNames && { className: cellClassNames }),
+        };
 
   return (
     <Base<any> {...baseProps} {...props}>
       {tableVariant === 'responsive' && !head && (
         <span className="nhsuk-table-responsive__heading" aria-hidden="true">
-          {__responsiveHeading}&nbsp;
+          {responsiveHeading || __responsiveHeading}&nbsp;
         </span>
       )}
       {children}

@@ -15,25 +15,21 @@ exports[`should render a three column table 1`] = `
       role="rowgroup"
     >
       <tr
-        class=""
         role="row"
       >
         <th
-          data-responsive-heading="Age"
           role="columnheader"
           scope="col"
         >
           Age
         </th>
         <th
-          data-responsive-heading="How much?"
           role="columnheader"
           scope="col"
         >
           How much
         </th>
         <th
-          data-responsive-heading="How often?"
           role="columnheader"
           scope="col"
         >
@@ -50,7 +46,6 @@ exports[`should render a three column table 1`] = `
       >
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -63,7 +58,6 @@ exports[`should render a three column table 1`] = `
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -76,7 +70,6 @@ exports[`should render a three column table 1`] = `
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -94,7 +87,6 @@ exports[`should render a three column table 1`] = `
       >
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -107,7 +99,6 @@ exports[`should render a three column table 1`] = `
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -120,7 +111,6 @@ exports[`should render a three column table 1`] = `
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -138,7 +128,6 @@ exports[`should render a three column table 1`] = `
       >
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -151,7 +140,6 @@ exports[`should render a three column table 1`] = `
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -164,7 +152,6 @@ exports[`should render a three column table 1`] = `
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           <span
             aria-hidden="true"
@@ -178,6 +165,191 @@ exports[`should render a three column table 1`] = `
       </tr>
     </tbody>
   </table>
+</div>
+`;
+
+exports[`should render a three column table with the first cell as a header 1`] = `
+<div>
+  <div
+    class="nhsuk-width-container"
+  >
+    <div
+      class="nhsuk-grid-row"
+    >
+      <div
+        class="nhsuk-grid-column-two-thirds"
+      >
+        <table
+          class="nhsuk-table-responsive"
+        >
+          <caption
+            class="nhsuk-table__caption"
+          >
+            Prescription prepayment certificate (PPC) charges
+          </caption>
+          <thead
+            class="nhsuk-table__head"
+            role="rowgroup"
+          >
+            <tr
+              role="row"
+            >
+              <th
+                role="columnheader"
+                scope="col"
+              >
+                Item
+              </th>
+              <th
+                class="nhsuk-table__header--numeric"
+                role="columnheader"
+                scope="col"
+              >
+                Current charge
+              </th>
+              <th
+                class="nhsuk-table__header--numeric"
+                role="columnheader"
+                scope="col"
+              >
+                New charge
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="nhsuk-table__body"
+          >
+            <tr
+              class="nhsuk-table__row"
+              role="row"
+            >
+              <th
+                class="nhsuk-table__header"
+                scope="row"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  Item
+                   
+                </span>
+                3-month
+              </th>
+              <td
+                class="nhsuk-table__cell nhsuk-table__cell--numeric"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  Current charge
+                   
+                </span>
+                £31.25
+              </td>
+              <td
+                class="nhsuk-table__cell nhsuk-table__cell--numeric"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  New charge
+                   
+                </span>
+                £32.05
+              </td>
+            </tr>
+            <tr
+              class="nhsuk-table__row"
+              role="row"
+            >
+              <th
+                class="nhsuk-table__header"
+                scope="row"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  Item
+                   
+                </span>
+                12-month
+              </th>
+              <td
+                class="nhsuk-table__cell nhsuk-table__cell--numeric"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  Current charge
+                   
+                </span>
+                £111.60
+              </td>
+              <td
+                class="nhsuk-table__cell nhsuk-table__cell--numeric"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  New charge
+                   
+                </span>
+                £114.50
+              </td>
+            </tr>
+            <tr
+              class="nhsuk-table__row"
+              role="row"
+            >
+              <th
+                class="nhsuk-table__header"
+                scope="row"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  Item
+                   
+                </span>
+                HRT
+              </th>
+              <td
+                class="nhsuk-table__cell nhsuk-table__cell--numeric"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  Current charge
+                   
+                </span>
+                £19.30
+              </td>
+              <td
+                class="nhsuk-table__cell nhsuk-table__cell--numeric"
+              >
+                <span
+                  aria-hidden="true"
+                  class="nhsuk-table-responsive__heading"
+                >
+                  New charge
+                   
+                </span>
+                £19.80
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -196,7 +368,6 @@ exports[`should render a two column table 1`] = `
       role="rowgroup"
     >
       <tr
-        class=""
         role="row"
       >
         <th
@@ -222,13 +393,11 @@ exports[`should render a two column table 1`] = `
       >
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           Blisters on lips or around the mouth
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           cold sores
         </td>
@@ -239,13 +408,11 @@ exports[`should render a two column table 1`] = `
       >
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           Itchy, dry, cracked, sore
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           eczema
         </td>
@@ -256,13 +423,11 @@ exports[`should render a two column table 1`] = `
       >
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           Red, scaly patches
         </td>
         <td
           class="nhsuk-table__cell"
-          role="cell"
         >
           psoriasis
         </td>

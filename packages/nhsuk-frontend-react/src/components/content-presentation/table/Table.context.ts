@@ -2,12 +2,14 @@ import { ReactNode, createContext, useContext } from 'react';
 
 export type TableContextValue = {
   variant?: 'default' | 'responsive';
+  firstCellIsHeader: boolean;
   responsiveHeadings: ReactNode[];
   registerHeadings: (heading: ReactNode[]) => void;
 };
 
 const TableContext = createContext<TableContextValue>({
   responsiveHeadings: [],
+  firstCellIsHeader: false,
   registerHeadings: () => {},
 });
 

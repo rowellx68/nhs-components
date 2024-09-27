@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Table } from './Table';
+import { Column, Row } from '@/components/styles/layout/grid/Grid';
+import { Container } from '@/components/styles/layout/container/Container';
 
 /**
  * Use a table to make it easier for users to compare and scan information.
@@ -93,5 +95,49 @@ export const ThreeColumn: Story = {
         </Table.Row>
       </Table.Body>
     </Table>
+  ),
+};
+
+export const ThreeColumnWithFirstCellAsHeader: Story = {
+  args: {
+    firstCellIsHeader: true,
+    variant: 'responsive',
+  },
+  render: (args) => (
+    <Container>
+      <Row>
+        <Column width="two-thirds">
+          <Table {...args}>
+            <Table.Caption>
+              Prescription prepayment certificate (PPC) charges
+            </Table.Caption>
+            <Table.Head>
+              <Table.Row>
+                <Table.Cell>Item</Table.Cell>
+                <Table.Cell variant="numeric">Current charge</Table.Cell>
+                <Table.Cell variant="numeric">New charge</Table.Cell>
+              </Table.Row>
+            </Table.Head>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell>3-month</Table.Cell>
+                <Table.Cell variant="numeric">£31.25</Table.Cell>
+                <Table.Cell variant="numeric">£32.05</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>12-month</Table.Cell>
+                <Table.Cell variant="numeric">£111.60</Table.Cell>
+                <Table.Cell variant="numeric">£114.50</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell>HRT</Table.Cell>
+                <Table.Cell variant="numeric">£19.30</Table.Cell>
+                <Table.Cell variant="numeric">£19.80</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table>
+        </Column>
+      </Row>
+    </Container>
   ),
 };
