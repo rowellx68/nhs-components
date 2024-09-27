@@ -70,7 +70,7 @@ exports[`should render a textarea element with an error 1`] = `
     >
       Why can't you provide a National Insurance number?
     </label>
-    <span
+    <p
       class="nhsuk-error-message"
       id="textarea_:r4:--error-message"
     >
@@ -80,7 +80,7 @@ exports[`should render a textarea element with an error 1`] = `
         Error: 
       </span>
       You must provide an explanation.
-    </span>
+    </p>
     <textarea
       aria-describedby="textarea_:r4:--error-message"
       aria-labelledby="textarea_:r4:--label"

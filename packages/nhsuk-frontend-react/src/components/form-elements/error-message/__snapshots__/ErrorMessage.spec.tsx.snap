@@ -2,7 +2,7 @@
 
 exports[`should render the error message component 1`] = `
 <div>
-  <span
+  <p
     class="nhsuk-error-message"
   >
     <span
@@ -11,6 +11,6 @@ exports[`should render the error message component 1`] = `
       Error: 
     </span>
     Date of birth must be in the pasts
-  </span>
+  </p>
 </div>
 `;

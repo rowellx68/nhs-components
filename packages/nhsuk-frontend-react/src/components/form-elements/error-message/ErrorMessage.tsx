@@ -3,8 +3,7 @@ import clsx from 'clsx';
 import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
 import { ElementProps, WithVisuallyHiddenTextProps } from '@/types/shared';
 
-export type ErrorMessageProps = ElementProps<'span'> &
-  WithVisuallyHiddenTextProps;
+export type ErrorMessageProps = ElementProps<'p'> & WithVisuallyHiddenTextProps;
 
 const ErrorMessage = ({
   className,
@@ -13,10 +12,10 @@ const ErrorMessage = ({
   ...rest
 }: ErrorMessageProps) => {
   return (
-    <span className={clsx('nhsuk-error-message', className)} {...rest}>
+    <p className={clsx('nhsuk-error-message', className)} {...rest}>
       <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden>
       {children}
-    </span>
+    </p>
   );
 };
 

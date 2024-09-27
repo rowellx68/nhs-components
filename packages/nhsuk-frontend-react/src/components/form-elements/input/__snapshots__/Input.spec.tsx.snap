@@ -34,7 +34,7 @@ exports[`should render the input component with error 1`] = `
     >
       Full name
     </label>
-    <span
+    <p
       class="nhsuk-error-message"
       id="input_:r4:--error-message"
     >
@@ -44,7 +44,7 @@ exports[`should render the input component with error 1`] = `
         Error: 
       </span>
       Enter your full name
-    </span>
+    </p>
     <input
       aria-describedby="input_:r4:--error-message"
       aria-labelledby="input_:r4:--label"
@@ -431,7 +431,7 @@ exports[`should render the input with prefix, suffix and error 1`] = `
     >
       Cost per item, in pounds
     </label>
-    <span
+    <p
       class="nhsuk-error-message"
       id="input_:r14:--error-message"
     >
@@ -441,7 +441,7 @@ exports[`should render the input with prefix, suffix and error 1`] = `
         Error: 
       </span>
       Enter a cost per item, in pounds
-    </span>
+    </p>
     <div
       class="nhsuk-input__wrapper"
     >
