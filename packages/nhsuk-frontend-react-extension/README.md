@@ -10,15 +10,12 @@ This is a collection of components not found in the NHS.UK Frontend library but 
 
 ## Version compatibility
 
-| nhsuk-frontend | nhsuk-frontend-react-extension |
-| -------------- | ------------------------------ |
-| `8.x.x`        | `0.x.x`                        |
-| `9.x.x`        | `1.x.x`                        |
+With the release of v9 of the NHS.UK Frontend library, the version of this library has been bumped to v4. The following table shows the compatibility between the NHS.UK Frontend library and `nhsuk-frontend-react-extension`:
 
-## Requirements
-
-- [nhsuk-frontend v8+](https://github.com/nhsuk/nhsuk-frontend)
-- [React v18.\*](https://reactjs.org/)
+| nhsuk-frontend | nhsuk-frontend-react-extension | branch                                                        |
+| -------------- | ------------------------------ | ------------------------------------------------------------- |
+| `8.x.x`        | `0.x.x`                        | [v3](https://github.com/rowellx68/nhs-components/tree/v3)     |
+| `9.x.x`        | `4.x.x`                        | [main](https://github.com/rowellx68/nhs-components/tree/main) |
 
 ## Installation
 
