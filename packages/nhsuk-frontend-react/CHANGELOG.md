@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 4.0.1
+
+### Patch Changes
+
+- [#140](https://github.com/rowellx68/nhs-components/pull/140) [`ad0e900`](https://github.com/rowellx68/nhs-components/commit/ad0e90052e45b7b1a639d26b4746214a3d38e426) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update initialisation of radio conditionals
+
+- [#140](https://github.com/rowellx68/nhs-components/pull/140) [`7daa316`](https://github.com/rowellx68/nhs-components/commit/7daa316a8684df985bd5a7beb1350ac0479958ef) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update initialisation of checkbox conditionals
+
+- [#140](https://github.com/rowellx68/nhs-components/pull/140) [`e0829a5`](https://github.com/rowellx68/nhs-components/commit/e0829a50a8aa74a938ffbfb9ed25f03ec045f89e) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): rename incorrect props and fix init
+
+  Initialisation of the character count feature did not occur due to incorrect parent element passed onto the script.
+
 ## 4.0.0
 
 ### Major Changes
