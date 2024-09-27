@@ -105,16 +105,10 @@ const TableBody = ({ className, ...props }: TableBodyProps) => (
   <tbody className={clsx('nhsuk-table__body', className)} {...props} />
 );
 
-export type TableRowProps = {
-  /**
-   * @deprecated Will be removed in a future release. It now automatically detects the variant based on the context. This is now unused within the component.
-   */
-  variant?: 'default' | 'head';
-} & ElementProps<'tr'>;
+export type TableRowProps = ElementProps<'tr'>;
 
 const TableRow = ({
   role = 'row',
-  variant,
   className,
   children,
   ...props
@@ -129,7 +123,7 @@ const TableRow = ({
   const { head } = useTableHeadContext();
 
   useEffect(() => {
-    if ((variant === 'head' || head) && tableVariant === 'responsive') {
+    if (head && tableVariant === 'responsive') {
       const _headings: ReactNode[] = [];
       Children.forEach(children, (child) => {
         if (isValidElement(child) && child.type === TableCell) {
@@ -149,18 +143,18 @@ const TableRow = ({
 
   let _children = children;
 
-  if ((variant === 'default' || !head) && tableVariant === 'responsive') {
-    _children = Children.map(children, (child, index) => {
-      if (isValidElement(child) && child.type === TableCell) {
-        return cloneElement(child as ReactElement<TableCellProps>, {
-          __responsiveHeading: responsiveHeadings[index] ?? '',
-        });
-      }
-      return child;
-    });
-  }
+  if (!head) {
+    if (tableVariant === 'responsive') {
+      _children = Children.map(children, (child, index) => {
+        if (isValidElement(child) && child.type === TableCell) {
+          return cloneElement(child as ReactElement<TableCellProps>, {
+            __responsiveHeading: responsiveHeadings[index] ?? '',
+          });
+        }
+        return child;
+      });
+    }
 
-  if (variant === 'default' || !head) {
     _children = Children.map(_children, (child, index) => {
       if (isValidElement(child) && child.type === TableCell) {
         return cloneElement(child as ReactElement<TableCellProps>, {
@@ -176,7 +170,7 @@ const TableRow = ({
       className={
         clsx(
           {
-            'nhsuk-table__row': variant === 'default' || !head,
+            'nhsuk-table__row': !head,
           },
           className,
         ) || undefined
