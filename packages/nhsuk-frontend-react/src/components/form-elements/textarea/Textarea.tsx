@@ -77,14 +77,16 @@ const Textarea = factory<TextareaFactory>(
         return;
       }
 
-      const parent = internalRef.current.parentElement;
+      const parent = internalRef.current.closest(
+        '.nhsuk-character-count',
+      )?.parentElement;
 
       if (!parent) {
         return;
       }
 
       initTextarea({ scope: parent as any });
-    }, [internalRef, characterCount]);
+    }, [internalRef, characterCount, maxCharacterLength, maxWords]);
 
     return (
       <Base<any> {...baseProps}>
