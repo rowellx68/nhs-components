@@ -1,5 +1,21 @@
 # nhsuk-frontend-react-extension
 
+## 1.0.0
+
+### Major Changes
+
+- [#136](https://github.com/rowellx68/nhs-components/pull/136) [`adae073`](https://github.com/rowellx68/nhs-components/commit/adae0730c0b6b99d058feb0f787ddc933cfa6ac4) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update nhsuk-frontend to v9
+
+  BREAKING CHANGE: update nhsuk-frontend to v9
+
+### Patch Changes
+
+- [#136](https://github.com/rowellx68/nhs-components/pull/136) [`29ab5bc`](https://github.com/rowellx68/nhs-components/commit/29ab5bcd69882d8c1d1d54d8b7fc76fd89e54bd4) Thanks [@rowellx68](https://github.com/rowellx68)! - docs(nhsuk-frontend-react-extension): fix readme table header
+
+- [#136](https://github.com/rowellx68/nhs-components/pull/136) [`654ddcb`](https://github.com/rowellx68/nhs-components/commit/654ddcb04e5d6fd78c83dfde8862eccdb6ec4824) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: update peer dependency version
+
+- [#136](https://github.com/rowellx68/nhs-components/pull/136) [`29ab5bc`](https://github.com/rowellx68/nhs-components/commit/29ab5bcd69882d8c1d1d54d8b7fc76fd89e54bd4) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: version packages (next)
+
 ## 1.0.0-next.2
 
 ### Patch Changes
