@@ -6,30 +6,9 @@ import { ElementProps } from '@/types/shared';
 import { Factory, factory } from '@/internal/factory/factory';
 import initDetails from '@/resources/details/details';
 
-export type DetailsProps = (
-  | {
-      /**
-       * @deprecated Use `variant` instead.
-       */
-      expander: true;
-      variant?: 'expander';
-    }
-  | {
-      /**
-       * @deprecated Use `variant` instead.
-       */
-      expander?: true;
-      variant: 'expander';
-    }
-  | {
-      /**
-       * @deprecated Use `variant` instead.
-       */
-      expander?: false;
-      variant?: 'default';
-    }
-) &
-  ElementProps<'details'>;
+export type DetailsProps = {
+  variant?: 'default' | 'expander';
+} & ElementProps<'details'>;
 
 type DetailsFactory = Factory<{
   props: DetailsProps;
@@ -41,7 +20,7 @@ type DetailsFactory = Factory<{
 }>;
 
 const Details = factory<DetailsFactory>(
-  ({ expander, variant, className, ...props }: DetailsProps, ref) => {
+  ({ variant, className, ...props }: DetailsProps, ref) => {
     const internalRef = useRef<HTMLDetailsElement>(null);
 
     useImperativeHandle(ref, () => internalRef.current as HTMLDetailsElement);
@@ -64,7 +43,7 @@ const Details = factory<DetailsFactory>(
       <details
         className={clsx(
           'nhsuk-details',
-          { 'nhsuk-expander': expander || variant === 'expander' },
+          { 'nhsuk-expander': variant === 'expander' },
           className,
         )}
         {...props}
