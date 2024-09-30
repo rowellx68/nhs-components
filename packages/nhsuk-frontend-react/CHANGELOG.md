@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.6.5
+
+### Patch Changes
+
+- [#142](https://github.com/rowellx68/nhs-components/pull/142) [`8adcab7`](https://github.com/rowellx68/nhs-components/commit/8adcab771e9d723604f6029c32ed51b5acac7a22) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update DateInputPart type
+
 ## 3.6.4
 
 ### Patch Changes
