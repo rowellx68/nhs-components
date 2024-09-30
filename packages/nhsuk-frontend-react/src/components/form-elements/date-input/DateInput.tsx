@@ -137,13 +137,11 @@ const datePartLabels: Record<DatePart, string> = {
 export type DateInputPartProps = {
   label?: string;
   labelProps?: LabelProps;
+  itemProps?: ElementProps<'div'>;
   error?: boolean;
   part: DatePart;
-  name?: string;
   width?: InputWidth;
-  value?: string;
-  disabled?: boolean;
-} & ElementProps<'div', 'value' | 'defaultValue' | 'type' | 'ref'>;
+} & ElementProps<'input', 'defaultValue' | 'type'>;
 
 type DateInputPartFactory = Factory<{
   props: DateInputPartProps;
@@ -164,6 +162,7 @@ const BaseDatePart = factory<DateInputPartFactory>(
       value,
       disabled,
       onChange,
+      itemProps = {},
       ...props
     },
     ref,
@@ -187,6 +186,8 @@ const BaseDatePart = factory<DateInputPartFactory>(
     }, []);
 
     const { className: labelClassName, ...restLabelProps } = labelProps;
+    const { className: wrapperClassName, ...restWrapperProps } = itemProps;
+
     const _label = label || datePartLabels[part];
 
     const inputId = id || `${ctxId}-${part}`;
@@ -204,7 +205,10 @@ const BaseDatePart = factory<DateInputPartFactory>(
       error || (errorMap && errorMap[part]) || (ctxError && !errorMap);
 
     return (
-      <div className={clsx('nhsuk-date-input__item')} {...props}>
+      <div
+        className={clsx('nhsuk-date-input__item', wrapperClassName)}
+        {...restWrapperProps}
+      >
         <Input
           labelProps={{
             className: clsx('nhsuk-date-input__label', labelClassName),
@@ -226,6 +230,7 @@ const BaseDatePart = factory<DateInputPartFactory>(
           type="text"
           inputMode="numeric"
           pattern="[0-9]*"
+          {...props}
           onChange={handleChange}
           disabled={disabled || ctxDisabled}
           ref={ref}
