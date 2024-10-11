@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.0.3
+
+### Patch Changes
+
+- [#148](https://github.com/rowellx68/nhs-components/pull/148) [`f435857`](https://github.com/rowellx68/nhs-components/commit/f4358579c021b80730c972e77c770193d34ce75e) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): clean up mobile menu and fix variant
+
 ## 4.0.2
 
 ### Patch Changes
