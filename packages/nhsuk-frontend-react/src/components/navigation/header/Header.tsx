@@ -311,6 +311,15 @@ const HeaderNavList = factory<HeaderNavListFactory>(
         return;
       }
 
+      // this is a hack to remove the existing mobile menu list
+      const list = internalRef.current.querySelector(
+        'li.nhsuk-mobile-menu-container > ul.nhsuk-header__drop-down',
+      );
+
+      if (list) {
+        list.remove();
+      }
+
       initHeader();
     }, [internalRef, children]);
 
@@ -356,14 +365,14 @@ const HeaderNavItem = polymorphicFactory<HeaderNavItemFactory>(
     ref,
   ) => {
     return (
-      <li className="nhsuk-header__navigation-item">
+      <li
+        className={clsx('nhsuk-header__navigation-item', {
+          'nhsuk-header__navigation-item--home': variant === 'home-link',
+        })}
+      >
         <Base
           as={component}
-          className={clsx(
-            'nhsuk-header__navigation-link',
-            { 'nhsuk-header__navigation-item--home': variant === 'home-link' },
-            className,
-          )}
+          className={clsx('nhsuk-header__navigation-link', className)}
           {...props}
           ref={ref}
         />
