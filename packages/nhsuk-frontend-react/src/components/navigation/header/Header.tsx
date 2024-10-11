@@ -311,15 +311,6 @@ const HeaderNavList = factory<HeaderNavListFactory>(
         return;
       }
 
-      // this is a hack to remove the existing mobile menu list
-      const list = internalRef.current.querySelector(
-        'li.nhsuk-mobile-menu-container > ul.nhsuk-header__drop-down',
-      );
-
-      if (list) {
-        list.remove();
-      }
-
       initHeader();
     }, [internalRef, children]);
 
