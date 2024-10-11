@@ -70,6 +70,13 @@ class Header {
 
   // Add the mobile menu to the DOM
   setupMobileMenu() {
+    const existingMobileMenu = this.mobileMenuContainer.querySelector('.nhsuk-header__drop-down');
+
+    if (existingMobileMenu) {
+      this.mobileMenu = existingMobileMenu;
+      return;
+    }
+
     this.mobileMenuContainer.appendChild(this.mobileMenu)
     this.mobileMenu.classList.add('nhsuk-header__drop-down', 'nhsuk-header__drop-down--hidden')
   }
