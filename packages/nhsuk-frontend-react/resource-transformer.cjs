@@ -36,6 +36,50 @@ module.exports = (file, api, options) => {
     path.value.source = j.literal('@/resources/common');
   });
 
+  if (file.path.includes('header.js')) {
+    const setupMobileMenu = root.find(j.MethodDefinition, {
+      key: {
+        name: 'setupMobileMenu',
+      },
+    });
+
+    setupMobileMenu.forEach((path) => {
+      const { node } = path;
+
+      const existingMobileMenu = j.variableDeclaration('const', [
+        j.variableDeclarator(
+          j.identifier('existingMobileMenu'),
+          j.callExpression(
+            j.memberExpression(
+              j.memberExpression(
+                j.thisExpression(),
+                j.identifier('mobileMenuContainer'),
+              ),
+              j.identifier('querySelector'),
+            ),
+            [j.literal('.nhsuk-header__drop-down')],
+          ),
+        ),
+      ]);
+
+      const ifStatement = j.ifStatement(
+        j.identifier('existingMobileMenu'),
+        j.blockStatement([
+          j.expressionStatement(
+            j.assignmentExpression(
+              '=',
+              j.memberExpression(j.thisExpression(), j.identifier('mobileMenu')),
+              j.identifier('existingMobileMenu'),
+            ),
+          ),
+          j.returnStatement(null),
+        ]),
+      );
+
+      node.value.body.body.unshift(existingMobileMenu, ifStatement);
+    });
+  }
+
   const params = [];
 
   exportParams.forEach(({ value }) => {
