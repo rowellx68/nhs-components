@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 4.0.4
+
+### Patch Changes
+
+- [#151](https://github.com/rowellx68/nhs-components/pull/151) [`ba9dea9`](https://github.com/rowellx68/nhs-components/commit/ba9dea9680a775093ae94dec63a6e93ffe5302cd) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): patch header.js to reuse existing mobile menu
+
+- [#151](https://github.com/rowellx68/nhs-components/pull/151) [`fc2a535`](https://github.com/rowellx68/nhs-components/commit/fc2a53558d44e91b6666682038ffa601a4eafcb1) Thanks [@rowellx68](https://github.com/rowellx68)! - revert(nhsuk-frontend-react): undo header mobile menu hack
+
 ## 4.0.3
 
 ### Patch Changes
