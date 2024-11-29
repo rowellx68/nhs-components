@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.0.5
+
+### Patch Changes
+
+- [#158](https://github.com/rowellx68/nhs-components/pull/158) [`dbf905d`](https://github.com/rowellx68/nhs-components/commit/dbf905d1bc632aa8b452e30879c7417d4597378d) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): remove Icon height and width props
+
 ## 4.0.4
 
 ### Patch Changes
