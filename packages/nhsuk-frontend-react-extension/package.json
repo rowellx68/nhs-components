@@ -64,7 +64,7 @@
     "@vitest/coverage-v8": "^2.1.6",
     "del": "^7.1.0",
     "fast-glob": "^3.3.2",
-    "happy-dom": "^14.12.3",
+    "happy-dom": "^15.11.7",
     "nhsuk-frontend": "^9.1.0",
     "prettier": "^3.4.1",
     "purgecss": "^6.0.0",
