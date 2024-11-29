@@ -80,6 +80,7 @@ export const AppHeader = () => (
 - `Pagination.Item`
 - `SummaryList.Row.ActionLink`
 - `Tabs.Title`
+- `TaskList.Item.NameAndHint`
 - `VisuallyHidden`
 - `WarningCallout.Label`
 
