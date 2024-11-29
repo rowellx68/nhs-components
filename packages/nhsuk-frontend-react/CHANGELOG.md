@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 4.1.0
+
+### Minor Changes
+
+- [#160](https://github.com/rowellx68/nhs-components/pull/160) [`ce4e363`](https://github.com/rowellx68/nhs-components/commit/ce4e363f2bc16bbb9c7e856f742bd5160209ac73) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): add TaskList component
+
+### Patch Changes
+
+- [#160](https://github.com/rowellx68/nhs-components/pull/160) [`9df173a`](https://github.com/rowellx68/nhs-components/commit/9df173a415da8acc53a9b8ba5aa0c863f86225a1) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): copy updated Header script
+
+- [#160](https://github.com/rowellx68/nhs-components/pull/160) [`77742e8`](https://github.com/rowellx68/nhs-components/commit/77742e8538fe0b6a93c464790f66cb57bf974fa1) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update dependencies
+
 ## 4.0.5
 
 ### Patch Changes
