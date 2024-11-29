@@ -9,6 +9,7 @@ export * from '@/components/content-presentation/summary-list/SummaryList';
 export * from '@/components/content-presentation/table/Table';
 export * from '@/components/content-presentation/tabs/Tabs';
 export * from '@/components/content-presentation/tag/Tag';
+export * from '@/components/content-presentation/task-list/TaskList';
 export * from '@/components/content-presentation/warning-callout/WarningCallout';
 
 // Core
