@@ -192,6 +192,10 @@
       "import": "./dist/components/content-presentation/tag/Tag.mjs",
       "require": "./dist/components/content-presentation/tag/Tag.cjs"
     },
+    "./components/content-presentation/task-list": {
+      "import": "./dist/components/content-presentation/task-list/TaskList.mjs",
+      "require": "./dist/components/content-presentation/task-list/TaskList.cjs"
+    },
     "./components/content-presentation/warning-callout": {
       "import": "./dist/components/content-presentation/warning-callout/WarningCallout.mjs",
       "require": "./dist/components/content-presentation/warning-callout/WarningCallout.cjs"
