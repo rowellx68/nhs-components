@@ -2,17 +2,17 @@ import React from 'react';
 import { Icon } from '@/types/icon';
 import clsx from 'clsx';
 
-const TickIcon = ({ width = 24, height = 24, className, ...rest }: Icon) => {
+const TickIcon = ({ className, ...rest }: Icon) => {
   return (
     <svg
       className={clsx('nhsuk-icon nhsuk-icon__tick', className)}
+      {...rest}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
-      width={width}
-      height={height}
-      {...rest}
+      width="24"
+      height="24"
     >
       <path
         strokeWidth="4"

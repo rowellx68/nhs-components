@@ -68,7 +68,10 @@ module.exports = (file, api, options) => {
           j.expressionStatement(
             j.assignmentExpression(
               '=',
-              j.memberExpression(j.thisExpression(), j.identifier('mobileMenu')),
+              j.memberExpression(
+                j.thisExpression(),
+                j.identifier('mobileMenu'),
+              ),
               j.identifier('existingMobileMenu'),
             ),
           ),
