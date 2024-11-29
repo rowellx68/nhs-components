@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.6.8
+
+### Patch Changes
+
+- [#156](https://github.com/rowellx68/nhs-components/pull/156) [`82d456c`](https://github.com/rowellx68/nhs-components/commit/82d456cf33d7f69f199895495b8c7a4aa136d8eb) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): deprecate width and height Icon props
+
 ## 3.6.7
 
 ### Patch Changes
