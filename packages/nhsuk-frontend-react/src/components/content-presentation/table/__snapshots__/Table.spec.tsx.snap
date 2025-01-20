@@ -221,7 +221,7 @@ exports[`should render a three column table with the first cell as a header 1`] 
           >
             <tr
               class="nhsuk-table__row"
-              role="row"
+              role="none"
             >
               <th
                 class="nhsuk-table__header"

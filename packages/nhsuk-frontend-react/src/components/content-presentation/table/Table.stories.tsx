@@ -119,7 +119,7 @@ export const ThreeColumnWithFirstCellAsHeader: Story = {
               </Table.Row>
             </Table.Head>
             <Table.Body>
-              <Table.Row>
+              <Table.Row role="none">
                 <Table.Cell>3-month</Table.Cell>
                 <Table.Cell variant="numeric">£31.25</Table.Cell>
                 <Table.Cell variant="numeric">£32.05</Table.Cell>
