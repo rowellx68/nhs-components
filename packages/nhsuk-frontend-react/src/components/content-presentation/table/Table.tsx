@@ -248,6 +248,7 @@ const TableCell = ({
         }
       : {
           as: 'td',
+          role,
           ...(cellClassNames && { className: cellClassNames }),
         };
 
