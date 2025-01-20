@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.6.9
+
+### Patch Changes
+
+- [#164](https://github.com/rowellx68/nhs-components/pull/164) [`e14c823`](https://github.com/rowellx68/nhs-components/commit/e14c823a4373cfc7367c7d075935058b9f357322) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): pass table cell role to both variations
+
 ## 3.6.8
 
 ### Patch Changes
