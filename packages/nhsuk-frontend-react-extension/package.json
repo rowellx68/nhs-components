@@ -78,7 +78,7 @@
     "sass": "^1.81.0",
     "storybook": "^8.4.6",
     "typescript": "^5.7.2",
-    "vite": "^5.4.11",
+    "vite": "^5.4.12",
     "vitest": "^2.1.6"
   },
   "dependencies": {
