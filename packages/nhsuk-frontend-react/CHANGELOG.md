@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.2.1
+
+### Patch Changes
+
+- [#174](https://github.com/rowellx68/nhs-components/pull/174) [`19b7b58`](https://github.com/rowellx68/nhs-components/commit/19b7b582d2f02118e62f79a8a7391d546bedb703) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add import and fix props type name
+
 ## 4.2.0
 
 ### Minor Changes
