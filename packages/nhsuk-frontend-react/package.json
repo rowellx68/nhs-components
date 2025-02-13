@@ -176,6 +176,10 @@
       "import": "./dist/components/content-presentation/inset-text/InsetText.mjs",
       "require": "./dist/components/content-presentation/inset-text/InsetText.cjs"
     },
+    "./components/content-presentation/panel": {
+      "import": "./dist/components/content-presentation/panel/Panel.mjs",
+      "require": "./dist/components/content-presentation/panel/Panel.cjs"
+    },
     "./components/content-presentation/summary-list": {
       "import": "./dist/components/content-presentation/summary-list/SummaryList.mjs",
       "require": "./dist/components/content-presentation/summary-list/SummaryList.cjs"

@@ -7,10 +7,10 @@ import {
   HeadingProps,
 } from '@/components/styles/typography/heading/Heading';
 
-export type HeroProps = ElementProps<'div'>;
+export type PanelProps = ElementProps<'div'>;
 
 type PanelFactory = Factory<{
-  props: HeroProps;
+  props: PanelProps;
   ref: HTMLDivElement;
   staticComponents: {
     Title: typeof PanelTitle;
