@@ -1,0 +1,10 @@
+import{c as r}from"./clsx-B-dksMZM.js";import{R as t}from"./index-DCEVbkbO.js";const e=({variant:a="grey",className:l,...n})=>t.createElement("strong",{className:r("nhsuk-tag",`nhsuk-tag--${a}`,l),...n});e.displayName="Tag";e.__docgenInfo={description:"",methods:[],displayName:"Tag",props:{variant:{required:!1,tsType:{name:"union",raw:`| 'white'
+| 'grey'
+| 'green'
+| 'aqua-green'
+| 'blue'
+| 'purple'
+| 'pink'
+| 'red'
+| 'orange'
+| 'yellow'`,elements:[{name:"literal",value:"'white'"},{name:"literal",value:"'grey'"},{name:"literal",value:"'green'"},{name:"literal",value:"'aqua-green'"},{name:"literal",value:"'blue'"},{name:"literal",value:"'purple'"},{name:"literal",value:"'pink'"},{name:"literal",value:"'red'"},{name:"literal",value:"'orange'"},{name:"literal",value:"'yellow'"}]},description:"",defaultValue:{value:"'grey'",computed:!1}}}};export{e as T};
