@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, forwardRef } from 'react';
+import React, { PropsWithChildren, forwardRef, JSX } from 'react';
 import { createPolymorphicComponent } from '@/internal/factory/create-polymorphic-factory';
 import { AsElementProps } from '@/types/shared';
 
