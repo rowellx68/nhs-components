@@ -1,5 +1,13 @@
 # nhsuk-frontend-react-extension
 
+## 1.0.2
+
+### Patch Changes
+
+- [#171](https://github.com/rowellx68/nhs-components/pull/171) [`cb24ab2`](https://github.com/rowellx68/nhs-components/commit/cb24ab227dfdf0b513493d74eb15002a2485dbdf) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: import JSX namespace from react
+
+- [#171](https://github.com/rowellx68/nhs-components/pull/171) [`f27ad89`](https://github.com/rowellx68/nhs-components/commit/f27ad89142f66139d5608e8ca6130b162dd2133d) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update dependencies
+
 ## 1.0.1
 
 ### Patch Changes
