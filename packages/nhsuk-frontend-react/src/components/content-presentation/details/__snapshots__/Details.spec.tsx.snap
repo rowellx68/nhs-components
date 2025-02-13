@@ -5,16 +5,10 @@ exports[`should render the Details component 1`] = `
   <details
     class="nhsuk-details"
     data-testid="details"
-    id="nhsuk-details0"
-    nhsuk-polyfilled="true"
   >
     <summary
-      aria-controls="nhsuk-details__text0"
-      aria-expanded="false"
       class="nhsuk-details__summary"
       data-testid="details-summary"
-      role="button"
-      tabindex="0"
     >
       <span
         class="nhsuk-details__summary-text"
@@ -23,11 +17,8 @@ exports[`should render the Details component 1`] = `
       </span>
     </summary>
     <div
-      aria-hidden="true"
       class="nhsuk-details__text"
       data-testid="details-text"
-      id="nhsuk-details__text0"
-      style="display: none;"
     >
       <p>
         An NHS number is a 10 digit number, like 485 777 3456.
