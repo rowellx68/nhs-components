@@ -132,3 +132,136 @@ exports[`should render the SummaryList component 1`] = `
   </dl>
 </div>
 `;
+
+exports[`should render the SummaryList component with no border 1`] = `
+<div>
+  <dl
+    class="nhsuk-summary-list nhsuk-summary-list--no-border"
+  >
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dt
+        class="nhsuk-summary-list__key"
+      >
+        Name
+      </dt>
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        John Smith
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="#"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            name
+          </span>
+        </a>
+      </dd>
+    </div>
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dt
+        class="nhsuk-summary-list__key"
+      >
+        Date of birth 
+      </dt>
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        1 January 1990
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="#"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            date of birth
+          </span>
+        </a>
+      </dd>
+    </div>
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dt
+        class="nhsuk-summary-list__key"
+      >
+        Address
+      </dt>
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        1 Smith Street, Smithville, 
+        <br />
+        Smithfield, 
+        <br />
+        Smithshire, 
+        <br />
+        SM1 1SM
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="#"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            address
+          </span>
+        </a>
+      </dd>
+    </div>
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dt
+        class="nhsuk-summary-list__key"
+      >
+        Contact details
+      </dt>
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        07000 000000 
+        <br />
+        john.smith@email.com
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="#"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            contact details
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
+</div>
+`;
