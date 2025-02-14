@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 3.6.10
+
+### Patch Changes
+
+- [#176](https://github.com/rowellx68/nhs-components/pull/176) [`50be3a0`](https://github.com/rowellx68/nhs-components/commit/50be3a0d7b281fbfd94cab2320df79c5b7b13bd3) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add missing summary-list variant
+
 ## 3.6.9
 
 ### Patch Changes
