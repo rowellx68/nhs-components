@@ -9,7 +9,13 @@ import { AsElementProps, ElementProps } from '@/types/shared';
 import clsx from 'clsx';
 import React from 'react';
 
-export type SummaryListProps = ElementProps<'dl'>;
+export type SummaryListProps = {
+  /**
+   * The variant of the summary list
+   * @default 'default'
+   */
+  variant?: 'default' | 'no-border';
+} & ElementProps<'dl'>;
 
 type SummaryListFactory = Factory<{
   props: SummaryListProps;
@@ -24,10 +30,14 @@ type SummaryListFactory = Factory<{
 }>;
 
 const SummaryList = factory<SummaryListFactory>(
-  ({ className, ...props }, ref) => {
+  ({ className, variant, ...props }, ref) => {
     return (
       <dl
-        className={clsx('nhsuk-summary-list', className)}
+        className={clsx(
+          'nhsuk-summary-list',
+          { 'nhsuk-summary-list--no-border': variant === 'no-border' },
+          className,
+        )}
         {...props}
         ref={ref}
       />
