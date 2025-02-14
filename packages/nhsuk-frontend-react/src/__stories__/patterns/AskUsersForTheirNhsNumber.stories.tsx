@@ -13,7 +13,7 @@ import { Button } from '@/components/form-elements/button/Button';
  * https://service-manual.nhs.uk/design-system/patterns/ask-users-for-their-nhs-number
  */
 const meta: Meta = {
-  title: 'Patterns/Tasks/Ask users for their NHS number',
+  title: 'Patterns/Ask users for/NHS number',
   parameters: {
     layout: 'fullscreen',
   },
@@ -24,6 +24,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const AskUsersForTheirNhsNumber: Story = {
+  name: 'NHS number',
   render: (args) => (
     <>
       <Header {...args}>

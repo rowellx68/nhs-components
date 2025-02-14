@@ -11,7 +11,8 @@ import {
  * https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care
  */
 const meta: Meta = {
-  title: 'Patterns/Tasks/Help users decide when and where to get care',
+  title:
+    'Patterns/Help users to/Decide when and where to get care (care cards)',
 };
 
 export default meta;
