@@ -69,3 +69,57 @@ export const Default: Story = {
     </SummaryList>
   ),
 };
+
+export const NoBorder: Story = {
+  args: {
+    variant: 'no-border',
+  },
+  render: (args) => (
+    <SummaryList {...args}>
+      <SummaryList.Row>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>John Smith</SummaryList.Value>
+        <SummaryList.Actions>
+          <SummaryList.ActionLink visuallyHiddenText="name" href="#">
+            Change
+          </SummaryList.ActionLink>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+      <SummaryList.Row>
+        <SummaryList.Key>Date of birth </SummaryList.Key>
+        <SummaryList.Value>1 January 1990</SummaryList.Value>
+        <SummaryList.Actions>
+          <SummaryList.ActionLink visuallyHiddenText="date of birth" href="#">
+            Change
+          </SummaryList.ActionLink>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+      <SummaryList.Row>
+        <SummaryList.Key>Address</SummaryList.Key>
+        <SummaryList.Value>
+          1 Smith Street, Smithville, <br />
+          Smithfield, <br />
+          Smithshire, <br />
+          SM1 1SM
+        </SummaryList.Value>
+        <SummaryList.Actions>
+          <SummaryList.ActionLink visuallyHiddenText="address" href="#">
+            Change
+          </SummaryList.ActionLink>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+      <SummaryList.Row>
+        <SummaryList.Key>Contact details</SummaryList.Key>
+        <SummaryList.Value>
+          07000 000000 <br />
+          john.smith@email.com
+        </SummaryList.Value>
+        <SummaryList.Actions>
+          <SummaryList.ActionLink visuallyHiddenText="contact details" href="#">
+            Change
+          </SummaryList.ActionLink>
+        </SummaryList.Actions>
+      </SummaryList.Row>
+    </SummaryList>
+  ),
+};
