@@ -140,11 +140,11 @@ const TaskListItemNameAndHint =
   );
 
 export type TaskListItemStatusProps = {
-  variant: 'completed' | 'cannot-start-yet' | 'in-complete';
+  variant: 'completed' | 'cannot-start-yet' | 'incomplete';
 } & Omit<TagProps, 'variant'>;
 
 const TaskListItemStatus = ({
-  variant = 'in-complete',
+  variant = 'incomplete',
   children,
   ...props
 }: TaskListItemStatusProps) => {
@@ -161,7 +161,7 @@ const TaskListItemStatus = ({
       )}
       {...props}
     >
-      {variant === 'in-complete' ? (
+      {variant === 'incomplete' ? (
         <Tag id={statusId} variant="blue" {...props}>
           {children}
         </Tag>
