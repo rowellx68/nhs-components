@@ -8,7 +8,7 @@ import { Paragraph } from '@/components/styles/typography/paragraph/Paragraph';
  * https://service-manual.nhs.uk/design-system/patterns/reassure-users-that-a-page-is-up-to-date
  */
 const meta: Meta = {
-  title: 'Patterns/Tasks/Reassure users that a page is up to date',
+  title: 'Patterns/Help users to/Know that a page is up to date',
 };
 
 export default meta;

@@ -20,9 +20,7 @@ export const Default: Story = {
   render: (args) => (
     <Panel {...args}>
       <Panel.Title>Application complete</Panel.Title>
-      <Panel.Body>
-        Confirmation has been sent to you by email
-      </Panel.Body>
+      <Panel.Body>Confirmation has been sent to you by email</Panel.Body>
     </Panel>
   ),
 };
