@@ -15,7 +15,7 @@ With the release of v9 of the NHS.UK Frontend library, the version of this libra
 | nhsuk-frontend | nhsuk-frontend-react-extension | branch                                                        |
 | -------------- | ------------------------------ | ------------------------------------------------------------- |
 | `8.x.x`        | `0.x.x`                        | [v3](https://github.com/rowellx68/nhs-components/tree/v3)     |
-| `9.x.x`        | `4.x.x`                        | [main](https://github.com/rowellx68/nhs-components/tree/main) |
+| `9.x.x`        | `1.x.x`                        | [main](https://github.com/rowellx68/nhs-components/tree/main) |
 
 ## Installation
 
