@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 4.2.2
+
+### Patch Changes
+
+- [#180](https://github.com/rowellx68/nhs-components/pull/180) [`bd9c500`](https://github.com/rowellx68/nhs-components/commit/bd9c500859e1e58211a9a6a9993cbf76a7fe31c8) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): update task list status variant
+
+- [#177](https://github.com/rowellx68/nhs-components/pull/177) [`29988c4`](https://github.com/rowellx68/nhs-components/commit/29988c4e3ebbc7ef873447049706fbc5e78e6c9e) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): add missing summary-list variant
+
+- [#180](https://github.com/rowellx68/nhs-components/pull/180) [`9a0e48a`](https://github.com/rowellx68/nhs-components/commit/9a0e48a40c933a6c49c6f2017739c7f4e0d049d2) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): set peer dependency nhsuk-frontend to ^9.3.0
+
 ## 4.2.1
 
 ### Patch Changes
