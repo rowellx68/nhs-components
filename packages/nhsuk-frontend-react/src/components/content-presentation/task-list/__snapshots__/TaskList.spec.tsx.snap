@@ -1,0 +1,185 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render the TaskList component with the completed tasks 1`] = `
+<div>
+  <div>
+    <h1
+      class="nhsuk-heading-l"
+    >
+      Service name
+    </h1>
+    <h2
+      class="nhsuk-heading-m"
+    >
+      Check before you start
+    </h2>
+    <ul
+      class="nhsuk-task-list"
+    >
+      <li
+        class="nhsuk-task-list__item nhsuk-task-list__item--with-link"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <a
+            aria-describedby="task-list-item_:r5:-status"
+            href="#"
+          >
+            Check eligibility
+          </a>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--completed"
+          id="task-list-item_:r5:-status"
+        >
+          Completed
+        </div>
+      </li>
+      <li
+        class="nhsuk-task-list__item nhsuk-task-list__item--with-link"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <a
+            aria-describedby="task-list-item_:r6:-status"
+            href="#"
+          >
+            Read declaration
+          </a>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--incomplete"
+        >
+          <strong
+            class="nhsuk-tag nhsuk-tag--blue"
+            id="task-list-item_:r6:-status"
+          >
+            Incomplete
+          </strong>
+        </div>
+      </li>
+    </ul>
+    <h2
+      class="nhsuk-heading-m"
+    >
+      Prepare application
+    </h2>
+    <ul
+      class="nhsuk-task-list"
+    >
+      <li
+        class="nhsuk-task-list__item nhsuk-task-list__item--with-link"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <a
+            aria-describedby="task-list-item_:r7:-status"
+            href="#"
+          >
+            Exercise
+          </a>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--completed"
+          id="task-list-item_:r7:-status"
+        >
+          Completed
+        </div>
+      </li>
+      <li
+        class="nhsuk-task-list__item nhsuk-task-list__item--with-link"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <a
+            aria-describedby="task-list-item_:r8:-status"
+            href="#"
+          >
+            Personal health
+          </a>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--completed"
+          id="task-list-item_:r8:-status"
+        >
+          Completed
+        </div>
+      </li>
+      <li
+        class="nhsuk-task-list__item nhsuk-task-list__item--with-link"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <a
+            aria-describedby="task-list-item_:r9:-status task-list-item_:r9:-hint"
+            href="#"
+          >
+            Family health history
+          </a>
+          <div
+            class="nhsuk-task-list__hint"
+            id="task-list-item_:r9:-hint"
+          >
+            Details of your parents and siblings
+          </div>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--incomplete"
+        >
+          <strong
+            class="nhsuk-tag nhsuk-tag--blue"
+            id="task-list-item_:r9:-status"
+          >
+            Incomplete
+          </strong>
+        </div>
+      </li>
+      <li
+        class="nhsuk-task-list__item nhsuk-task-list__item--with-link"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <a
+            aria-describedby="task-list-item_:ra:-status"
+            href="#"
+          >
+            Smoking history
+          </a>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--incomplete"
+        >
+          <strong
+            class="nhsuk-tag nhsuk-tag--blue"
+            id="task-list-item_:ra:-status"
+          >
+            Incomplete
+          </strong>
+        </div>
+      </li>
+      <li
+        class="nhsuk-task-list__item"
+      >
+        <div
+          class="nhsuk-task-list__item-name-and-hint"
+        >
+          <div>
+            Blood test
+          </div>
+        </div>
+        <div
+          class="nhsuk-task-list__status nhsuk-task-list__status--cannot-start-yet"
+        >
+          Cannot start yet
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
