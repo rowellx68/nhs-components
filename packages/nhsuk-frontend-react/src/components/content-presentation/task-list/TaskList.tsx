@@ -110,7 +110,7 @@ const TaskListItemNameAndHint =
           ? {
               ref,
               ...props,
-              'aria-described-by': clsx(statusId, { [descriptionId]: hint }),
+              'aria-describedby': clsx(statusId, { [descriptionId]: hint }),
             }
           : {};
 
@@ -141,7 +141,7 @@ const TaskListItemNameAndHint =
 
 export type TaskListItemStatusProps = {
   variant: 'completed' | 'cannot-start-yet' | 'incomplete';
-} & Omit<TagProps, 'variant'>;
+} & Omit<TagProps, 'variant' | 'id'>;
 
 const TaskListItemStatus = ({
   variant = 'incomplete',
@@ -154,7 +154,7 @@ const TaskListItemStatus = ({
 
   return (
     <div
-      id={statusId}
+      id={variant === 'completed' ? statusId : undefined}
       className={clsx(
         'nhsuk-task-list__status',
         `nhsuk-task-list__status--${variant}`,

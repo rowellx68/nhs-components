@@ -44,7 +44,7 @@ export const Default: Story = {
         >
           Family health history
         </TaskList.Item.NameAndHint>
-        <TaskList.Item.Status variant="in-complete">
+        <TaskList.Item.Status variant="incomplete">
           Incomplete
         </TaskList.Item.Status>
       </TaskList.Item>
@@ -52,7 +52,7 @@ export const Default: Story = {
         <TaskList.Item.NameAndHint href="#">
           Smoking history
         </TaskList.Item.NameAndHint>
-        <TaskList.Item.Status variant="in-complete">
+        <TaskList.Item.Status variant="incomplete">
           Incomplete
         </TaskList.Item.Status>
       </TaskList.Item>
@@ -88,7 +88,7 @@ export const MultipleSections: Story = {
           <TaskList.Item.NameAndHint href="#">
             Read declaration
           </TaskList.Item.NameAndHint>
-          <TaskList.Item.Status variant="in-complete">
+          <TaskList.Item.Status variant="incomplete">
             Incomplete
           </TaskList.Item.Status>
         </TaskList.Item>
@@ -121,7 +121,7 @@ export const MultipleSections: Story = {
           >
             Family health history
           </TaskList.Item.NameAndHint>
-          <TaskList.Item.Status variant="in-complete">
+          <TaskList.Item.Status variant="incomplete">
             Incomplete
           </TaskList.Item.Status>
         </TaskList.Item>
@@ -129,7 +129,7 @@ export const MultipleSections: Story = {
           <TaskList.Item.NameAndHint href="#">
             Smoking history
           </TaskList.Item.NameAndHint>
-          <TaskList.Item.Status variant="in-complete">
+          <TaskList.Item.Status variant="incomplete">
             Incomplete
           </TaskList.Item.Status>
         </TaskList.Item>
