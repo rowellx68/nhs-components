@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.2.3
+
+### Patch Changes
+
+- [#181](https://github.com/rowellx68/nhs-components/pull/181) [`f41ffb3`](https://github.com/rowellx68/nhs-components/commit/f41ffb3673816aa47baebc0905278e710785d90b) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): set aria-labelledby correctly
+
 ## 4.2.2
 
 ### Patch Changes
