@@ -1,4 +1,4 @@
-import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-BmZ5KZjK.js";import{H as i}from"./Heading-CC_RIS_G.js";import"./_commonjsHelpers-CqkleIqs.js";import"./clsx-B-dksMZM.js";import"./Base-DkqVgamr.js";import"./factory-B-vprWl1.js";import"./use-id-with-prefix-JqmxMMgI.js";import"./polymorphic-factory-Bh8XY5CE.js";import"./Tag-5bbu7dN8.js";const H={title:"Components/Content Presentation/Task List",component:e,subcomponents:{"TaskList.Item":e.Item,"TaskList.Item.NameAndHint":e.Item.NameAndHint,"TaskList.Item.Status":e.Item.Status},parameters:{docs:{description:{component:"https://service-manual.nhs.uk/design-system/components/task-list"}}}},a={render:n=>t.createElement(e,{...n},t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Exercise"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Personal health"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#",hint:"Details of your parents and siblings"},"Family health history"),t.createElement(e.Item.Status,{variant:"in-complete"},"Incomplete")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Smoking history"),t.createElement(e.Item.Status,{variant:"in-complete"},"Incomplete")),t.createElement(e.Item,null,t.createElement(e.Item.NameAndHint,{href:"#"},"Blood test"),t.createElement(e.Item.Status,{variant:"cannot-start-yet"},"Cannot start yet")))},s={render:n=>t.createElement("div",null,t.createElement(i,{size:"l"},"Service name"),t.createElement(i,{size:"m",as:"h2"},"Check before you start"),t.createElement(e,{...n},t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Check eligibility"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Read declaration"),t.createElement(e.Item.Status,{variant:"in-complete"},"Incomplete"))),t.createElement(i,{size:"m",as:"h2"},"Prepare application"),t.createElement(e,{...n},t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Exercise"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Personal health"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#",hint:"Details of your parents and siblings"},"Family health history"),t.createElement(e.Item.Status,{variant:"in-complete"},"Incomplete")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Smoking history"),t.createElement(e.Item.Status,{variant:"in-complete"},"Incomplete")),t.createElement(e.Item,null,t.createElement(e.Item.NameAndHint,{href:"#"},"Blood test"),t.createElement(e.Item.Status,{variant:"cannot-start-yet"},"Cannot start yet"))))};var m,r,l;a.parameters={...a.parameters,docs:{...(m=a.parameters)==null?void 0:m.docs,source:{originalSource:`{
+import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-Cklu3Okh.js";import{H as i}from"./Heading-CC_RIS_G.js";import"./_commonjsHelpers-CqkleIqs.js";import"./clsx-B-dksMZM.js";import"./Base-DkqVgamr.js";import"./factory-B-vprWl1.js";import"./use-id-with-prefix-JqmxMMgI.js";import"./polymorphic-factory-Bh8XY5CE.js";import"./Tag-5bbu7dN8.js";const H={title:"Components/Content Presentation/Task List",component:e,subcomponents:{"TaskList.Item":e.Item,"TaskList.Item.NameAndHint":e.Item.NameAndHint,"TaskList.Item.Status":e.Item.Status},parameters:{docs:{description:{component:"https://service-manual.nhs.uk/design-system/components/task-list"}}}},a={render:n=>t.createElement(e,{...n},t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Exercise"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Personal health"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#",hint:"Details of your parents and siblings"},"Family health history"),t.createElement(e.Item.Status,{variant:"incomplete"},"Incomplete")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Smoking history"),t.createElement(e.Item.Status,{variant:"incomplete"},"Incomplete")),t.createElement(e.Item,null,t.createElement(e.Item.NameAndHint,{href:"#"},"Blood test"),t.createElement(e.Item.Status,{variant:"cannot-start-yet"},"Cannot start yet")))},s={render:n=>t.createElement("div",null,t.createElement(i,{size:"l"},"Service name"),t.createElement(i,{size:"m",as:"h2"},"Check before you start"),t.createElement(e,{...n},t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Check eligibility"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Read declaration"),t.createElement(e.Item.Status,{variant:"incomplete"},"Incomplete"))),t.createElement(i,{size:"m",as:"h2"},"Prepare application"),t.createElement(e,{...n},t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Exercise"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Personal health"),t.createElement(e.Item.Status,{variant:"completed"},"Completed")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#",hint:"Details of your parents and siblings"},"Family health history"),t.createElement(e.Item.Status,{variant:"incomplete"},"Incomplete")),t.createElement(e.Item,{variant:"with-link"},t.createElement(e.Item.NameAndHint,{href:"#"},"Smoking history"),t.createElement(e.Item.Status,{variant:"incomplete"},"Incomplete")),t.createElement(e.Item,null,t.createElement(e.Item.NameAndHint,{href:"#"},"Blood test"),t.createElement(e.Item.Status,{variant:"cannot-start-yet"},"Cannot start yet"))))};var m,r,l;a.parameters={...a.parameters,docs:{...(m=a.parameters)==null?void 0:m.docs,source:{originalSource:`{
   render: args => <TaskList {...args}>
       <TaskList.Item variant="with-link">
         <TaskList.Item.NameAndHint href="#">Exercise</TaskList.Item.NameAndHint>
@@ -18,7 +18,7 @@ import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-BmZ5KZjK.j
         <TaskList.Item.NameAndHint href="#" hint="Details of your parents and siblings">
           Family health history
         </TaskList.Item.NameAndHint>
-        <TaskList.Item.Status variant="in-complete">
+        <TaskList.Item.Status variant="incomplete">
           Incomplete
         </TaskList.Item.Status>
       </TaskList.Item>
@@ -26,7 +26,7 @@ import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-BmZ5KZjK.j
         <TaskList.Item.NameAndHint href="#">
           Smoking history
         </TaskList.Item.NameAndHint>
-        <TaskList.Item.Status variant="in-complete">
+        <TaskList.Item.Status variant="incomplete">
           Incomplete
         </TaskList.Item.Status>
       </TaskList.Item>
@@ -58,7 +58,7 @@ import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-BmZ5KZjK.j
           <TaskList.Item.NameAndHint href="#">
             Read declaration
           </TaskList.Item.NameAndHint>
-          <TaskList.Item.Status variant="in-complete">
+          <TaskList.Item.Status variant="incomplete">
             Incomplete
           </TaskList.Item.Status>
         </TaskList.Item>
@@ -88,7 +88,7 @@ import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-BmZ5KZjK.j
           <TaskList.Item.NameAndHint href="#" hint="Details of your parents and siblings">
             Family health history
           </TaskList.Item.NameAndHint>
-          <TaskList.Item.Status variant="in-complete">
+          <TaskList.Item.Status variant="incomplete">
             Incomplete
           </TaskList.Item.Status>
         </TaskList.Item>
@@ -96,7 +96,7 @@ import{R as t}from"./index-DCEVbkbO.js";import{T as e}from"./TaskList-BmZ5KZjK.j
           <TaskList.Item.NameAndHint href="#">
             Smoking history
           </TaskList.Item.NameAndHint>
-          <TaskList.Item.Status variant="in-complete">
+          <TaskList.Item.Status variant="incomplete">
             Incomplete
           </TaskList.Item.Status>
         </TaskList.Item>
