@@ -8,8 +8,8 @@ export type LoginButtonProps = {
     | 'cis2'
     | `cis2-${'no-cta' | 'reverse' | 'reverse-no-cta'}`
     | 'nhs-login'
-    | `nhs-login-${'reverse' | 'no-logo' | 'reverse-no-logo'}`;
-} & ElementProps<'button', 'children'>;
+    | `nhs-login-${'reverse' | 'no-logo' | 'reverse-no-logo' | 'simple' | 'reverse-simple'}`;
+} & ElementProps<'button'>;
 
 type LoginButtonFactory = Factory<{
   props: LoginButtonProps;
@@ -17,9 +17,24 @@ type LoginButtonFactory = Factory<{
 }>;
 
 const LoginButton = factory<LoginButtonFactory>(
-  ({ variant, className, disabled, ...props }, ref) => {
+  ({ variant, className, disabled, children, ...props }, ref) => {
     const isCis2 = variant.includes('cis2');
     const isNhsLogin = variant.includes('nhs-login');
+
+    let label = children;
+
+    if (!label) {
+      if (isCis2) {
+        label = variant.includes('no-cta')
+          ? 'Care Identity'
+          : 'Log in with my Care Identity';
+      }
+      else if (isNhsLogin) {
+        label = variant.includes('simple')
+          ? 'Continue'
+          : 'Continue to NHS login';
+      }
+    }
 
     return (
       <button
@@ -35,7 +50,7 @@ const LoginButton = factory<LoginButtonFactory>(
         {...props}
         ref={ref}
       >
-        {!variant.includes('no-logo') && (
+        {!variant.includes('no-logo') && !variant.includes('simple') && (
           <svg
             className="nhsuk-logo"
             xmlns="http://www.w3.org/2000/svg"
@@ -55,11 +70,7 @@ const LoginButton = factory<LoginButtonFactory>(
             />
           </svg>
         )}
-        {isCis2 &&
-          (variant.includes('no-cta')
-            ? 'Care Identity'
-            : 'Log in with my Care Identity')}
-        {isNhsLogin && 'Continue to NHS login'}
+        {label}
       </button>
     );
   },
