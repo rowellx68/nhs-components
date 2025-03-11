@@ -31,7 +31,7 @@ $nhsuk-login-button-reverse-active-color: darken($color_nhsuk-white, 5%);
 
   &:focus {
     background: $nhsuk-focus-color;
-    color: $nhsuk-login-button-active-color;
+    color: $nhsuk-login-button-shadow-color;
     box-shadow: 0 $button-shadow-size 0 $nhsuk-login-button-shadow-color;
   }
 
