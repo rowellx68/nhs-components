@@ -1,5 +1,13 @@
 # nhsuk-frontend-react-extension
 
+## 0.2.0
+
+### Minor Changes
+
+- [#187](https://github.com/rowellx68/nhs-components/pull/187) [`366a15b`](https://github.com/rowellx68/nhs-components/commit/366a15bd3dbdd71ed52c060134ce381bb37f8b36) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react-extension): add new button variant
+
+  Add new button variant to and allow passing of children prop into LoginButton
+
 ## 0.1.9
 
 ### Patch Changes
