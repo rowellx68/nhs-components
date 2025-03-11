@@ -22,6 +22,8 @@ const meta: Meta<typeof LoginButton> = {
         'nhs-login-reverse',
         'nhs-login-no-logo',
         'nhs-login-reverse-no-logo',
+        'nhs-login-simple',
+        'nhs-login-reverse-simple',
       ],
     },
   },
@@ -78,6 +80,20 @@ export const NHSLoginNoLogo: Story = {
 export const NHSLoginReverseNoLogo: Story = {
   args: {
     variant: 'nhs-login-reverse-no-logo',
+    disabled: false,
+  },
+};
+
+export const NHSLoginSimple: Story = {
+  args: {
+    variant: 'nhs-login-simple',
+    disabled: false,
+  },
+};
+
+export const NHSLoginReverseSimple: Story = {
+  args: {
+    variant: 'nhs-login-reverse-simple',
     disabled: false,
   },
 };
