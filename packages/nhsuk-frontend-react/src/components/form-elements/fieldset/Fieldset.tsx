@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, useReducer, useMemo } from 'react';
+import React, { memo, useReducer, useMemo, Fragment } from 'react';
 import clsx from 'clsx';
 import {
   FieldsetContextValue,
@@ -64,7 +64,7 @@ const Fieldset = ({
         ]),
       }
     : {
-        as: React.Fragment,
+        as: Fragment,
       };
 
   return (
@@ -102,13 +102,11 @@ const FieldsetLegend = ({
   ...props
 }: FieldsetLegendProps & AsElementProps) => {
   const _component =
-    variant === 'page-heading' || size === 'l'
-      ? component || 'h1'
-      : React.Fragment;
+    variant === 'page-heading' || size === 'l' ? component || 'h1' : Fragment;
 
   const baseProps = {
     as: _component,
-    ...(_component !== React.Fragment
+    ...(_component !== Fragment
       ? {
           className:
             variant === 'page-heading' ? 'nhsuk-fieldset__heading' : undefined,

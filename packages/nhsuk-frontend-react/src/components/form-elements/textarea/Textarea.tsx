@@ -1,6 +1,12 @@
 'use client';
 
-import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import {
   BaseFormElementProps,
   FormGroup,
@@ -44,7 +50,7 @@ const Textarea = factory<TextareaFactory>(
 
     const characterCount = variant !== 'textarea';
     const baseProps = {
-      as: characterCount ? 'div' : React.Fragment,
+      as: characterCount ? 'div' : Fragment,
       ...(characterCount
         ? {
             className: 'nhsuk-character-count',
