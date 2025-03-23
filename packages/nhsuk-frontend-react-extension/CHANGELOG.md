@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 1.2.0
+
+### Minor Changes
+
+- [#194](https://github.com/rowellx68/nhs-components/pull/194) [`80a41e9`](https://github.com/rowellx68/nhs-components/commit/80a41e96b04a9356cd672f555de81f619b7fd043) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: initial React 19 support
+
 ## 1.1.0
 
 ### Minor Changes
