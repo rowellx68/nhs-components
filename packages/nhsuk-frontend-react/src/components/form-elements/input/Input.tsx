@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { Fragment, ReactNode } from 'react';
 import {
   BaseFormElementProps,
   FormGroup,
@@ -22,7 +22,7 @@ type InputFactory = Factory<{
 
 const Input = factory<InputFactory>(
   ({ width, suffix, prefix, ...props }, ref) => {
-    const component = suffix || prefix ? 'div' : React.Fragment;
+    const component = suffix || prefix ? 'div' : Fragment;
     const baseProps =
       component === 'div' ? { className: 'nhsuk-input__wrapper' } : {};
 
