@@ -1,1 +1,0 @@
-import{R as a}from"./index-DCEVbkbO.js";import{c as i}from"./clsx-B-dksMZM.js";const t=({className:e,...s})=>a.createElement("div",{className:i("nhsuk-hint",e),...s});t.displayName="Hint";t.__docgenInfo={description:"",methods:[],displayName:"Hint"};export{t as H};
