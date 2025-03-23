@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     commit-message:
       prefix: ci
     labels:
@@ -25,7 +25,24 @@ updates:
       npm:
         patterns: ['*']
     ignore:
-      - dependency-name: '@types/node'
-        versions: ['>=22.0.0']
-      - dependency-name: 'happy-dom'
-        versions: ['>=15.0.0']
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+
+  - package-ecosystem: npm
+    versioning-strategy: increase
+    target-branch: v3
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+    labels:
+      - dependencies
+    groups:
+      npm:
+        patterns: ['*']
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'nhsuk-frontend'
+        update-types: ['version-update:semver-minor', 'version-update:semver-major']
