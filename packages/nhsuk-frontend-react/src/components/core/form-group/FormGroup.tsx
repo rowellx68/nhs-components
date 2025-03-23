@@ -9,6 +9,7 @@ import {
 import { ElementProps } from '@/types/shared';
 import React, {
   ForwardedRef,
+  Fragment,
   ReactNode,
   forwardRef,
   useEffect,
@@ -156,7 +157,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
     };
 
     const outerBaseProps = {
-      as: wrapWithFieldset ? 'div' : React.Fragment,
+      as: wrapWithFieldset ? 'div' : Fragment,
       ...(wrapWithFieldset
         ? {
             className: clsx(

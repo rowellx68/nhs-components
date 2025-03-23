@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import clsx from 'clsx';
 import { ElementProps, Size } from '@/types/shared';
 import { Base } from '@/components/core/base/Base';
@@ -21,7 +21,7 @@ export type LabelProps = (
 
 const Label = ({ className, size, variant, ...props }: LabelProps) => {
   const component =
-    variant === 'page-heading' || size === 'l' ? 'h1' : React.Fragment;
+    variant === 'page-heading' || size === 'l' ? 'h1' : Fragment;
 
   const baseProps =
     component === 'h1' ? { className: 'nhsuk-label-wrapper' } : {};

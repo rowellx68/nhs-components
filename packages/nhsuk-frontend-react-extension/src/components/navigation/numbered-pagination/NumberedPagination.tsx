@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import clsx from 'clsx';
 import { AsElementProps, ElementProps } from '@/types/shared';
 import {
