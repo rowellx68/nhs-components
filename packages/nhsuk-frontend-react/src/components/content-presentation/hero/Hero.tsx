@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
@@ -83,7 +83,7 @@ const HeroContainer = ({
   const baseProps =
     variant === 'overlay'
       ? { as: 'div', className: 'nhsuk-hero__overlay' }
-      : { as: React.Fragment };
+      : { as: Fragment };
 
   return (
     <Base<any> {...baseProps}>

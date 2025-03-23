@@ -8,6 +8,7 @@ import {
   ComponentPropsWithoutRef,
   ComponentPropsWithRef,
   ReactElement,
+  JSX,
 } from 'react';
 import { AsElementProps } from '@/types/shared';
 

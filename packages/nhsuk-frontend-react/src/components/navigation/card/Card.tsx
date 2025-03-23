@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Factory, factory } from '@/internal/factory/factory';
 import { AsElementProps, ElementProps } from '@/types/shared';
 import { CardProvider, useCardContext } from './Card.context';
@@ -151,12 +151,12 @@ const CardHeading = ({
   const careCard = variant && careCardVariants.includes(variant);
 
   const wrapperProps = {
-    as: careCard ? 'div' : React.Fragment,
+    as: careCard ? 'div' : Fragment,
     ...(careCard ? { className: 'nhsuk-card--care__heading-container' } : {}),
   };
 
   const headingTextProps = {
-    as: careCard ? 'span' : React.Fragment,
+    as: careCard ? 'span' : Fragment,
     ...(careCard ? { role: 'text' } : {}),
   };
 
