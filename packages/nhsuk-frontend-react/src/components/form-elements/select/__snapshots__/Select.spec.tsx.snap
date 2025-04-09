@@ -7,16 +7,16 @@ exports[`should render a select element 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="select_:r0:"
-      id="select_:r0:--label"
+      for="select_«r0»"
+      id="select_«r0»--label"
     >
       Label text goes here
     </label>
     <select
-      aria-labelledby="select_:r0:--label"
+      aria-labelledby="select_«r0»--label"
       as="select"
       class="nhsuk-select"
-      id="select_:r0:"
+      id="select_«r0»"
     >
       <option
         value="option-1"
@@ -45,14 +45,14 @@ exports[`should render a select element with error 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="select_:r4:"
-      id="select_:r4:--label"
+      for="select_«r4»"
+      id="select_«r4»--label"
     >
       Label text goes here
     </label>
     <p
       class="nhsuk-error-message"
-      id="select_:r4:--error-message"
+      id="select_«r4»--error-message"
     >
       <span
         class="nhsuk-u-visually-hidden"
@@ -62,11 +62,11 @@ exports[`should render a select element with error 1`] = `
       Error message goes here
     </p>
     <select
-      aria-describedby="select_:r4:--error-message"
-      aria-labelledby="select_:r4:--label"
+      aria-describedby="select_«r4»--error-message"
+      aria-labelledby="select_«r4»--label"
       as="select"
       class="nhsuk-select nhsuk-select--error"
-      id="select_:r4:"
+      id="select_«r4»"
     >
       <option
         value="option-1"
@@ -95,23 +95,23 @@ exports[`should render a select element with hint 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="select_:r2:"
-      id="select_:r2:--label"
+      for="select_«r2»"
+      id="select_«r2»--label"
     >
       Label text goes here
     </label>
     <div
       class="nhsuk-hint"
-      id="select_:r2:_:r3:--hint"
+      id="select_«r2»_«r3»--hint"
     >
       Hint text goes here
     </div>
     <select
-      aria-describedby="select_:r2:_:r3:--hint"
-      aria-labelledby="select_:r2:--label"
+      aria-describedby="select_«r2»_«r3»--hint"
+      aria-labelledby="select_«r2»--label"
       as="select"
       class="nhsuk-select"
-      id="select_:r2:"
+      id="select_«r2»"
     >
       <option
         value="option-1"

@@ -9,27 +9,27 @@ exports[`should render the date input component 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="dateinput_:r0:_:r1:--hint"
-        aria-labelledby="dateinput_:r0:--label"
+        aria-describedby="dateinput_«r0»_«r1»--hint"
+        aria-labelledby="dateinput_«r0»--label"
         class="nhsuk-fieldset"
         role="group"
       >
         <legend
           class="nhsuk-fieldset__legend"
-          for="dateinput_:r0:"
-          id="dateinput_:r0:--label"
+          for="dateinput_«r0»"
+          id="dateinput_«r0»--label"
         >
           Date of birth
         </legend>
         <div
           class="nhsuk-hint"
-          id="dateinput_:r0:_:r1:--hint"
+          id="dateinput_«r0»_«r1»--hint"
         >
           For example, 31 3 1980
         </div>
         <div
           class="nhsuk-date-input"
-          id="dateinput_:r0:"
+          id="dateinput_«r0»"
         >
           <div
             class="nhsuk-date-input__item"
@@ -39,18 +39,18 @@ exports[`should render the date input component 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r0:-day"
-                id="dateinput_:r0:-day--label"
+                for="dateinput_«r0»-day"
+                id="dateinput_«r0»-day--label"
               >
                 Day
               </label>
               <input
-                aria-labelledby="dateinput_:r0:-day--label"
+                aria-labelledby="dateinput_«r0»-day--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
-                id="dateinput_:r0:-day"
+                id="dateinput_«r0»-day"
                 inputmode="numeric"
-                name="dateinput_:r0:-day"
+                name="dateinput_«r0»-day"
                 pattern="[0-9]*"
                 type="text"
                 value="31"
@@ -65,18 +65,18 @@ exports[`should render the date input component 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r0:-month"
-                id="dateinput_:r0:-month--label"
+                for="dateinput_«r0»-month"
+                id="dateinput_«r0»-month--label"
               >
                 Month
               </label>
               <input
-                aria-labelledby="dateinput_:r0:-month--label"
+                aria-labelledby="dateinput_«r0»-month--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
-                id="dateinput_:r0:-month"
+                id="dateinput_«r0»-month"
                 inputmode="numeric"
-                name="dateinput_:r0:-month"
+                name="dateinput_«r0»-month"
                 pattern="[0-9]*"
                 type="text"
                 value="3"
@@ -91,18 +91,18 @@ exports[`should render the date input component 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r0:-year"
-                id="dateinput_:r0:-year--label"
+                for="dateinput_«r0»-year"
+                id="dateinput_«r0»-year--label"
               >
                 Year
               </label>
               <input
-                aria-labelledby="dateinput_:r0:-year--label"
+                aria-labelledby="dateinput_«r0»-year--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input"
-                id="dateinput_:r0:-year"
+                id="dateinput_«r0»-year"
                 inputmode="numeric"
-                name="dateinput_:r0:-year"
+                name="dateinput_«r0»-year"
                 pattern="[0-9]*"
                 type="text"
                 value="1980"
@@ -125,27 +125,27 @@ exports[`should render the date input component with a label and hint 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="dateinput_:r1a:_:r1b:--hint"
-        aria-labelledby="dateinput_:r1a:--label"
+        aria-describedby="dateinput_«r1a»_«r1b»--hint"
+        aria-labelledby="dateinput_«r1a»--label"
         class="nhsuk-fieldset"
         role="group"
       >
         <legend
           class="nhsuk-fieldset__legend"
-          for="dateinput_:r1a:"
-          id="dateinput_:r1a:--label"
+          for="dateinput_«r1a»"
+          id="dateinput_«r1a»--label"
         >
           Date of birth
         </legend>
         <div
           class="nhsuk-hint"
-          id="dateinput_:r1a:_:r1b:--hint"
+          id="dateinput_«r1a»_«r1b»--hint"
         >
           For example, 31 3 1980
         </div>
         <div
           class="nhsuk-date-input"
-          id="dateinput_:r1a:"
+          id="dateinput_«r1a»"
         >
           <div
             class="nhsuk-date-input__item"
@@ -155,18 +155,18 @@ exports[`should render the date input component with a label and hint 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r1a:-day"
-                id="dateinput_:r1a:-day--label"
+                for="dateinput_«r1a»-day"
+                id="dateinput_«r1a»-day--label"
               >
                 Day
               </label>
               <input
-                aria-labelledby="dateinput_:r1a:-day--label"
+                aria-labelledby="dateinput_«r1a»-day--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
-                id="dateinput_:r1a:-day"
+                id="dateinput_«r1a»-day"
                 inputmode="numeric"
-                name="dateinput_:r1a:-day"
+                name="dateinput_«r1a»-day"
                 pattern="[0-9]*"
                 type="text"
                 value="31"
@@ -181,18 +181,18 @@ exports[`should render the date input component with a label and hint 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r1a:-month"
-                id="dateinput_:r1a:-month--label"
+                for="dateinput_«r1a»-month"
+                id="dateinput_«r1a»-month--label"
               >
                 Month
               </label>
               <input
-                aria-labelledby="dateinput_:r1a:-month--label"
+                aria-labelledby="dateinput_«r1a»-month--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
-                id="dateinput_:r1a:-month"
+                id="dateinput_«r1a»-month"
                 inputmode="numeric"
-                name="dateinput_:r1a:-month"
+                name="dateinput_«r1a»-month"
                 pattern="[0-9]*"
                 type="text"
                 value="3"
@@ -207,18 +207,18 @@ exports[`should render the date input component with a label and hint 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r1a:-year"
-                id="dateinput_:r1a:-year--label"
+                for="dateinput_«r1a»-year"
+                id="dateinput_«r1a»-year--label"
               >
                 Year
               </label>
               <input
-                aria-labelledby="dateinput_:r1a:-year--label"
+                aria-labelledby="dateinput_«r1a»-year--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input"
-                id="dateinput_:r1a:-year"
+                id="dateinput_«r1a»-year"
                 inputmode="numeric"
-                name="dateinput_:r1a:-year"
+                name="dateinput_«r1a»-year"
                 pattern="[0-9]*"
                 type="text"
                 value="1980"
@@ -241,27 +241,27 @@ exports[`should render the date input component with an error message 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="dateinput_:r1o:_:r1p:--hint dateinput_:r1o:--error-message"
-        aria-labelledby="dateinput_:r1o:--label"
+        aria-describedby="dateinput_«r1o»_«r1p»--hint dateinput_«r1o»--error-message"
+        aria-labelledby="dateinput_«r1o»--label"
         class="nhsuk-fieldset"
         role="group"
       >
         <legend
           class="nhsuk-fieldset__legend"
-          for="dateinput_:r1o:"
-          id="dateinput_:r1o:--label"
+          for="dateinput_«r1o»"
+          id="dateinput_«r1o»--label"
         >
           Date of birth
         </legend>
         <div
           class="nhsuk-hint"
-          id="dateinput_:r1o:_:r1p:--hint"
+          id="dateinput_«r1o»_«r1p»--hint"
         >
           For example, 31 3 1980
         </div>
         <p
           class="nhsuk-error-message"
-          id="dateinput_:r1o:--error-message"
+          id="dateinput_«r1o»--error-message"
         >
           <span
             class="nhsuk-u-visually-hidden"
@@ -272,7 +272,7 @@ exports[`should render the date input component with an error message 1`] = `
         </p>
         <div
           class="nhsuk-date-input"
-          id="dateinput_:r1o:"
+          id="dateinput_«r1o»"
         >
           <div
             class="nhsuk-date-input__item"
@@ -282,18 +282,18 @@ exports[`should render the date input component with an error message 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r1o:-day"
-                id="dateinput_:r1o:-day--label"
+                for="dateinput_«r1o»-day"
+                id="dateinput_«r1o»-day--label"
               >
                 Day
               </label>
               <input
-                aria-labelledby="dateinput_:r1o:-day--label"
+                aria-labelledby="dateinput_«r1o»-day--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input nhsuk-input--error"
-                id="dateinput_:r1o:-day"
+                id="dateinput_«r1o»-day"
                 inputmode="numeric"
-                name="dateinput_:r1o:-day"
+                name="dateinput_«r1o»-day"
                 pattern="[0-9]*"
                 type="text"
                 value=""
@@ -308,18 +308,18 @@ exports[`should render the date input component with an error message 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r1o:-month"
-                id="dateinput_:r1o:-month--label"
+                for="dateinput_«r1o»-month"
+                id="dateinput_«r1o»-month--label"
               >
                 Month
               </label>
               <input
-                aria-labelledby="dateinput_:r1o:-month--label"
+                aria-labelledby="dateinput_«r1o»-month--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input nhsuk-input--error"
-                id="dateinput_:r1o:-month"
+                id="dateinput_«r1o»-month"
                 inputmode="numeric"
-                name="dateinput_:r1o:-month"
+                name="dateinput_«r1o»-month"
                 pattern="[0-9]*"
                 type="text"
                 value=""
@@ -334,18 +334,18 @@ exports[`should render the date input component with an error message 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r1o:-year"
-                id="dateinput_:r1o:-year--label"
+                for="dateinput_«r1o»-year"
+                id="dateinput_«r1o»-year--label"
               >
                 Year
               </label>
               <input
-                aria-labelledby="dateinput_:r1o:-year--label"
+                aria-labelledby="dateinput_«r1o»-year--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input nhsuk-input--error"
-                id="dateinput_:r1o:-year"
+                id="dateinput_«r1o»-year"
                 inputmode="numeric"
-                name="dateinput_:r1o:-year"
+                name="dateinput_«r1o»-year"
                 pattern="[0-9]*"
                 type="text"
                 value=""
@@ -368,27 +368,27 @@ exports[`should render the date input component with an error object 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="dateinput_:r26:_:r27:--hint dateinput_:r26:--error-message"
-        aria-labelledby="dateinput_:r26:--label"
+        aria-describedby="dateinput_«r26»_«r27»--hint dateinput_«r26»--error-message"
+        aria-labelledby="dateinput_«r26»--label"
         class="nhsuk-fieldset"
         role="group"
       >
         <legend
           class="nhsuk-fieldset__legend"
-          for="dateinput_:r26:"
-          id="dateinput_:r26:--label"
+          for="dateinput_«r26»"
+          id="dateinput_«r26»--label"
         >
           Date of birth
         </legend>
         <div
           class="nhsuk-hint"
-          id="dateinput_:r26:_:r27:--hint"
+          id="dateinput_«r26»_«r27»--hint"
         >
           For example, 31 3 1980
         </div>
         <p
           class="nhsuk-error-message"
-          id="dateinput_:r26:--error-message"
+          id="dateinput_«r26»--error-message"
         >
           <span
             class="nhsuk-u-visually-hidden"
@@ -399,7 +399,7 @@ exports[`should render the date input component with an error object 1`] = `
         </p>
         <div
           class="nhsuk-date-input"
-          id="dateinput_:r26:"
+          id="dateinput_«r26»"
         >
           <div
             class="nhsuk-date-input__item"
@@ -409,18 +409,18 @@ exports[`should render the date input component with an error object 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r26:-day"
-                id="dateinput_:r26:-day--label"
+                for="dateinput_«r26»-day"
+                id="dateinput_«r26»-day--label"
               >
                 Day
               </label>
               <input
-                aria-labelledby="dateinput_:r26:-day--label"
+                aria-labelledby="dateinput_«r26»-day--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input nhsuk-input--error"
-                id="dateinput_:r26:-day"
+                id="dateinput_«r26»-day"
                 inputmode="numeric"
-                name="dateinput_:r26:-day"
+                name="dateinput_«r26»-day"
                 pattern="[0-9]*"
                 type="text"
                 value=""
@@ -435,18 +435,18 @@ exports[`should render the date input component with an error object 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r26:-month"
-                id="dateinput_:r26:-month--label"
+                for="dateinput_«r26»-month"
+                id="dateinput_«r26»-month--label"
               >
                 Month
               </label>
               <input
-                aria-labelledby="dateinput_:r26:-month--label"
+                aria-labelledby="dateinput_«r26»-month--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input nhsuk-input--error"
-                id="dateinput_:r26:-month"
+                id="dateinput_«r26»-month"
                 inputmode="numeric"
-                name="dateinput_:r26:-month"
+                name="dateinput_«r26»-month"
                 pattern="[0-9]*"
                 type="text"
                 value=""
@@ -461,18 +461,18 @@ exports[`should render the date input component with an error object 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:r26:-year"
-                id="dateinput_:r26:-year--label"
+                for="dateinput_«r26»-year"
+                id="dateinput_«r26»-year--label"
               >
                 Year
               </label>
               <input
-                aria-labelledby="dateinput_:r26:-year--label"
+                aria-labelledby="dateinput_«r26»-year--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input"
-                id="dateinput_:r26:-year"
+                id="dateinput_«r26»-year"
                 inputmode="numeric"
-                name="dateinput_:r26:-year"
+                name="dateinput_«r26»-year"
                 pattern="[0-9]*"
                 type="text"
                 value=""
@@ -495,27 +495,27 @@ exports[`should render the date input component with disabled inputs 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="dateinput_:re:_:rf:--hint"
-        aria-labelledby="dateinput_:re:--label"
+        aria-describedby="dateinput_«re»_«rf»--hint"
+        aria-labelledby="dateinput_«re»--label"
         class="nhsuk-fieldset"
         role="group"
       >
         <legend
           class="nhsuk-fieldset__legend"
-          for="dateinput_:re:"
-          id="dateinput_:re:--label"
+          for="dateinput_«re»"
+          id="dateinput_«re»--label"
         >
           Date of birth
         </legend>
         <div
           class="nhsuk-hint"
-          id="dateinput_:re:_:rf:--hint"
+          id="dateinput_«re»_«rf»--hint"
         >
           For example, 31 3 1980
         </div>
         <div
           class="nhsuk-date-input"
-          id="dateinput_:re:"
+          id="dateinput_«re»"
         >
           <div
             class="nhsuk-date-input__item"
@@ -525,19 +525,19 @@ exports[`should render the date input component with disabled inputs 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:re:-day"
-                id="dateinput_:re:-day--label"
+                for="dateinput_«re»-day"
+                id="dateinput_«re»-day--label"
               >
                 Day
               </label>
               <input
-                aria-labelledby="dateinput_:re:-day--label"
+                aria-labelledby="dateinput_«re»-day--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
                 disabled=""
-                id="dateinput_:re:-day"
+                id="dateinput_«re»-day"
                 inputmode="numeric"
-                name="dateinput_:re:-day"
+                name="dateinput_«re»-day"
                 pattern="[0-9]*"
                 type="text"
                 value="31"
@@ -552,19 +552,19 @@ exports[`should render the date input component with disabled inputs 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:re:-month"
-                id="dateinput_:re:-month--label"
+                for="dateinput_«re»-month"
+                id="dateinput_«re»-month--label"
               >
                 Month
               </label>
               <input
-                aria-labelledby="dateinput_:re:-month--label"
+                aria-labelledby="dateinput_«re»-month--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-2 nhsuk-date-input__input"
                 disabled=""
-                id="dateinput_:re:-month"
+                id="dateinput_«re»-month"
                 inputmode="numeric"
-                name="dateinput_:re:-month"
+                name="dateinput_«re»-month"
                 pattern="[0-9]*"
                 type="text"
                 value="3"
@@ -579,19 +579,19 @@ exports[`should render the date input component with disabled inputs 1`] = `
             >
               <label
                 class="nhsuk-label nhsuk-date-input__label"
-                for="dateinput_:re:-year"
-                id="dateinput_:re:-year--label"
+                for="dateinput_«re»-year"
+                id="dateinput_«re»-year--label"
               >
                 Year
               </label>
               <input
-                aria-labelledby="dateinput_:re:-year--label"
+                aria-labelledby="dateinput_«re»-year--label"
                 as="input"
                 class="nhsuk-input nhsuk-input--width-4 nhsuk-date-input__input"
                 disabled=""
-                id="dateinput_:re:-year"
+                id="dateinput_«re»-year"
                 inputmode="numeric"
-                name="dateinput_:re:-year"
+                name="dateinput_«re»-year"
                 pattern="[0-9]*"
                 type="text"
                 value="1980"

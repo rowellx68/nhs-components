@@ -7,13 +7,13 @@ exports[`should render the Checkbox component 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-labelledby="checkboxes_:r0:--label"
+        aria-labelledby="checkboxes_«r0»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="checkboxes_:r0:"
-          id="checkboxes_:r0:--label"
+          for="checkboxes_«r0»"
+          id="checkboxes_«r0»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -24,20 +24,20 @@ exports[`should render the Checkbox component 1`] = `
         <div
           as="div"
           class="nhsuk-checkboxes"
-          id="checkboxes_:r0:"
+          id="checkboxes_«r0»"
         >
           <div
             class="nhsuk-checkboxes__item"
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r2:"
+              id="checkbox-item_«r2»"
               type="checkbox"
               value="email"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r2:"
+              for="checkbox-item_«r2»"
             >
               Email
             </label>
@@ -47,13 +47,13 @@ exports[`should render the Checkbox component 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r5:"
+              id="checkbox-item_«r5»"
               type="checkbox"
               value="phone"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r5:"
+              for="checkbox-item_«r5»"
             >
               Phone
             </label>
@@ -63,13 +63,13 @@ exports[`should render the Checkbox component 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r8:"
+              id="checkbox-item_«r8»"
               type="checkbox"
               value="sms"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r8:"
+              for="checkbox-item_«r8»"
             >
               Text message
             </label>
@@ -91,14 +91,14 @@ exports[`should render the Checkbox with conditional content 1`] = `
         class="nhsuk-form-group"
       >
         <fieldset
-          aria-describedby="checkboxes_:rp:_:rq:--hint"
-          aria-labelledby="checkboxes_:rp:--label"
+          aria-describedby="checkboxes_«rp»_«rq»--hint"
+          aria-labelledby="checkboxes_«rp»--label"
           class="nhsuk-fieldset"
         >
           <legend
             class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-            for="checkboxes_:rp:"
-            id="checkboxes_:rp:--label"
+            for="checkboxes_«rp»"
+            id="checkboxes_«rp»--label"
           >
             <h1
               class="nhsuk-fieldset__heading"
@@ -108,52 +108,52 @@ exports[`should render the Checkbox with conditional content 1`] = `
           </legend>
           <div
             class="nhsuk-hint"
-            id="checkboxes_:rp:_:rq:--hint"
+            id="checkboxes_«rp»_«rq»--hint"
           >
             Select all options that are relevant to you.
           </div>
           <div
             as="div"
             class="nhsuk-checkboxes nhsuk-checkboxes--conditional"
-            id="checkboxes_:rp:"
+            id="checkboxes_«rp»"
           >
             <div
               class="nhsuk-checkboxes__item"
             >
               <input
-                aria-controls="checkbox-item-conditional_:r1c:"
+                aria-controls="checkbox-item-conditional_«r1c»"
                 aria-expanded="false"
                 class="nhsuk-checkboxes__input"
-                id="checkbox-item_:r1a:"
+                id="checkbox-item_«r1a»"
                 type="checkbox"
                 value="email"
               />
               <label
                 class="nhsuk-label nhsuk-checkboxes__label"
-                for="checkbox-item_:r1a:"
+                for="checkbox-item_«r1a»"
               >
                 Email
               </label>
             </div>
             <div
               class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-              id="checkbox-item-conditional_:r1c:"
+              id="checkbox-item-conditional_«r1c»"
             >
               <div
                 class="nhsuk-form-group"
               >
                 <label
                   class="nhsuk-label"
-                  for="input_:r1d:"
-                  id="input_:r1d:--label"
+                  for="input_«r1d»"
+                  id="input_«r1d»--label"
                 >
                   Email address
                 </label>
                 <input
-                  aria-labelledby="input_:r1d:--label"
+                  aria-labelledby="input_«r1d»--label"
                   as="input"
                   class="nhsuk-input nhsuk-u-width-two-thirds"
-                  id="input_:r1d:"
+                  id="input_«r1d»"
                   type="email"
                 />
               </div>
@@ -162,39 +162,39 @@ exports[`should render the Checkbox with conditional content 1`] = `
               class="nhsuk-checkboxes__item"
             >
               <input
-                aria-controls="checkbox-item-conditional_:r1h:"
+                aria-controls="checkbox-item-conditional_«r1h»"
                 aria-expanded="false"
                 class="nhsuk-checkboxes__input"
-                id="checkbox-item_:r1f:"
+                id="checkbox-item_«r1f»"
                 type="checkbox"
                 value="phone"
               />
               <label
                 class="nhsuk-label nhsuk-checkboxes__label"
-                for="checkbox-item_:r1f:"
+                for="checkbox-item_«r1f»"
               >
                 Phone
               </label>
             </div>
             <div
               class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-              id="checkbox-item-conditional_:r1h:"
+              id="checkbox-item-conditional_«r1h»"
             >
               <div
                 class="nhsuk-form-group"
               >
                 <label
                   class="nhsuk-label"
-                  for="input_:r1i:"
-                  id="input_:r1i:--label"
+                  for="input_«r1i»"
+                  id="input_«r1i»--label"
                 >
                   Phone number
                 </label>
                 <input
-                  aria-labelledby="input_:r1i:--label"
+                  aria-labelledby="input_«r1i»--label"
                   as="input"
                   class="nhsuk-input nhsuk-u-width-two-thirds"
-                  id="input_:r1i:"
+                  id="input_«r1i»"
                   type="tel"
                 />
               </div>
@@ -203,39 +203,39 @@ exports[`should render the Checkbox with conditional content 1`] = `
               class="nhsuk-checkboxes__item"
             >
               <input
-                aria-controls="checkbox-item-conditional_:r1m:"
+                aria-controls="checkbox-item-conditional_«r1m»"
                 aria-expanded="false"
                 class="nhsuk-checkboxes__input"
-                id="checkbox-item_:r1k:"
+                id="checkbox-item_«r1k»"
                 type="checkbox"
                 value="sms"
               />
               <label
                 class="nhsuk-label nhsuk-checkboxes__label"
-                for="checkbox-item_:r1k:"
+                for="checkbox-item_«r1k»"
               >
                 Text message
               </label>
             </div>
             <div
               class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden"
-              id="checkbox-item-conditional_:r1m:"
+              id="checkbox-item-conditional_«r1m»"
             >
               <div
                 class="nhsuk-form-group"
               >
                 <label
                   class="nhsuk-label"
-                  for="input_:r1n:"
-                  id="input_:r1n:--label"
+                  for="input_«r1n»"
+                  id="input_«r1n»--label"
                 >
                   Mobile number
                 </label>
                 <input
-                  aria-labelledby="input_:r1n:--label"
+                  aria-labelledby="input_«r1n»--label"
                   as="input"
                   class="nhsuk-input nhsuk-u-width-two-thirds"
-                  id="input_:r1n:"
+                  id="input_«r1n»"
                 />
               </div>
             </div>
@@ -254,14 +254,14 @@ exports[`should render the Checkbox with error 1`] = `
       class="nhsuk-form-group nhsuk-form-group--error"
     >
       <fieldset
-        aria-describedby="checkboxes_:r2f:--error-message"
-        aria-labelledby="checkboxes_:r2f:--label"
+        aria-describedby="checkboxes_«r2f»--error-message"
+        aria-labelledby="checkboxes_«r2f»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="checkboxes_:r2f:"
-          id="checkboxes_:r2f:--label"
+          for="checkboxes_«r2f»"
+          id="checkboxes_«r2f»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -271,7 +271,7 @@ exports[`should render the Checkbox with error 1`] = `
         </legend>
         <p
           class="nhsuk-error-message"
-          id="checkboxes_:r2f:--error-message"
+          id="checkboxes_«r2f»--error-message"
         >
           <span
             class="nhsuk-u-visually-hidden"
@@ -283,20 +283,20 @@ exports[`should render the Checkbox with error 1`] = `
         <div
           as="div"
           class="nhsuk-checkboxes"
-          id="checkboxes_:r2f:"
+          id="checkboxes_«r2f»"
         >
           <div
             class="nhsuk-checkboxes__item"
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r2h:"
+              id="checkbox-item_«r2h»"
               type="checkbox"
               value="email"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r2h:"
+              for="checkbox-item_«r2h»"
             >
               Email
             </label>
@@ -306,13 +306,13 @@ exports[`should render the Checkbox with error 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r2k:"
+              id="checkbox-item_«r2k»"
               type="checkbox"
               value="phone"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r2k:"
+              for="checkbox-item_«r2k»"
             >
               Phone
             </label>
@@ -322,13 +322,13 @@ exports[`should render the Checkbox with error 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r2n:"
+              id="checkbox-item_«r2n»"
               type="checkbox"
               value="sms"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r2n:"
+              for="checkbox-item_«r2n»"
             >
               Text message
             </label>
@@ -347,14 +347,14 @@ exports[`should render the Checkbox with exclusive option 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="checkboxes_:rb:_:rc:--hint"
-        aria-labelledby="checkboxes_:rb:--label"
+        aria-describedby="checkboxes_«rb»_«rc»--hint"
+        aria-labelledby="checkboxes_«rb»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="checkboxes_:rb:"
-          id="checkboxes_:rb:--label"
+          for="checkboxes_«rb»"
+          id="checkboxes_«rb»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -364,14 +364,14 @@ exports[`should render the Checkbox with exclusive option 1`] = `
         </legend>
         <div
           class="nhsuk-hint"
-          id="checkboxes_:rb:_:rc:--hint"
+          id="checkboxes_«rb»_«rc»--hint"
         >
           Select all the symptoms you have.
         </div>
         <div
           as="div"
           class="nhsuk-checkboxes"
-          id="checkboxes_:rb:"
+          id="checkboxes_«rb»"
         >
           <div
             class="nhsuk-checkboxes__item"
@@ -379,13 +379,13 @@ exports[`should render the Checkbox with exclusive option 1`] = `
             <input
               class="nhsuk-checkboxes__input"
               data-checkbox-exclusive-group="symptoms-list"
-              id="checkbox-item_:rd:"
+              id="checkbox-item_«rd»"
               type="checkbox"
               value="sore throat"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:rd:"
+              for="checkbox-item_«rd»"
             >
               Sore throat
             </label>
@@ -396,13 +396,13 @@ exports[`should render the Checkbox with exclusive option 1`] = `
             <input
               class="nhsuk-checkboxes__input"
               data-checkbox-exclusive-group="symptoms-list"
-              id="checkbox-item_:rg:"
+              id="checkbox-item_«rg»"
               type="checkbox"
               value="runny nose"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:rg:"
+              for="checkbox-item_«rg»"
             >
               Runny nose
             </label>
@@ -413,13 +413,13 @@ exports[`should render the Checkbox with exclusive option 1`] = `
             <input
               class="nhsuk-checkboxes__input"
               data-checkbox-exclusive-group="symptoms-list"
-              id="checkbox-item_:rj:"
+              id="checkbox-item_«rj»"
               type="checkbox"
               value="muscle or joint pain"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:rj:"
+              for="checkbox-item_«rj»"
             >
               Muscle or joint pain
             </label>
@@ -436,13 +436,13 @@ exports[`should render the Checkbox with exclusive option 1`] = `
               class="nhsuk-checkboxes__input"
               data-checkbox-exclusive="true"
               data-checkbox-exclusive-group="symptoms-list"
-              id="checkbox-item_:rm:"
+              id="checkbox-item_«rm»"
               type="checkbox"
               value="none"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:rm:"
+              for="checkbox-item_«rm»"
             >
               No, I do not have any of these symptoms
             </label>
@@ -461,14 +461,14 @@ exports[`should render the Checkbox with hint 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="checkboxes_:r1p:_:r1q:--hint"
-        aria-labelledby="checkboxes_:r1p:--label"
+        aria-describedby="checkboxes_«r1p»_«r1q»--hint"
+        aria-labelledby="checkboxes_«r1p»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="checkboxes_:r1p:"
-          id="checkboxes_:r1p:--label"
+          for="checkboxes_«r1p»"
+          id="checkboxes_«r1p»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -478,27 +478,27 @@ exports[`should render the Checkbox with hint 1`] = `
         </legend>
         <div
           class="nhsuk-hint"
-          id="checkboxes_:r1p:_:r1q:--hint"
+          id="checkboxes_«r1p»_«r1q»--hint"
         >
           Select all options that are relevant to you.
         </div>
         <div
           as="div"
           class="nhsuk-checkboxes"
-          id="checkboxes_:r1p:"
+          id="checkboxes_«r1p»"
         >
           <div
             class="nhsuk-checkboxes__item"
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r1r:"
+              id="checkbox-item_«r1r»"
               type="checkbox"
               value="email"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r1r:"
+              for="checkbox-item_«r1r»"
             >
               Email
             </label>
@@ -508,13 +508,13 @@ exports[`should render the Checkbox with hint 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r1u:"
+              id="checkbox-item_«r1u»"
               type="checkbox"
               value="phone"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r1u:"
+              for="checkbox-item_«r1u»"
             >
               Phone
             </label>
@@ -524,13 +524,13 @@ exports[`should render the Checkbox with hint 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r21:"
+              id="checkbox-item_«r21»"
               type="checkbox"
               value="sms"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r21:"
+              for="checkbox-item_«r21»"
             >
               Text message
             </label>
@@ -549,14 +549,14 @@ exports[`should render the Checkbox with item hint 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="checkboxes_:r24:_:r25:--hint"
-        aria-labelledby="checkboxes_:r24:--label"
+        aria-describedby="checkboxes_«r24»_«r25»--hint"
+        aria-labelledby="checkboxes_«r24»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="checkboxes_:r24:"
-          id="checkboxes_:r24:--label"
+          for="checkboxes_«r24»"
+          id="checkboxes_«r24»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -566,34 +566,34 @@ exports[`should render the Checkbox with item hint 1`] = `
         </legend>
         <div
           class="nhsuk-hint"
-          id="checkboxes_:r24:_:r25:--hint"
+          id="checkboxes_«r24»_«r25»--hint"
         >
           If you have dual nationality, select all options that are relevant to you.
         </div>
         <div
           as="div"
           class="nhsuk-checkboxes"
-          id="checkboxes_:r24:"
+          id="checkboxes_«r24»"
         >
           <div
             class="nhsuk-checkboxes__item"
           >
             <input
-              aria-describedby="checkbox-item-hint_:r27:"
+              aria-describedby="checkbox-item-hint_«r27»"
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r26:"
+              id="checkbox-item_«r26»"
               type="checkbox"
               value="email"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r26:"
+              for="checkbox-item_«r26»"
             >
               British
             </label>
             <div
               class="nhsuk-hint nhsuk-checkboxes__hint"
-              id="checkbox-item-hint_:r27:"
+              id="checkbox-item-hint_«r27»"
             >
               including English, Scottish, Welsh and Northern Irish
             </div>
@@ -603,13 +603,13 @@ exports[`should render the Checkbox with item hint 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r29:"
+              id="checkbox-item_«r29»"
               type="checkbox"
               value="phone"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r29:"
+              for="checkbox-item_«r29»"
             >
               Irish
             </label>
@@ -619,13 +619,13 @@ exports[`should render the Checkbox with item hint 1`] = `
           >
             <input
               class="nhsuk-checkboxes__input"
-              id="checkbox-item_:r2c:"
+              id="checkbox-item_«r2c»"
               type="checkbox"
               value="sms"
             />
             <label
               class="nhsuk-label nhsuk-checkboxes__label"
-              for="checkbox-item_:r2c:"
+              for="checkbox-item_«r2c»"
             >
               Citizen of another country
             </label>
