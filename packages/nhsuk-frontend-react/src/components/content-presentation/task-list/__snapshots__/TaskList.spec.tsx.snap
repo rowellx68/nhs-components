@@ -23,7 +23,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
           class="nhsuk-task-list__item-name-and-hint"
         >
           <a
-            aria-describedby="task-list-item_:r5:-status"
+            aria-describedby="task-list-item_«r5»-status"
             href="#"
           >
             Check eligibility
@@ -31,7 +31,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
         </div>
         <div
           class="nhsuk-task-list__status nhsuk-task-list__status--completed"
-          id="task-list-item_:r5:-status"
+          id="task-list-item_«r5»-status"
         >
           Completed
         </div>
@@ -43,7 +43,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
           class="nhsuk-task-list__item-name-and-hint"
         >
           <a
-            aria-describedby="task-list-item_:r6:-status"
+            aria-describedby="task-list-item_«r6»-status"
             href="#"
           >
             Read declaration
@@ -54,7 +54,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
         >
           <strong
             class="nhsuk-tag nhsuk-tag--blue"
-            id="task-list-item_:r6:-status"
+            id="task-list-item_«r6»-status"
           >
             Incomplete
           </strong>
@@ -76,7 +76,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
           class="nhsuk-task-list__item-name-and-hint"
         >
           <a
-            aria-describedby="task-list-item_:r7:-status"
+            aria-describedby="task-list-item_«r7»-status"
             href="#"
           >
             Exercise
@@ -84,7 +84,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
         </div>
         <div
           class="nhsuk-task-list__status nhsuk-task-list__status--completed"
-          id="task-list-item_:r7:-status"
+          id="task-list-item_«r7»-status"
         >
           Completed
         </div>
@@ -96,7 +96,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
           class="nhsuk-task-list__item-name-and-hint"
         >
           <a
-            aria-describedby="task-list-item_:r8:-status"
+            aria-describedby="task-list-item_«r8»-status"
             href="#"
           >
             Personal health
@@ -104,7 +104,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
         </div>
         <div
           class="nhsuk-task-list__status nhsuk-task-list__status--completed"
-          id="task-list-item_:r8:-status"
+          id="task-list-item_«r8»-status"
         >
           Completed
         </div>
@@ -116,14 +116,14 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
           class="nhsuk-task-list__item-name-and-hint"
         >
           <a
-            aria-describedby="task-list-item_:r9:-status task-list-item_:r9:-hint"
+            aria-describedby="task-list-item_«r9»-status task-list-item_«r9»-hint"
             href="#"
           >
             Family health history
           </a>
           <div
             class="nhsuk-task-list__hint"
-            id="task-list-item_:r9:-hint"
+            id="task-list-item_«r9»-hint"
           >
             Details of your parents and siblings
           </div>
@@ -133,7 +133,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
         >
           <strong
             class="nhsuk-tag nhsuk-tag--blue"
-            id="task-list-item_:r9:-status"
+            id="task-list-item_«r9»-status"
           >
             Incomplete
           </strong>
@@ -146,7 +146,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
           class="nhsuk-task-list__item-name-and-hint"
         >
           <a
-            aria-describedby="task-list-item_:ra:-status"
+            aria-describedby="task-list-item_«ra»-status"
             href="#"
           >
             Smoking history
@@ -157,7 +157,7 @@ exports[`should render the TaskList component with the completed tasks 1`] = `
         >
           <strong
             class="nhsuk-tag nhsuk-tag--blue"
-            id="task-list-item_:ra:-status"
+            id="task-list-item_«ra»-status"
           >
             Incomplete
           </strong>

@@ -7,13 +7,13 @@ exports[`should render the radio component 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-labelledby="radios_:r0:--label"
+        aria-labelledby="radios_«r0»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="radios_:r0:"
-          id="radios_:r0:--label"
+          for="radios_«r0»"
+          id="radios_«r0»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -24,21 +24,21 @@ exports[`should render the radio component 1`] = `
         <div
           as="div"
           class="nhsuk-radios"
-          id="radios_:r0:"
+          id="radios_«r0»"
         >
           <div
             class="nhsuk-radios__item"
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:r2:"
+              id="radio-item_«r2»"
               name="adult"
               type="radio"
               value="yes"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r2:"
+              for="radio-item_«r2»"
             >
               Yes
             </label>
@@ -48,14 +48,14 @@ exports[`should render the radio component 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:r5:"
+              id="radio-item_«r5»"
               name="adult"
               type="radio"
               value="no"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r5:"
+              for="radio-item_«r5»"
             >
               No
             </label>
@@ -77,14 +77,14 @@ exports[`should render the radio component with conditional content 1`] = `
         class="nhsuk-form-group"
       >
         <fieldset
-          aria-describedby="radios_:r1n:_:r1o:--hint"
-          aria-labelledby="radios_:r1n:--label"
+          aria-describedby="radios_«r1n»_«r1o»--hint"
+          aria-labelledby="radios_«r1n»--label"
           class="nhsuk-fieldset"
         >
           <legend
             class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-            for="radios_:r1n:"
-            id="radios_:r1n:--label"
+            for="radios_«r1n»"
+            id="radios_«r1n»--label"
           >
             <h1
               class="nhsuk-fieldset__heading"
@@ -94,53 +94,53 @@ exports[`should render the radio component with conditional content 1`] = `
           </legend>
           <div
             class="nhsuk-hint"
-            id="radios_:r1n:_:r1o:--hint"
+            id="radios_«r1n»_«r1o»--hint"
           >
             Select one option
           </div>
           <div
             as="div"
             class="nhsuk-radios nhsuk-radios--conditional"
-            id="radios_:r1n:"
+            id="radios_«r1n»"
           >
             <div
               class="nhsuk-radios__item"
             >
               <input
-                aria-controls="radio-item-conditional_:r2a:"
+                aria-controls="radio-item-conditional_«r2a»"
                 aria-expanded="false"
                 class="nhsuk-radios__input"
-                id="radio-item_:r28:"
+                id="radio-item_«r28»"
                 name="contact-method"
                 type="radio"
                 value="email"
               />
               <label
                 class="nhsuk-label nhsuk-radios__label"
-                for="radio-item_:r28:"
+                for="radio-item_«r28»"
               >
                 Email
               </label>
             </div>
             <div
               class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-              id="radio-item-conditional_:r2a:"
+              id="radio-item-conditional_«r2a»"
             >
               <div
                 class="nhsuk-form-group"
               >
                 <label
                   class="nhsuk-label"
-                  for="input_:r2b:"
-                  id="input_:r2b:--label"
+                  for="input_«r2b»"
+                  id="input_«r2b»--label"
                 >
                   Email address
                 </label>
                 <input
-                  aria-labelledby="input_:r2b:--label"
+                  aria-labelledby="input_«r2b»--label"
                   as="input"
                   class="nhsuk-input nhsuk-u-width-two-thirds"
-                  id="input_:r2b:"
+                  id="input_«r2b»"
                   type="email"
                 />
               </div>
@@ -149,40 +149,40 @@ exports[`should render the radio component with conditional content 1`] = `
               class="nhsuk-radios__item"
             >
               <input
-                aria-controls="radio-item-conditional_:r2f:"
+                aria-controls="radio-item-conditional_«r2f»"
                 aria-expanded="false"
                 class="nhsuk-radios__input"
-                id="radio-item_:r2d:"
+                id="radio-item_«r2d»"
                 name="contact-method"
                 type="radio"
                 value="phone"
               />
               <label
                 class="nhsuk-label nhsuk-radios__label"
-                for="radio-item_:r2d:"
+                for="radio-item_«r2d»"
               >
                 Phone
               </label>
             </div>
             <div
               class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-              id="radio-item-conditional_:r2f:"
+              id="radio-item-conditional_«r2f»"
             >
               <div
                 class="nhsuk-form-group"
               >
                 <label
                   class="nhsuk-label"
-                  for="input_:r2g:"
-                  id="input_:r2g:--label"
+                  for="input_«r2g»"
+                  id="input_«r2g»--label"
                 >
                   Phone number
                 </label>
                 <input
-                  aria-labelledby="input_:r2g:--label"
+                  aria-labelledby="input_«r2g»--label"
                   as="input"
                   class="nhsuk-input nhsuk-u-width-two-thirds"
-                  id="input_:r2g:"
+                  id="input_«r2g»"
                   type="tel"
                 />
               </div>
@@ -191,40 +191,40 @@ exports[`should render the radio component with conditional content 1`] = `
               class="nhsuk-radios__item"
             >
               <input
-                aria-controls="radio-item-conditional_:r2k:"
+                aria-controls="radio-item-conditional_«r2k»"
                 aria-expanded="false"
                 class="nhsuk-radios__input"
-                id="radio-item_:r2i:"
+                id="radio-item_«r2i»"
                 name="contact-method"
                 type="radio"
                 value="sms"
               />
               <label
                 class="nhsuk-label nhsuk-radios__label"
-                for="radio-item_:r2i:"
+                for="radio-item_«r2i»"
               >
                 Text message
               </label>
             </div>
             <div
               class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
-              id="radio-item-conditional_:r2k:"
+              id="radio-item-conditional_«r2k»"
             >
               <div
                 class="nhsuk-form-group"
               >
                 <label
                   class="nhsuk-label"
-                  for="input_:r2l:"
-                  id="input_:r2l:--label"
+                  for="input_«r2l»"
+                  id="input_«r2l»--label"
                 >
                   Mobile number
                 </label>
                 <input
-                  aria-labelledby="input_:r2l:--label"
+                  aria-labelledby="input_«r2l»--label"
                   as="input"
                   class="nhsuk-input nhsuk-u-width-two-thirds"
-                  id="input_:r2l:"
+                  id="input_«r2l»"
                 />
               </div>
             </div>
@@ -243,13 +243,13 @@ exports[`should render the radio component with divider 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-labelledby="radios_:r1c:--label"
+        aria-labelledby="radios_«r1c»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="radios_:r1c:"
-          id="radios_:r1c:--label"
+          for="radios_«r1c»"
+          id="radios_«r1c»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -260,21 +260,21 @@ exports[`should render the radio component with divider 1`] = `
         <div
           as="div"
           class="nhsuk-radios"
-          id="radios_:r1c:"
+          id="radios_«r1c»"
         >
           <div
             class="nhsuk-radios__item"
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:r1e:"
+              id="radio-item_«r1e»"
               name="sign-in"
               type="radio"
               value="nhs-login"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r1e:"
+              for="radio-item_«r1e»"
             >
               NHS login
             </label>
@@ -284,14 +284,14 @@ exports[`should render the radio component with divider 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:r1h:"
+              id="radio-item_«r1h»"
               name="sign-in"
               type="radio"
               value="gov-uk"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r1h:"
+              for="radio-item_«r1h»"
             >
               GOV.UK Verify
             </label>
@@ -306,14 +306,14 @@ exports[`should render the radio component with divider 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:r1k:"
+              id="radio-item_«r1k»"
               name="sign-in"
               type="radio"
               value="create account"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r1k:"
+              for="radio-item_«r1k»"
             >
               Create an account
             </label>
@@ -332,14 +332,14 @@ exports[`should render the radio component with error 1`] = `
       class="nhsuk-form-group nhsuk-form-group--error"
     >
       <fieldset
-        aria-describedby="radios_:rk:_:rl:--hint radios_:rk:--error-message"
-        aria-labelledby="radios_:rk:--label"
+        aria-describedby="radios_«rk»_«rl»--hint radios_«rk»--error-message"
+        aria-labelledby="radios_«rk»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="radios_:rk:"
-          id="radios_:rk:--label"
+          for="radios_«rk»"
+          id="radios_«rk»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -349,13 +349,13 @@ exports[`should render the radio component with error 1`] = `
         </legend>
         <div
           class="nhsuk-hint"
-          id="radios_:rk:_:rl:--hint"
+          id="radios_«rk»_«rl»--hint"
         >
           This includes changing your last name or spelling your name differently.
         </div>
         <p
           class="nhsuk-error-message"
-          id="radios_:rk:--error-message"
+          id="radios_«rk»--error-message"
         >
           <span
             class="nhsuk-u-visually-hidden"
@@ -367,21 +367,21 @@ exports[`should render the radio component with error 1`] = `
         <div
           as="div"
           class="nhsuk-radios"
-          id="radios_:rk:"
+          id="radios_«rk»"
         >
           <div
             class="nhsuk-radios__item"
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:rm:"
+              id="radio-item_«rm»"
               name="change-name"
               type="radio"
               value="yes"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:rm:"
+              for="radio-item_«rm»"
             >
               Yes
             </label>
@@ -391,14 +391,14 @@ exports[`should render the radio component with error 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:rp:"
+              id="radio-item_«rp»"
               name="change-name"
               type="radio"
               value="no"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:rp:"
+              for="radio-item_«rp»"
             >
               No
             </label>
@@ -417,14 +417,14 @@ exports[`should render the radio component with hint 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-describedby="radios_:r8:_:r9:--hint radios_:r8:_:ra:--hint"
-        aria-labelledby="radios_:r8:--label"
+        aria-describedby="radios_«r8»_«r9»--hint radios_«r8»_«ra»--hint"
+        aria-labelledby="radios_«r8»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="radios_:r8:"
-          id="radios_:r8:--label"
+          for="radios_«r8»"
+          id="radios_«r8»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -434,34 +434,34 @@ exports[`should render the radio component with hint 1`] = `
         </legend>
         <div
           class="nhsuk-hint nhsuk-u-margin-bottom-2"
-          id="radios_:r8:_:r9:--hint"
+          id="radios_«r8»_«r9»--hint"
         >
           This is a 10 digit number, like 485 777 3456.
         </div>
         <div
           class="nhsuk-hint"
-          id="radios_:r8:_:ra:--hint"
+          id="radios_«r8»_«ra»--hint"
         >
           You can find it on any letter the NHS has sent you, on a prescription or by logging in to a GP practice online service.
         </div>
         <div
           as="div"
           class="nhsuk-radios"
-          id="radios_:r8:"
+          id="radios_«r8»"
         >
           <div
             class="nhsuk-radios__item"
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:rb:"
+              id="radio-item_«rb»"
               name="nhs-number"
               type="radio"
               value="yes"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:rb:"
+              for="radio-item_«rb»"
             >
               Yes, I know my NHS number
             </label>
@@ -471,14 +471,14 @@ exports[`should render the radio component with hint 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:re:"
+              id="radio-item_«re»"
               name="nhs-number"
               type="radio"
               value="no"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:re:"
+              for="radio-item_«re»"
             >
               No, I do not know my NHS number
             </label>
@@ -488,14 +488,14 @@ exports[`should render the radio component with hint 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:rh:"
+              id="radio-item_«rh»"
               name="nhs-number"
               type="radio"
               value="not sure"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:rh:"
+              for="radio-item_«rh»"
             >
               I'm not sure
             </label>
@@ -514,13 +514,13 @@ exports[`should render the radio component with inline items 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-labelledby="radios_:rs:--label"
+        aria-labelledby="radios_«rs»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="radios_:rs:"
-          id="radios_:rs:--label"
+          for="radios_«rs»"
+          id="radios_«rs»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -531,21 +531,21 @@ exports[`should render the radio component with inline items 1`] = `
         <div
           as="div"
           class="nhsuk-radios nhsuk-radios--inline"
-          id="radios_:rs:"
+          id="radios_«rs»"
         >
           <div
             class="nhsuk-radios__item"
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:ru:"
+              id="radio-item_«ru»"
               name="adult"
               type="radio"
               value="yes"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:ru:"
+              for="radio-item_«ru»"
             >
               Yes
             </label>
@@ -555,14 +555,14 @@ exports[`should render the radio component with inline items 1`] = `
           >
             <input
               class="nhsuk-radios__input"
-              id="radio-item_:r11:"
+              id="radio-item_«r11»"
               name="adult"
               type="radio"
               value="no"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r11:"
+              for="radio-item_«r11»"
             >
               No
             </label>
@@ -581,13 +581,13 @@ exports[`should render the radio component with item hints 1`] = `
       class="nhsuk-form-group"
     >
       <fieldset
-        aria-labelledby="radios_:r14:--label"
+        aria-labelledby="radios_«r14»--label"
         class="nhsuk-fieldset"
       >
         <legend
           class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l"
-          for="radios_:r14:"
-          id="radios_:r14:--label"
+          for="radios_«r14»"
+          id="radios_«r14»--label"
         >
           <h1
             class="nhsuk-fieldset__heading"
@@ -598,28 +598,28 @@ exports[`should render the radio component with item hints 1`] = `
         <div
           as="div"
           class="nhsuk-radios"
-          id="radios_:r14:"
+          id="radios_«r14»"
         >
           <div
             class="nhsuk-radios__item"
           >
             <input
-              aria-describedby="radio-item-hint_:r17:"
+              aria-describedby="radio-item-hint_«r17»"
               class="nhsuk-radios__input"
-              id="radio-item_:r16:"
+              id="radio-item_«r16»"
               name="mobile-signal"
               type="radio"
               value="yes"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r16:"
+              for="radio-item_«r16»"
             >
               Yes, I have a mobile phone with signal
             </label>
             <div
               class="nhsuk-hint nhsuk-radios__hint"
-              id="radio-item-hint_:r17:"
+              id="radio-item-hint_«r17»"
             >
               We will text you a 6 digit security code
             </div>
@@ -628,22 +628,22 @@ exports[`should render the radio component with item hints 1`] = `
             class="nhsuk-radios__item"
           >
             <input
-              aria-describedby="radio-item-hint_:r1a:"
+              aria-describedby="radio-item-hint_«r1a»"
               class="nhsuk-radios__input"
-              id="radio-item_:r19:"
+              id="radio-item_«r19»"
               name="mobile-signal"
               type="radio"
               value="no"
             />
             <label
               class="nhsuk-label nhsuk-radios__label"
-              for="radio-item_:r19:"
+              for="radio-item_«r19»"
             >
               No, I want to use my landline
             </label>
             <div
               class="nhsuk-hint nhsuk-radios__hint"
-              id="radio-item-hint_:r1a:"
+              id="radio-item-hint_«r1a»"
             >
               We will call you to give you a 6 digit security code
             </div>
