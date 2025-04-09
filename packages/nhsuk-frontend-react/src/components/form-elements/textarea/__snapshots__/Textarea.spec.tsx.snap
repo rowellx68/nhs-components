@@ -7,23 +7,23 @@ exports[`should render a textarea element 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="textarea_:r0:"
-      id="textarea_:r0:--label"
+      for="textarea_«r0»"
+      id="textarea_«r0»--label"
     >
       Can you provide more detail?
     </label>
     <div
       class="nhsuk-hint"
-      id="textarea_:r0:_:r1:--hint"
+      id="textarea_«r0»_«r1»--hint"
     >
       Do not include personal or financial information, for example, your National Insurance number or credit card details.
     </div>
     <textarea
-      aria-describedby="textarea_:r0:_:r1:--hint"
-      aria-labelledby="textarea_:r0:--label"
+      aria-describedby="textarea_«r0»_«r1»--hint"
+      aria-labelledby="textarea_«r0»--label"
       as="textarea"
       class="nhsuk-textarea"
-      id="textarea_:r0:"
+      id="textarea_«r0»"
     />
   </div>
 </div>
@@ -36,23 +36,23 @@ exports[`should render a textarea element with a hint 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="textarea_:r2:"
-      id="textarea_:r2:--label"
+      for="textarea_«r2»"
+      id="textarea_«r2»--label"
     >
       Can you provide more detail?
     </label>
     <div
       class="nhsuk-hint"
-      id="textarea_:r2:_:r3:--hint"
+      id="textarea_«r2»_«r3»--hint"
     >
       Hint
     </div>
     <textarea
-      aria-describedby="textarea_:r2:_:r3:--hint"
-      aria-labelledby="textarea_:r2:--label"
+      aria-describedby="textarea_«r2»_«r3»--hint"
+      aria-labelledby="textarea_«r2»--label"
       as="textarea"
       class="nhsuk-textarea"
-      id="textarea_:r2:"
+      id="textarea_«r2»"
     />
   </div>
 </div>
@@ -65,14 +65,14 @@ exports[`should render a textarea element with an error 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="textarea_:r4:"
-      id="textarea_:r4:--label"
+      for="textarea_«r4»"
+      id="textarea_«r4»--label"
     >
       Why can't you provide a National Insurance number?
     </label>
     <p
       class="nhsuk-error-message"
-      id="textarea_:r4:--error-message"
+      id="textarea_«r4»--error-message"
     >
       <span
         class="nhsuk-u-visually-hidden"
@@ -82,11 +82,11 @@ exports[`should render a textarea element with an error 1`] = `
       You must provide an explanation.
     </p>
     <textarea
-      aria-describedby="textarea_:r4:--error-message"
-      aria-labelledby="textarea_:r4:--label"
+      aria-describedby="textarea_«r4»--error-message"
+      aria-labelledby="textarea_«r4»--label"
       as="textarea"
       class="nhsuk-textarea nhsuk-textarea--error"
-      id="textarea_:r4:"
+      id="textarea_«r4»"
       rows="5"
     />
   </div>
@@ -100,23 +100,23 @@ exports[`should render a textarea element with rows 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="textarea_:r6:"
-      id="textarea_:r6:--label"
+      for="textarea_«r6»"
+      id="textarea_«r6»--label"
     >
       Can you provide more detail?
     </label>
     <div
       class="nhsuk-hint"
-      id="textarea_:r6:_:r7:--hint"
+      id="textarea_«r6»_«r7»--hint"
     >
       Do not include personal or financial information, for example, your National Insurance number or credit card details.
     </div>
     <textarea
-      aria-describedby="textarea_:r6:_:r7:--hint"
-      aria-labelledby="textarea_:r6:--label"
+      aria-describedby="textarea_«r6»_«r7»--hint"
+      aria-labelledby="textarea_«r6»--label"
       as="textarea"
       class="nhsuk-textarea"
-      id="textarea_:r6:"
+      id="textarea_«r6»"
       rows="10"
     />
   </div>

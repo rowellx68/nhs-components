@@ -7,16 +7,16 @@ exports[`should render the input component 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r0:"
-      id="input_:r0:--label"
+      for="input_«r0»"
+      id="input_«r0»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:r0:--label"
+      aria-labelledby="input_«r0»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-full"
-      id="input_:r0:"
+      id="input_«r0»"
     />
   </div>
 </div>
@@ -29,14 +29,14 @@ exports[`should render the input component with error 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r4:"
-      id="input_:r4:--label"
+      for="input_«r4»"
+      id="input_«r4»--label"
     >
       Full name
     </label>
     <p
       class="nhsuk-error-message"
-      id="input_:r4:--error-message"
+      id="input_«r4»--error-message"
     >
       <span
         class="nhsuk-u-visually-hidden"
@@ -46,11 +46,11 @@ exports[`should render the input component with error 1`] = `
       Enter your full name
     </p>
     <input
-      aria-describedby="input_:r4:--error-message"
-      aria-labelledby="input_:r4:--label"
+      aria-describedby="input_«r4»--error-message"
+      aria-labelledby="input_«r4»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-full nhsuk-input--error"
-      id="input_:r4:"
+      id="input_«r4»"
     />
   </div>
 </div>
@@ -63,23 +63,23 @@ exports[`should render the input component with hint 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r2:"
-      id="input_:r2:--label"
+      for="input_«r2»"
+      id="input_«r2»--label"
     >
       Enter a full postcode in England
     </label>
     <div
       class="nhsuk-hint"
-      id="input_:r2:_:r3:--hint"
+      id="input_«r2»_«r3»--hint"
     >
       For example, LS1 1AB
     </div>
     <input
-      aria-describedby="input_:r2:_:r3:--hint"
-      aria-labelledby="input_:r2:--label"
+      aria-describedby="input_«r2»_«r3»--hint"
+      aria-labelledby="input_«r2»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-10"
-      id="input_:r2:"
+      id="input_«r2»"
     />
   </div>
 </div>
@@ -92,16 +92,16 @@ exports[`should render the input component with width 2 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r6:"
-      id="input_:r6:--label"
+      for="input_«r6»"
+      id="input_«r6»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:r6:--label"
+      aria-labelledby="input_«r6»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-2"
-      id="input_:r6:"
+      id="input_«r6»"
     />
   </div>
 </div>
@@ -114,16 +114,16 @@ exports[`should render the input component with width 3 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r8:"
-      id="input_:r8:--label"
+      for="input_«r8»"
+      id="input_«r8»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:r8:--label"
+      aria-labelledby="input_«r8»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-3"
-      id="input_:r8:"
+      id="input_«r8»"
     />
   </div>
 </div>
@@ -136,16 +136,16 @@ exports[`should render the input component with width 4 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:ra:"
-      id="input_:ra:--label"
+      for="input_«ra»"
+      id="input_«ra»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:ra:--label"
+      aria-labelledby="input_«ra»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-4"
-      id="input_:ra:"
+      id="input_«ra»"
     />
   </div>
 </div>
@@ -158,16 +158,16 @@ exports[`should render the input component with width 5 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:rc:"
-      id="input_:rc:--label"
+      for="input_«rc»"
+      id="input_«rc»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:rc:--label"
+      aria-labelledby="input_«rc»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-5"
-      id="input_:rc:"
+      id="input_«rc»"
     />
   </div>
 </div>
@@ -180,16 +180,16 @@ exports[`should render the input component with width 10 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:re:"
-      id="input_:re:--label"
+      for="input_«re»"
+      id="input_«re»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:re:--label"
+      aria-labelledby="input_«re»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-10"
-      id="input_:re:"
+      id="input_«re»"
     />
   </div>
 </div>
@@ -202,16 +202,16 @@ exports[`should render the input component with width 20 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:rg:"
-      id="input_:rg:--label"
+      for="input_«rg»"
+      id="input_«rg»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:rg:--label"
+      aria-labelledby="input_«rg»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-20"
-      id="input_:rg:"
+      id="input_«rg»"
     />
   </div>
 </div>
@@ -224,16 +224,16 @@ exports[`should render the input component with width full 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:ri:"
-      id="input_:ri:--label"
+      for="input_«ri»"
+      id="input_«ri»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:ri:--label"
+      aria-labelledby="input_«ri»--label"
       as="input"
       class="nhsuk-input"
-      id="input_:ri:"
+      id="input_«ri»"
     />
   </div>
 </div>
@@ -246,16 +246,16 @@ exports[`should render the input component with width one-half 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:rk:"
-      id="input_:rk:--label"
+      for="input_«rk»"
+      id="input_«rk»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:rk:--label"
+      aria-labelledby="input_«rk»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-one-half"
-      id="input_:rk:"
+      id="input_«rk»"
     />
   </div>
 </div>
@@ -268,16 +268,16 @@ exports[`should render the input component with width one-quarter 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:rm:"
-      id="input_:rm:--label"
+      for="input_«rm»"
+      id="input_«rm»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:rm:--label"
+      aria-labelledby="input_«rm»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-one-quarter"
-      id="input_:rm:"
+      id="input_«rm»"
     />
   </div>
 </div>
@@ -290,16 +290,16 @@ exports[`should render the input component with width one-third 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:ro:"
-      id="input_:ro:--label"
+      for="input_«ro»"
+      id="input_«ro»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:ro:--label"
+      aria-labelledby="input_«ro»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-one-third"
-      id="input_:ro:"
+      id="input_«ro»"
     />
   </div>
 </div>
@@ -312,16 +312,16 @@ exports[`should render the input component with width three-quarters 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:rq:"
-      id="input_:rq:--label"
+      for="input_«rq»"
+      id="input_«rq»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:rq:--label"
+      aria-labelledby="input_«rq»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-three-quarters"
-      id="input_:rq:"
+      id="input_«rq»"
     />
   </div>
 </div>
@@ -334,16 +334,16 @@ exports[`should render the input component with width two-thirds 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:rs:"
-      id="input_:rs:--label"
+      for="input_«rs»"
+      id="input_«rs»--label"
     >
       First name
     </label>
     <input
-      aria-labelledby="input_:rs:--label"
+      aria-labelledby="input_«rs»--label"
       as="input"
       class="nhsuk-input nhsuk-u-width-two-thirds"
-      id="input_:rs:"
+      id="input_«rs»"
     />
   </div>
 </div>
@@ -356,8 +356,8 @@ exports[`should render the input with prefix 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:ru:"
-      id="input_:ru:--label"
+      for="input_«ru»"
+      id="input_«ru»--label"
     >
       Cost in pounds
     </label>
@@ -371,10 +371,10 @@ exports[`should render the input with prefix 1`] = `
         £
       </div>
       <input
-        aria-labelledby="input_:ru:--label"
+        aria-labelledby="input_«ru»--label"
         as="input"
         class="nhsuk-input nhsuk-input--width-5"
-        id="input_:ru:"
+        id="input_«ru»"
       />
     </div>
   </div>
@@ -388,8 +388,8 @@ exports[`should render the input with prefix and suffix 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r12:"
-      id="input_:r12:--label"
+      for="input_«r12»"
+      id="input_«r12»--label"
     >
       Cost per item, in pounds
     </label>
@@ -403,10 +403,10 @@ exports[`should render the input with prefix and suffix 1`] = `
         £
       </div>
       <input
-        aria-labelledby="input_:r12:--label"
+        aria-labelledby="input_«r12»--label"
         as="input"
         class="nhsuk-input nhsuk-input--width-5"
-        id="input_:r12:"
+        id="input_«r12»"
       />
       <div
         aria-hidden="true"
@@ -426,14 +426,14 @@ exports[`should render the input with prefix, suffix and error 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r14:"
-      id="input_:r14:--label"
+      for="input_«r14»"
+      id="input_«r14»--label"
     >
       Cost per item, in pounds
     </label>
     <p
       class="nhsuk-error-message"
-      id="input_:r14:--error-message"
+      id="input_«r14»--error-message"
     >
       <span
         class="nhsuk-u-visually-hidden"
@@ -452,11 +452,11 @@ exports[`should render the input with prefix, suffix and error 1`] = `
         £
       </div>
       <input
-        aria-describedby="input_:r14:--error-message"
-        aria-labelledby="input_:r14:--label"
+        aria-describedby="input_«r14»--error-message"
+        aria-labelledby="input_«r14»--label"
         as="input"
         class="nhsuk-input nhsuk-input--width-5 nhsuk-input--error"
-        id="input_:r14:"
+        id="input_«r14»"
       />
       <div
         aria-hidden="true"
@@ -476,8 +476,8 @@ exports[`should render the input with suffix 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r10:"
-      id="input_:r10:--label"
+      for="input_«r10»"
+      id="input_«r10»--label"
     >
       Weight in kilograms
     </label>
@@ -485,10 +485,10 @@ exports[`should render the input with suffix 1`] = `
       class="nhsuk-input__wrapper"
     >
       <input
-        aria-labelledby="input_:r10:--label"
+        aria-labelledby="input_«r10»--label"
         as="input"
         class="nhsuk-input nhsuk-input--width-5"
-        id="input_:r10:"
+        id="input_«r10»"
       />
       <div
         aria-hidden="true"
@@ -508,23 +508,23 @@ exports[`should render the input with whole numbers 1`] = `
   >
     <label
       class="nhsuk-label"
-      for="input_:r16:"
-      id="input_:r16:--label"
+      for="input_«r16»"
+      id="input_«r16»--label"
     >
       What is your NHS number?
     </label>
     <div
       class="nhsuk-hint"
-      id="input_:r16:_:r17:--hint"
+      id="input_«r16»_«r17»--hint"
     >
       Your NHS number is a 10 digit number that you find on any letter the NHS has sent you. For example, 485 777 3456.
     </div>
     <input
-      aria-describedby="input_:r16:_:r17:--hint"
-      aria-labelledby="input_:r16:--label"
+      aria-describedby="input_«r16»_«r17»--hint"
+      aria-labelledby="input_«r16»--label"
       as="input"
       class="nhsuk-input nhsuk-input--width-10"
-      id="input_:r16:"
+      id="input_«r16»"
       inputmode="numeric"
       pattern="[0-9]*"
       type="text"
