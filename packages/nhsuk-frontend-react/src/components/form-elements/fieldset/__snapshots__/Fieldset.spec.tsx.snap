@@ -22,8 +22,8 @@ exports[`should render the fieldset component 1`] = `
       >
         <label
           class="nhsuk-label"
-          for="input_:ra:"
-          id="input_:ra:--label"
+          for="input_«ra»"
+          id="input_«ra»--label"
         >
           Building and street 
           <span
@@ -33,10 +33,10 @@ exports[`should render the fieldset component 1`] = `
           </span>
         </label>
         <input
-          aria-labelledby="input_:ra:--label"
+          aria-labelledby="input_«ra»--label"
           as="input"
           class="nhsuk-input nhsuk-u-width-full"
-          id="input_:ra:"
+          id="input_«ra»"
         />
       </div>
       <div
@@ -44,8 +44,8 @@ exports[`should render the fieldset component 1`] = `
       >
         <label
           class="nhsuk-label"
-          for="input_:rc:"
-          id="input_:rc:--label"
+          for="input_«rc»"
+          id="input_«rc»--label"
         >
           <span
             class="nhsuk-u-visually-hidden"
@@ -54,10 +54,10 @@ exports[`should render the fieldset component 1`] = `
           </span>
         </label>
         <input
-          aria-labelledby="input_:rc:--label"
+          aria-labelledby="input_«rc»--label"
           as="input"
           class="nhsuk-input nhsuk-u-width-full"
-          id="input_:rc:"
+          id="input_«rc»"
         />
       </div>
       <div
@@ -65,16 +65,16 @@ exports[`should render the fieldset component 1`] = `
       >
         <label
           class="nhsuk-label"
-          for="input_:re:"
-          id="input_:re:--label"
+          for="input_«re»"
+          id="input_«re»--label"
         >
           Town or city
         </label>
         <input
-          aria-labelledby="input_:re:--label"
+          aria-labelledby="input_«re»--label"
           as="input"
           class="nhsuk-input nhsuk-u-width-two-thirds"
-          id="input_:re:"
+          id="input_«re»"
         />
       </div>
       <div
@@ -82,16 +82,16 @@ exports[`should render the fieldset component 1`] = `
       >
         <label
           class="nhsuk-label"
-          for="input_:rg:"
-          id="input_:rg:--label"
+          for="input_«rg»"
+          id="input_«rg»--label"
         >
           County
         </label>
         <input
-          aria-labelledby="input_:rg:--label"
+          aria-labelledby="input_«rg»--label"
           as="input"
           class="nhsuk-input nhsuk-u-width-two-thirds"
-          id="input_:rg:"
+          id="input_«rg»"
         />
       </div>
       <div
@@ -99,16 +99,16 @@ exports[`should render the fieldset component 1`] = `
       >
         <label
           class="nhsuk-label"
-          for="input_:ri:"
-          id="input_:ri:--label"
+          for="input_«ri»"
+          id="input_«ri»--label"
         >
           Postcode
         </label>
         <input
-          aria-labelledby="input_:ri:--label"
+          aria-labelledby="input_«ri»--label"
           as="input"
           class="nhsuk-input nhsuk-input--width-10"
-          id="input_:ri:"
+          id="input_«ri»"
         />
       </div>
     </fieldset>
