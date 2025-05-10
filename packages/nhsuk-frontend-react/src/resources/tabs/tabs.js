@@ -4,7 +4,7 @@
  *
  * Do not make changes to this file directly.
  *
- */
+*/
 class Tabs {
   constructor($module, namespace, responsive, historyEnabled) {
     this.$module = $module
@@ -41,7 +41,18 @@ class Tabs {
     // large - desktop: 990px
     // );
     this.mql = window.matchMedia('(min-width: 641px)')
-    this.mql.addEventListener('change', this.checkMode.bind(this))
+
+    // MediaQueryList.addEventListener isn't supported by Safari < 14 so we need
+    // to be able to fall back to the deprecated MediaQueryList.addListener
+    if ('addEventListener' in this.mql) {
+      this.mql.addEventListener('change', this.checkMode.bind(this))
+    } else {
+      // addListener is a deprecated function, however addEventListener
+      // isn't supported by Safari < 14. We therefore add this in as
+      // a fallback for those browsers
+      this.mql.addListener(this.checkMode.bind(this))
+    }
+
     this.checkMode()
   }
 
@@ -57,7 +68,9 @@ class Tabs {
     const { $module } = this
     const { $tabs } = this
     const $tabList = $module.querySelector(`.${this.namespace}__list`)
-    const $tabListItems = $module.querySelectorAll(`.${this.namespace}__list-item`)
+    const $tabListItems = $module.querySelectorAll(
+      `.${this.namespace}__list-item`
+    )
 
     if (!$tabs || !$tabList || !$tabListItems) {
       return
@@ -102,7 +115,9 @@ class Tabs {
     const { $module } = this
     const { $tabs } = this
     const $tabList = $module.querySelector(`.${this.namespace}__list`)
-    const $tabListItems = $module.querySelectorAll(`.${this.namespace}__list-item`)
+    const $tabListItems = $module.querySelectorAll(
+      `.${this.namespace}__list-item`
+    )
 
     if (!$tabs || !$tabList || !$tabListItems) {
       return
@@ -302,7 +317,9 @@ class Tabs {
   }
 
   getCurrentTab() {
-    return this.$module.querySelector(`.${this.namespace}__list-item--selected .${this.namespace}__tab`)
+    return this.$module.querySelector(
+      `.${this.namespace}__list-item--selected .${this.namespace}__tab`
+    )
   }
 
   // this is because IE doesn't always return the actual value but a relative full path
@@ -321,13 +338,21 @@ class Tabs {
  * Tabs({historyEnabled: false});
  * Tabs({responsive: false});
  * Tabs({namespace: 'my-custom-namespace'});  // Alters classes allowing alternative css
+ */
+/* *
  *
  * @param {{ namespace?: string, responsive?: boolean, historyEnabled?: boolean, scope?: HTMLElement | Document | null }} params
+ * @returns {void}
  *
- */
-export default ({ namespace = 'nhsuk-tabs', responsive = true, historyEnabled = true, scope = document } = {}) => {
+*/
+export default ({
+  namespace = 'nhsuk-tabs',
+  responsive = true,
+  historyEnabled = true,
+  scope = document
+} = {}) => {
   const tabs = scope.querySelectorAll(`[data-module="${namespace}"]`)
   tabs.forEach((el) => {
     new Tabs(el, namespace, responsive, historyEnabled).init()
   })
-}
+};
