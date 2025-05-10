@@ -22,18 +22,82 @@ module.exports = (file, api, options) => {
   root.get().node.comments = [...rootComments, banner];
 
   if (file.path.includes('common.js')) {
+        // remove module.exports
+    const moduleExports = root.find(j.MemberExpression, {
+      object: { name: 'module' },
+      property: { name: 'exports' },
+    });
+
+    moduleExports.forEach((path) => {
+      const parent = path.parentPath;
+      if (parent.value.type === 'AssignmentExpression') {
+        j(parent).remove();
+      }
+      else {
+        j(path).remove();
+      }
+    });
+
+    // get all variables and functions and make them named exports
+    const variables = root.find(j.VariableDeclaration, {
+      kind: 'const',
+      loc: {
+        indent: 0,
+      },
+    });
+    const functionDeclarations = root.find(j.FunctionDeclaration, {
+      loc: {
+        indent: 0,
+      },
+    });
+
+    // make variables and functions named exports
+    variables.forEach((path) => {
+      const declarator = path.value.declarations[0];
+      const variableName = declarator.id.name;
+      const variableValue = declarator.init;
+      const variableExport = j.exportNamedDeclaration(
+        j.variableDeclaration('const', [
+          j.variableDeclarator(
+            j.identifier(variableName),
+            variableValue,
+          ),
+        ]),
+        [],
+      );
+      variableExport.comments = path.value.comments;
+      path.replace(variableExport);
+    });
+
+    functionDeclarations.forEach((path) => {
+      const functionName = path.value.id.name;
+      const functionExport = j.exportNamedDeclaration(
+        j.functionDeclaration(
+          j.identifier(functionName),
+          path.value.params,
+          path.value.body,
+        ),
+        [],
+      );
+      functionExport.comments = path.value.comments;
+      path.replace(functionExport);
+    });
+
     return root.toSource(printOptions);
   }
 
   // rewrite requires to imports
-  const requires = root.find(j.VariableDeclaration, (path) => {
-    return path.declarations.some((declarator) => {
-      return (
-        declarator.init &&
-        declarator.init.type === 'CallExpression' &&
-        declarator.init.callee.name === 'require'
-      );
-    });
+  const requires = root.find(j.VariableDeclaration, {
+    declarations: [
+      {
+        init: {
+          type: 'CallExpression',
+          callee: {
+            name: 'require',
+          },
+        },
+      },
+    ],
   });
 
   requires.forEach((path) => {
@@ -62,14 +126,16 @@ module.exports = (file, api, options) => {
     }
   });
 
-  const moduleExports = root.find(j.ExpressionStatement, (path) => {
-    return (
-      path.expression.type === 'AssignmentExpression' &&
-      path.expression.operator === '=' &&
-      path.expression.left.type === 'MemberExpression' &&
-      path.expression.left.object.name === 'module' &&
-      path.expression.left.property.name === 'exports'
-    );
+  const moduleExports = root.find(j.ExpressionStatement, {
+    expression: {
+      type: 'AssignmentExpression',
+      operator: '=',
+      left: {
+        type: 'MemberExpression',
+        object: { name: 'module' },
+        property: { name: 'exports' },
+      },
+    },
   });
 
   if (!moduleExports.length) {
