@@ -1,1 +1,0 @@
-import{R as e}from"./index-B0WjJBI_.js";import"./_commonjsHelpers-CqkleIqs.js";const r={parameters:{controls:{matchers:{color:/(background|color)$/i,date:/Date$/i}}},tags:["autodocs"],decorators:[a=>e.createElement("div",{className:"js-enabled"},e.createElement(a,null))]};export{r as default};
