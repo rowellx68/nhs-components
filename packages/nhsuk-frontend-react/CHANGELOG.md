@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 4.3.1
+
+### Patch Changes
+
+- [#209](https://github.com/rowellx68/nhs-components/pull/209) [`764c479`](https://github.com/rowellx68/nhs-components/commit/764c479870fd4d8b05ed12d4d1c5753efdae2611) Thanks [@dependabot](https://github.com/apps/dependabot)! - fix(nhsuk-frontend-react): update code transformer
+
+- [#209](https://github.com/rowellx68/nhs-components/pull/209) [`f44fa3d`](https://github.com/rowellx68/nhs-components/commit/f44fa3de7322ed0fef38566aa5309b6409761471) Thanks [@dependabot](https://github.com/apps/dependabot)! - refactor(nhsuk-frontend-react): run new code transform against resources
+
 ## 4.3.0
 
 ### Minor Changes
