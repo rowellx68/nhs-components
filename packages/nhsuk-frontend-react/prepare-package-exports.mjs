@@ -8,6 +8,7 @@ const files = fg.globSync([
   'dist/**/*.mjs',
   '!dist/**/*.context.mjs',
   '!dist/**/resources/**/*.mjs',
+  '!dist/**/_virtual/*',
 ]);
 
 const exports = files.reduce((acc, file) => {
