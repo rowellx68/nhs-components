@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.3.2
+
+### Patch Changes
+
+- [#212](https://github.com/rowellx68/nhs-components/pull/212) [`e780fa1`](https://github.com/rowellx68/nhs-components/commit/e780fa106045725935fcbfa2b6f9571f20d5bb4f) Thanks [@rowellx68](https://github.com/rowellx68)! - fix(nhsuk-frontend-react): code transformer breaking publish
+
 ## 4.3.1
 
 ### Patch Changes
