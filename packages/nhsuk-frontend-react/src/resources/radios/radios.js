@@ -4,26 +4,33 @@
  *
  * Do not make changes to this file directly.
  *
- */
-import { toggleConditionalInput } from '@/resources/common'
+*/
+import { toggleConditionalInput } from '@/resources/common';
 
 /**
  * Conditionally show content when a radio button is checked
- * Test at http://0.0.0.0:3000/components/radios/conditional.html
- *
- * @param {{ scope?: HTMLElement | Document | null }} params
- *
+ * Test at http://localhost:3000/nhsuk-frontend/components/radios/conditional.html
  */
 
+/* *
+ *
+ * @param {{ scope?: HTMLElement | Document | null }} params
+ * @returns {void}
+ *
+*/
 export default ({ scope = document } = {}) => {
   // Radio input HTMLElements inside a conditional form group
-  const radioInputs = scope.querySelectorAll('.nhsuk-radios--conditional .nhsuk-radios__input')
+  const radioInputs = scope.querySelectorAll(
+    '.nhsuk-radios--conditional .nhsuk-radios__input'
+  )
 
   /**
    * Update all conditional reveals to match checked state
    */
   const syncAllConditionalReveals = () => {
-    radioInputs.forEach((input) => toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden'))
+    radioInputs.forEach((input) =>
+      toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden')
+    )
   }
 
   // When the page is restored after navigating 'back' in some browsers the
@@ -45,4 +52,4 @@ export default ({ scope = document } = {}) => {
   radioInputs.forEach((radioButton) => {
     radioButton.addEventListener('change', syncAllConditionalReveals)
   })
-}
+};

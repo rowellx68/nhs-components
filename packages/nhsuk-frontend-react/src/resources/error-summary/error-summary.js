@@ -4,7 +4,7 @@
  *
  * Do not make changes to this file directly.
  *
- */
+*/
 /**
  * Adapted from https://github.com/alphagov/govuk-frontend/blob/master/src/govuk/components/error-summary/error-summary.js
  */
@@ -56,7 +56,10 @@ function getAssociatedLegendOrLabel(input) {
     }
   }
 
-  return document.querySelector(`label[for='${input.getAttribute('id')}']`) || input.closest('label')
+  return (
+    document.querySelector(`label[for='${input.getAttribute('id')}']`) ||
+    input.closest('label')
+  )
 }
 
 /**
@@ -108,11 +111,12 @@ function handleClick(event) {
   }
 }
 
-/**
+/* *
  *
  * @param {{ focusOnPageLoad?: boolean, scope?: HTMLElement | Document | null }} params
+ * @returns {void}
  *
- */
+*/
 export default ({ focusOnPageLoad = true, scope = document } = {}) => {
   // Error summary component
   const errorSummary = scope.querySelector('.nhsuk-error-summary')

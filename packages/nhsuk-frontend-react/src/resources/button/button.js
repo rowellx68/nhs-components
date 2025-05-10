@@ -4,13 +4,12 @@
  *
  * Do not make changes to this file directly.
  *
- */
+*/
 class Button {
-  KEY_SPACE = 32
-
-  DEBOUNCE_TIMEOUT_IN_SECONDS = 1
-
   constructor($module) {
+    this.KEY_SPACE = 32
+    this.DEBOUNCE_TIMEOUT_IN_SECONDS = 1
+
     this.$module = $module
     this.debounceFormSubmitTimer = null
   }
@@ -29,7 +28,10 @@ class Button {
 
     const { target } = event
     // if the element has a role='button' and the pressed key is a space, we'll simulate a click
-    if (target.getAttribute('role') === 'button' && event.keyCode === this.KEY_SPACE) {
+    if (
+      target.getAttribute('role') === 'button' &&
+      event.keyCode === this.KEY_SPACE
+    ) {
       event.preventDefault()
       // trigger the target's click event
       target.click()
@@ -69,11 +71,12 @@ class Button {
   }
 }
 
-/**
+/* *
  *
  * @param {{ scope?: HTMLElement | Document | null }} params
+ * @returns {void}
  *
- */
+*/
 export default ({ scope = document } = {}) => {
   const buttons = scope.querySelectorAll('[data-module="nhsuk-button"]')
   buttons.forEach((el) => {
