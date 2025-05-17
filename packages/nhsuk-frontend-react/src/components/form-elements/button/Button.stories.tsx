@@ -26,7 +26,14 @@ const meta: Meta<typeof Button> = {
       control: {
         type: 'select',
       },
-      options: ['primary', 'secondary', 'reverse'],
+      options: [
+        'primary',
+        'secondary',
+        'secondary-solid',
+        'reverse',
+        'warning',
+        'login',
+      ],
       table: {
         type: {
           summary: 'union',
@@ -81,6 +88,23 @@ export const Secondary: Story = {
   ),
 };
 
+export const SecondarySolid: Story = {
+  args: {
+    type: 'button',
+    children: 'Secondary Button',
+    disabled: false,
+  },
+  render: ({ type, children, disabled, ...props }) => (
+    <Button
+      variant="secondary-solid"
+      type={type}
+      children={children}
+      disabled={disabled}
+      {...props}
+    />
+  ),
+};
+
 export const Reverse: Story = {
   args: {
     type: 'button',
@@ -115,6 +139,23 @@ export const Warning: Story = {
   ),
 };
 
+export const Login: Story = {
+  args: {
+    type: 'button',
+    children: 'Continue',
+    disabled: false,
+  },
+  render: ({ type, children, disabled, ...props }) => (
+    <Button
+      variant="login"
+      type={type}
+      children={children}
+      disabled={disabled}
+      {...props}
+    />
+  ),
+};
+
 export const PrimaryButtonAsLink: Story = {
   args: {
     children: 'Button as Link',
@@ -141,6 +182,23 @@ export const SecondaryButtonAsLink: Story = {
       as="a"
       href="#"
       variant="secondary"
+      children={children}
+      disabled={disabled}
+      {...props}
+    />
+  ),
+};
+
+export const SecondarySolidButtonAsLink: Story = {
+  args: {
+    children: 'Button as Link',
+    disabled: false,
+  },
+  render: ({ children, disabled, ...props }) => (
+    <Button
+      as="a"
+      href="#"
+      variant="secondary-solid"
       children={children}
       disabled={disabled}
       {...props}

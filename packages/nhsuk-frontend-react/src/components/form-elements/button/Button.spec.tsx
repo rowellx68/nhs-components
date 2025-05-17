@@ -17,7 +17,13 @@ it('should render the Button component as a button', () => {
   expect(container).toHaveTextContent('Submit');
 });
 
-it.each(['secondary', 'reverse', 'warning'] as const)(
+it.each([
+  'secondary',
+  'secondary-solid',
+  'reverse',
+  'warning',
+  'login',
+] as const)(
   'should render the Button component with the %s variant',
   (variant) => {
     const { container } = render(<Button variant={variant}>Action</Button>);

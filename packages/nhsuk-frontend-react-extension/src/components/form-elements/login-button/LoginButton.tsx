@@ -37,10 +37,7 @@ const LoginButton = factory<LoginButtonFactory>(
 
     return (
       <button
-        className={clsx(
-          'nhsuk-button nhsuk-button--login',
-          className,
-        )}
+        className={clsx('nhsuk-button nhsuk-button--login', className)}
         disabled={disabled}
         aria-disabled={disabled ? 'true' : undefined}
         {...props}
