@@ -24,6 +24,7 @@ export default tseslint.config(
       '@stylistic/operator-linebreak': 'off',
       '@stylistic/jsx-wrap-multilines': 'off',
       '@stylistic/multiline-ternary': 'off',
+      '@stylistic/brace-style': ['warn', '1tbs'],
     },
     languageOptions: {
       parserOptions: {

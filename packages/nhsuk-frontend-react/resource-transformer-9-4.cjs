@@ -22,7 +22,7 @@ module.exports = (file, api, options) => {
   root.get().node.comments = [...rootComments, banner];
 
   if (file.path.includes('common.js')) {
-        // remove module.exports
+    // remove module.exports
     const moduleExports = root.find(j.MemberExpression, {
       object: { name: 'module' },
       property: { name: 'exports' },
@@ -32,8 +32,7 @@ module.exports = (file, api, options) => {
       const parent = path.parentPath;
       if (parent.value.type === 'AssignmentExpression') {
         j(parent).remove();
-      }
-      else {
+      } else {
         j(path).remove();
       }
     });
@@ -58,10 +57,7 @@ module.exports = (file, api, options) => {
       const variableValue = declarator.init;
       const variableExport = j.exportNamedDeclaration(
         j.variableDeclaration('const', [
-          j.variableDeclarator(
-            j.identifier(variableName),
-            variableValue,
-          ),
+          j.variableDeclarator(j.identifier(variableName), variableValue),
         ]),
         [],
       );
@@ -115,8 +111,7 @@ module.exports = (file, api, options) => {
         j.literal(importedModule),
       );
       j(path).replaceWith(importStatement);
-    }
-    else {
+    } else {
       // Default import
       const importStatement = j.importDeclaration(
         [j.importDefaultSpecifier(j.identifier(declarator.id.name))],
