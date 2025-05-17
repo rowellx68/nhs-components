@@ -1,5 +1,11 @@
 # nhsuk-frontend-react-extension
 
+## 2.0.0
+
+### Major Changes
+
+- [#216](https://github.com/rowellx68/nhs-components/pull/216) [`669c032`](https://github.com/rowellx68/nhs-components/commit/669c032806bf23c382b38a8b0ae887f5cca2840b) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react-extension)!: simplify login button variants
+
 ## 1.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.4.0
+
+### Minor Changes
+
+- [#216](https://github.com/rowellx68/nhs-components/pull/216) [`50d675e`](https://github.com/rowellx68/nhs-components/commit/50d675ef380774022f6b26a12408361d0031a368) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): add button variants
+
 ## 4.3.2
 
 ### Patch Changes
