@@ -6,9 +6,9 @@ import { ElementProps } from '@/types/shared';
 export type LoginButtonProps = {
   variant:
     | 'cis2'
-    | `cis2-${'no-cta' | 'reverse' | 'reverse-no-cta'}`
+    | 'cis2-no-cta'
     | 'nhs-login'
-    | `nhs-login-${'reverse' | 'no-logo' | 'reverse-no-logo' | 'simple' | 'reverse-simple'}`;
+    | `nhs-login-${'no-logo' | 'simple'}`;
 } & ElementProps<'button'>;
 
 type LoginButtonFactory = Factory<{
@@ -28,8 +28,7 @@ const LoginButton = factory<LoginButtonFactory>(
         label = variant.includes('no-cta')
           ? 'Care Identity'
           : 'Log in with my Care Identity';
-      }
-      else if (isNhsLogin) {
+      } else if (isNhsLogin) {
         label = variant.includes('simple')
           ? 'Continue'
           : 'Continue to NHS login';
@@ -40,9 +39,6 @@ const LoginButton = factory<LoginButtonFactory>(
       <button
         className={clsx(
           'nhsuk-button nhsuk-button--login',
-          {
-            'nhsuk-button--reverse': variant.includes('reverse'),
-          },
           className,
         )}
         disabled={disabled}

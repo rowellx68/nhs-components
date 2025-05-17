@@ -16,14 +16,9 @@ const meta: Meta<typeof LoginButton> = {
       options: [
         'cis2',
         'cis2-no-cta',
-        'cis2-reverse',
-        'cis2-reverse-no-cta',
         'nhs-login',
-        'nhs-login-reverse',
         'nhs-login-no-logo',
-        'nhs-login-reverse-no-logo',
         'nhs-login-simple',
-        'nhs-login-reverse-simple',
       ],
     },
   },
@@ -33,25 +28,11 @@ export default meta;
 
 type Story = StoryObj<typeof LoginButton>;
 
-export const Example: Story = {};
+export const CareIdentity: Story = {};
 
 export const CareIdentityNoCallToAction: Story = {
   args: {
     variant: 'cis2-no-cta',
-    disabled: false,
-  },
-};
-
-export const CareIdentityReverse: Story = {
-  args: {
-    variant: 'cis2-reverse',
-    disabled: false,
-  },
-};
-
-export const CareIdentityReverseNoCallToAction: Story = {
-  args: {
-    variant: 'cis2-reverse-no-cta',
     disabled: false,
   },
 };
@@ -63,13 +44,6 @@ export const NHSLogin: Story = {
   },
 };
 
-export const NHSLoginReverse: Story = {
-  args: {
-    variant: 'nhs-login-reverse',
-    disabled: false,
-  },
-};
-
 export const NHSLoginNoLogo: Story = {
   args: {
     variant: 'nhs-login-no-logo',
@@ -77,23 +51,9 @@ export const NHSLoginNoLogo: Story = {
   },
 };
 
-export const NHSLoginReverseNoLogo: Story = {
-  args: {
-    variant: 'nhs-login-reverse-no-logo',
-    disabled: false,
-  },
-};
-
 export const NHSLoginSimple: Story = {
   args: {
     variant: 'nhs-login-simple',
-    disabled: false,
-  },
-};
-
-export const NHSLoginReverseSimple: Story = {
-  args: {
-    variant: 'nhs-login-reverse-simple',
     disabled: false,
   },
 };
