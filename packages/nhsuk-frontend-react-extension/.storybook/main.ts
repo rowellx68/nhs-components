@@ -21,6 +21,7 @@ const config: StorybookConfig = {
       resolve: {
         alias: {
           '@/': '/src/',
+          'nhsuk-frontend/': '/node_modules/nhsuk-frontend/',
         },
       },
     });

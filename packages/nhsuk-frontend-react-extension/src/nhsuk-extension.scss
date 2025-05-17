@@ -1,14 +1,14 @@
-@import 'nhsuk-frontend/packages/core/tools/_all';
-@import 'nhsuk-frontend/packages/core/settings/_all';
-@import 'nhsuk-frontend/packages/core/generic/_font-face';
+@use 'nhsuk-frontend/packages/core/tools' as *;
+@use 'nhsuk-frontend/packages/core/settings' as *;
+@use 'nhsuk-frontend/packages/core/generic/_font-face' as *;
 
-@include _nhsuk-font-face-frutiger;
+@use 'nhsuk-frontend/packages/components/button/_button' as *;
+
+@use './components/form-elements/login-button/login-button.scss' as *;
+@use './components/navigation/numbered-pagination/numbered-pagination.scss' as *;
+
+@include nhsuk-font-face-frutiger();
 
 .nhsuk-button {
   font-family: $nhsuk-font, $nhsuk-font-fallback;
 }
-
-@import 'nhsuk-frontend/packages/components/button/_button';
-
-@import './components/form-elements/login-button/login-button.scss';
-@import './components/navigation/numbered-pagination/numbered-pagination.scss';

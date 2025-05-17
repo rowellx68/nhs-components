@@ -1,5 +1,5 @@
-@import 'nhsuk-frontend/packages/core/settings/_all';
-@import 'nhsuk-frontend/packages/core/tools/_all';
+@use 'nhsuk-frontend/packages/core/settings' as *;
+@use 'nhsuk-frontend/packages/core/tools' as *;
 
 .nhsuk {
   &-numbered-pagination {
