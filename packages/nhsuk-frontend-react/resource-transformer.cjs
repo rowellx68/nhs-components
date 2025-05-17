@@ -113,7 +113,6 @@ module.exports = (file, api, options) => {
         true,
       ),
     ];
-    // eslint-disable-next-line @stylistic/brace-style
   } else {
     comments = [
       j.commentBlock(
