@@ -11,7 +11,13 @@ import { AsElementProps } from '@/types/shared';
 import initButton from '@/resources/button/button';
 
 export type ButtonProps = {
-  variant?: 'primary' | 'secondary' | 'reverse' | 'warning';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'secondary-solid'
+    | 'reverse'
+    | 'warning'
+    | 'login';
   disabled?: boolean;
   preventDoubleClick?: boolean;
   type?: 'button' | 'submit' | 'reset';
