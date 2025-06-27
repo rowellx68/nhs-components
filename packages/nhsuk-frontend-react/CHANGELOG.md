@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 4.5.0
+
+### Minor Changes
+
+- [#229](https://github.com/rowellx68/nhs-components/pull/229) [`4bc7c67`](https://github.com/rowellx68/nhs-components/commit/4bc7c67669834cdf9b43a18d84f3da45e0783658) Thanks [@rowellx68](https://github.com/rowellx68)! - feat(nhsuk-frontend-react): add variants to components
+
+  Add new variants to Summary List, Back Link and Bread Crumb components
+
 ## 4.4.0
 
 ### Minor Changes
