@@ -60,7 +60,9 @@ export const AppHeader = () => (
 <summary>Click to expand</summary>
 
 - `ActionLink`
+- `AToZ.Item`
 - `BackLink`
+- `BackToTopLink`
 - `Breadcrumb.BackLink`
 - `Breadcrumb.ListItem`
 - `Button`
@@ -69,6 +71,7 @@ export const AppHeader = () => (
 - `ContentList.ListItem`
 - `DoDontList.Label`
 - `ErrorSummary.ListItem`
+- `ErrorSummary.Title`
 - `Fieldset.Legend`
 - `Figure.Image`
 - `Footer.ListItem`
@@ -77,12 +80,15 @@ export const AppHeader = () => (
 - `Header.TransactionLink`
 - `Heading`
 - `Link`
+- `List`
 - `Pagination.Item`
 - `SummaryList.Row.ActionLink`
 - `Tabs.Title`
+- `Tabs.ListItem`
 - `TaskList.Item.NameAndHint`
 - `VisuallyHidden`
 - `WarningCallout.Label`
+- `VisuallyHidden`
 
 </details>
 
