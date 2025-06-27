@@ -54,19 +54,22 @@ const BreadcrumbList = ({
   );
 };
 
-export type BreadcrumbListItemProps = BaseProps;
+export type BreadcrumbListItemProps = BaseProps & {
+  variant?: 'default' | 'reverse';
+};
 
-type BaseCrumpListItemFactory = PolymorphicFactory<{
+type BaseCrumbListItemFactory = PolymorphicFactory<{
   props: BreadcrumbListItemProps;
   defaultComponent: 'a';
   defaultRef: HTMLAnchorElement;
 }>;
 
-const BreadcrumbListItem = polymorphicFactory<BaseCrumpListItemFactory>(
+const BreadcrumbListItem = polymorphicFactory<BaseCrumbListItemFactory>(
   (
     {
       className,
       as: component = 'a',
+      variant = 'default',
       ...props
     }: BreadcrumbListItemProps & AsElementProps,
     ref,
@@ -75,7 +78,11 @@ const BreadcrumbListItem = polymorphicFactory<BaseCrumpListItemFactory>(
       <li className="nhsuk-breadcrumb__item">
         <Base
           as={component}
-          className={clsx('nhsuk-breadcrumb__link', className)}
+          className={clsx(
+            'nhsuk-breadcrumb__link',
+            { 'nhsuk-breadcrumb--reverse': variant === 'reverse' },
+            className,
+          )}
           {...props}
           ref={ref}
         />

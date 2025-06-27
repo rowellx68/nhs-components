@@ -45,7 +45,9 @@ const SummaryList = factory<SummaryListFactory>(
   },
 );
 
-export type SummaryListRowProps = ElementProps<'div'>;
+export type SummaryListRowProps = ElementProps<'div'> & {
+  variant?: 'default' | 'no-border';
+};
 
 type SummaryListRowFactory = Factory<{
   props: SummaryListRowProps;
@@ -53,10 +55,14 @@ type SummaryListRowFactory = Factory<{
 }>;
 
 const SummaryListRow = factory<SummaryListRowFactory>(
-  ({ className, ...props }, ref) => {
+  ({ className, variant = 'default', ...props }, ref) => {
     return (
       <div
-        className={clsx('nhsuk-summary-list__row', className)}
+        className={clsx(
+          'nhsuk-summary-list__row',
+          { 'nhsuk-summary-list__row--no-border': variant === 'no-border' },
+          className,
+        )}
         {...props}
         ref={ref}
       />

@@ -8,7 +8,9 @@ import { ChevronLeftIcon } from '@/icons/chevron-left/ChevronLeft';
 import { AsElementProps } from '@/types/shared';
 import clsx from 'clsx';
 
-export type BackLinkProps = BaseProps;
+export type BackLinkProps = BaseProps & {
+  variant?: 'default' | 'reverse';
+};
 
 type BackLinkFactory = PolymorphicFactory<{
   props: BackLinkProps;
@@ -22,6 +24,7 @@ const BackLink = polymorphicFactory<BackLinkFactory>(
       className,
       children,
       as: component = 'a',
+      variant = 'default',
       ...props
     }: BackLinkProps & AsElementProps,
     ref,
@@ -30,7 +33,11 @@ const BackLink = polymorphicFactory<BackLinkFactory>(
       <div className="nhsuk-back-link">
         <Base
           as={component}
-          className={clsx('nhsuk-back-link__link', className)}
+          className={clsx(
+            'nhsuk-back-link__link',
+            { 'nhsuk-back-link--reverse': variant === 'reverse' },
+            className,
+          )}
           {...props}
           ref={ref}
         >
