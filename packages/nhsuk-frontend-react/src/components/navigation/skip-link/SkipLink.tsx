@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
 import { Factory, factory } from '@/internal/factory/factory';
-import initSkipLink from '@/resources/skip-link/skip-link';
+import { initSkipLinks } from 'nhsuk-frontend';
 
 export type SkipLinkProps = ElementProps<'a', 'href'>;
 
@@ -17,7 +17,7 @@ const SkipLink = factory<SkipLinkFactory>(
   ({ children, className, ...props }, ref) => {
     useEffect(() => {
       setTimeout(() => {
-        initSkipLink();
+        initSkipLinks();
       }, 500);
     });
 

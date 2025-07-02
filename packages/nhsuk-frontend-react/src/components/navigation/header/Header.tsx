@@ -24,7 +24,7 @@ import {
 } from '@/types/shared';
 import { SearchIcon } from '@/icons/search/Search';
 import { ChevronDownIcon } from '@/icons/chevron-down/ChevronDown';
-import initHeader from '@/resources/header/header';
+import { initHeader } from 'nhsuk-frontend';
 
 export type HeaderProps = (
   | {

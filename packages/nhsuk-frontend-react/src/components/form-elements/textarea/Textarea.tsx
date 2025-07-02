@@ -14,7 +14,7 @@ import {
 import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
-import initTextarea from '@/resources/character-count/character-count';
+import { initCharacterCounts } from 'nhsuk-frontend';
 import { Base } from '@/components/core/base/Base';
 import { Hint } from '../hint/Hint';
 
@@ -91,7 +91,7 @@ const Textarea = factory<TextareaFactory>(
         return;
       }
 
-      initTextarea({ scope: parent as any });
+      initCharacterCounts({ scope: parent });
     }, [internalRef, characterCount, maxCharacterLength, maxWords]);
 
     return (

@@ -19,9 +19,11 @@ import {
 } from './ErrorSummary.context';
 import { List, ListProps } from '@/components/styles/typography/list/List';
 import { Base } from '@/components/core/base/Base';
-import initErrorSummary from '@/resources/error-summary/error-summary';
+import { initErrorSummary } from 'nhsuk-frontend';
 
-export type ErrorSummaryProps = ElementProps<'div', 'role' | 'tabindex'>;
+export type ErrorSummaryProps = ElementProps<'div', 'role' | 'tabindex'> & {
+  focusOnPageLoad?: boolean;
+};
 
 type ErrorSummaryFactory = Factory<{
   props: ErrorSummaryProps;
@@ -35,7 +37,7 @@ type ErrorSummaryFactory = Factory<{
 }>;
 
 const ErrorSummary = factory<ErrorSummaryFactory>(
-  ({ className, ...props }, ref) => {
+  ({ className, focusOnPageLoad = false, ...props }, ref) => {
     useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
     const internalRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +54,7 @@ const ErrorSummary = factory<ErrorSummaryFactory>(
         return;
       }
 
-      initErrorSummary({ scope: parent as any });
+      initErrorSummary({ scope: parent, focusOnPageLoad: focusOnPageLoad });
     }, [internalRef]);
 
     return (

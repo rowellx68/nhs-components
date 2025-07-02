@@ -9,7 +9,7 @@ import {
 import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
 import clsx from 'clsx';
 import { Factory, factory } from '@/internal/factory/factory';
-import initTabs from '@/resources/tabs/tabs';
+import { initTabs } from 'nhsuk-frontend';
 
 export type TabsProps = ElementProps<'div'>;
 
@@ -41,7 +41,7 @@ const Tabs = factory<TabsFactory>(
         return;
       }
 
-      initTabs({ scope: parent as any });
+      initTabs({ scope: parent });
     }, [internalRef]);
 
     return (

@@ -19,7 +19,7 @@ import React, {
 } from 'react';
 import { Hint } from '../hint/Hint';
 import { RadioProvider, useRadioContext } from './Radio.context';
-import initRadio from '@/resources/radios/radios';
+import { initRadios } from 'nhsuk-frontend';
 
 export type RadioProps = { inline?: boolean } & BaseFormElementProps &
   ElementProps<'div'>;
@@ -50,7 +50,7 @@ const Radio = factory<RadioFactory>(({ children, inline, ...props }, ref) => {
       return;
     }
 
-    initRadio({ scope: parent as any });
+    initRadios({ scope: parent });
   }, [internalRef, withConditionals]);
 
   const value = useMemo(

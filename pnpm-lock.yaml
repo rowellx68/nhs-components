@@ -124,8 +124,8 @@ importers:
         specifier: ^17.3.0
         version: 17.3.0(@babel/preset-env@7.27.2(@babel/core@7.26.10))
       nhsuk-frontend:
-        specifier: ^9.6.3
-        version: 9.6.3
+        specifier: 10.0.0-internal.0
+        version: 10.0.0-internal.0
       rollup:
         specifier: ^4.44.0
         version: 4.44.0
@@ -3097,6 +3097,10 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  nhsuk-frontend@10.0.0-internal.0:
+    resolution: {integrity: sha512-BYCKQ31QPNqVg9SH0Kq53HRwNQ3kHLUbUYF6NDMLESmvPqIUF/sptVLYjC+dOnjz1igShyCLUTGCOc7bvKgZzQ==}
+    engines: {node: ^20.9.0 || ^22.11.0}
 
   nhsuk-frontend@9.6.3:
     resolution: {integrity: sha512-1AeQcFsI9UBNmStQCg7TtHRox57yuI9NOQrXerhD40LWPYDJgfaj9k2IpfZDFNt1BNmyQFzT2kcxNFRb2tvVnQ==}
@@ -7109,6 +7113,8 @@ snapshots:
   natural-compare@1.4.0: {}
 
   neo-async@2.6.2: {}
+
+  nhsuk-frontend@10.0.0-internal.0: {}
 
   nhsuk-frontend@9.6.3: {}
 

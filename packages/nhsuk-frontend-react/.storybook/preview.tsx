@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
 
-import 'nhsuk-frontend/dist/nhsuk.css';
+import 'nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css';
 import './styles.css';
 
 const preview: Preview = {

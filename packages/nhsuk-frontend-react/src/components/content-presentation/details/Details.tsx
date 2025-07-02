@@ -4,7 +4,7 @@ import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import clsx from 'clsx';
 import { ElementProps } from '@/types/shared';
 import { Factory, factory } from '@/internal/factory/factory';
-import initDetails from '@/resources/details/details';
+import { initDetails } from 'nhsuk-frontend';
 
 export type DetailsProps = {
   variant?: 'default' | 'expander';
@@ -36,7 +36,7 @@ const Details = factory<DetailsFactory>(
         return;
       }
 
-      initDetails({ scope: parent as any });
+      initDetails({ scope: parent });
     }, [internalRef]);
 
     return (

@@ -25,7 +25,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "prebuild": "node ./prepare-resources.mjs && rm -rf ./dist",
+    "prebuild": "rm -rf ./dist",
     "build": "rollup -c && rollup -c ./rollup.dts.config.mjs",
     "postbuild": "node ./prepare-package-exports.mjs",
     "sb": "storybook dev -p 6006 --no-open",
@@ -67,7 +67,7 @@
     "fast-glob": "^3.3.3",
     "happy-dom": "^17.6.3",
     "jscodeshift": "^17.3.0",
-    "nhsuk-frontend": "^9.6.3",
+    "nhsuk-frontend": "10.0.0-internal.0",
     "rollup": "^4.44.0",
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -82,7 +82,7 @@
     "clsx": "^2.1.1"
   },
   "peerDependencies": {
-    "nhsuk-frontend": "^9.6.2",
+    "nhsuk-frontend": "10.0.0-internal.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
     "tslib": "^2.6.2"
