@@ -16,7 +16,7 @@ const preview: Preview = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="js-enabled">
+      <div className="js-enabled nhsuk-frontend-supported">
         <Story />
       </div>
     ),
