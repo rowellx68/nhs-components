@@ -28,7 +28,7 @@
     "prebuild": "rm -rf ./dist",
     "build": "rollup -c && rollup -c ./rollup.dts.config.mjs",
     "postbuild": "node ./prepare-package-exports.mjs",
-    "sb": "storybook dev -p 6006 --no-open",
+    "sb": "storybook dev -p 6016 --no-open",
     "sb:build": "storybook build",
     "test": "vitest"
   },

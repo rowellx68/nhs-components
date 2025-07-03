@@ -19,7 +19,7 @@ import React, {
 } from 'react';
 import { Hint } from '../hint/Hint';
 import { CheckboxProvider, useCheckboxContext } from './Checkbox.context';
-import { initCheckboxes } from 'nhsuk-frontend';
+import { Checkboxes as NhsCheckboxes } from 'nhsuk-frontend';
 
 export type CheckboxProps = BaseFormElementProps & ElementProps<'div'>;
 
@@ -48,13 +48,7 @@ const Checkbox = factory<CheckboxFactory>(({ children, ...props }, ref) => {
       return;
     }
 
-    const parent = internalRef.current.closest('form')?.parentElement;
-
-    if (!parent) {
-      return;
-    }
-
-    initCheckboxes({ scope: parent });
+    new NhsCheckboxes(internalRef.current);
   }, [internalRef, withConditionals]);
 
   const value = useMemo(

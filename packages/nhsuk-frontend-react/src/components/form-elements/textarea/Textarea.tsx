@@ -14,7 +14,7 @@ import {
 import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
-import { initCharacterCounts } from 'nhsuk-frontend';
+import { CharacterCount as NhsCharacterCount } from 'nhsuk-frontend';
 import { Base } from '@/components/core/base/Base';
 import { Hint } from '../hint/Hint';
 
@@ -83,15 +83,9 @@ const Textarea = factory<TextareaFactory>(
         return;
       }
 
-      const parent = internalRef.current.closest(
-        '.nhsuk-character-count',
-      )?.parentElement;
-
-      if (!parent) {
-        return;
-      }
-
-      initCharacterCounts({ scope: parent });
+      new NhsCharacterCount(
+        internalRef.current.closest('[data-module="nhsuk-character-count"]'),
+      );
     }, [internalRef, characterCount, maxCharacterLength, maxWords]);
 
     return (

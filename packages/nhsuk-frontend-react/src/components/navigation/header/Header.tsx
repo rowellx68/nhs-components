@@ -24,7 +24,7 @@ import {
 } from '@/types/shared';
 import { SearchIcon } from '@/icons/search/Search';
 import { ChevronDownIcon } from '@/icons/chevron-down/ChevronDown';
-import { initHeader } from 'nhsuk-frontend';
+import { Header as NhsHeader } from 'nhsuk-frontend';
 
 export type HeaderProps = (
   | {
@@ -311,7 +311,7 @@ const HeaderNavList = factory<HeaderNavListFactory>(
         return;
       }
 
-      initHeader();
+      new NhsHeader(internalRef.current);
     }, [internalRef, children]);
 
     const primaryLinks = Children.toArray(children).filter((child) => {

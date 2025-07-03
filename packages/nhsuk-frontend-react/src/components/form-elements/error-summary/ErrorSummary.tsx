@@ -19,7 +19,7 @@ import {
 } from './ErrorSummary.context';
 import { List, ListProps } from '@/components/styles/typography/list/List';
 import { Base } from '@/components/core/base/Base';
-import { initErrorSummary } from 'nhsuk-frontend';
+import { ErrorSummary as NhsErrorSummary } from 'nhsuk-frontend';
 
 export type ErrorSummaryProps = ElementProps<'div', 'role' | 'tabindex'> & {
   focusOnPageLoad?: boolean;
@@ -48,13 +48,9 @@ const ErrorSummary = factory<ErrorSummaryFactory>(
         return;
       }
 
-      const parent = internalRef.current.parentElement;
-
-      if (!parent) {
-        return;
-      }
-
-      initErrorSummary({ scope: parent, focusOnPageLoad: focusOnPageLoad });
+      new NhsErrorSummary(internalRef.current, {
+        disableAutoFocus: !focusOnPageLoad,
+      });
     }, [internalRef]);
 
     return (

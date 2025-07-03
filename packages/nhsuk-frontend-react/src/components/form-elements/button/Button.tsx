@@ -8,7 +8,7 @@ import {
 } from '@/internal/factory/polymorphic-factory';
 import clsx from 'clsx';
 import { AsElementProps } from '@/types/shared';
-import { initButtons } from 'nhsuk-frontend';
+import { Button as NhsButton } from 'nhsuk-frontend';
 
 export type ButtonProps = {
   variant?:
@@ -52,15 +52,7 @@ const Button = polymorphicFactory<ButtonFactory>(
         return;
       }
 
-      const parent = internalRef.current.parentElement;
-
-      if (!parent) {
-        return;
-      }
-
-      initButtons({
-        scope: parent as any,
-      });
+      new NhsButton(internalRef.current);
     }, [internalRef]);
 
     const notButton = component !== 'button';

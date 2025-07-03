@@ -23,6 +23,9 @@ export default meta;
 type Story = StoryObj<typeof ErrorSummary>;
 
 export const Example: Story = {
+  args: {
+    focusOnPageLoad: true,
+  },
   render: (args) => (
     <ErrorSummary {...args}>
       <ErrorSummary.Title>There is a problem</ErrorSummary.Title>

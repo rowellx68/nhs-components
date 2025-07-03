@@ -3,6 +3,45 @@ declare module 'nhsuk-frontend' {
     scope: Element | Document | null;
   };
 
+  export class Button {
+    constructor(root: Element | null);
+  }
+
+  export class CharacterCount {
+    constructor(root: Element | null);
+  }
+
+  export class Checkboxes {
+    constructor(root: Element | null);
+  }
+
+  export class Details {
+    constructor(root: Element | null);
+  }
+
+  export class ErrorSummary {
+    constructor(
+      root: Element | null,
+      config: { disableAutoFocus: boolean } = { disableAutoFocus: false },
+    );
+  }
+
+  export class Header {
+    constructor(root: Element | null);
+  }
+
+  export class Radios {
+    constructor(root: Element | null);
+  }
+
+  export class SkipLink {
+    constructor(root: Element | null);
+  }
+
+  export class Tabs {
+    constructor(root: Element | null);
+  }
+
   export function initButtons(options: BaseInitOptions = {}): void;
 
   export function initCharacterCounts(options: BaseInitOptions = {}): void;
