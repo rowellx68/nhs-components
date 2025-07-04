@@ -1,9 +1,8 @@
 name: Publish
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
   publish:
@@ -14,7 +13,7 @@ jobs:
       pull-requests: write
       id-token: write
     outputs:
-      published: ${{ steps.changesets.outputs.published }}
+      published: ${{ steps.publish.outputs.type }}
     steps:
       - uses: actions/checkout@v4
 
@@ -37,20 +36,19 @@ jobs:
 
       - run: pnpm test
 
-      - uses: changesets/action@v1
-        id: changesets
+      - name: publish package
+        id: publish
+        uses: JS-DevTools/npm-publish@v3
         with:
-          title: 'chore: version packages'
-          commit: 'chore: version packages'
-          publish: pnpm release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          tag: ${{ github.event.release.prerelease && 'beta' || 'latest' }}
+          token: ${{ secrets.NPM_TOKEN }}
+          access: public
+          provenance: true
 
   publish_storybook:
     runs-on: ubuntu-latest
     needs: publish
-    if: ${{ needs.publish.outputs.published == 'true' && github.ref == 'refs/heads/main' }}
+    if: ${{ needs.publish.outputs.published !== '' }}
     permissions:
       contents: write
     steps:
@@ -71,10 +69,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: |
-          pnpm -F ./packages/nhsuk-frontend-react sb:build -o ./out-sb
-          touch ./packages/nhsuk-frontend-react/out-sb/.nojekyll
-
-      - uses: JamesIves/github-pages-deploy-action@v4
+      - name: publish storybook
+        uses: chromaui/action@v13
         with:
-          folder: ./packages/nhsuk-frontend-react/out-sb
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}

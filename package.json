@@ -1,28 +1,364 @@
 {
-  "name": "nhsuk-components",
-  "version": "0.0.0",
-  "scripts": {
-    "build": "pnpm -r build",
-    "test": "vitest",
-    "format": "prettier --write .",
-    "lint": "eslint ./packages",
-    "sb": "pnpm -r sb",
-    "release": "pnpm changeset publish",
-    "cc:changeset": "pnpm changeset-conventional"
+  "name": "nhsuk-react-components",
+  "version": "6.0.0",
+  "homepage": "https://github.com/NHSDigital/nhsuk-react-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NHSDigital/nhsuk-react-components"
   },
-  "keywords": [],
-  "author": "Rowell Heria",
+  "bugs": {
+    "url": "https://github.com/NHSDigital/nhsuk-react-components/issues"
+  },
+  "description": "A React component library for the NHS.UK frontend design system.",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf ./dist",
+    "format": "prettier --write . && eslint --fix .",
+    "build": "rollup -c && rollup -c ./rollup.dts.config.mjs",
+    "postbuild": "node ./prepare-package-exports.mjs",
+    "sb": "storybook dev -p 6016 --no-open",
+    "sb:build": "storybook build",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "nhsuk",
+    "nhs",
+    "react",
+    "components",
+    "design",
+    "nhsuk frontend",
+    "library"
+  ],
+  "author": "NHS England",
   "license": "MIT",
   "devDependencies": {
-    "@changesets/changelog-github": "^0.5.1",
-    "@changesets/cli": "^2.29.5",
-    "@eslint/js": "^9.29.0",
-    "@stylistic/eslint-plugin": "^4.4.1",
-    "changeset-conventional-commits": "^0.2.5",
-    "eslint": "^9.29.0",
-    "prettier": "^3.6.0",
+    "@babel/preset-env": "^7.28.0",
+    "@eslint/js": "^9.30.1",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@storybook/addon-a11y": "^9.0.15",
+    "@storybook/addon-links": "^9.0.15",
+    "@storybook/react-vite": "^9.0.15",
+    "@stylistic/eslint-plugin": "^5.1.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jscodeshift": "^17.3.0",
+    "@types/node": "~22.16.0",
+    "@types/react": "^19.1.8",
+    "@vitest/coverage-v8": "^3.2.4",
+    "del": "^8.0.0",
+    "eslint": "^9.30.1",
+    "fast-glob": "^3.3.3",
+    "happy-dom": "^18.0.1",
+    "jscodeshift": "^17.3.0",
+    "nhsuk-frontend": "10.0.0-internal.0",
+    "prettier": "^3.6.2",
+    "rollup": "^4.44.2",
+    "rollup-plugin-dts": "^6.2.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "rollup-plugin-typescript-paths": "^1.5.0",
+    "storybook": "^9.0.15",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.34.1",
-    "vitest": "^3.2.4"
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.2",
+    "vitest": "^3.2.4",
+    "eslint-plugin-storybook": "9.0.15",
+    "@storybook/addon-docs": "^9.0.15"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "peerDependencies": {
+    "nhsuk-frontend": "10.0.0-internal.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tslib": "^2.6.2"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./assets": {
+      "import": "./dist/assets/NhsLogo.mjs",
+      "require": "./dist/assets/NhsLogo.js"
+    },
+    "./components/a-to-z": {
+      "import": "./dist/components/a-to-z/AToZ.mjs",
+      "require": "./dist/components/a-to-z/AToZ.js"
+    },
+    "./components/action-link": {
+      "import": "./dist/components/action-link/ActionLink.mjs",
+      "require": "./dist/components/action-link/ActionLink.js"
+    },
+    "./components/back-link": {
+      "import": "./dist/components/back-link/BackLink.mjs",
+      "require": "./dist/components/back-link/BackLink.js"
+    },
+    "./components/back-to-top-link": {
+      "import": "./dist/components/back-to-top-link/BackToTopLink.mjs",
+      "require": "./dist/components/back-to-top-link/BackToTopLink.js"
+    },
+    "./components/breadcrumb": {
+      "import": "./dist/components/breadcrumb/Breadcrumb.mjs",
+      "require": "./dist/components/breadcrumb/Breadcrumb.js"
+    },
+    "./components/button": {
+      "import": "./dist/components/button/Button.mjs",
+      "require": "./dist/components/button/Button.js"
+    },
+    "./components/card": {
+      "import": "./dist/components/card/Card.mjs",
+      "require": "./dist/components/card/Card.js"
+    },
+    "./components/character-count": {
+      "import": "./dist/components/character-count/CharacterCount.mjs",
+      "require": "./dist/components/character-count/CharacterCount.js"
+    },
+    "./components/checkbox": {
+      "import": "./dist/components/checkbox/Checkbox.mjs",
+      "require": "./dist/components/checkbox/Checkbox.js"
+    },
+    "./components/contents-list": {
+      "import": "./dist/components/contents-list/ContentsList.mjs",
+      "require": "./dist/components/contents-list/ContentsList.js"
+    },
+    "./components/date-input": {
+      "import": "./dist/components/date-input/DateInput.mjs",
+      "require": "./dist/components/date-input/DateInput.js"
+    },
+    "./components/details": {
+      "import": "./dist/components/details/Details.mjs",
+      "require": "./dist/components/details/Details.js"
+    },
+    "./components/do-dont-list": {
+      "import": "./dist/components/do-dont-list/DoDontList.mjs",
+      "require": "./dist/components/do-dont-list/DoDontList.js"
+    },
+    "./components/error-message": {
+      "import": "./dist/components/error-message/ErrorMessage.mjs",
+      "require": "./dist/components/error-message/ErrorMessage.js"
+    },
+    "./components/error-summary": {
+      "import": "./dist/components/error-summary/ErrorSummary.mjs",
+      "require": "./dist/components/error-summary/ErrorSummary.js"
+    },
+    "./components/expander": {
+      "import": "./dist/components/expander/Expander.mjs",
+      "require": "./dist/components/expander/Expander.js"
+    },
+    "./components/fieldset": {
+      "import": "./dist/components/fieldset/Fieldset.mjs",
+      "require": "./dist/components/fieldset/Fieldset.js"
+    },
+    "./components/figure": {
+      "import": "./dist/components/figure/Figure.mjs",
+      "require": "./dist/components/figure/Figure.js"
+    },
+    "./components/footer": {
+      "import": "./dist/components/footer/Footer.mjs",
+      "require": "./dist/components/footer/Footer.js"
+    },
+    "./components/form-group": {
+      "import": "./dist/components/form-group/FormGroup.mjs",
+      "require": "./dist/components/form-group/FormGroup.js"
+    },
+    "./components/header": {
+      "import": "./dist/components/header/Header.mjs",
+      "require": "./dist/components/header/Header.js"
+    },
+    "./components/hero": {
+      "import": "./dist/components/hero/Hero.mjs",
+      "require": "./dist/components/hero/Hero.js"
+    },
+    "./components/hint": {
+      "import": "./dist/components/hint/Hint.mjs",
+      "require": "./dist/components/hint/Hint.js"
+    },
+    "./components/input": {
+      "import": "./dist/components/input/Input.mjs",
+      "require": "./dist/components/input/Input.js"
+    },
+    "./components/inset-text": {
+      "import": "./dist/components/inset-text/InsetText.mjs",
+      "require": "./dist/components/inset-text/InsetText.js"
+    },
+    "./components/label": {
+      "import": "./dist/components/label/Label.mjs",
+      "require": "./dist/components/label/Label.js"
+    },
+    "./components/pagination": {
+      "import": "./dist/components/pagination/Pagination.mjs",
+      "require": "./dist/components/pagination/Pagination.js"
+    },
+    "./components/panel": {
+      "import": "./dist/components/panel/Panel.mjs",
+      "require": "./dist/components/panel/Panel.js"
+    },
+    "./components/radio": {
+      "import": "./dist/components/radio/Radio.mjs",
+      "require": "./dist/components/radio/Radio.js"
+    },
+    "./components/select": {
+      "import": "./dist/components/select/Select.mjs",
+      "require": "./dist/components/select/Select.js"
+    },
+    "./components/skip-link": {
+      "import": "./dist/components/skip-link/SkipLink.mjs",
+      "require": "./dist/components/skip-link/SkipLink.js"
+    },
+    "./components/summary-list": {
+      "import": "./dist/components/summary-list/SummaryList.mjs",
+      "require": "./dist/components/summary-list/SummaryList.js"
+    },
+    "./components/table": {
+      "import": "./dist/components/table/Table.mjs",
+      "require": "./dist/components/table/Table.js"
+    },
+    "./components/tabs": {
+      "import": "./dist/components/tabs/Tabs.mjs",
+      "require": "./dist/components/tabs/Tabs.js"
+    },
+    "./components/tag": {
+      "import": "./dist/components/tag/Tag.mjs",
+      "require": "./dist/components/tag/Tag.js"
+    },
+    "./components/task-list": {
+      "import": "./dist/components/task-list/TaskList.mjs",
+      "require": "./dist/components/task-list/TaskList.js"
+    },
+    "./components/textarea": {
+      "import": "./dist/components/textarea/Textarea.mjs",
+      "require": "./dist/components/textarea/Textarea.js"
+    },
+    "./components/visually-hidden": {
+      "import": "./dist/components/visually-hidden/VisuallyHidden.mjs",
+      "require": "./dist/components/visually-hidden/VisuallyHidden.js"
+    },
+    "./components/warning-callout": {
+      "import": "./dist/components/warning-callout/WarningCallout.mjs",
+      "require": "./dist/components/warning-callout/WarningCallout.js"
+    },
+    "./icons/arrow-left": {
+      "import": "./dist/icons/arrow-left/ArrowLeft.mjs",
+      "require": "./dist/icons/arrow-left/ArrowLeft.js"
+    },
+    "./icons/arrow-right": {
+      "import": "./dist/icons/arrow-right/ArrowRight.mjs",
+      "require": "./dist/icons/arrow-right/ArrowRight.js"
+    },
+    "./icons/arrow-right-circle": {
+      "import": "./dist/icons/arrow-right-circle/ArrowRightCircle.mjs",
+      "require": "./dist/icons/arrow-right-circle/ArrowRightCircle.js"
+    },
+    "./icons/chevron-down": {
+      "import": "./dist/icons/chevron-down/ChevronDown.mjs",
+      "require": "./dist/icons/chevron-down/ChevronDown.js"
+    },
+    "./icons/chevron-left": {
+      "import": "./dist/icons/chevron-left/ChevronLeft.mjs",
+      "require": "./dist/icons/chevron-left/ChevronLeft.js"
+    },
+    "./icons/chevron-right": {
+      "import": "./dist/icons/chevron-right/ChevronRight.mjs",
+      "require": "./dist/icons/chevron-right/ChevronRight.js"
+    },
+    "./icons/chevron-right-circle": {
+      "import": "./dist/icons/chevron-right-circle/ChevronRightCircle.mjs",
+      "require": "./dist/icons/chevron-right-circle/ChevronRightCircle.js"
+    },
+    "./icons/close": {
+      "import": "./dist/icons/close/Close.mjs",
+      "require": "./dist/icons/close/Close.js"
+    },
+    "./icons/cross": {
+      "import": "./dist/icons/cross/Cross.mjs",
+      "require": "./dist/icons/cross/Cross.js"
+    },
+    "./icons/search": {
+      "import": "./dist/icons/search/Search.mjs",
+      "require": "./dist/icons/search/Search.js"
+    },
+    "./icons/tick": {
+      "import": "./dist/icons/tick/Tick.mjs",
+      "require": "./dist/icons/tick/Tick.js"
+    },
+    "./internal/base/Base": {
+      "import": "./dist/internal/base/Base.mjs",
+      "require": "./dist/internal/base/Base.js"
+    },
+    "./internal/factory/create-polymorphic-factory": {
+      "import": "./dist/internal/factory/create-polymorphic-factory.mjs",
+      "require": "./dist/internal/factory/create-polymorphic-factory.js"
+    },
+    "./internal/factory/factory": {
+      "import": "./dist/internal/factory/factory.mjs",
+      "require": "./dist/internal/factory/factory.js"
+    },
+    "./internal/factory/polymorphic-factory": {
+      "import": "./dist/internal/factory/polymorphic-factory.mjs",
+      "require": "./dist/internal/factory/polymorphic-factory.js"
+    },
+    "./internal/hooks/use-id-with-prefix": {
+      "import": "./dist/internal/hooks/use-id-with-prefix.mjs",
+      "require": "./dist/internal/hooks/use-id-with-prefix.js"
+    },
+    "./styles/layout/container": {
+      "import": "./dist/styles/layout/container/Container.mjs",
+      "require": "./dist/styles/layout/container/Container.js"
+    },
+    "./styles/layout/grid": {
+      "import": "./dist/styles/layout/grid/Grid.mjs",
+      "require": "./dist/styles/layout/grid/Grid.js"
+    },
+    "./styles/layout/main": {
+      "import": "./dist/styles/layout/main/Main.mjs",
+      "require": "./dist/styles/layout/main/Main.js"
+    },
+    "./styles/layout/reading-width": {
+      "import": "./dist/styles/layout/reading-width/ReadingWidth.mjs",
+      "require": "./dist/styles/layout/reading-width/ReadingWidth.js"
+    },
+    "./styles/typography/heading": {
+      "import": "./dist/styles/typography/heading/Heading.mjs",
+      "require": "./dist/styles/typography/heading/Heading.js"
+    },
+    "./styles/typography/heading-caption": {
+      "import": "./dist/styles/typography/heading-caption/HeadingCaption.mjs",
+      "require": "./dist/styles/typography/heading-caption/HeadingCaption.js"
+    },
+    "./styles/typography/link": {
+      "import": "./dist/styles/typography/link/Link.mjs",
+      "require": "./dist/styles/typography/link/Link.js"
+    },
+    "./styles/typography/list": {
+      "import": "./dist/styles/typography/list/List.mjs",
+      "require": "./dist/styles/typography/list/List.js"
+    },
+    "./styles/typography/paragraph": {
+      "import": "./dist/styles/typography/paragraph/Paragraph.mjs",
+      "require": "./dist/styles/typography/paragraph/Paragraph.js"
+    },
+    "./styles/typography/section-break": {
+      "import": "./dist/styles/typography/section-break/SectionBreak.mjs",
+      "require": "./dist/styles/typography/section-break/SectionBreak.js"
+    }
   }
 }

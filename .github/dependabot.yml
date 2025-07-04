@@ -16,7 +16,7 @@ updates:
     versioning-strategy: increase
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     commit-message:
       prefix: chore
     labels:
@@ -27,23 +27,3 @@ updates:
     ignore:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
-
-  - package-ecosystem: npm
-    versioning-strategy: increase
-    target-branch: v3
-    directory: /
-    schedule:
-      interval: weekly
-    commit-message:
-      prefix: chore
-    labels:
-      - dependencies
-    groups:
-      npm:
-        patterns: ['*']
-    ignore:
-      - dependency-name: '*'
-        update-types: ['version-update:semver-major']
-      - dependency-name: 'nhsuk-frontend'
-        update-types:
-          ['version-update:semver-minor', 'version-update:semver-major']
