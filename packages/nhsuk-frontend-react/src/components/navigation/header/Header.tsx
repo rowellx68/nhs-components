@@ -381,34 +381,6 @@ const HeaderSearchButton = factory<HeaderSearchButtonFactory>(
   },
 );
 
-// export type HeaderMobileMenuProps = ElementProps<'button'> &
-//   WithVisuallyHiddenTextProps;
-
-// const HeaderMobileMenu = ({
-//   visuallyHiddenText = 'Browse',
-//   children = 'More',
-//   className,
-//   ...props
-// }: HeaderMobileMenuProps) => {
-//   return (
-//     <li className="nhsuk-header__menu" hidden>
-//       <button
-//         className={clsx(
-//           'nhsuk-header__menu-toggle nhsuk-header__navigation-link',
-//           className,
-//         )}
-//         id="toggle-menu"
-//         aria-expanded="false"
-//         {...props}
-//         type="button"
-//       >
-//         <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden> {children}
-//         <ChevronDownIcon />
-//       </button>
-//     </li>
-//   );
-// };
-
 Header.displayName = 'Header';
 HeaderContainer.displayName = 'Header.Container';
 HeaderService.displayName = 'Header.Service';
