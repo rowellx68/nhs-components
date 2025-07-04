@@ -92,6 +92,10 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
+    "./assets": {
+      "import": "./dist/assets/NhsLogo.mjs",
+      "require": "./dist/assets/NhsLogo.cjs"
+    },
     "./icons/arrow-left": {
       "import": "./dist/icons/arrow-left/ArrowLeft.mjs",
       "require": "./dist/icons/arrow-left/ArrowLeft.cjs"

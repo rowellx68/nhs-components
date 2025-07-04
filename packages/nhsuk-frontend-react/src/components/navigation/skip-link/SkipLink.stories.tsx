@@ -27,9 +27,11 @@ export const Default: Story = {
   render: (args) => (
     <>
       <SkipLink {...args}>Skip to main content</SkipLink>
-      <Header serviceName="Find your NHS number">
+      <Header>
         <Header.Container>
-          <Header.Logo href="/" aria-label="NHS homepage" />
+          <Header.Service>
+            <Header.ServiceLogo href="#" serviceName="Digital service manual" />
+          </Header.Service>
         </Header.Container>
       </Header>
       <Container>
