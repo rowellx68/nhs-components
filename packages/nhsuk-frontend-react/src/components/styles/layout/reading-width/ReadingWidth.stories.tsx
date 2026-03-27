@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { ReadingWidth } from './ReadingWidth';
+
 import { Container } from '../container/Container';
+import { ReadingWidth } from './ReadingWidth';
 
 /**
  * To make it easy to read, lines of text should be no longer than 70 to 80 characters.
@@ -11,7 +12,7 @@ import { Container } from '../container/Container';
  * https://service-manual.nhs.uk/design-system/styles/layout#utility-classes
  */
 
-const meta: Meta<typeof ReadingWidth> = {
+const meta = {
   title: 'Styles/Layout/Reading Width',
   component: ReadingWidth,
   argTypes: {
@@ -24,7 +25,7 @@ const meta: Meta<typeof ReadingWidth> = {
       },
     },
   },
-};
+} satisfies Meta<typeof ReadingWidth>;
 
 export default meta;
 
@@ -35,10 +36,9 @@ export const Default: Story = {
     <Container>
       <ReadingWidth {...args}>
         <p>
-          This is example content which would exceed 70-80 characters per line,
-          if used within a full width column. The .nhsuk-u-reading-width utility
-          class will apply a maximum width and limit the number of characters
-          per line.
+          This is example content which would exceed 70-80 characters per line, if used within a
+          full width column. The .nhsuk-u-reading-width utility class will apply a maximum width and
+          limit the number of characters per line.
         </p>
       </ReadingWidth>
     </Container>

@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { SectionBreak } from './SectionBreak';
 
 /**
@@ -9,10 +10,10 @@ import { SectionBreak } from './SectionBreak';
  *
  * https://service-manual.nhs.uk/design-system/styles/typography#section-break
  */
-const meta: Meta<typeof SectionBreak> = {
+const meta = {
   title: 'Styles/Typography/Section Break',
   component: SectionBreak,
-};
+} satisfies Meta<typeof SectionBreak>;
 
 export default meta;
 

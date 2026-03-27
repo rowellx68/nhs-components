@@ -1,7 +1,7 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 import React from 'react';
 
-import 'nhsuk-frontend/dist/nhsuk.css';
+import 'nhsuk-frontend/dist/nhsuk/nhsuk-frontend.min.css';
 import './styles.css';
 
 const preview: Preview = {
@@ -16,7 +16,7 @@ const preview: Preview = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="js-enabled">
+      <div className="js-enabled nhsuk-frontend-supported">
         <Story />
       </div>
     ),

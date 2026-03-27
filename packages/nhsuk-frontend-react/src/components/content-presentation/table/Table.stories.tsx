@@ -1,15 +1,17 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Table } from './Table';
-import { Column, Row } from '@/components/styles/layout/grid/Grid';
+
 import { Container } from '@/components/styles/layout/container/Container';
+import { Column, Row } from '@/components/styles/layout/grid/Grid';
+
+import { Table } from './Table';
 
 /**
  * Use a table to make it easier for users to compare and scan information.
  *
  * https://service-manual.nhs.uk/design-system/components/table
  */
-const meta: Meta<typeof Table> = {
+const meta = {
   title: 'Components/Content Presentation/Table',
   component: Table,
   subcomponents: {
@@ -32,16 +34,16 @@ const meta: Meta<typeof Table> = {
       },
     },
   },
-};
+} satisfies Meta<typeof Table>;
 
 export default meta;
 
 type Story = StoryObj<typeof Table>;
 
-export const TwoColumn: Story = {
+export const Default: Story = {
   render: (args) => (
     <Table {...args}>
-      <Table.Caption>Skin symptoms and possible causes</Table.Caption>
+      <Table.Caption size="m">Impetigo can look similar to other skin conditions</Table.Caption>
       <Table.Head>
         <Table.Row>
           <Table.Cell>Skin symptoms</Table.Cell>
@@ -51,54 +53,105 @@ export const TwoColumn: Story = {
       <Table.Body>
         <Table.Row>
           <Table.Cell>Blisters on lips or around the mouth</Table.Cell>
-          <Table.Cell>cold sores</Table.Cell>
+          <Table.Cell>Cold sores</Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Itchy, dry, cracked, sore</Table.Cell>
-          <Table.Cell>eczema</Table.Cell>
+          <Table.Cell>Eczema</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>Red, scaly patches</Table.Cell>
-          <Table.Cell>psoriasis</Table.Cell>
+          <Table.Cell>Itchy blisters</Table.Cell>
+          <Table.Cell>Shingles, chickenpox</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
   ),
 };
 
-export const ThreeColumn: Story = {
+export const Reverse: Story = {
+  args: {
+    reverse: true,
+  },
   render: (args) => (
-    <Table {...args} variant="responsive">
-      <Table.Caption>Ibuprofen tablet dosages for children</Table.Caption>
+    <Table {...args}>
+      <Table.Caption size="m">Impetigo can look similar to other skin conditions</Table.Caption>
       <Table.Head>
         <Table.Row>
-          <Table.Cell responsiveHeading="Age">Age</Table.Cell>
-          <Table.Cell responsiveHeading="How much?">How much</Table.Cell>
-          <Table.Cell responsiveHeading="How often?">How often</Table.Cell>
+          <Table.Cell>Skin symptoms</Table.Cell>
+          <Table.Cell>Possible cause</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
         <Table.Row>
-          <Table.Cell>7 to 9 years</Table.Cell>
-          <Table.Cell>200mg</Table.Cell>
-          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+          <Table.Cell>Blisters on lips or around the mouth</Table.Cell>
+          <Table.Cell>Cold sores</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>10 to 11 years</Table.Cell>
-          <Table.Cell>200mg to 300mg</Table.Cell>
-          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+          <Table.Cell>Itchy, dry, cracked, sore</Table.Cell>
+          <Table.Cell>Eczema</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>12 to 17 years</Table.Cell>
-          <Table.Cell>200mg to 400mg</Table.Cell>
-          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+          <Table.Cell>Itchy blisters</Table.Cell>
+          <Table.Cell>Shingles, chickenpox</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
   ),
 };
 
-export const ThreeColumnWithFirstCellAsHeader: Story = {
+export const Responsive: Story = {
+  render: (args) => (
+    <Table {...args} variant="responsive">
+      <Table.Caption size="m">Ibuprofen syrup dosages for children</Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          <Table.Cell>Age</Table.Cell>
+          <Table.Cell>How much?</Table.Cell>
+          <Table.Cell>How often?</Table.Cell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>3 to 5 months (weighing more than 5kg)</Table.Cell>
+          <Table.Cell>2.5ml</Table.Cell>
+          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>6 to 11 months</Table.Cell>
+          <Table.Cell>2.5ml</Table.Cell>
+          <Table.Cell>Max 3 to 4 times in 24 hours</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>1 to 3 years</Table.Cell>
+          <Table.Cell>5ml</Table.Cell>
+          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>4 to 6 years</Table.Cell>
+          <Table.Cell>7.5ml</Table.Cell>
+          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>7 to 9 years</Table.Cell>
+          <Table.Cell>10ml</Table.Cell>
+          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>10 to 11 years</Table.Cell>
+          <Table.Cell>15ml</Table.Cell>
+          <Table.Cell>Max 3 times in 24 hours</Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>12 to 17 years</Table.Cell>
+          <Table.Cell>15ml to 20ml</Table.Cell>
+          <Table.Cell>Max 3 to 4 times in 24 hours</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  ),
+};
+
+export const ResponsiveWithFirstCellAsHeader: Story = {
   args: {
     firstCellIsHeader: true,
     variant: 'responsive',
@@ -108,7 +161,7 @@ export const ThreeColumnWithFirstCellAsHeader: Story = {
       <Row>
         <Column width="two-thirds">
           <Table {...args}>
-            <Table.Caption>
+            <Table.Caption size="m">
               Prescription prepayment certificate (PPC) charges
             </Table.Caption>
             <Table.Head>
@@ -119,7 +172,7 @@ export const ThreeColumnWithFirstCellAsHeader: Story = {
               </Table.Row>
             </Table.Head>
             <Table.Body>
-              <Table.Row role="none">
+              <Table.Row>
                 <Table.Cell>3-month</Table.Cell>
                 <Table.Cell variant="numeric">£31.25</Table.Cell>
                 <Table.Cell variant="numeric">£32.05</Table.Cell>

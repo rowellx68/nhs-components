@@ -1,20 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from './Input';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
+
+import { Input } from './Input';
 
 /**
  * Use text input to let users enter a single line of text.
  *
  * https://service-manual.nhs.uk/design-system/components/text-input
  */
-const meta: Meta = {
+const meta = {
   title: 'Components/Form Elements/Input',
   component: Input,
   argTypes: {
     width: {
-      control: {
-        type: 'select',
-      },
+      control: 'select',
       options: [
         '2',
         '3',
@@ -32,15 +31,15 @@ const meta: Meta = {
       ],
     },
   },
-};
+} satisfies Meta<typeof Input>;
 
 export default meta;
 
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Full name',
+    label: 'What is your full name?',
   },
   render: (args) => <Input {...args} />,
 };
@@ -77,15 +76,14 @@ export const WithHint: Story = {
     label: 'Enter a full postcode in England',
     hint: 'For example, LS1 1AB',
     width: '10',
-    error: '',
   },
   render: (args) => <Input {...args} />,
 };
 
 export const WithError: Story = {
   args: {
-    label: 'Full name',
-    error: 'Enter your full name',
+    label: 'What is your NHS number?',
+    error: 'Enter NHS number',
   },
   render: (args) => <Input {...args} />,
 };
@@ -96,9 +94,7 @@ export const WholeNumbers: Story = {
     hint: 'Your NHS number is a 10 digit number that you find on any letter the NHS has sent you. For example, 485 777 3456.',
     width: '10',
   },
-  render: (args) => (
-    <Input {...args} type="text" inputMode="numeric" pattern="[0-9]*" />
-  ),
+  render: (args) => <Input {...args} type="text" inputMode="numeric" pattern="[0-9]*" />,
 };
 
 export const WithPrefixAndSuffix: Story = {

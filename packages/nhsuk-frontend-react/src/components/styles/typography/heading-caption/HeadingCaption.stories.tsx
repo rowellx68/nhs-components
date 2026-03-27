@@ -1,12 +1,13 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { HeadingCaption } from './HeadingCaption';
+
 import { Heading } from '../heading/Heading';
+import { HeadingCaption } from './HeadingCaption';
 
 /**
  * https://service-manual.nhs.uk/design-system/styles/typography#headings
  */
-const meta: Meta<typeof HeadingCaption> = {
+const meta = {
   title: 'Styles/Typography/HeadingCaption',
   component: HeadingCaption,
   argTypes: {
@@ -22,7 +23,7 @@ const meta: Meta<typeof HeadingCaption> = {
       },
     },
   },
-};
+} satisfies Meta<typeof HeadingCaption>;
 
 export default meta;
 

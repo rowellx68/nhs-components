@@ -1,11 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { BackToTopLink } from './BackToTopLink';
 
-const meta: Meta<typeof BackToTopLink> = {
+const meta = {
   title: 'Components/Navigation/Back To Top Link',
   component: BackToTopLink,
-};
+} satisfies Meta<typeof BackToTopLink>;
 
 export default meta;
 

@@ -1,7 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Main } from './Main';
+
 import { Container } from '../container/Container';
+import { Main } from './Main';
 
 /**
  * The second wrapper is a `main` element with the class `.nhsuk-main-wrapper`, which gives responsive padding to the top and bottom of the page and will be the wrapper for the main content of the page.
@@ -10,7 +11,7 @@ import { Container } from '../container/Container';
  *
  * https://service-manual.nhs.uk/design-system/styles/layout#main-content
  */
-const meta: Meta<typeof Main> = {
+const meta = {
   title: 'Styles/Layout/Main',
   component: Main,
   argTypes: {
@@ -31,7 +32,7 @@ const meta: Meta<typeof Main> = {
       },
     },
   },
-};
+} satisfies Meta<typeof Main>;
 
 export default meta;
 
@@ -45,10 +46,9 @@ export const Default: Story = {
   render: (args) => (
     <Container>
       <Main {...args}>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor
-        quos qui, suscipit magni sit nisi, explicabo laborum quasi nam
-        architecto dolorum eaque iusto libero autem? Doloribus qui laborum
-        optio?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos qui, suscipit
+        magni sit nisi, explicabo laborum quasi nam architecto dolorum eaque iusto libero autem?
+        Doloribus qui laborum optio?
       </Main>
     </Container>
   ),

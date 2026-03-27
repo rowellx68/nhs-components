@@ -1,7 +1,9 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Expander } from './Expander';
+
 import { Link } from '@/components/styles/typography/link/Link';
+
+import { Expander } from './Expander';
 
 /**
  * Make a complex topic easier to digest by letting users reveal more detailed information only if they need it.
@@ -9,7 +11,7 @@ import { Link } from '@/components/styles/typography/link/Link';
  * https://service-manual.nhs.uk/design-system/components/expander
  */
 
-const meta: Meta<typeof Expander> = {
+const meta = {
   title: 'Components/Content Presentation/Expander',
   component: Expander,
   subcomponents: {
@@ -17,7 +19,7 @@ const meta: Meta<typeof Expander> = {
     'Expander.Text': Expander.Text,
     'Expander.Group': Expander.Group,
   } as Record<string, React.ComponentType<any>>,
-};
+} satisfies Meta<typeof Expander>;
 
 export default meta;
 
@@ -48,13 +50,11 @@ export const MoreThanOneExpander: Story = {
   render: (args) => (
     <Expander.Group>
       <Expander {...args}>
-        <Expander.Summary>
-          How to measure your blood glucose levels
-        </Expander.Summary>
+        <Expander.Summary>How to measure your blood glucose levels</Expander.Summary>
         <Expander.Text>
           <p>
-            Testing your blood at home is quick and easy, although it can be
-            uncomfortable. It does get better.
+            Testing your blood at home is quick and easy, although it can be uncomfortable. It does
+            get better.
           </p>
           <p>You would have been given:</p>
           <ul>
@@ -66,9 +66,7 @@ export const MoreThanOneExpander: Story = {
         </Expander.Text>
       </Expander>
       <Expander {...args}>
-        <Expander.Summary>
-          When to check your blood glucose level
-        </Expander.Summary>
+        <Expander.Summary>When to check your blood glucose level</Expander.Summary>
         <Expander.Text>
           <p>Try to check your blood:</p>
           <ul>
@@ -77,9 +75,8 @@ export const MoreThanOneExpander: Story = {
             <li>before, during (take a break) and after exercise</li>
           </ul>
           <p>
-            This helps you understand your blood glucose levels and how they’re
-            affected by meals and exercise. It should help you have more stable
-            blood glucose levels.
+            This helps you understand your blood glucose levels and how they’re affected by meals
+            and exercise. It should help you have more stable blood glucose levels.
           </p>
         </Expander.Text>
       </Expander>

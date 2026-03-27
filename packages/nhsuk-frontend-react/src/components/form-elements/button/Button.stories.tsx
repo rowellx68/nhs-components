@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { Button } from './Button';
 
 /**
@@ -7,54 +8,35 @@ import { Button } from './Button';
  *
  * https://service-manual.nhs.uk/design-system/components/buttons
  */
-const meta: Meta<typeof Button> = {
+const meta = {
   title: 'Components/Form Elements/Button',
   component: Button,
   argTypes: {
     type: {
-      control: {
-        type: 'select',
-      },
+      control: 'select',
       options: ['button', 'submit', 'reset'],
       table: {
-        type: {
-          summary: 'union',
-        },
+        type: { summary: 'union' },
       },
     },
     variant: {
-      control: {
-        type: 'select',
-      },
-      options: [
-        'primary',
-        'secondary',
-        'secondary-solid',
-        'reverse',
-        'warning',
-        'login',
-      ],
+      control: 'select',
+      options: ['primary', 'secondary', 'secondary-solid', 'reverse', 'warning', 'login'],
       table: {
-        type: {
-          summary: 'union',
-        },
+        type: { summary: 'union' },
       },
     },
     as: {
       control: false,
       description:
-        'The element to render the `Button` as. This can be a `button`, a anchor or a anchor-like component.',
+        'The element to render the `Button` as. This can be a `button`, an anchor or an anchor-like component.',
       table: {
-        type: {
-          summary: 'React.ElementType',
-        },
-        defaultValue: {
-          summary: 'button',
-        },
+        type: { summary: 'React.ElementType' },
+        defaultValue: { summary: 'button' },
       },
     },
   },
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
 
@@ -62,178 +44,110 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    type: 'button',
-    children: 'Primary Button',
-    disabled: false,
+    children: 'Save and continue',
   },
-  render: ({ type, children, disabled, ...props }) => (
-    <Button type={type} children={children} disabled={disabled} {...props} />
-  ),
+  render: (args) => <Button {...args} />,
 };
 
 export const Secondary: Story = {
   args: {
-    type: 'button',
-    children: 'Secondary Button',
-    disabled: false,
+    children: 'Find my location',
+    variant: 'secondary',
   },
-  render: ({ type, children, disabled, ...props }) => (
-    <Button
-      variant="secondary"
-      type={type}
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} />,
 };
 
 export const SecondarySolid: Story = {
   args: {
-    type: 'button',
-    children: 'Secondary Button',
-    disabled: false,
+    children: 'Find my location',
+    variant: 'secondary-solid',
   },
-  render: ({ type, children, disabled, ...props }) => (
-    <Button
-      variant="secondary-solid"
-      type={type}
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} />,
 };
 
 export const Reverse: Story = {
   args: {
-    type: 'button',
-    children: 'Reverse Button',
-    disabled: false,
+    children: 'Log out',
+    variant: 'reverse',
   },
-  render: ({ type, children, disabled, ...props }) => (
-    <Button
-      variant="reverse"
-      type={type}
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} />,
 };
 
 export const Warning: Story = {
   args: {
-    type: 'button',
-    children: 'Warning Button',
-    disabled: false,
+    children: 'Yes, delete this vaccine',
+    variant: 'warning',
   },
-  render: ({ type, children, disabled, ...props }) => (
-    <Button
-      variant="warning"
-      type={type}
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} />,
 };
 
 export const Login: Story = {
   args: {
-    type: 'button',
     children: 'Continue',
-    disabled: false,
+    variant: 'login',
   },
-  render: ({ type, children, disabled, ...props }) => (
-    <Button
-      variant="login"
-      type={type}
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} />,
+};
+
+export const Small: Story = {
+  args: {
+    children: 'Save and continue',
+    small: true,
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled button',
+    disabled: true,
+  },
+  render: (args) => <Button {...args} />,
 };
 
 export const PrimaryButtonAsLink: Story = {
   args: {
-    children: 'Button as Link',
-    disabled: false,
+    children: 'Link button',
   },
-  render: ({ children, disabled, ...props }) => (
-    <Button
-      as="a"
-      href="#"
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} as="a" href="#" />,
 };
 
 export const SecondaryButtonAsLink: Story = {
   args: {
-    children: 'Button as Link',
-    disabled: false,
+    children: 'Find my location',
+    variant: 'secondary',
   },
-  render: ({ children, disabled, ...props }) => (
-    <Button
-      as="a"
-      href="#"
-      variant="secondary"
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} as="a" href="#" />,
 };
 
 export const SecondarySolidButtonAsLink: Story = {
   args: {
-    children: 'Button as Link',
-    disabled: false,
+    children: 'Find my location',
+    variant: 'secondary-solid',
   },
-  render: ({ children, disabled, ...props }) => (
-    <Button
-      as="a"
-      href="#"
-      variant="secondary-solid"
-      children={children}
-      disabled={disabled}
-      {...props}
-    />
-  ),
+  render: (args) => <Button {...args} as="a" href="#" />,
 };
 
 export const ReverseButtonAsLink: Story = {
   args: {
-    children: 'Button as Link',
-    disabled: false,
+    children: 'Log out',
+    variant: 'reverse',
   },
-  render: ({ children, disabled }) => (
-    <Button
-      as="a"
-      href="#"
-      variant="reverse"
-      children={children}
-      disabled={disabled}
-    />
-  ),
+  render: (args) => <Button {...args} as="a" href="#" />,
 };
 
 export const WarningButtonAsLink: Story = {
   args: {
-    children: 'Button as Link',
-    disabled: false,
+    children: 'Yes, delete this vaccine',
+    variant: 'warning',
   },
-  render: ({ children, disabled }) => (
-    <Button
-      as="a"
-      href="#"
-      variant="warning"
-      children={children}
-      disabled={disabled}
-    />
-  ),
+  render: (args) => <Button {...args} as="a" href="#" />,
+};
+
+export const LoginButtonAsLink: Story = {
+  args: {
+    children: 'Continue',
+    variant: 'login',
+  },
+  render: (args) => <Button {...args} as="a" href="#" />,
 };

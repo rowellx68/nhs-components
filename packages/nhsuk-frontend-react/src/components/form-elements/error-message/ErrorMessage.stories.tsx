@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { ErrorMessage } from './ErrorMessage';
 
 /**
@@ -7,18 +8,18 @@ import { ErrorMessage } from './ErrorMessage';
  *
  * https://service-manual.nhs.uk/design-system/components/error-message
  */
-const meta: Meta<typeof ErrorMessage> = {
+const meta = {
   title: 'Components/Form Elements/Error Message',
   component: ErrorMessage,
-};
+} satisfies Meta<typeof ErrorMessage>;
 
 export default meta;
 
-type Story = StoryObj<typeof ErrorMessage>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Date of birth must be in the pasts',
+    children: 'Enter your full name',
   },
   render: (args) => <ErrorMessage {...args} />,
 };

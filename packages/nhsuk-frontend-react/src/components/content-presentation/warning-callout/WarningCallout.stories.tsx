@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { WarningCallout } from './WarningCallout';
 
 /**
@@ -7,13 +8,14 @@ import { WarningCallout } from './WarningCallout';
  *
  * https://service-manual.nhs.uk/design-system/components/warning-callout
  */
-const meta: Meta<typeof WarningCallout> = {
+const meta = {
   title: 'Components/Content Presentation/Warning Callout',
   component: WarningCallout,
   subcomponents: {
     'WarningCallout.Label': WarningCallout.Label,
+    'WarningCallout.Description': WarningCallout.Description,
   } as Record<string, React.ComponentType<any>>,
-};
+} satisfies Meta<typeof WarningCallout>;
 
 export default meta;
 
@@ -22,40 +24,43 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: (args) => (
     <WarningCallout {...args}>
-      <WarningCallout.Label visuallyHiddenText="Important: ">
-        School, nursery or work
-      </WarningCallout.Label>
-      <p>
-        Stay away from school, nursery or work until all the spots have crusted
-        over. This is usually 5 days after the spots first appeared.
-      </p>
+      <WarningCallout.Label>Important</WarningCallout.Label>
+      <WarningCallout.Description>
+        For safety, tell your doctor or pharmacist if you&apos;re taking any other medicines,
+        including herbal medicines, vitamins or supplements.
+      </WarningCallout.Description>
     </WarningCallout>
   ),
 };
 
 /**
- * If the heading is simply the word "Important" or it includes the word "important", you do not need to use visually hidden text.
+ * When the label is not simply the word "Important", prepend visually hidden text so screen reader users still hear the "Important:" prefix.
  */
-export const WithNoVisuallyHiddenText: Story = {
+export const WithCustomHeading: Story = {
   render: (args) => (
     <WarningCallout {...args}>
-      <WarningCallout.Label>Important</WarningCallout.Label>
-      <p>
-        For safety, tell your doctor or pharmacist if you're taking any other
-        medicines, including herbal medicines, vitamins or supplements.
-      </p>
+      <WarningCallout.Label visuallyHiddenText="Important: ">
+        School, nursery or work
+      </WarningCallout.Label>
+      <WarningCallout.Description>
+        Stay away from school, nursery or work until all the spots have crusted over. This is
+        usually 5 days after the spots first appeared.
+      </WarningCallout.Description>
     </WarningCallout>
   ),
 };
 
+/**
+ * Use the `as` prop on `WarningCallout.Label` to change the heading level to fit the page hierarchy.
+ */
 export const WithDifferentHeadingLevels: Story = {
   render: (args) => (
     <WarningCallout {...args}>
       <WarningCallout.Label as="h2">Important</WarningCallout.Label>
-      <p>
-        For safety, tell your doctor or pharmacist if you're taking any other
-        medicines, including herbal medicines, vitamins or supplements.
-      </p>
+      <WarningCallout.Description>
+        For safety, tell your doctor or pharmacist if you&apos;re taking any other medicines,
+        including herbal medicines, vitamins or supplements.
+      </WarningCallout.Description>
     </WarningCallout>
   ),
 };

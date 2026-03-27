@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { InsetText } from './InsetText';
 
 /**
@@ -7,7 +8,7 @@ import { InsetText } from './InsetText';
  *
  * https://service-manual.nhs.uk/design-system/components/inset-text
  */
-const meta: Meta<typeof InsetText> = {
+const meta = {
   title: 'Components/Content Presentation/Inset Text',
   component: InsetText,
   argTypes: {
@@ -18,7 +19,7 @@ const meta: Meta<typeof InsetText> = {
       },
     },
   },
-};
+} satisfies Meta<typeof InsetText>;
 
 export default meta;
 

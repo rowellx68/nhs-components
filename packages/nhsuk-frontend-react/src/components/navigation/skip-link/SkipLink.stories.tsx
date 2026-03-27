@@ -1,23 +1,25 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { SkipLink } from './SkipLink';
-import { Header } from '../header/Header';
+
+import { Container } from '@/components/styles/layout/container/Container';
 import { Main } from '@/components/styles/layout/main/Main';
 import { Heading } from '@/components/styles/typography/heading/Heading';
-import { Container } from '@/components/styles/layout/container/Container';
+
+import { Header } from '../header/Header';
+import { SkipLink } from './SkipLink';
 
 /**
  * Use a skip link to help keyboard-only users skip to the main content on a page.
  *
  * https://service-manual.nhs.uk/design-system/components/skip-link
  */
-const meta: Meta<typeof SkipLink> = {
+const meta = {
   title: 'Components/Navigation/Skip Link',
   component: SkipLink,
   parameters: {
     layout: 'fullscreen',
   },
-};
+} satisfies Meta<typeof SkipLink>;
 
 export default meta;
 
@@ -27,9 +29,11 @@ export const Default: Story = {
   render: (args) => (
     <>
       <SkipLink {...args}>Skip to main content</SkipLink>
-      <Header serviceName="Find your NHS number">
+      <Header>
         <Header.Container>
-          <Header.Logo href="/" aria-label="NHS homepage" />
+          <Header.Service>
+            <Header.ServiceLogo href="#" serviceName="Digital service manual" />
+          </Header.Service>
         </Header.Container>
       </Header>
       <Container>
