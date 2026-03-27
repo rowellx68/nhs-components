@@ -1,15 +1,13 @@
 'use client';
 
-import React, { useImperativeHandle, useEffect, useRef } from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
 import clsx from 'clsx';
+import { Tabs as NhsTabs } from 'nhsuk-frontend';
+import React, { useImperativeHandle, useEffect, useRef } from 'react';
+
+import { Base, BaseProps } from '@/components/core/base/Base';
 import { Factory, factory } from '@/internal/factory/factory';
-import initTabs from '@/resources/tabs/tabs';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
 
 export type TabsProps = ElementProps<'div'>;
 
@@ -24,38 +22,34 @@ type TabsFactory = Factory<{
   };
 }>;
 
-const Tabs = factory<TabsFactory>(
-  ({ children, className, ...props }: TabsProps, ref) => {
-    const internalRef = useRef<HTMLDivElement>(null);
+const Tabs = factory<TabsFactory>(({ children, className, ...props }: TabsProps, ref) => {
+  const internalRef = useRef<HTMLDivElement>(null);
 
-    useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
+  useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
-    useEffect(() => {
-      if (!internalRef.current) {
-        return;
-      }
+  useEffect(() => {
+    if (!internalRef.current) {
+      return;
+    }
 
-      const parent = internalRef.current?.parentElement;
+    new NhsTabs(internalRef.current);
 
-      if (!parent) {
-        return;
-      }
+    return () => {
+      internalRef.current?.removeAttribute('data-nhsuk-tabs-init');
+    };
+  }, [internalRef]);
 
-      initTabs({ scope: parent as any });
-    }, [internalRef]);
-
-    return (
-      <div
-        className={clsx('nhsuk-tabs', className)}
-        data-module="nhsuk-tabs"
-        ref={internalRef}
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  },
-);
+  return (
+    <div
+      className={clsx('nhsuk-tabs', className)}
+      data-module="nhsuk-tabs"
+      ref={internalRef}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+});
 
 export type TabsTitleProps = BaseProps & AsElementProps<HeadingLevel>;
 
@@ -67,12 +61,7 @@ type TabsTitleFactory = PolymorphicFactory<{
 
 const TabsTitle = polymorphicFactory<TabsTitleFactory>(
   ({ className, children, as: component = 'h2', ...props }, ref) => (
-    <Base
-      as={component}
-      className={clsx('nhsuk-tabs__title', className)}
-      {...props}
-      ref={ref}
-    >
+    <Base as={component} className={clsx('nhsuk-tabs__title', className)} {...props} ref={ref}>
       {children}
     </Base>
   ),
@@ -86,7 +75,9 @@ const TabsList = ({ children, className, ...props }: TabsListProps) => (
   </ul>
 );
 
-export type TabsListItemProps = BaseProps;
+export type TabsListItemProps = {
+  selected?: boolean;
+} & BaseProps;
 
 type TabsListItemFactory = PolymorphicFactory<{
   props: TabsListItemProps;
@@ -99,28 +90,32 @@ const TabsListItem = polymorphicFactory<TabsListItemFactory>(
     {
       className,
       children,
+      selected,
       as: component = 'a',
       ...props
-    }: BaseProps & AsElementProps,
+    }: TabsListItemProps & AsElementProps,
     ref,
   ) => (
-    <li className="nhsuk-tabs__list-item">
-      <Base
-        as={component}
-        className={clsx('nhsuk-tabs__tab', className)}
-        {...props}
-        ref={ref}
-      >
+    <li
+      className={clsx('nhsuk-tabs__list-item', {
+        'nhsuk-tabs__list-item--selected': selected,
+      })}
+    >
+      <Base as={component} className={clsx('nhsuk-tabs__tab', className)} {...props} ref={ref}>
         {children}
       </Base>
     </li>
   ),
 );
 
-export type TabsPanelProps = { id: string } & ElementProps<'div', 'id'>;
+export type TabsPanelProps = { id: string; hidden?: boolean } & ElementProps<'div', 'id'>;
 
-const TabsPanel = ({ children, className, id, ...props }: TabsPanelProps) => (
-  <div className={clsx('nhsuk-tabs__panel', className)} id={id} {...props}>
+const TabsPanel = ({ children, className, id, hidden, ...props }: TabsPanelProps) => (
+  <div
+    className={clsx('nhsuk-tabs__panel', { 'nhsuk-tabs__panel--hidden': hidden }, className)}
+    id={id}
+    {...props}
+  >
     {children}
   </div>
 );

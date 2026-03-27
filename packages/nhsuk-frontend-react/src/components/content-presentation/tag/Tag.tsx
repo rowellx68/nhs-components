@@ -1,6 +1,7 @@
-import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
 import React from 'react';
+
+import { ElementProps } from '@/types/shared';
 
 export type TagColour =
   | 'white'
@@ -15,13 +16,19 @@ export type TagColour =
   | 'yellow';
 
 export type TagProps = {
-  variant?: TagColour;
+  colour?: TagColour;
+  noBorder?: boolean;
 } & ElementProps<'strong'>;
 
-const Tag = ({ variant = 'grey', className, ...props }: TagProps) => {
+const Tag = ({ colour, noBorder, className, ...props }: TagProps) => {
   return (
     <strong
-      className={clsx('nhsuk-tag', `nhsuk-tag--${variant}`, className)}
+      className={clsx(
+        'nhsuk-tag',
+        { [`nhsuk-tag--${colour}`]: colour },
+        { 'nhsuk-tag--no-border': noBorder },
+        className,
+      )}
       {...props}
     />
   );

@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { ElementProps } from '@/types/shared';
 
 export type HintProps = ElementProps<'div'>;

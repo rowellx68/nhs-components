@@ -1,23 +1,18 @@
-import { ActionBase, ReducerBase } from '@/types/reducer';
 import { createContext, useContext } from 'react';
+
+import { ActionBase, ReducerBase } from '@/types/reducer';
 
 export type FieldsetState = {
   registered: string[];
   errored: string[];
 };
 
-export type SetErrorAction = ActionBase<
-  'set_error',
-  { id: string; error: boolean }
->;
+export type SetErrorAction = ActionBase<'set_error', { id: string; error: boolean }>;
 export type RegisterComponentAction = ActionBase<
   'register_component',
   { id: string; unregister: boolean }
 >;
-export type FieldsetReducer = ReducerBase<
-  FieldsetState,
-  SetErrorAction | RegisterComponentAction
->;
+export type FieldsetReducer = ReducerBase<FieldsetState, SetErrorAction | RegisterComponentAction>;
 
 export const reducer: FieldsetReducer = (state, { type, data }) => {
   switch (type) {
@@ -50,7 +45,6 @@ const FieldsetContext = createContext<FieldsetContextValue>({
 
 FieldsetContext.displayName = 'FieldsetContext';
 
-export const useFieldsetContext = () =>
-  useContext<FieldsetContextValue>(FieldsetContext);
+export const useFieldsetContext = () => useContext<FieldsetContextValue>(FieldsetContext);
 
 export const FieldsetProvider = FieldsetContext.Provider;

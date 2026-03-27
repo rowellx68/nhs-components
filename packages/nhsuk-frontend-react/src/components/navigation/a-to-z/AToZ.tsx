@@ -1,14 +1,12 @@
-import React from 'react';
-import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Base } from '@/components/core/base/Base';
 import { Factory, factory } from '@/internal/factory/factory';
 import { PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
-import { Base } from '@/components/core/base/Base';
+import { ElementProps } from '@/types/shared';
 
-export type AToZProps = { 'aria-label': string } & ElementProps<
-  'nav',
-  'aria-label'
->;
+export type AToZProps = { 'aria-label': string } & ElementProps<'nav', 'aria-label'>;
 
 type AToZFactory = Factory<{
   props: AToZProps;
@@ -31,10 +29,7 @@ const AToZ = factory<AToZFactory>(
   ) => {
     return (
       <nav
-        className={clsx(
-          'nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4',
-          className,
-        )}
+        className={clsx('nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4', className)}
         role={role}
         aria-label={ariaLabel}
         {...props}

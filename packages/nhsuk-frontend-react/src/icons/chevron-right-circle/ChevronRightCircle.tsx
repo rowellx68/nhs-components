@@ -1,30 +1,21 @@
-import React from 'react';
-import { Icon } from '@/types/icon';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Icon } from '@/types/icon';
 
 const ChevronRightCircleIcon = ({ className, ...rest }: Icon) => {
   return (
     <svg
-      className={clsx('nhsuk-icon nhsuk-icon__chevron-right-circle', className)}
+      className={clsx('nhsuk-icon nhsuk-icon--chevron-right-circle', className)}
       {...rest}
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
       aria-hidden="true"
       focusable="false"
-      width="27"
-      height="27"
+      width="16"
+      height="16"
     >
-      <circle cx="13.333" cy="13.333" r="13.333" fill="" />
-      <g
-        data-name="Group 1"
-        fill="none"
-        stroke="#fff"
-        strokeLinecap="round"
-        strokeMiterlimit="10"
-        strokeWidth="2.667"
-      >
-        <path d="M15.438 13l-3.771 3.771" />
-        <path data-name="Path" d="M11.667 9.229L15.438 13" />
-      </g>
+      <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z" />
     </svg>
   );
 };

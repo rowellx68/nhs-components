@@ -1,11 +1,12 @@
-import React from 'react';
-import { Icon } from '@/types/icon';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Icon } from '@/types/icon';
 
 const ArrowRightIcon = ({ className, ...rest }: Icon) => {
   return (
     <svg
-      className={clsx('nhsuk-icon nhsuk-icon__arrow-right', className)}
+      className={clsx('nhsuk-icon nhsuk-icon--arrow-right', className)}
       {...rest}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -13,7 +14,7 @@ const ArrowRightIcon = ({ className, ...rest }: Icon) => {
       width="34"
       height="34"
     >
-      <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v2H5a1 1 0 0 0 0 2h11v2a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+      <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
     </svg>
   );
 };

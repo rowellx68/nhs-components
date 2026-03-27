@@ -1,27 +1,21 @@
 'use client';
 
-import {
-  BaseFormElementProps,
-  FormGroup,
-} from '@/components/core/form-group/FormGroup';
+import clsx from 'clsx';
+import { Radios as NhsRadios } from 'nhsuk-frontend';
+import React, { ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+
+import { BaseFormElementProps, FormGroup } from '@/components/core/form-group/FormGroup';
 import { Label } from '@/components/core/label/Label';
 import { Factory, factory } from '@/internal/factory/factory';
 import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
 import { ElementProps } from '@/types/shared';
-import clsx from 'clsx';
-import React, {
-  ReactNode,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import { Hint } from '../hint/Hint';
-import { RadioProvider, useRadioContext } from './Radio.context';
-import initRadio from '@/resources/radios/radios';
 
-export type RadioProps = { inline?: boolean } & BaseFormElementProps &
+import { Hint } from '../hint/Hint';
+
+export type RadioProps = {
+  inline?: boolean;
+  small?: boolean;
+} & BaseFormElementProps &
   ElementProps<'div'>;
 
 type RadioFactory = Factory<{
@@ -33,59 +27,51 @@ type RadioFactory = Factory<{
   };
 }>;
 
-const Radio = factory<RadioFactory>(({ children, inline, ...props }, ref) => {
+const Radio = factory<RadioFactory>(({ children, inline, small, ...props }, ref) => {
   const internalRef = useRef<HTMLDivElement>(null);
+  const radiosRef = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
-  const [withConditionals, setWithConditionals] = useState(false);
-
   useEffect(() => {
-    if (!internalRef.current) {
+    if (!radiosRef.current) {
       return;
     }
 
-    const parent = internalRef.current.closest('form')?.parentElement;
+    setTimeout(() => {
+      new NhsRadios(radiosRef.current);
+    }, 0);
 
-    if (!parent) {
-      return;
-    }
-
-    initRadio({ scope: parent as any });
-  }, [internalRef, withConditionals]);
-
-  const value = useMemo(
-    () => ({ withConditionals, setWithConditionals }),
-    [withConditionals, setWithConditionals],
-  );
-
-  const memoChildren = useMemo(() => children, [children]);
+    return () => {
+      radiosRef.current?.removeAttribute('data-nhsuk-radios-init');
+    };
+  }, []);
 
   return (
-    <RadioProvider value={value}>
-      <FormGroup
-        as="div"
-        withErrorLine
-        {...props}
-        ref={internalRef}
-        inputType="radios"
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        render={({ className, withError: _withError, ...rest }) => (
-          <div
-            className={clsx(
-              'nhsuk-radios',
-              {
-                'nhsuk-radios--inline': inline,
-                'nhsuk-radios--conditional': withConditionals,
-              },
-              className,
-            )}
-            {...rest}
-          >
-            {memoChildren}
-          </div>
-        )}
-      />
-    </RadioProvider>
+    <FormGroup
+      as="div"
+      withErrorLine
+      {...props}
+      ref={internalRef}
+      inputType="radios"
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      render={({ className, withError: _withError, ref: _ref, ...rest }) => (
+        <div
+          className={clsx(
+            'nhsuk-radios',
+            {
+              'nhsuk-radios--inline': inline,
+              'nhsuk-radios--small': small,
+            },
+            className,
+          )}
+          data-module="nhsuk-radios"
+          ref={radiosRef}
+          {...rest}
+        >
+          {children}
+        </div>
+      )}
+    />
   );
 });
 
@@ -104,15 +90,9 @@ const RadioItem = factory<RadioItemFactory>(
   ({ id, hint, conditional, className, children, ...props }, ref) => {
     const hasConditional = !!conditional;
 
-    const { setWithConditionals } = useRadioContext();
-
-    useEffect(() => {
-      setWithConditionals(hasConditional);
-    }, []);
-
     const itemId = id || useIdWithPrefix('radio-item');
-    const hintId = useIdWithPrefix('radio-item-hint');
-    const conditionalId = useIdWithPrefix('radio-item-conditional');
+    const hintId = `${itemId}-item-hint`;
+    const conditionalId = `${itemId}-conditional`;
 
     return (
       <>
@@ -123,8 +103,7 @@ const RadioItem = factory<RadioItemFactory>(
             {...props}
             ref={ref}
             aria-describedby={hint ? hintId : undefined}
-            aria-controls={hasConditional ? conditionalId : undefined}
-            aria-expanded={hasConditional ? 'false' : undefined}
+            {...(hasConditional ? { 'data-aria-controls': conditionalId } : {})}
             type="radio"
           />
           <Label htmlFor={itemId} className="nhsuk-radios__label">
@@ -138,9 +117,7 @@ const RadioItem = factory<RadioItemFactory>(
         </div>
         {hasConditional && (
           <div
-            className={clsx(
-              'nhsuk-radios__conditional nhsuk-radios__conditional--hidden',
-            )}
+            className="nhsuk-radios__conditional nhsuk-radios__conditional--hidden"
             id={conditionalId}
           >
             {conditional}
@@ -153,11 +130,7 @@ const RadioItem = factory<RadioItemFactory>(
 
 export type RadioDividerProps = ElementProps<'div'>;
 
-const RadioDivider: React.FC<RadioDividerProps> = ({
-  children = 'or',
-  className,
-  ...props
-}) => (
+const RadioDivider: React.FC<RadioDividerProps> = ({ children = 'or', className, ...props }) => (
   <div className={clsx('nhsuk-radios__divider', className)} {...props}>
     {children}
   </div>

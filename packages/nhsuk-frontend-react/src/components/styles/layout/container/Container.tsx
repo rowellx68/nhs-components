@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { ElementProps } from '@/types/shared';
 
 export type ContainerProps = {
@@ -9,17 +10,12 @@ export type ContainerProps = {
   variant?: 'fluid' | 'set-width' | 'default';
 } & ElementProps<'div'>;
 
-const Container = ({
-  className,
-  variant = 'default',
-  ...props
-}: ContainerProps) => {
+const Container = ({ className, variant = 'default', ...props }: ContainerProps) => {
   return (
     <div
       className={clsx(
         {
-          'nhsuk-width-container':
-            variant === 'default' || variant === 'set-width',
+          'nhsuk-width-container': variant === 'default' || variant === 'set-width',
           'nhsuk-width-container-fluid': variant === 'fluid',
         },
         className,

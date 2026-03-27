@@ -1,27 +1,13 @@
-'use client';
-
-import React, { Fragment } from 'react';
-import { Factory, factory } from '@/internal/factory/factory';
-import { AsElementProps, ElementProps } from '@/types/shared';
-import { CardProvider, useCardContext } from './Card.context';
 import clsx from 'clsx';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
+import React from 'react';
+
 import { Base } from '@/components/core/base/Base';
-import {
-  Heading,
-  HeadingProps,
-} from '@/components/styles/typography/heading/Heading';
-import { ChevronRightCircleIcon } from '@/icons/chevron-right-circle/ChevronRightCircle';
-import {
-  Column,
-  ColumnProps,
-  Row,
-  RowProps,
-} from '@/components/styles/layout/grid/Grid';
 import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
+import { Column, ColumnProps, Row, RowProps } from '@/components/styles/layout/grid/Grid';
+import { Heading, HeadingProps } from '@/components/styles/typography/heading/Heading';
+import { Factory, factory } from '@/internal/factory/factory';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps } from '@/types/shared';
 
 export type CardVariant =
   | 'primary'
@@ -38,10 +24,7 @@ export type CardProps = (
     }
   | {
       clickable?: false;
-      variant: Extract<
-        CardVariant,
-        'feature' | 'non-urgent' | 'urgent' | 'emergency'
-      >;
+      variant: Extract<CardVariant, 'feature' | 'non-urgent' | 'urgent' | 'emergency'>;
     }
 ) &
   ElementProps<'div'>;
@@ -55,36 +38,33 @@ type CardFactory = Factory<{
     Image: typeof CardImage;
     Content: typeof CardContent;
     Heading: typeof CardHeading;
+    HeadingContainer: typeof CardHeadingContainer;
     Description: typeof CardDescription;
     Link: typeof CardLink;
+    Actions: typeof CardActions;
     Group: typeof CardGroup;
     GroupItem: typeof CardGroupItem;
   };
 }>;
 
-const Card = factory<CardFactory>(
-  ({ variant, clickable, className, ...props }, ref) => {
-    return (
-      <CardProvider value={{ variant: variant }}>
-        <div
-          className={clsx(
-            'nhsuk-card',
-            {
-              'nhsuk-card--clickable': clickable,
-              [`nhsuk-card--${variant}`]:
-                variant && !careCardVariants.includes(variant),
-              [`nhsuk-card--care nhsuk-card--care--${variant}`]:
-                variant && careCardVariants.includes(variant),
-            },
-            className,
-          )}
-          {...props}
-          ref={ref}
-        />
-      </CardProvider>
-    );
-  },
-);
+const Card = factory<CardFactory>(({ variant, clickable, className, ...props }, ref) => {
+  return (
+    <div
+      className={clsx(
+        'nhsuk-card',
+        {
+          'nhsuk-card--clickable': clickable,
+          [`nhsuk-card--${variant}`]: variant && !careCardVariants.includes(variant),
+          [`nhsuk-card--care nhsuk-card--care--${variant}`]:
+            variant && careCardVariants.includes(variant),
+        },
+        className,
+      )}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 export type CardImageProps = ElementProps<'img'>;
 
@@ -95,48 +75,27 @@ type CardImageFactory = PolymorphicFactory<{
 }>;
 
 const CardImage = polymorphicFactory<CardImageFactory>(
-  (
-    {
-      className,
-      as: component = 'img',
-      ...props
-    }: CardImageProps & AsElementProps,
-    ref,
-  ) => {
+  ({ className, as: component = 'img', ...props }: CardImageProps & AsElementProps, ref) => {
     return (
-      <Base
-        as={component}
-        className={clsx('nhsuk-card__img', className)}
-        ref={ref}
-        {...props}
-      />
+      <Base as={component} className={clsx('nhsuk-card__img', className)} ref={ref} {...props} />
     );
   },
 );
 
 export type CardContentProps = ElementProps<'div'>;
 
-const CardContent = ({ className, children, ...props }: CardContentProps) => {
-  const { variant } = useCardContext();
-  return (
-    <div
-      className={clsx(
-        'nhsuk-card__content',
-        { [`nhsuk-card__content--${variant}`]: variant },
-        className,
-      )}
-      {...props}
-    >
-      {children}
-      {variant === 'primary' && <ChevronRightCircleIcon />}
-    </div>
-  );
-};
+const CardContent = ({ className, ...props }: CardContentProps) => (
+  <div className={clsx('nhsuk-card__content', className)} {...props} />
+);
+
+export type CardHeadingContainerProps = ElementProps<'div'>;
+
+const CardHeadingContainer = ({ className, ...props }: CardHeadingContainerProps) => (
+  <div className={clsx('nhsuk-card__heading-container', className)} {...props} />
+);
 
 export type CardHeadingProps = {
-  /**
-   * This will only be used if the Card variant is either 'non-urgent', 'urgent' or 'emergency'.
-   */
+  careCard?: boolean;
   visuallyHiddenText?: string;
 } & HeadingProps;
 
@@ -144,57 +103,32 @@ const CardHeading = ({
   className,
   children,
   as: component = 'h2',
+  careCard,
   visuallyHiddenText,
   ...props
 }: CardHeadingProps) => {
-  const { variant } = useCardContext();
-  const careCard = variant && careCardVariants.includes(variant);
-
-  const wrapperProps = {
-    as: careCard ? 'div' : Fragment,
-    ...(careCard ? { className: 'nhsuk-card--care__heading-container' } : {}),
-  };
-
-  const headingTextProps = {
-    as: careCard ? 'span' : Fragment,
-    ...(careCard ? { role: 'text' } : {}),
-  };
-
   return (
-    <Base<any> {...wrapperProps}>
-      <Heading
-        as={component}
-        className={clsx(
-          {
-            'nhsuk-card__heading':
-              !variant || !careCardVariants.includes(variant),
-            'nhsuk-card--care__heading': careCard,
-            'nhsuk-card__heading--feature nhsuk-u-font-size-24':
-              variant === 'feature',
-          },
-          className,
+    <>
+      <Heading as={component} className={clsx('nhsuk-card__heading', className)} {...props}>
+        {careCard ? (
+          <span role="text">
+            {visuallyHiddenText && <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden>}
+            {children}
+          </span>
+        ) : (
+          children
         )}
-        {...props}
-      >
-        <Base<any> {...headingTextProps}>
-          {careCard && <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden>}
-          {children}
-        </Base>
       </Heading>
-      {careCard && (
-        <span className="nhsuk-card--care__arrow" aria-hidden="true" />
-      )}
-    </Base>
+      {careCard && <span className="nhsuk-card--care__arrow" aria-hidden="true" />}
+    </>
   );
 };
 
 export type CardDescriptionProps = ElementProps<'p'>;
 
-const CardDescription = ({ className, ...props }: CardDescriptionProps) => {
-  return (
-    <p className={clsx('nhsuk-card__description', className)} {...props} />
-  );
-};
+const CardDescription = ({ className, ...props }: CardDescriptionProps) => (
+  <p className={clsx('nhsuk-card__description', className)} {...props} />
+);
 
 export type CardLinkProps = ElementProps<'a'>;
 
@@ -205,53 +139,60 @@ type CardLinkFactory = PolymorphicFactory<{
 }>;
 
 const CardLink = polymorphicFactory<CardLinkFactory>(
-  (
-    {
-      className,
-      as: component = 'a',
-      ...props
-    }: CardLinkProps & AsElementProps,
-    ref,
-  ) => {
+  ({ className, as: component = 'a', ...props }: CardLinkProps & AsElementProps, ref) => {
     return (
-      <Base
-        as={component}
-        className={clsx('nhsuk-card__link', className)}
-        ref={ref}
-        {...props}
-      />
+      <Base as={component} className={clsx('nhsuk-card__link', className)} ref={ref} {...props} />
     );
   },
 );
 
+export type CardActionsProps = ElementProps<'ul'> & ElementProps<'div'>;
+
+const CardActions = ({ className, children, ...props }: CardActionsProps) => {
+  const multiple = React.Children.count(children) > 1;
+  return multiple ? (
+    <ul className={clsx('nhsuk-card__actions', className)} {...props}>
+      {React.Children.map(children, (child) => (
+        <li className="nhsuk-card__action">{child}</li>
+      ))}
+    </ul>
+  ) : (
+    <div className={clsx('nhsuk-card__actions', className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
 export type CardGroupProps = RowProps;
 
-const CardGroup = ({ className, ...props }: CardGroupProps) => {
-  return <Row className={clsx('nhsuk-card-group', className)} {...props} />;
-};
+const CardGroup = ({ className, ...props }: CardGroupProps) => (
+  <Row className={clsx('nhsuk-card-group', className)} {...props} />
+);
 
 export type CardGroupItemProps = ColumnProps;
 
-const CardGroupItem = ({ className, ...props }: CardGroupItemProps) => {
-  return (
-    <Column className={clsx('nhsuk-card-group__item', className)} {...props} />
-  );
-};
+const CardGroupItem = ({ className, ...props }: CardGroupItemProps) => (
+  <Column className={clsx('nhsuk-card-group__item', className)} {...props} />
+);
 
 Card.displayName = 'Card';
 CardImage.displayName = 'Card.Image';
 CardContent.displayName = 'Card.Content';
 CardHeading.displayName = 'Card.Heading';
+CardHeadingContainer.displayName = 'Card.HeadingContainer';
 CardDescription.displayName = 'Card.Description';
 CardLink.displayName = 'Card.Link';
+CardActions.displayName = 'Card.Actions';
 CardGroup.displayName = 'Card.Group';
 CardGroupItem.displayName = 'Card.GroupItem';
 
 Card.Image = CardImage;
 Card.Content = CardContent;
 Card.Heading = CardHeading;
+Card.HeadingContainer = CardHeadingContainer;
 Card.Description = CardDescription;
 Card.Link = CardLink;
+Card.Actions = CardActions;
 Card.Group = CardGroup;
 Card.GroupItem = CardGroupItem;
 
@@ -260,8 +201,10 @@ export {
   CardImage,
   CardContent,
   CardHeading,
+  CardHeadingContainer,
   CardDescription,
   CardLink,
+  CardActions,
   CardGroup,
   CardGroupItem,
 };

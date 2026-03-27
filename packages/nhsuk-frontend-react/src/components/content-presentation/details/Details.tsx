@@ -1,13 +1,11 @@
-'use client';
-
-import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import clsx from 'clsx';
-import { ElementProps } from '@/types/shared';
+import React from 'react';
+
 import { Factory, factory } from '@/internal/factory/factory';
-import initDetails from '@/resources/details/details';
+import { ElementProps } from '@/types/shared';
 
 export type DetailsProps = {
-  variant?: 'default' | 'expander';
+  variant?: 'expander';
 } & ElementProps<'details'>;
 
 type DetailsFactory = Factory<{
@@ -19,47 +17,19 @@ type DetailsFactory = Factory<{
   };
 }>;
 
-const Details = factory<DetailsFactory>(
-  ({ variant, className, ...props }: DetailsProps, ref) => {
-    const internalRef = useRef<HTMLDetailsElement>(null);
-
-    useImperativeHandle(ref, () => internalRef.current as HTMLDetailsElement);
-
-    useEffect(() => {
-      if (!internalRef.current) {
-        return;
-      }
-
-      const parent = internalRef.current.parentElement;
-
-      if (!parent) {
-        return;
-      }
-
-      initDetails({ scope: parent as any });
-    }, [internalRef]);
-
-    return (
-      <details
-        className={clsx(
-          'nhsuk-details',
-          { 'nhsuk-expander': variant === 'expander' },
-          className,
-        )}
-        {...props}
-        ref={internalRef}
-      />
-    );
-  },
-);
+const Details = factory<DetailsFactory>(({ variant, className, ...props }: DetailsProps, ref) => {
+  return (
+    <details
+      className={clsx('nhsuk-details', { 'nhsuk-expander': variant === 'expander' }, className)}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 export type DetailsSummaryProps = ElementProps<'summary'>;
 
-const DetailsSummary = ({
-  className,
-  children,
-  ...props
-}: DetailsSummaryProps) => {
+const DetailsSummary = ({ className, children, ...props }: DetailsSummaryProps) => {
   return (
     <summary className={clsx('nhsuk-details__summary', className)} {...props}>
       <span className="nhsuk-details__summary-text">{children}</span>

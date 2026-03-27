@@ -1,21 +1,21 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
 import { ElementProps, WithVisuallyHiddenTextProps } from '@/types/shared';
 
-export type ErrorMessageProps = ElementProps<'p'> & WithVisuallyHiddenTextProps;
+export type ErrorMessageProps = ElementProps<'span'> & WithVisuallyHiddenTextProps;
 
 const ErrorMessage = ({
   className,
   children,
-  visuallyHiddenText = 'Error: ',
+  visuallyHiddenText = 'Error:',
   ...rest
 }: ErrorMessageProps) => {
   return (
-    <p className={clsx('nhsuk-error-message', className)} {...rest}>
-      <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden>
-      {children}
-    </p>
+    <span className={clsx('nhsuk-error-message', className)} {...rest}>
+      <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden> {children}
+    </span>
   );
 };
 

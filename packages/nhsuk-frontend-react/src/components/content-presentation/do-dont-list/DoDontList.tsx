@@ -1,66 +1,49 @@
-'use client';
-
-import React from 'react';
-import {
-  DoDontListContextProvider,
-  useDoDontListContext,
-} from './DoDontList.context';
 import clsx from 'clsx';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { TickIcon } from '@/icons/tick/Tick';
-import { CrossIcon } from '@/icons/cross/Cross';
-import { Factory, factory } from '@/internal/factory/factory';
+import React from 'react';
 
-export type DoDontListProps = {
-  variant: 'do' | 'dont';
-} & ElementProps<'div'>;
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { CrossIcon } from '@/icons/cross/Cross';
+import { TickIcon } from '@/icons/tick/Tick';
+import { Factory, factory } from '@/internal/factory/factory';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
+
+export type DoDontListProps = ElementProps<'div'>;
 
 type DoDontListFactory = Factory<{
   props: DoDontListProps;
   ref: HTMLDivElement;
   staticComponents: {
-    Label: typeof DoDontListLabel;
+    Title: typeof DoDontListTitle;
     List: typeof DoDontListList;
     Item: typeof DoDontListItem;
   };
 }>;
 
 const DoDontList = factory<DoDontListFactory>(
-  ({ variant, className, ...props }: DoDontListProps, ref) => {
+  ({ className, children, ...props }: DoDontListProps, ref) => {
     return (
-      <DoDontListContextProvider value={{ variant }}>
-        <div
-          ref={ref}
-          className={clsx('nhsuk-do-dont-list', className)}
-          {...props}
-        />
-      </DoDontListContextProvider>
+      <div ref={ref} className={clsx('nhsuk-card nhsuk-card--feature', className)} {...props}>
+        <div className="nhsuk-card__content">{children}</div>
+      </div>
     );
   },
 );
 
-export type DoDontListLabelProps = BaseProps & AsElementProps<HeadingLevel>;
+export type DoDontListTitleProps = BaseProps & AsElementProps<HeadingLevel>;
 
-type DoDontListLabelFactory = PolymorphicFactory<{
-  props: DoDontListLabelProps;
+type DoDontListTitleFactory = PolymorphicFactory<{
+  props: DoDontListTitleProps;
   defaultComponent: 'h2';
   defaultRef: HTMLHeadingElement;
 }>;
 
-const DoDontListLabel = polymorphicFactory<DoDontListLabelFactory>(
-  (
-    { className, as: component = 'h2', ...props }: DoDontListLabelProps,
-    ref,
-  ) => {
+const DoDontListTitle = polymorphicFactory<DoDontListTitleFactory>(
+  ({ className, as: component = 'h2', ...props }: DoDontListTitleProps, ref) => {
     return (
       <Base
         as={component}
-        className={clsx('nhsuk-do-dont-list__label', className)}
+        className={clsx('nhsuk-card__heading', className)}
         {...props}
         ref={ref}
       />
@@ -68,15 +51,11 @@ const DoDontListLabel = polymorphicFactory<DoDontListLabelFactory>(
   },
 );
 
-export type DoDontListListProps = ElementProps<'ul'>;
+export type DoDontListListProps = {
+  variant: 'do' | 'dont';
+} & ElementProps<'ul'>;
 
-const DoDontListList = ({
-  className,
-  role = 'list',
-  ...props
-}: DoDontListListProps) => {
-  const { variant } = useDoDontListContext();
-
+const DoDontListList = ({ variant, className, role = 'list', ...props }: DoDontListListProps) => {
   return (
     <ul
       className={clsx(
@@ -93,15 +72,11 @@ const DoDontListList = ({
   );
 };
 
-export type DoDontListItemProps = ElementProps<'li'>;
+export type DoDontListItemProps = {
+  variant: 'do' | 'dont';
+} & ElementProps<'li'>;
 
-const DoDontListItem = ({
-  className,
-  children,
-  ...props
-}: DoDontListItemProps) => {
-  const { variant } = useDoDontListContext();
-
+const DoDontListItem = ({ variant, className, children, ...props }: DoDontListItemProps) => {
   return (
     <li className={className} {...props}>
       {variant === 'do' && <TickIcon />}
@@ -112,12 +87,12 @@ const DoDontListItem = ({
 };
 
 DoDontList.displayName = 'DoDontList';
-DoDontListLabel.displayName = 'DoDontList.Label';
+DoDontListTitle.displayName = 'DoDontList.Title';
 DoDontListList.displayName = 'DoDontList.List';
 DoDontListItem.displayName = 'DoDontList.Item';
 
-DoDontList.Label = DoDontListLabel;
+DoDontList.Title = DoDontListTitle;
 DoDontList.List = DoDontListList;
 DoDontList.Item = DoDontListItem;
 
-export { DoDontList, DoDontListLabel, DoDontListList, DoDontListItem };
+export { DoDontList, DoDontListTitle, DoDontListList, DoDontListItem };

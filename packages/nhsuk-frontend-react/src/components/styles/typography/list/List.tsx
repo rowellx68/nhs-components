@@ -1,10 +1,8 @@
-import React from 'react';
-import { Base } from '@/components/core/base/Base';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Base } from '@/components/core/base/Base';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
 import { ElementProps } from '@/types/shared';
 
 export type ListProps = {
@@ -21,28 +19,26 @@ type ListFactory = PolymorphicFactory<{
   };
 }>;
 
-const List = polymorphicFactory<ListFactory>(
-  ({ className, variant, border, ...props }, ref) => {
-    const component = variant === 'ordered' ? 'ol' : 'ul';
+const List = polymorphicFactory<ListFactory>(({ className, variant, border, ...props }, ref) => {
+  const component = variant === 'ordered' ? 'ol' : 'ul';
 
-    return (
-      <Base<any>
-        as={component}
-        className={clsx(
-          'nhsuk-list',
-          {
-            'nhsuk-list--bullet': variant === 'unordered',
-            'nhsuk-list--number': variant === 'ordered',
-            'nhsuk-list--border': border,
-          },
-          className,
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
-);
+  return (
+    <Base<any>
+      as={component}
+      className={clsx(
+        'nhsuk-list',
+        {
+          'nhsuk-list--bullet': variant === 'unordered',
+          'nhsuk-list--number': variant === 'ordered',
+          'nhsuk-list--border': border,
+        },
+        className,
+      )}
+      ref={ref}
+      {...props}
+    />
+  );
+});
 
 export type ListItemProps = ElementProps<'li'>;
 

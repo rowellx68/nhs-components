@@ -1,27 +1,19 @@
 'use client';
 
-import React, { useRef, useImperativeHandle, useEffect } from 'react';
-import { Factory, factory } from '@/internal/factory/factory';
-import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
-import { AsElementProps, ElementProps } from '@/types/shared';
 import clsx from 'clsx';
-import {
-  Heading,
-  HeadingProps,
-} from '@/components/styles/typography/heading/Heading';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import {
-  ErrorSummaryContextProvider,
-  useErrorSummaryContext,
-} from './ErrorSummary.context';
-import { List, ListProps } from '@/components/styles/typography/list/List';
-import { Base } from '@/components/core/base/Base';
-import initErrorSummary from '@/resources/error-summary/error-summary';
+import { ErrorSummary as NhsErrorSummary } from 'nhsuk-frontend';
+import React, { useRef, useImperativeHandle, useEffect } from 'react';
 
-export type ErrorSummaryProps = ElementProps<'div', 'role' | 'tabindex'>;
+import { Base } from '@/components/core/base/Base';
+import { Heading, HeadingProps } from '@/components/styles/typography/heading/Heading';
+import { List, ListProps } from '@/components/styles/typography/list/List';
+import { Factory, factory } from '@/internal/factory/factory';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps } from '@/types/shared';
+
+export type ErrorSummaryProps = {
+  disableAutoFocus?: boolean;
+} & ElementProps<'div'>;
 
 type ErrorSummaryFactory = Factory<{
   props: ErrorSummaryProps;
@@ -35,42 +27,39 @@ type ErrorSummaryFactory = Factory<{
 }>;
 
 const ErrorSummary = factory<ErrorSummaryFactory>(
-  ({ className, ...props }, ref) => {
-    useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
+  ({ className, disableAutoFocus, children, ...props }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
-
-    const labelId = useIdWithPrefix('error-summary');
+    useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
     useEffect(() => {
       if (!internalRef.current) {
         return;
       }
 
-      const parent = internalRef.current.parentElement;
+      new NhsErrorSummary(internalRef.current);
 
-      if (!parent) {
-        return;
-      }
-
-      initErrorSummary({ scope: parent as any });
-    }, [internalRef]);
+      return () => {
+        internalRef.current?.removeAttribute('data-nhsuk-error-summary-init');
+      };
+    }, []);
 
     return (
-      <ErrorSummaryContextProvider value={{ labelId }}>
-        <div
-          className={clsx('nhsuk-error-summary', className)}
-          role="alert"
-          aria-labelledby={labelId}
-          tabIndex={-1}
-          ref={internalRef}
-          {...props}
-        />
-      </ErrorSummaryContextProvider>
+      <div
+        className={clsx('nhsuk-error-summary', className)}
+        data-module="nhsuk-error-summary"
+        {...(disableAutoFocus !== undefined
+          ? { 'data-disable-auto-focus': String(disableAutoFocus) }
+          : {})}
+        {...props}
+        ref={internalRef}
+      >
+        <div role="alert">{children}</div>
+      </div>
     );
   },
 );
 
-export type ErrorSummaryTitleProps = Omit<HeadingProps, 'id'>;
+export type ErrorSummaryTitleProps = HeadingProps;
 
 type ErrorSummaryTitleFactory = PolymorphicFactory<{
   props: ErrorSummaryTitleProps;
@@ -80,14 +69,12 @@ type ErrorSummaryTitleFactory = PolymorphicFactory<{
 
 const ErrorSummaryTitle = polymorphicFactory<ErrorSummaryTitleFactory>(
   ({ as: component = 'h2', className, ...props }, ref) => {
-    const { labelId } = useErrorSummaryContext();
     return (
       <Heading
         as={component}
         className={clsx('nhsuk-error-summary__title', className)}
         ref={ref}
         {...props}
-        id={labelId}
       />
     );
   },
@@ -96,21 +83,13 @@ const ErrorSummaryTitle = polymorphicFactory<ErrorSummaryTitleFactory>(
 export type ErrorSummaryBodyProps = ElementProps<'div'>;
 
 const ErrorSummaryBody = ({ className, ...props }: ErrorSummaryBodyProps) => {
-  return (
-    <div className={clsx('nhsuk-error-summary__body', className)} {...props} />
-  );
+  return <div className={clsx('nhsuk-error-summary__body', className)} {...props} />;
 };
 
-export type ErrorSummaryListProps = Omit<ListProps, 'role'>;
+export type ErrorSummaryListProps = ListProps;
 
 const ErrorSummaryList = ({ className, ...props }: ErrorSummaryListProps) => {
-  return (
-    <List
-      className={clsx('nhsuk-error-summary__list', className)}
-      role="list"
-      {...props}
-    />
-  );
+  return <List className={clsx('nhsuk-error-summary__list', className)} {...props} />;
 };
 
 export type ErrorSummaryListItemProps = ElementProps<'a'>;
@@ -122,13 +101,7 @@ type ErrorSummaryListItemFactory = PolymorphicFactory<{
 }>;
 
 const ErrorSummaryListItem = polymorphicFactory<ErrorSummaryListItemFactory>(
-  (
-    {
-      as: component = 'a',
-      ...props
-    }: ErrorSummaryListItemProps & AsElementProps,
-    ref,
-  ) => {
+  ({ as: component = 'a', ...props }: ErrorSummaryListItemProps & AsElementProps, ref) => {
     return (
       <li>
         <Base as={component} ref={ref} {...props} />

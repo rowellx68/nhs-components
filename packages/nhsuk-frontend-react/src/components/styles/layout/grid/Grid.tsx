@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { ColumnWidth, ElementProps } from '@/types/shared';
 
 export type RowProps = ElementProps<'div'>;
@@ -13,9 +14,7 @@ export type ColumnProps = {
 } & ElementProps<'div'>;
 
 const Column = ({ className, width, ...props }: ColumnProps) => {
-  return (
-    <div className={clsx(`nhsuk-grid-column-${width}`, className)} {...props} />
-  );
+  return <div className={clsx(`nhsuk-grid-column-${width}`, className)} {...props} />;
 };
 
 Row.displayName = 'Row';
