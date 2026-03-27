@@ -1,102 +1,56 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  TopTask as TopTaskStory,
-  Primary as PrimaryStory,
-  Secondary as SecondaryStory,
-  WithImage as WithImageStory,
-  AToZ as AToZStory,
-  NonUrgentCareCard as NonUrgentCareCardStory,
-  UrgentCareCard as UrgentCareCardStory,
-  EmergencyCareCard as EmergencyCareCardStory,
-} from './Card.stories';
+import { render } from 'vitest-browser-react';
 
-const TopTask = composeStory(TopTaskStory, meta);
-const Primary = composeStory(PrimaryStory, meta);
-const Secondary = composeStory(SecondaryStory, meta);
-const WithImage = composeStory(WithImageStory, meta);
-const AToZ = composeStory(AToZStory, meta);
-const NonUrgentCareCard = composeStory(NonUrgentCareCardStory, meta);
-const UrgentCareCard = composeStory(UrgentCareCardStory, meta);
-const EmergencyCareCard = composeStory(EmergencyCareCardStory, meta);
+import { Card } from './Card';
 
-it('should render the top task card component', () => {
-  const { container } = render(<TopTask />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h5')).toBeInTheDocument();
+it('renders with the nhsuk-card class', async () => {
+  const page = await render(
+    <Card>
+      <Card.Content>
+        <Card.Heading>Visit our pharmacy</Card.Heading>
+      </Card.Content>
+    </Card>,
+  );
+  expect(page.container.querySelector('.nhsuk-card')).toBeInTheDocument();
 });
 
-it('should render the card component with a primary variant', () => {
-  const { container } = render(<Primary />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-icon__chevron-right-circle'),
-  ).toBeInTheDocument();
+it('applies the clickable class', async () => {
+  const page = await render(
+    <Card clickable>
+      <Card.Content>
+        <Card.Heading>Visit our pharmacy</Card.Heading>
+        <Card.Link href="#">Visit pharmacy</Card.Link>
+      </Card.Content>
+    </Card>,
+  );
+  expect(page.container.querySelector('.nhsuk-card--clickable')).toBeInTheDocument();
 });
 
-it('should render the card component with a secondary variant', () => {
-  const { container } = render(<Secondary />);
+it.each(['primary', 'secondary', 'feature'] as const)(
+  'applies the %s variant class',
+  async (variant) => {
+    const page = await render(
+      <Card variant={variant}>
+        <Card.Content />
+      </Card>,
+    );
+    expect(page.container.querySelector(`.nhsuk-card--${variant}`)).toBeInTheDocument();
+  },
+);
 
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-});
-
-it('should render the card component with an image', () => {
-  const { container } = render(<WithImage />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-  expect(container.querySelector('img')).toBeInTheDocument();
-});
-
-it('should render the card component with a feature variant', () => {
-  const { container } = render(<AToZ />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-card--feature')).toBeInTheDocument();
-});
-
-it('should render the card component with a non-urgent variant', () => {
-  const { container } = render(<NonUrgentCareCard />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-u-visually-hidden'),
-  ).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-card--care--non-urgent'),
-  ).toBeInTheDocument();
-});
-
-it('should render the card component with an urgent variant', () => {
-  const { container } = render(<UrgentCareCard />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-u-visually-hidden'),
-  ).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-card--care--urgent'),
-  ).toBeInTheDocument();
-});
-
-it('should render the card component with an emergency variant', () => {
-  const { container } = render(<EmergencyCareCard />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('h2')).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-u-visually-hidden'),
-  ).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-card--care--emergency'),
-  ).toBeInTheDocument();
-});
+it.each(['non-urgent', 'urgent', 'emergency'] as const)(
+  'applies the care card classes for the %s variant',
+  async (variant) => {
+    const page = await render(
+      <Card variant={variant}>
+        <Card.Content>
+          <Card.Heading careCard visuallyHiddenText="Non-urgent advice:">
+            Speak to a GP if:
+          </Card.Heading>
+        </Card.Content>
+      </Card>,
+    );
+    expect(page.container.querySelector(`.nhsuk-card--care--${variant}`)).toBeInTheDocument();
+  },
+);

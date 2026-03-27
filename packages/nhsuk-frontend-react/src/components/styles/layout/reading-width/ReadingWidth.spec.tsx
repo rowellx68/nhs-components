@@ -1,13 +1,10 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './ReadingWidth.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { ReadingWidth } from './ReadingWidth';
 
-it('should render the ReadingWidth component', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('.nhsuk-reading-width')).toMatchSnapshot();
+it('renders with the nhsuk-u-reading-width class', async () => {
+  const page = await render(<ReadingWidth>Content</ReadingWidth>);
+  expect(page.container.querySelector('.nhsuk-u-reading-width')).toBeInTheDocument();
 });

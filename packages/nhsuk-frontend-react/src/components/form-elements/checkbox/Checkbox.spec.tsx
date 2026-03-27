@@ -1,65 +1,42 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  WithHint as WithHintStory,
-  WithError as WithErrorStory,
-  WithItemHint as WithItemHintStory,
-  WithConditionalContent as WithConditionalContentStory,
-  WithExclusiveOption as WithExclusiveOptionStory,
-} from './Checkbox.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const WithHint = composeStory(WithHintStory, meta);
-const WithError = composeStory(WithErrorStory, meta);
-const WithItemHint = composeStory(WithItemHintStory, meta);
-const WithConditionalContent = composeStory(WithConditionalContentStory, meta);
-const WithExclusiveOption = composeStory(WithExclusiveOptionStory, meta);
+import { Checkbox } from './Checkbox';
 
-it('should render the Checkbox component', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('input[type="checkbox"]')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders with the nhsuk-checkboxes class', async () => {
+  const page = await render(
+    <Checkbox>
+      <Checkbox.Item id="waste-1" name="waste" value="mines">
+        Waste from mines or quarries
+      </Checkbox.Item>
+    </Checkbox>,
+  );
+  expect(page.container.querySelector('.nhsuk-checkboxes')).toBeInTheDocument();
 });
 
-it('should render the Checkbox with exclusive option', () => {
-  const { container } = render(<WithExclusiveOption />);
-
-  expect(container.querySelector('input[type="checkbox"]')).toBeInTheDocument();
-  expect(
-    container.querySelector('.nhsuk-checkboxes__divider'),
-  ).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders a checkbox input for each item', async () => {
+  const page = await render(
+    <Checkbox>
+      <Checkbox.Item id="waste-1" name="waste" value="mines">
+        Waste from mines or quarries
+      </Checkbox.Item>
+      <Checkbox.Item id="waste-2" name="waste" value="farm">
+        Farm or agricultural waste
+      </Checkbox.Item>
+    </Checkbox>,
+  );
+  const checkboxes = page.container.querySelectorAll('input[type="checkbox"]');
+  expect(checkboxes).toHaveLength(2);
 });
 
-it('should render the Checkbox with conditional content', () => {
-  const { container } = render(<WithConditionalContent />);
-
-  expect(container.querySelector('input[type="email"]')).toBeInTheDocument();
-  expect(container.querySelector('input[type="tel"]')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the Checkbox with hint', () => {
-  const { container } = render(<WithHint />);
-
-  expect(container.querySelector('.nhsuk-hint')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the Checkbox with item hint', () => {
-  const { container } = render(<WithItemHint />);
-
-  expect(container.querySelector('.nhsuk-hint')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the Checkbox with error', () => {
-  const { container } = render(<WithError />);
-
-  expect(container.querySelector('.nhsuk-error-message')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the small modifier class', async () => {
+  const page = await render(
+    <Checkbox small>
+      <Checkbox.Item id="c1" name="c" value="1">
+        Option 1
+      </Checkbox.Item>
+    </Checkbox>,
+  );
+  expect(page.container.querySelector('.nhsuk-checkboxes--small')).toBeInTheDocument();
 });

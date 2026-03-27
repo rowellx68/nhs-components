@@ -1,15 +1,65 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './Breadcrumb.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { Breadcrumb } from './Breadcrumb';
 
-it('should render a breadcrumb element', () => {
-  const { container } = render(<Default />);
+it('renders a navigation landmark labelled Breadcrumb', async () => {
+  const page = await render(
+    <Breadcrumb>
+      <Breadcrumb.List />
+      <Breadcrumb.BackLink href="/">Home</Breadcrumb.BackLink>
+    </Breadcrumb>,
+  );
+  await expect.element(page.getByRole('navigation', { name: 'Breadcrumb' })).toBeInTheDocument();
+});
 
-  expect(container.querySelector('.nhsuk-breadcrumb')).toBeInTheDocument();
-  expect(container.querySelectorAll('a')).toHaveLength(4);
-  expect(container).toMatchSnapshot();
+it('renders list items as links with the breadcrumb link class', async () => {
+  const page = await render(
+    <Breadcrumb>
+      <Breadcrumb.List>
+        <Breadcrumb.ListItem href="/">Home</Breadcrumb.ListItem>
+        <Breadcrumb.ListItem href="/health-a-to-z">Health A to Z</Breadcrumb.ListItem>
+      </Breadcrumb.List>
+      <Breadcrumb.BackLink href="/health-a-to-z">Health A to Z</Breadcrumb.BackLink>
+    </Breadcrumb>,
+  );
+  expect(page.container.querySelector('a.nhsuk-breadcrumb__link')).toBeInTheDocument();
+});
+
+it('renders the back link with the correct class', async () => {
+  const page = await render(
+    <Breadcrumb>
+      <Breadcrumb.List>
+        <Breadcrumb.ListItem href="/">Home</Breadcrumb.ListItem>
+      </Breadcrumb.List>
+      <Breadcrumb.BackLink href="/">Home</Breadcrumb.BackLink>
+    </Breadcrumb>,
+  );
+  expect(page.container.querySelector('.nhsuk-back-link')).toBeInTheDocument();
+});
+
+it('applies the reverse variant class to the nav and back link', async () => {
+  const page = await render(
+    <Breadcrumb variant="reverse">
+      <Breadcrumb.List />
+      <Breadcrumb.BackLink href="/" variant="reverse">
+        Home
+      </Breadcrumb.BackLink>
+    </Breadcrumb>,
+  );
+  await expect.element(page.getByRole('navigation')).toHaveClass('nhsuk-breadcrumb--reverse');
+  expect(page.container.querySelector('.nhsuk-back-link--reverse')).toBeInTheDocument();
+});
+
+it('renders list items as a polymorphic element', async () => {
+  const page = await render(
+    <Breadcrumb>
+      <Breadcrumb.List>
+        <Breadcrumb.ListItem as="span">Home</Breadcrumb.ListItem>
+      </Breadcrumb.List>
+      <Breadcrumb.BackLink href="/">Home</Breadcrumb.BackLink>
+    </Breadcrumb>,
+  );
+  expect(page.container.querySelector('span.nhsuk-breadcrumb__link')).toBeInTheDocument();
 });

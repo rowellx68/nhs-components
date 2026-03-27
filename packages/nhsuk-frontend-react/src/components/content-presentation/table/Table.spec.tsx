@@ -1,47 +1,47 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  TwoColumn as TwoColumnStory,
-  ThreeColumn as ThreeColumnStory,
-  ThreeColumnWithFirstCellAsHeader as ThreeColumnWithFirstCellAsHeaderStory,
-} from './Table.stories';
+import { render } from 'vitest-browser-react';
 
-const TwoColumn = composeStory(TwoColumnStory, meta);
-const ThreeColumn = composeStory(ThreeColumnStory, meta);
-const ThreeColumnWithFirstCellAsHeader = composeStory(
-  ThreeColumnWithFirstCellAsHeaderStory,
-  meta,
-);
+import { Table } from './Table';
 
-it('should render a two column table', () => {
-  const { container } = render(<TwoColumn />);
-
-  expect(container.querySelector('caption')).toHaveTextContent(
-    'Skin symptoms and possible causes',
+it('renders a table element with the nhsuk-table class', async () => {
+  const page = await render(
+    <Table>
+      <Table.Head>
+        <Table.Row>
+          <Table.Cell>Name</Table.Cell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Jane Smith</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>,
   );
-  expect(container).toMatchSnapshot();
+  await expect.element(page.getByRole('table')).toBeInTheDocument();
+  expect(page.container.querySelector('table.nhsuk-table')).toBeInTheDocument();
 });
 
-it('should render a three column table', () => {
-  const { container } = render(<ThreeColumn />);
-
-  expect(container.querySelector('caption')).toHaveTextContent(
-    'Ibuprofen tablet dosages for children',
+it('renders a caption', async () => {
+  const page = await render(
+    <Table>
+      <Table.Caption>Patient list</Table.Caption>
+      <Table.Body />
+    </Table>,
   );
-  expect(
-    container.querySelector('table.nhsuk-table-responsive'),
-  ).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+  await expect.element(page.getByText('Patient list')).toBeInTheDocument();
 });
 
-it('should render a three column table with the first cell as a header', () => {
-  const { container } = render(<ThreeColumnWithFirstCellAsHeader />);
-
-  expect(container.querySelector('tbody > tr > th')).toBeInTheDocument();
-  expect(
-    container.querySelector('table.nhsuk-table-responsive'),
-  ).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the responsive class', async () => {
+  const page = await render(
+    <Table variant="responsive">
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Data</Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>,
+  );
+  expect(page.container.querySelector('.nhsuk-table-responsive')).toBeInTheDocument();
 });

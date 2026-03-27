@@ -1,37 +1,44 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  WithHint as WithHintStory,
-  WithError as WithErrorStory,
-} from './Select.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const WithHint = composeStory(WithHintStory, meta);
-const WithError = composeStory(WithErrorStory, meta);
+import { Select } from './Select';
 
-it('should render a select element', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('select')).toBeInTheDocument();
-  expect(container.querySelectorAll('option')).toHaveLength(3);
-  expect(container).toMatchSnapshot();
+it('renders a select element with the nhsuk-select class', async () => {
+  const page = await render(
+    <Select id="select-1" label="Select a country">
+      <Select.Option value="england">England</Select.Option>
+      <Select.Option value="scotland">Scotland</Select.Option>
+    </Select>,
+  );
+  expect(page.container.querySelector('select.nhsuk-select')).toBeInTheDocument();
 });
 
-it('should render a select element with hint', () => {
-  const { container } = render(<WithHint />);
-
-  expect(container.querySelector('select')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-hint')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('associates the label with the select', async () => {
+  const page = await render(
+    <Select id="select-1" label="Select a country">
+      <Select.Option value="england">England</Select.Option>
+    </Select>,
+  );
+  await expect.element(page.getByLabelText('Select a country')).toBeInTheDocument();
 });
 
-it('should render a select element with error', () => {
-  const { container } = render(<WithError />);
+it('renders options', async () => {
+  const page = await render(
+    <Select id="select-1" label="Select a country">
+      <Select.Option value="england">England</Select.Option>
+      <Select.Option value="scotland">Scotland</Select.Option>
+    </Select>,
+  );
+  const options = page.container.querySelectorAll('option');
+  expect(options).toHaveLength(2);
+});
 
-  expect(container.querySelector('select')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-error-message')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the error class when an error is provided', async () => {
+  const page = await render(
+    <Select id="select-1" label="Select a country" error="Select a country">
+      <Select.Option value="">Please select</Select.Option>
+    </Select>,
+  );
+  expect(page.container.querySelector('select.nhsuk-select--error')).toBeInTheDocument();
 });

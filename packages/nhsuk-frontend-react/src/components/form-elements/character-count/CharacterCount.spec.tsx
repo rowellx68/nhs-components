@@ -1,25 +1,37 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  WithMaxCharacters as WithMaxCharactersStory,
-  WithMaxWords as WithMaxWordsStory,
-} from './CharacterCount.stories';
+import { render } from 'vitest-browser-react';
 
-const WithMaxCharacters = composeStory(WithMaxCharactersStory, meta);
-const WithMaxWords = composeStory(WithMaxWordsStory, meta);
+import { CharacterCount } from './CharacterCount';
 
-it('should render the CharacterCount component with max characters', () => {
-  const { container } = render(<WithMaxCharacters />);
-
-  expect(container.querySelector('textarea')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders a textarea with the nhsuk-js-character-count class', async () => {
+  const page = await render(
+    <CharacterCount
+      id="more-detail"
+      label="Can you provide more detail?"
+      variant="character-count"
+      maxCharacterLength={200}
+    />,
+  );
+  await expect.element(page.getByRole('textbox')).toBeInTheDocument();
+  expect(page.container.querySelector('textarea.nhsuk-js-character-count')).toBeInTheDocument();
 });
 
-it('should render the CharacterCount component with max words', () => {
-  const { container } = render(<WithMaxWords />);
+it('renders a word count textarea', async () => {
+  const page = await render(
+    <CharacterCount id="description" label="Description" variant="word-count" maxWords={50} />,
+  );
+  await expect.element(page.getByRole('textbox')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('textarea')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('associates the label with the textarea', async () => {
+  const page = await render(
+    <CharacterCount
+      id="more-detail"
+      label="Can you provide more detail?"
+      variant="character-count"
+      maxCharacterLength={200}
+    />,
+  );
+  await expect.element(page.getByLabelText('Can you provide more detail?')).toBeInTheDocument();
 });

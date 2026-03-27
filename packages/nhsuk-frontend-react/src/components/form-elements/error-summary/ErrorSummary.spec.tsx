@@ -1,22 +1,45 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Example as ExampleStory } from './ErrorSummary.stories';
+import { render } from 'vitest-browser-react';
 
-const Example = composeStory(ExampleStory, meta);
+import { ErrorSummary } from './ErrorSummary';
 
-it('should render the error summary component', () => {
-  const { container } = render(<Example />);
+it('renders with the nhsuk-error-summary class', async () => {
+  const page = await render(
+    <ErrorSummary disableAutoFocus>
+      <ErrorSummary.Title>There is a problem</ErrorSummary.Title>
+      <ErrorSummary.Body>
+        <ErrorSummary.List>
+          <ErrorSummary.ListItem href="#name">Enter your name</ErrorSummary.ListItem>
+        </ErrorSummary.List>
+      </ErrorSummary.Body>
+    </ErrorSummary>,
+  );
+  expect(page.container.querySelector('.nhsuk-error-summary')).toBeInTheDocument();
+});
 
-  expect(
-    container.querySelector('.nhsuk-error-summary__title'),
-  ).toHaveTextContent('There is a problem');
-  expect(
-    container.querySelector('.nhsuk-error-summary__body p'),
-  ).toHaveTextContent('Describe the errors and how to correct them');
-  expect(
-    container.querySelector('.nhsuk-error-summary__list a'),
-  ).toHaveTextContent('Date of birth must be in the past');
-  expect(container).toMatchSnapshot();
+it('renders with role=alert', async () => {
+  const page = await render(
+    <ErrorSummary disableAutoFocus>
+      <ErrorSummary.Title>There is a problem</ErrorSummary.Title>
+      <ErrorSummary.Body />
+    </ErrorSummary>,
+  );
+  await expect.element(page.getByRole('alert')).toBeInTheDocument();
+});
+
+it('renders error links', async () => {
+  const page = await render(
+    <ErrorSummary disableAutoFocus>
+      <ErrorSummary.Title>There is a problem</ErrorSummary.Title>
+      <ErrorSummary.Body>
+        <ErrorSummary.List>
+          <ErrorSummary.ListItem href="#name">Enter your name</ErrorSummary.ListItem>
+          <ErrorSummary.ListItem href="#dob">Enter your date of birth</ErrorSummary.ListItem>
+        </ErrorSummary.List>
+      </ErrorSummary.Body>
+    </ErrorSummary>,
+  );
+  const links = page.container.querySelectorAll('.nhsuk-error-summary__list a');
+  expect(links).toHaveLength(2);
 });

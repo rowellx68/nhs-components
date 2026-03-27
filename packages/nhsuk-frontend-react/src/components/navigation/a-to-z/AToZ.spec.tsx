@@ -1,17 +1,40 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './AToZ.stories';
+import { render } from 'vitest-browser-react';
 
-const AToZ = composeStory(DefaultStory, meta);
+import { AToZ } from './AToZ';
 
-it('should render AToZ', () => {
-  const { container } = render(<AToZ />);
+it('renders a navigation element', async () => {
+  const page = await render(
+    <AToZ aria-label="A to Z navigation">
+      <AToZ.Item href="#A">A</AToZ.Item>
+      <AToZ.Item href="#B">B</AToZ.Item>
+    </AToZ>,
+  );
+  await expect
+    .element(page.getByRole('navigation', { name: 'A to Z navigation' }))
+    .toBeInTheDocument();
+});
 
-  expect(container).toMatchSnapshot();
-  expect(container.querySelectorAll('a')).toHaveLength(24);
-  expect(
-    container.querySelectorAll('.nhsuk-u-secondary-text-color'),
-  ).toHaveLength(2);
+it('renders items as links', async () => {
+  const page = await render(
+    <AToZ aria-label="A to Z navigation">
+      <AToZ.Item href="#A">A</AToZ.Item>
+      <AToZ.Item href="#B">B</AToZ.Item>
+    </AToZ>,
+  );
+  const links = page.container.querySelectorAll('a');
+  expect(links).toHaveLength(2);
+});
+
+it('applies the noItems style when an item has no content', async () => {
+  const page = await render(
+    <AToZ aria-label="A to Z navigation">
+      <AToZ.Item href="#A">A</AToZ.Item>
+      <AToZ.Item href="#B" noItems>
+        B
+      </AToZ.Item>
+    </AToZ>,
+  );
+  expect(page.container.querySelector('.nhsuk-u-secondary-text-color')).toBeInTheDocument();
 });

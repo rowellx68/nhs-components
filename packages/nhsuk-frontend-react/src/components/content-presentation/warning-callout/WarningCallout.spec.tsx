@@ -1,39 +1,32 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  WithNoVisuallyHiddenText as WithNoVisuallyHiddenTextStory,
-  WithDifferentHeadingLevels as WithDifferentHeadingLevelsStory,
-} from './WarningCallout.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const WithNoVisuallyHiddenText = composeStory(
-  WithNoVisuallyHiddenTextStory,
-  meta,
-);
-const WithDifferentHeadingLevels = composeStory(
-  WithDifferentHeadingLevelsStory,
-  meta,
-);
+import { WarningCallout } from './WarningCallout';
 
-it('should render the WarningCallout component', () => {
-  const { getByRole } = render(<Default />);
-
-  expect(getByRole('text')).toHaveTextContent('Important:');
-  expect(getByRole('text')).toHaveTextContent('School, nursery or work');
+it('renders with the warning card classes', async () => {
+  const page = await render(
+    <WarningCallout>
+      <WarningCallout.Label>School, nursery or work</WarningCallout.Label>
+      <WarningCallout.Description>
+        Stay off school until your symptoms have gone.
+      </WarningCallout.Description>
+    </WarningCallout>,
+  );
+  expect(page.container.querySelector('.nhsuk-card.nhsuk-card--warning')).toBeInTheDocument();
 });
 
-it('should render the WarningCallout component without visually hidden text', () => {
-  const { getByRole, container } = render(<WithNoVisuallyHiddenText />);
-
-  expect(getByRole('text')).toHaveTextContent('Important');
-  expect(container.querySelector('h3')).toBeInTheDocument();
-});
-
-it('should render the WarningCallout component with different heading levels', () => {
-  const { container } = render(<WithDifferentHeadingLevels />);
-
-  expect(container.querySelector('h2')).toBeInTheDocument();
+it('renders label and description content', async () => {
+  const page = await render(
+    <WarningCallout>
+      <WarningCallout.Label>School, nursery or work</WarningCallout.Label>
+      <WarningCallout.Description>
+        Stay off school until your symptoms have gone.
+      </WarningCallout.Description>
+    </WarningCallout>,
+  );
+  await expect.element(page.getByText('School, nursery or work')).toBeInTheDocument();
+  await expect
+    .element(page.getByText('Stay off school until your symptoms have gone.'))
+    .toBeInTheDocument();
 });

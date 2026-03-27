@@ -1,27 +1,49 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  DoList as DoListStory,
-  DontList as DontListStory,
-} from './DoDontList.stories';
+import { render } from 'vitest-browser-react';
 
-const DoList = composeStory(DoListStory, meta);
-const DontList = composeStory(DontListStory, meta);
+import { DoDontList } from './DoDontList';
 
-it('should render the do variant of the DoDontList component', () => {
-  const { getByRole, container } = render(<DoList />);
-
-  expect(getByRole('list')).toHaveClass('nhsuk-list nhsuk-list--tick');
-  expect(container.querySelectorAll('.nhsuk-icon__tick')).toHaveLength(3);
-  expect(container).toMatchSnapshot();
+it('renders with the card feature classes', async () => {
+  const page = await render(
+    <DoDontList>
+      <DoDontList.Title>Do</DoDontList.Title>
+      <DoDontList.List variant="do">
+        <DoDontList.Item variant="do">Wash your hands</DoDontList.Item>
+      </DoDontList.List>
+    </DoDontList>,
+  );
+  expect(page.container.querySelector('.nhsuk-card.nhsuk-card--feature')).toBeInTheDocument();
 });
 
-it('should render the dont variant of the DoDontList component', () => {
-  const { getByRole, container } = render(<DontList />);
+it('applies nhsuk-list--tick for the do variant', async () => {
+  const page = await render(
+    <DoDontList>
+      <DoDontList.List variant="do">
+        <DoDontList.Item variant="do">Wash your hands</DoDontList.Item>
+      </DoDontList.List>
+    </DoDontList>,
+  );
+  expect(page.container.querySelector('ul.nhsuk-list--tick')).toBeInTheDocument();
+});
 
-  expect(getByRole('list')).toHaveClass('nhsuk-list nhsuk-list--cross');
-  expect(container.querySelectorAll('.nhsuk-icon__cross')).toHaveLength(4);
-  expect(container).toMatchSnapshot();
+it('applies nhsuk-list--cross for the dont variant', async () => {
+  const page = await render(
+    <DoDontList>
+      <DoDontList.List variant="dont">
+        <DoDontList.Item variant="dont">Do not smoke</DoDontList.Item>
+      </DoDontList.List>
+    </DoDontList>,
+  );
+  expect(page.container.querySelector('ul.nhsuk-list--cross')).toBeInTheDocument();
+});
+
+it('renders the title with the heading class', async () => {
+  const page = await render(
+    <DoDontList>
+      <DoDontList.Title>Things to do</DoDontList.Title>
+      <DoDontList.List variant="do" />
+    </DoDontList>,
+  );
+  expect(page.container.querySelector('.nhsuk-card__heading')).toBeInTheDocument();
 });

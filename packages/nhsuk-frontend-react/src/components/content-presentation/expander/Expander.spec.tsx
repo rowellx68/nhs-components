@@ -1,29 +1,42 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  SingleExpander as SingleExpanderStory,
-  MoreThanOneExpander as MoreThanOneExpanderStory,
-} from './Expander.stories';
+import { render } from 'vitest-browser-react';
 
-const SingleExpander = composeStory(SingleExpanderStory, meta);
-const MoreThanOneExpander = composeStory(MoreThanOneExpanderStory, meta);
+import { Expander } from './Expander';
 
-it('should render the Expander component', () => {
-  const { container } = render(<SingleExpander />);
-
-  expect(container.querySelector('.nhsuk-expander')).toBeInTheDocument();
-  expect(container.querySelector('summary')).toHaveTextContent(
-    'Get your medical records',
+it('renders a details element with the expander classes', async () => {
+  const page = await render(
+    <Expander>
+      <Expander.Summary>Show details</Expander.Summary>
+      <Expander.Text>Here are the details.</Expander.Text>
+    </Expander>,
   );
-  expect(container).toMatchSnapshot();
+  expect(page.container.querySelector('details.nhsuk-details.nhsuk-expander')).toBeInTheDocument();
 });
 
-it('should render the Expander Group component', () => {
-  const { container } = render(<MoreThanOneExpander />);
+it('renders summary and text content', async () => {
+  const page = await render(
+    <Expander>
+      <Expander.Summary>Show details</Expander.Summary>
+      <Expander.Text>Here are the details.</Expander.Text>
+    </Expander>,
+  );
+  await expect.element(page.getByText('Show details')).toBeInTheDocument();
+  await expect.element(page.getByText('Here are the details.')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('.nhsuk-expander-group')).toBeInTheDocument();
-  expect(container.querySelectorAll('.nhsuk-expander')).toHaveLength(2);
-  expect(container).toMatchSnapshot();
+it('wraps multiple expanders in a group', async () => {
+  const page = await render(
+    <Expander.Group>
+      <Expander>
+        <Expander.Summary>First</Expander.Summary>
+        <Expander.Text>First content.</Expander.Text>
+      </Expander>
+      <Expander>
+        <Expander.Summary>Second</Expander.Summary>
+        <Expander.Text>Second content.</Expander.Text>
+      </Expander>
+    </Expander.Group>,
+  );
+  expect(page.container.querySelector('.nhsuk-expander-group')).toBeInTheDocument();
 });

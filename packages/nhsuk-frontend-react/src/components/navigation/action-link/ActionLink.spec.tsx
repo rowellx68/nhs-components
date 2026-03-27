@@ -1,15 +1,24 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './ActionLink.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { ActionLink } from './ActionLink';
 
-it('should render an anchor element', () => {
-  const { container } = render(<Default />);
+it('renders with the nhsuk-action-link class', async () => {
+  const page = await render(<ActionLink href="/find-pharmacy">Find a pharmacy</ActionLink>);
+  expect(page.container.querySelector('.nhsuk-action-link')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('a')).toBeInTheDocument();
-  expect(container).toHaveTextContent('Find a minor injuries unit');
-  expect(container).toMatchSnapshot();
+it('renders the link text', async () => {
+  const page = await render(<ActionLink href="/find-pharmacy">Find a pharmacy</ActionLink>);
+  await expect.element(page.getByText('Find a pharmacy')).toBeInTheDocument();
+});
+
+it('applies the reverse variant class', async () => {
+  const page = await render(
+    <ActionLink href="/find-pharmacy" variant="reverse">
+      Find a pharmacy
+    </ActionLink>,
+  );
+  expect(page.container.querySelector('.nhsuk-action-link--reverse')).toBeInTheDocument();
 });

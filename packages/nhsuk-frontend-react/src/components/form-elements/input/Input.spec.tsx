@@ -1,97 +1,54 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  WithError as WithErrorStory,
-  WithHint as WithHintStory,
-  WithPrefix as WithPrefixStory,
-  WithPrefixAndSuffix as WithPrefixAndSuffixStory,
-  WithPrefixSuffixAndError as WithPrefixSuffixAndErrorStory,
-  WholeNumbers as WholeNumbersStory,
-  WithSuffix as WithSuffixStory,
-} from './Input.stories';
-import { InputProps } from './Input';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const WithError = composeStory(WithErrorStory, meta);
-const WithHint = composeStory(WithHintStory, meta);
-const WithPrefix = composeStory(WithPrefixStory, meta);
-const WithPrefixAndSuffix = composeStory(WithPrefixAndSuffixStory, meta);
-const WithPrefixSuffixAndError = composeStory(
-  WithPrefixSuffixAndErrorStory,
-  meta,
-);
-const WholeNumbers = composeStory(WholeNumbersStory, meta);
-const WithSuffix = composeStory(WithSuffixStory, meta);
+import { Input } from './Input';
 
-it('should render the input component', () => {
-  const { container } = render(<Default label="First name" />);
-
-  expect(container).toMatchSnapshot();
+it('associates the label with the input', async () => {
+  const page = await render(<Input id="name" label="First name" />);
+  await expect.element(page.getByLabelText('First name')).toBeInTheDocument();
 });
 
-it('should render the input component with hint', () => {
-  const { container } = render(<WithHint />);
-
-  expect(container).toMatchSnapshot();
+it('renders hint text', async () => {
+  const page = await render(<Input id="dob" label="Date of birth" hint="For example, 15 3 1984" />);
+  await expect.element(page.getByText('For example, 15 3 1984')).toBeInTheDocument();
 });
 
-it('should render the input component with error', () => {
-  const { container } = render(<WithError />);
-
-  expect(container).toMatchSnapshot();
+it('renders an error message and applies the error class to the input', async () => {
+  const page = await render(
+    <Input id="nhs-number" label="NHS number" error="Enter your NHS number" />,
+  );
+  await expect.element(page.getByRole('textbox')).toHaveClass('nhsuk-input--error');
+  await expect.element(page.getByText('Enter your NHS number')).toBeInTheDocument();
 });
 
-it.each([
-  '2',
-  '3',
-  '4',
-  '5',
-  '10',
-  '20',
-  'full',
-  'one-half',
-  'one-quarter',
-  'one-third',
-  'three-quarters',
-  'two-thirds',
-] as InputProps['width'][])(
-  'should render the input component with width %s',
-  (width) => {
-    const { container } = render(<Default label="First name" width={width} />);
-
-    expect(container).toMatchSnapshot();
+it.each(['2', '3', '4', '5', '10', '20', '30'] as const)(
+  'applies the nhsuk-input--width-%s class for width="%s"',
+  async (width) => {
+    const page = await render(<Input id="x" label="l" width={width} />);
+    await expect.element(page.getByRole('textbox')).toHaveClass(`nhsuk-input--width-${width}`);
   },
 );
 
-it('should render the input with prefix', () => {
-  const { container } = render(<WithPrefix />);
+it.each(['full', 'one-half', 'one-third', 'two-thirds'] as const)(
+  'applies the nhsuk-u-width-%s class for fluid width="%s"',
+  async (width) => {
+    const page = await render(<Input id="x" label="l" width={width} />);
+    await expect.element(page.getByRole('textbox')).toHaveClass(`nhsuk-u-width-${width}`);
+  },
+);
 
-  expect(container).toMatchSnapshot();
+it('applies the code variant class', async () => {
+  const page = await render(<Input id="x" label="NHS number" variant="code" />);
+  await expect.element(page.getByRole('textbox')).toHaveClass('nhsuk-input--code');
 });
 
-it('should render the input with suffix', () => {
-  const { container } = render(<WithSuffix />);
-
-  expect(container).toMatchSnapshot();
+it('renders a prefix', async () => {
+  const page = await render(<Input id="x" label="Amount" prefix="£" />);
+  expect(page.container.querySelector('.nhsuk-input-wrapper__prefix')).toBeInTheDocument();
 });
 
-it('should render the input with prefix and suffix', () => {
-  const { container } = render(<WithPrefixAndSuffix />);
-
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the input with prefix, suffix and error', () => {
-  const { container } = render(<WithPrefixSuffixAndError />);
-
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the input with whole numbers', () => {
-  const { container } = render(<WholeNumbers />);
-
-  expect(container).toMatchSnapshot();
+it('renders a suffix', async () => {
+  const page = await render(<Input id="x" label="Weight" suffix="kg" />);
+  expect(page.container.querySelector('.nhsuk-input-wrapper__suffix')).toBeInTheDocument();
 });

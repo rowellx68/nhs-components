@@ -1,13 +1,16 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './Main.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { Main } from './Main';
 
-it('should render the SkipLink component', () => {
-  const { container } = render(<Default />);
+it('renders a main element with the nhsuk-main-wrapper class', async () => {
+  const page = await render(<Main>Content</Main>);
+  await expect.element(page.getByRole('main')).toBeInTheDocument();
+  expect(page.container.querySelector('main.nhsuk-main-wrapper')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('.nhsuk-skip-link')).toMatchSnapshot();
+it('uses maincontent as the default id', async () => {
+  const page = await render(<Main>Content</Main>);
+  await expect.element(page.getByRole('main')).toHaveAttribute('id', 'maincontent');
 });

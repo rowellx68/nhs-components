@@ -1,32 +1,42 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  NoBorder as NoBorderStory,
-} from './SummaryList.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const NoBorder = composeStory(NoBorderStory, meta);
+import { SummaryList } from './SummaryList';
 
-it('should render the SummaryList component', () => {
-  const { container } = render(<Default />);
-
-  expect(container).toMatchSnapshot();
-  expect(
-    container.querySelectorAll('a > .nhsuk-u-visually-hidden'),
-  ).toHaveLength(4);
+it('renders a dl element with the nhsuk-summary-list class', async () => {
+  const page = await render(
+    <SummaryList>
+      <SummaryList.Row>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Jane Smith</SummaryList.Value>
+      </SummaryList.Row>
+    </SummaryList>,
+  );
+  expect(page.container.querySelector('dl.nhsuk-summary-list')).toBeInTheDocument();
 });
 
-it('should render the SummaryList component with no border', () => {
-  const { container } = render(<NoBorder />);
+it('renders key and value content', async () => {
+  const page = await render(
+    <SummaryList>
+      <SummaryList.Row>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Jane Smith</SummaryList.Value>
+      </SummaryList.Row>
+    </SummaryList>,
+  );
+  await expect.element(page.getByText('Name')).toBeInTheDocument();
+  await expect.element(page.getByText('Jane Smith')).toBeInTheDocument();
+});
 
-  expect(
-    container.querySelectorAll('.nhsuk-summary-list--no-border'),
-  ).toHaveLength(1);
-  expect(container).toMatchSnapshot();
-  expect(
-    container.querySelectorAll('a > .nhsuk-u-visually-hidden'),
-  ).toHaveLength(4);
+it('applies the no-border variant class', async () => {
+  const page = await render(
+    <SummaryList variant="no-border">
+      <SummaryList.Row>
+        <SummaryList.Key>Name</SummaryList.Key>
+        <SummaryList.Value>Jane</SummaryList.Value>
+      </SummaryList.Row>
+    </SummaryList>,
+  );
+  expect(page.container.querySelector('.nhsuk-summary-list--no-border')).toBeInTheDocument();
 });

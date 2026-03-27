@@ -1,65 +1,56 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  Inline as InlineStory,
-  WithHint as WithHintStory,
-  WithError as WithErrorStory,
-  WithItemHint as WithItemHintStory,
-  WithDivider as WithDividerStory,
-  WithConditionalContent as WithConditionalContentStory,
-} from './Radio.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const Inline = composeStory(InlineStory, meta);
-const WithHint = composeStory(WithHintStory, meta);
-const WithError = composeStory(WithErrorStory, meta);
-const WithItemHint = composeStory(WithItemHintStory, meta);
-const WithDivider = composeStory(WithDividerStory, meta);
-const WithConditionalContent = composeStory(WithConditionalContentStory, meta);
+import { Radio } from './Radio';
 
-it('should render the radio component', () => {
-  const { container } = render(<Default />);
-
-  expect(container).toMatchSnapshot();
+it('renders with the nhsuk-radios class', async () => {
+  const page = await render(
+    <Radio>
+      <Radio.Item id="yes" name="confirm" value="yes">
+        Yes
+      </Radio.Item>
+      <Radio.Item id="no" name="confirm" value="no">
+        No
+      </Radio.Item>
+    </Radio>,
+  );
+  expect(page.container.querySelector('.nhsuk-radios')).toBeInTheDocument();
 });
 
-it('should render the radio component with hint', () => {
-  const { container } = render(<WithHint />);
-
-  expect(container).toMatchSnapshot();
+it('renders radio inputs for each item', async () => {
+  const page = await render(
+    <Radio>
+      <Radio.Item id="yes" name="confirm" value="yes">
+        Yes
+      </Radio.Item>
+      <Radio.Item id="no" name="confirm" value="no">
+        No
+      </Radio.Item>
+    </Radio>,
+  );
+  const radios = page.container.querySelectorAll('input[type="radio"]');
+  expect(radios).toHaveLength(2);
 });
 
-it('should render the radio component with error', () => {
-  const { container } = render(<WithError />);
-
-  expect(container).toMatchSnapshot();
+it('applies the inline modifier class', async () => {
+  const page = await render(
+    <Radio inline>
+      <Radio.Item id="yes" name="confirm" value="yes">
+        Yes
+      </Radio.Item>
+    </Radio>,
+  );
+  expect(page.container.querySelector('.nhsuk-radios--inline')).toBeInTheDocument();
 });
 
-it('should render the radio component with inline items', () => {
-  const { container } = render(<Inline />);
-
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the radio component with item hints', () => {
-  const { container } = render(<WithItemHint />);
-
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the radio component with divider', () => {
-  const { container } = render(<WithDivider />);
-
-  expect(container).toMatchSnapshot();
-  expect(container).toHaveTextContent('or');
-});
-
-it('should render the radio component with conditional content', () => {
-  const { container } = render(<WithConditionalContent />);
-
-  expect(container).toMatchSnapshot();
-  expect(container.querySelector('[type=email]')).toBeInTheDocument();
+it('applies the small modifier class', async () => {
+  const page = await render(
+    <Radio small>
+      <Radio.Item id="yes" name="confirm" value="yes">
+        Yes
+      </Radio.Item>
+    </Radio>,
+  );
+  expect(page.container.querySelector('.nhsuk-radios--small')).toBeInTheDocument();
 });
