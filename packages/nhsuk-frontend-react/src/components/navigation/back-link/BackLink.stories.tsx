@@ -1,6 +1,7 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { fn } from 'storybook/test';
+
 import { BackLink } from './BackLink';
 
 /**
@@ -8,38 +9,42 @@ import { BackLink } from './BackLink';
  *
  * https://service-manual.nhs.uk/design-system/components/back-link
  */
-const meta: Meta<typeof BackLink> = {
+const meta = {
   title: 'Components/Navigation/Back Link',
   component: BackLink,
   argTypes: {
-    as: {
-      control: false,
-      description:
-        'The component to render the `BackLink` as. This can be an anchor or a link-like component.',
-      table: {
-        defaultValue: {
-          summary: 'a',
-        },
-      },
-    },
+    as: { control: false },
   },
-};
+} satisfies Meta<typeof BackLink>;
 
 export default meta;
 
-type Story = StoryObj<typeof BackLink>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Go back',
+    children: 'Back',
     href: '#',
   },
   render: (args) => <BackLink {...args} />,
 };
 
+export const Reverse: Story = {
+  args: {
+    children: 'Back',
+    href: '#',
+    variant: 'reverse',
+  },
+  render: (args) => (
+    <div style={{ background: '#005eb8', padding: '2rem' }}>
+      <BackLink {...args} />
+    </div>
+  ),
+};
+
 export const AsButton: Story = {
   args: {
-    children: 'Go back',
+    children: 'Back',
     as: 'button',
     onClick: fn(),
   },

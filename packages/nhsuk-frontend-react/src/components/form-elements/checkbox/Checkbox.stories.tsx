@@ -1,23 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Checkbox } from './Checkbox';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
+
 import { Input } from '../input/Input';
+import { Checkbox } from './Checkbox';
 
 /**
  * Use checkboxes to let users select 1 or more options on a form.
  *
  * https://service-manual.nhs.uk/design-system/components/checkboxes
  */
-const meta: Meta<typeof Checkbox> = {
+const meta = {
   title: 'Components/Form Elements/Checkbox',
   component: Checkbox,
   argTypes: {
     labelProps: {
       control: false,
       table: {
-        type: {
-          summary: 'LabelProps',
-        },
+        type: { summary: 'LabelProps' },
       },
     },
   },
@@ -34,49 +33,55 @@ const meta: Meta<typeof Checkbox> = {
       </form>
     ),
   ],
-};
+} satisfies Meta<typeof Checkbox>;
 
 export default meta;
 
-type Story = StoryObj<typeof Checkbox>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'How would you like to be contacted?',
+    label: 'How do you want to be contacted about this?',
+    hint: 'Select all options that are relevant to you',
   },
   render: (args) => (
     <Checkbox {...args}>
       <Checkbox.Item value="email">Email</Checkbox.Item>
       <Checkbox.Item value="phone">Phone</Checkbox.Item>
-      <Checkbox.Item value="sms">Text message</Checkbox.Item>
+      <Checkbox.Item value="text">Text message</Checkbox.Item>
     </Checkbox>
   ),
 };
 
-export const WithHint: Story = {
+export const Small: Story = {
   args: {
-    label: 'How would you like to be contacted?',
-    hint: 'Select all options that are relevant to you.',
+    label: 'How do you want to be contacted about this?',
+    hint: 'Select all options that are relevant to you',
+    small: true,
+    labelProps: {
+      size: 'm',
+      variant: 'page-heading',
+    },
   },
   render: (args) => (
     <Checkbox {...args}>
       <Checkbox.Item value="email">Email</Checkbox.Item>
       <Checkbox.Item value="phone">Phone</Checkbox.Item>
-      <Checkbox.Item value="sms">Text message</Checkbox.Item>
+      <Checkbox.Item value="text">Text message</Checkbox.Item>
     </Checkbox>
   ),
 };
 
 export const WithError: Story = {
   args: {
-    label: 'How would you like to be contacted?',
-    error: 'Select one option',
+    label: 'How do you want to be contacted about this?',
+    error: 'Select at least one option',
   },
   render: (args) => (
     <Checkbox {...args}>
       <Checkbox.Item value="email">Email</Checkbox.Item>
       <Checkbox.Item value="phone">Phone</Checkbox.Item>
-      <Checkbox.Item value="sms">Text message</Checkbox.Item>
+      <Checkbox.Item value="text">Text message</Checkbox.Item>
     </Checkbox>
   ),
 };
@@ -88,14 +93,11 @@ export const WithItemHint: Story = {
   },
   render: (args) => (
     <Checkbox {...args}>
-      <Checkbox.Item
-        value="email"
-        hint="including English, Scottish, Welsh and Northern Irish"
-      >
+      <Checkbox.Item value="british" hint="including English, Scottish, Welsh and Northern Irish">
         British
       </Checkbox.Item>
-      <Checkbox.Item value="phone">Irish</Checkbox.Item>
-      <Checkbox.Item value="sms">Citizen of another country</Checkbox.Item>
+      <Checkbox.Item value="irish">Irish</Checkbox.Item>
+      <Checkbox.Item value="other">Citizen of another country</Checkbox.Item>
     </Checkbox>
   ),
 };
@@ -107,16 +109,13 @@ export const WithExclusiveOption: Story = {
   },
   render: (args) => (
     <Checkbox {...args}>
-      <Checkbox.Item value="sore throat" exclusiveGroup="symptoms-list">
+      <Checkbox.Item value="sore-throat" exclusiveGroup="symptoms-list">
         Sore throat
       </Checkbox.Item>
-      <Checkbox.Item value="runny nose" exclusiveGroup="symptoms-list">
+      <Checkbox.Item value="runny-nose" exclusiveGroup="symptoms-list">
         Runny nose
       </Checkbox.Item>
-      <Checkbox.Item
-        value="muscle or joint pain"
-        exclusiveGroup="symptoms-list"
-      >
+      <Checkbox.Item value="muscle-joint-pain" exclusiveGroup="symptoms-list">
         Muscle or joint pain
       </Checkbox.Item>
       <Checkbox.Divider />
@@ -129,30 +128,26 @@ export const WithExclusiveOption: Story = {
 
 export const WithConditionalContent: Story = {
   args: {
-    label: 'How would you like to be contacted?',
-    hint: 'Select all options that are relevant to you.',
+    label: 'How do you want to be contacted about this?',
+    hint: 'Select all options that are relevant to you',
   },
   render: (args) => (
     <Checkbox {...args}>
       <Checkbox.Item
         value="email"
-        conditional={
-          <Input type="email" label="Email address" width="two-thirds" />
-        }
+        conditional={<Input type="email" label="Email address" width="two-thirds" />}
       >
         Email
       </Checkbox.Item>
       <Checkbox.Item
         value="phone"
-        conditional={
-          <Input type="tel" label="Phone number" width="two-thirds" />
-        }
+        conditional={<Input type="tel" label="Phone number" width="two-thirds" />}
       >
         Phone
       </Checkbox.Item>
       <Checkbox.Item
-        value="sms"
-        conditional={<Input label="Mobile number" width="two-thirds" />}
+        value="text"
+        conditional={<Input type="tel" label="Mobile phone number" width="two-thirds" />}
       >
         Text message
       </Checkbox.Item>

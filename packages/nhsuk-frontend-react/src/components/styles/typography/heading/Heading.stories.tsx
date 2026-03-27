@@ -1,14 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { Heading } from './Heading';
 
 /**
  * https://service-manual.nhs.uk/design-system/styles/typography#headings
  */
-const meta: Meta<typeof Heading> = {
+const meta = {
   title: 'Styles/Typography/Heading',
   component: Heading,
-};
+} satisfies Meta<typeof Heading>;
 
 export default meta;
 

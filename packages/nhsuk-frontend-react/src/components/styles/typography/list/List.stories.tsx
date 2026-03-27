@@ -1,17 +1,18 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { List } from './List';
+
 import { Heading } from '../heading/Heading';
+import { List } from './List';
 
 /**
  * Use lists to make blocks of text easier to read, and to break information into manageable chunks.
  *
  * https://service-manual.nhs.uk/design-system/styles/typography#lists
  */
-const meta: Meta<typeof List> = {
+const meta = {
   title: 'Styles/Typography/List',
   component: List,
-};
+} satisfies Meta<typeof List>;
 
 export default meta;
 
@@ -58,12 +59,8 @@ export const Numbered: Story = {
     <>
       <Heading as="h3">How to gargle with salt water</Heading>
       <List {...args}>
-        <List.Item>
-          Dissolve half a teaspoon of salt in a glass of warm water.
-        </List.Item>
-        <List.Item>
-          Gargle with the solution then spit it out – don't swallow it.
-        </List.Item>
+        <List.Item>Dissolve half a teaspoon of salt in a glass of warm water.</List.Item>
+        <List.Item>Gargle with the solution then spit it out – don't swallow it.</List.Item>
         <List.Item>Repeat as often as you like.</List.Item>
       </List>
     </>

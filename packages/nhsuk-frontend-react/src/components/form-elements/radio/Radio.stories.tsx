@@ -1,23 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Radio } from './Radio';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
+
 import { Input } from '../input/Input';
+import { Radio } from './Radio';
 
 /**
  * Use radios when you want users to select only 1 option from a list.
  *
  * https://service-manual.nhs.uk/design-system/components/radios
  */
-const meta: Meta<typeof Radio> = {
+const meta = {
   title: 'Components/Form Elements/Radio',
   component: Radio,
   argTypes: {
     labelProps: {
       control: false,
       table: {
-        type: {
-          summary: 'LabelProps',
-        },
+        type: { summary: 'LabelProps' },
       },
     },
   },
@@ -34,19 +33,15 @@ const meta: Meta<typeof Radio> = {
       </form>
     ),
   ],
-};
+} satisfies Meta<typeof Radio>;
 
 export default meta;
 
-type Story = StoryObj<typeof Radio>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     label: 'Are you 18 or over?',
-    labelProps: {
-      size: 'l',
-      variant: 'page-heading',
-    },
   },
   render: (args) => (
     <Radio {...args}>
@@ -93,8 +88,8 @@ export const WithHint: Story = {
       <Radio.Item value="no" name="nhs-number">
         No, I do not know my NHS number
       </Radio.Item>
-      <Radio.Item value="not sure" name="nhs-number">
-        I'm not sure
+      <Radio.Item value="not-sure" name="nhs-number">
+        I&apos;m not sure
       </Radio.Item>
     </Radio>
   ),
@@ -124,11 +119,7 @@ export const WithItemHint: Story = {
   },
   render: (args) => (
     <Radio {...args}>
-      <Radio.Item
-        value="yes"
-        name="mobile-signal"
-        hint="We will text you a 6 digit security code"
-      >
+      <Radio.Item value="yes" name="mobile-signal" hint="We will text you a 6 digit security code">
         Yes, I have a mobile phone with signal
       </Radio.Item>
       <Radio.Item
@@ -149,13 +140,13 @@ export const WithDivider: Story = {
   render: (args) => (
     <Radio {...args}>
       <Radio.Item value="nhs-login" name="sign-in">
-        NHS login
+        Use NHS login
       </Radio.Item>
       <Radio.Item value="gov-uk" name="sign-in">
-        GOV.UK Verify
+        Use GOV.UK Verify
       </Radio.Item>
       <Radio.Divider />
-      <Radio.Item value="create account" name="sign-in">
+      <Radio.Item value="create-account" name="sign-in">
         Create an account
       </Radio.Item>
     </Radio>
@@ -164,33 +155,29 @@ export const WithDivider: Story = {
 
 export const WithConditionalContent: Story = {
   args: {
-    label: 'How would you like to be contacted?',
-    hint: 'Select one option',
+    label: 'How do you want to be contacted about this?',
+    hint: 'Select 1 option',
   },
   render: (args) => (
     <Radio {...args}>
       <Radio.Item
         name="contact-method"
         value="email"
-        conditional={
-          <Input type="email" label="Email address" width="two-thirds" />
-        }
+        conditional={<Input type="email" label="Email address" width="two-thirds" />}
       >
         Email
       </Radio.Item>
       <Radio.Item
         name="contact-method"
         value="phone"
-        conditional={
-          <Input type="tel" label="Phone number" width="two-thirds" />
-        }
+        conditional={<Input type="tel" label="Phone number" width="two-thirds" />}
       >
         Phone
       </Radio.Item>
       <Radio.Item
         name="contact-method"
-        value="sms"
-        conditional={<Input label="Mobile number" width="two-thirds" />}
+        value="text"
+        conditional={<Input type="tel" label="Mobile phone number" width="two-thirds" />}
       >
         Text message
       </Radio.Item>

@@ -1,5 +1,8 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
+import { Table } from '@/components/content-presentation/table/Table';
+
 import { Tabs } from './Tabs';
 
 /**
@@ -7,7 +10,7 @@ import { Tabs } from './Tabs';
  *
  * https://service-manual.nhs.uk/design-system/components/tabs
  */
-const meta: Meta<typeof Tabs> = {
+const meta = {
   title: 'Components/Content Presentation/Tabs',
   component: Tabs,
   subcomponents: {
@@ -16,37 +19,116 @@ const meta: Meta<typeof Tabs> = {
     'Tabs.ListItem': Tabs.ListItem,
     'Tabs.Panel': Tabs.Panel,
   } as Record<string, React.ComponentType<any>>,
-};
+  argTypes: {
+    as: { control: false },
+  },
+} satisfies Meta<typeof Tabs>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+const CaseManagerTable = ({ caption }: { caption: string }) => (
+  <Table>
+    <Table.Caption>{caption}</Table.Caption>
+    <Table.Head>
+      <Table.Row>
+        <Table.Cell>Case manager</Table.Cell>
+        <Table.Cell variant="numeric">Cases opened</Table.Cell>
+        <Table.Cell variant="numeric">Cases closed</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>David Francis</Table.Cell>
+        <Table.Cell variant="numeric">
+          {caption === 'Past day'
+            ? 3
+            : caption === 'Past week'
+              ? 24
+              : caption === 'Past month'
+                ? 98
+                : 1380}
+        </Table.Cell>
+        <Table.Cell variant="numeric">
+          {caption === 'Past day'
+            ? 0
+            : caption === 'Past week'
+              ? 18
+              : caption === 'Past month'
+                ? 95
+                : 1472}
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Paul Farmer</Table.Cell>
+        <Table.Cell variant="numeric">
+          {caption === 'Past day'
+            ? 1
+            : caption === 'Past week'
+              ? 16
+              : caption === 'Past month'
+                ? 122
+                : 1129}
+        </Table.Cell>
+        <Table.Cell variant="numeric">
+          {caption === 'Past day'
+            ? 0
+            : caption === 'Past week'
+              ? 20
+              : caption === 'Past month'
+                ? 131
+                : 1083}
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Rita Patel</Table.Cell>
+        <Table.Cell variant="numeric">
+          {caption === 'Past day'
+            ? 2
+            : caption === 'Past week'
+              ? 24
+              : caption === 'Past month'
+                ? 126
+                : 1539}
+        </Table.Cell>
+        <Table.Cell variant="numeric">
+          {caption === 'Past day'
+            ? 0
+            : caption === 'Past week'
+              ? 27
+              : caption === 'Past month'
+                ? 142
+                : 1265}
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
+);
 
 export const Default: Story = {
   render: (args) => (
     <Tabs {...args}>
       <Tabs.Title>Contents</Tabs.Title>
       <Tabs.List>
-        <Tabs.ListItem href="#past-day">Past day</Tabs.ListItem>
+        <Tabs.ListItem href="#past-day" selected>
+          Past day
+        </Tabs.ListItem>
         <Tabs.ListItem href="#past-week">Past week</Tabs.ListItem>
         <Tabs.ListItem href="#past-month">Past month</Tabs.ListItem>
         <Tabs.ListItem href="#past-year">Past year</Tabs.ListItem>
       </Tabs.List>
       <Tabs.Panel id="past-day">
-        <h2>Past day</h2>
-        <p>Content for the past day</p>
+        <CaseManagerTable caption="Past day" />
       </Tabs.Panel>
-      <Tabs.Panel id="past-week">
-        <h2>Past week</h2>
-        <p>Content for the past week</p>
+      <Tabs.Panel id="past-week" hidden>
+        <CaseManagerTable caption="Past week" />
       </Tabs.Panel>
-      <Tabs.Panel id="past-month">
-        <h2>Past month</h2>
-        <p>Content for the past month</p>
+      <Tabs.Panel id="past-month" hidden>
+        <CaseManagerTable caption="Past month" />
       </Tabs.Panel>
-      <Tabs.Panel id="past-year">
-        <h2>Past year</h2>
-        <p>Content for the past year</p>
+      <Tabs.Panel id="past-year" hidden>
+        <CaseManagerTable caption="Past year" />
       </Tabs.Panel>
     </Tabs>
   ),

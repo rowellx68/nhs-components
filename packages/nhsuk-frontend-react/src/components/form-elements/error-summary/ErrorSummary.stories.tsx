@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { ErrorSummary } from './ErrorSummary';
 
 /**
@@ -7,7 +8,7 @@ import { ErrorSummary } from './ErrorSummary';
  *
  * https://service-manual.nhs.uk/design-system/components/error-summary
  */
-const meta: Meta<typeof ErrorSummary> = {
+const meta = {
   title: 'Components/Form Elements/Error Summary',
   component: ErrorSummary,
   subcomponents: {
@@ -16,22 +17,23 @@ const meta: Meta<typeof ErrorSummary> = {
     'ErrorSummary.List': ErrorSummary.List,
     'ErrorSummary.ListItem': ErrorSummary.ListItem,
   } as Record<string, React.ComponentType<any>>,
-};
+} satisfies Meta<typeof ErrorSummary>;
 
 export default meta;
 
 type Story = StoryObj<typeof ErrorSummary>;
 
 export const Example: Story = {
+  args: {
+    disableAutoFocus: false,
+  },
   render: (args) => (
     <ErrorSummary {...args}>
       <ErrorSummary.Title>There is a problem</ErrorSummary.Title>
       <ErrorSummary.Body>
         <p>Describe the errors and how to correct them</p>
         <ErrorSummary.List>
-          <ErrorSummary.ListItem href="#">
-            Date of birth must be in the past
-          </ErrorSummary.ListItem>
+          <ErrorSummary.ListItem href="#">Date of birth must be in the past</ErrorSummary.ListItem>
         </ErrorSummary.List>
       </ErrorSummary.Body>
     </ErrorSummary>

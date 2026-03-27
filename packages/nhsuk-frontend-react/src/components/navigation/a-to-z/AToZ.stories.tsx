@@ -1,14 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { AToZ } from './AToZ';
 
-const meta: Meta<typeof AToZ> = {
+const meta = {
   title: 'Components/Navigation/A to Z',
   component: AToZ,
   subcomponents: {
     'AToZ.Item': AToZ.Item,
   } as Record<string, React.ComponentType<any>>,
-};
+} satisfies Meta<typeof AToZ>;
 
 export default meta;
 

@@ -1,11 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
+import { Button } from '@/components/form-elements/button/Button';
 import { Input } from '@/components/form-elements/input/Input';
 import { Header } from '@/components/navigation/header/Header';
 import { Container } from '@/components/styles/layout/container/Container';
-import { Main } from '@/components/styles/layout/main/Main';
 import { Column, Row } from '@/components/styles/layout/grid/Grid';
-import { Button } from '@/components/form-elements/button/Button';
+import { Main } from '@/components/styles/layout/main/Main';
 
 /**
  * Use this pattern to ask people for their NHS number and help them find it.
@@ -29,7 +30,7 @@ export const AskUsersForTheirNhsNumber: Story = {
     <>
       <Header {...args}>
         <Header.Container>
-          <Header.Logo variant="logo-only" href="/" aria-label="NHS homepage" />
+          <Header.ServiceLogo variant="logo-only" href="/" aria-label="NHS homepage" />
         </Header.Container>
         <Header.Nav />
       </Header>
@@ -44,9 +45,8 @@ export const AskUsersForTheirNhsNumber: Story = {
                   width="10"
                   hint={
                     <>
-                      Your NHS number is a 10 digit number that you find on any
-                      letter the NHS has sent you. For example,{' '}
-                      <span className="nhsuk-u-nowrap">485 777 3456</span>.
+                      Your NHS number is a 10 digit number that you find on any letter the NHS has
+                      sent you. For example, <span className="nhsuk-u-nowrap">485 777 3456</span>.
                     </>
                   }
                 />

@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { Breadcrumb } from './Breadcrumb';
 
 /**
@@ -7,7 +8,7 @@ import { Breadcrumb } from './Breadcrumb';
  *
  * https://service-manual.nhs.uk/design-system/components/breadcrumbs
  */
-const meta: Meta<typeof Breadcrumb> = {
+const meta = {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
   subcomponents: {
@@ -15,7 +16,7 @@ const meta: Meta<typeof Breadcrumb> = {
     'Breadcrumb.ListItem': Breadcrumb.ListItem,
     'Breadcrumb.BackLink': Breadcrumb.BackLink,
   } as Record<string, React.ComponentType<any>>,
-};
+} satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
 
@@ -25,17 +26,29 @@ export const Default: Story = {
   render: (args) => (
     <Breadcrumb {...args}>
       <Breadcrumb.List>
-        <Breadcrumb.ListItem href="/level-one">Level one</Breadcrumb.ListItem>
-        <Breadcrumb.ListItem href="/level-one/level-two">
-          Level two
-        </Breadcrumb.ListItem>
-        <Breadcrumb.ListItem href="/level-one/level-two/level-three">
-          Level three
-        </Breadcrumb.ListItem>
+        <Breadcrumb.ListItem href="#">Home</Breadcrumb.ListItem>
+        <Breadcrumb.ListItem href="#">NHS services</Breadcrumb.ListItem>
+        <Breadcrumb.ListItem href="#">Hospitals</Breadcrumb.ListItem>
       </Breadcrumb.List>
-      <Breadcrumb.BackLink href="/level-one/level-two/level-three">
-        Level three
-      </Breadcrumb.BackLink>
+      <Breadcrumb.BackLink href="#">Hospitals</Breadcrumb.BackLink>
     </Breadcrumb>
+  ),
+};
+
+export const Reverse: Story = {
+  args: {
+    variant: 'reverse',
+  },
+  render: (args) => (
+    <div style={{ background: '#005eb8', padding: '2rem' }}>
+      <Breadcrumb {...args}>
+        <Breadcrumb.List>
+          <Breadcrumb.ListItem href="#">Home</Breadcrumb.ListItem>
+          <Breadcrumb.ListItem href="#">NHS services</Breadcrumb.ListItem>
+          <Breadcrumb.ListItem href="#">Hospitals</Breadcrumb.ListItem>
+        </Breadcrumb.List>
+        <Breadcrumb.BackLink href="#">Hospitals</Breadcrumb.BackLink>
+      </Breadcrumb>
+    </div>
   ),
 };

@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { Container } from './Container';
 
 /**
@@ -10,10 +11,10 @@ import { Container } from './Container';
  * https://service-manual.nhs.uk/design-system/styles/layout#containers
  */
 
-const meta: Meta<typeof Container> = {
+const meta = {
   title: 'Styles/Layout/Container',
   component: Container,
-};
+} satisfies Meta<typeof Container>;
 
 export default meta;
 
@@ -25,9 +26,9 @@ export const Default: Story = {
   },
   render: (args) => (
     <Container {...args}>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos
-      qui, suscipit magni sit nisi, explicabo laborum quasi nam architecto
-      dolorum eaque iusto libero autem? Doloribus qui laborum optio?
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos qui, suscipit magni
+      sit nisi, explicabo laborum quasi nam architecto dolorum eaque iusto libero autem? Doloribus
+      qui laborum optio?
     </Container>
   ),
 };
@@ -38,9 +39,9 @@ export const FluidWidth: Story = {
   },
   render: (args) => (
     <Container {...args}>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos
-      qui, suscipit magni sit nisi, explicabo laborum quasi nam architecto
-      dolorum eaque iusto libero autem? Doloribus qui laborum optio?
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi dolor quos qui, suscipit magni
+      sit nisi, explicabo laborum quasi nam architecto dolorum eaque iusto libero autem? Doloribus
+      qui laborum optio?
     </Container>
   ),
 };

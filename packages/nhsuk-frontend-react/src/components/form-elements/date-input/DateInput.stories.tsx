@@ -1,14 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from 'storybook/test';
+
 import { DateInput } from './DateInput';
-import { fn } from '@storybook/test';
 
 /**
  * Use date input to help users enter a memorable date, like their date of birth.
  *
  * https://service-manual.nhs.uk/design-system/components/date-input
  */
-const meta: Meta<typeof DateInput> = {
+const meta = {
   title: 'Components/Form Elements/Date Input',
   component: DateInput,
   subcomponents: {
@@ -23,27 +24,24 @@ const meta: Meta<typeof DateInput> = {
     value: {
       control: false,
       table: {
-        type: {
-          summary: 'DateInputValue',
-        },
+        type: { summary: 'DateInputValue' },
       },
     },
   },
-};
+} satisfies Meta<typeof DateInput>;
 
 export default meta;
 
-type Story = StoryObj<typeof DateInput>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Date of birth',
+    label: 'What is your date of birth?',
     hint: 'For example, 31 3 1980',
-    namePrefix: 'date-of-birth',
-    value: {
-      day: '31',
-      month: '3',
-      year: '1980',
+    namePrefix: 'dob',
+    labelProps: {
+      size: 'l',
+      variant: 'page-heading',
     },
   },
   render: (args) => <DateInput {...args} />,
@@ -51,10 +49,14 @@ export const Default: Story = {
 
 export const WithError: Story = {
   args: {
-    label: 'Date of birth',
+    label: 'What is your date of birth?',
     hint: 'For example, 31 3 1980',
-    error: 'Please enter a valid date of birth',
-    namePrefix: 'date-of-birth',
+    error: 'Date of birth must be in the past',
+    namePrefix: 'dob',
+    labelProps: {
+      size: 'l',
+      variant: 'page-heading',
+    },
     value: {
       day: '',
       month: '',
@@ -66,12 +68,16 @@ export const WithError: Story = {
 
 export const WithErrorObject: Story = {
   args: {
-    label: 'Date of birth',
+    label: 'What is your date of birth?',
     hint: 'For example, 31 3 1980',
-    namePrefix: 'date-of-birth',
+    namePrefix: 'dob',
+    labelProps: {
+      size: 'l',
+      variant: 'page-heading',
+    },
     error: {
-      day: 'Please enter a valid day.',
-      month: 'Please enter a valid month.',
+      day: 'Enter a day',
+      month: 'Enter a month',
     },
     value: {
       day: '',
@@ -82,10 +88,36 @@ export const WithErrorObject: Story = {
   render: (args) => <DateInput {...args} />,
 };
 
+/**
+ * Use the compound component API to render only specific date parts.
+ */
+export const DayAndMonth: Story = {
+  args: {
+    label: 'What is your birthday?',
+    hint: 'For example, 5 12',
+    namePrefix: 'birthday',
+    labelProps: {
+      size: 'l',
+      variant: 'page-heading',
+    },
+  },
+  render: (args) => (
+    <DateInput {...args}>
+      <DateInput.Day />
+      <DateInput.Month />
+    </DateInput>
+  ),
+};
+
 export const Disabled: Story = {
   args: {
-    label: 'Date of birth',
+    label: 'What is your date of birth?',
     hint: 'For example, 31 3 1980',
+    namePrefix: 'dob',
+    labelProps: {
+      size: 'l',
+      variant: 'page-heading',
+    },
     disabled: true,
     value: {
       day: '31',

@@ -1,15 +1,17 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { AToZ } from '@/components/navigation/a-to-z/AToZ';
-import { Header } from '@/components/navigation/header/Header';
-import { Container } from '@/components/styles/layout/container/Container';
 import { Card } from '@/components/navigation/card/Card';
-import { Main } from '@/components/styles/layout/main/Main';
-import { Column, Row } from '@/components/styles/layout/grid/Grid';
-import { Heading } from '@/components/styles/typography/heading/Heading';
-import { List } from '@/components/styles/typography/list/List';
-import { Link } from '@/components/styles/typography/link/Link';
 import { Footer } from '@/components/navigation/footer/Footer';
+import { Header } from '@/components/navigation/header/Header';
+import { SkipLink } from '@/components/navigation/skip-link/SkipLink';
+import { Container } from '@/components/styles/layout/container/Container';
+import { Column, Row } from '@/components/styles/layout/grid/Grid';
+import { Main } from '@/components/styles/layout/main/Main';
+import { Heading } from '@/components/styles/typography/heading/Heading';
+import { Link } from '@/components/styles/typography/link/Link';
+import { List } from '@/components/styles/typography/list/List';
 
 /**
  * A to Z is a way of presenting a number of pages alphabetically.
@@ -17,7 +19,7 @@ import { Footer } from '@/components/navigation/footer/Footer';
  * https://service-manual.nhs.uk/design-system/patterns/a-to-z-page
  */
 const meta: Meta = {
-  title: 'Patterns/Page types/A to Z page',
+  title: 'Patterns/Pages/A to Z page',
   parameters: {
     layout: 'fullscreen',
   },
@@ -30,9 +32,10 @@ type Story = StoryObj<typeof meta>;
 export const AToZPage: Story = {
   render: (args) => (
     <>
+      <SkipLink />
       <Header {...args}>
         <Header.Container>
-          <Header.Logo variant="logo-only" href="/" aria-label="NHS homepage" />
+          <Header.ServiceLogo variant="logo-only" href="/" aria-label="NHS homepage" />
         </Header.Container>
         <Header.Nav />
       </Header>
@@ -73,9 +76,7 @@ export const AToZPage: Story = {
                 <Card.Content>
                   <Card.Heading id="B">B</Card.Heading>
                   <List border>
-                    <List.Item>
-                      There are currently no conditions listed
-                    </List.Item>
+                    <List.Item>There are currently no conditions listed</List.Item>
                   </List>
                 </Card.Content>
               </Card>
@@ -85,10 +86,9 @@ export const AToZPage: Story = {
       </Container>
 
       <Footer>
-        <Footer.Content>
-          <Footer.List />
-          <Footer.Copyright>NHS England</Footer.Copyright>
-        </Footer.Content>
+        <Footer.Meta>
+          <Footer.Copyright>© NHS England</Footer.Copyright>
+        </Footer.Meta>
       </Footer>
     </>
   ),

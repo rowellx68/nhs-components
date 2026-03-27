@@ -1,14 +1,15 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+
 import { Paragraph } from './Paragraph';
 
 /**
  * https://service-manual.nhs.uk/design-system/styles/typography#paragraphs
  */
-const meta: Meta<typeof Paragraph> = {
+const meta = {
   title: 'Styles/Typography/Paragraph',
   component: Paragraph,
-};
+} satisfies Meta<typeof Paragraph>;
 
 export default meta;
 
@@ -85,9 +86,7 @@ export const TextAlignRight: Story = {
   render: (args) => (
     <>
       <Paragraph {...args} />
-      <Paragraph>
-        Modify the direction of writing in Arabic to be from right to left
-      </Paragraph>
+      <Paragraph>Modify the direction of writing in Arabic to be from right to left</Paragraph>
     </>
   ),
 };

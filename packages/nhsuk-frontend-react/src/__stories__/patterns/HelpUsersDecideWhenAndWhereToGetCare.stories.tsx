@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import {
   NonUrgentCareCard,
   UrgentCareCard,
@@ -11,8 +12,7 @@ import {
  * https://service-manual.nhs.uk/design-system/patterns/help-users-decide-when-and-where-to-get-care
  */
 const meta: Meta = {
-  title:
-    'Patterns/Help users to/Decide when and where to get care (care cards)',
+  title: 'Patterns/Help users to/Decide when and where to get care (care cards)',
 };
 
 export default meta;
