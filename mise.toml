@@ -1,0 +1,6 @@
+[tools]
+lefthook = "2.1"
+node = { version = "24.14", postinstall = "corepack enable" }
+
+[settings]
+lockfile = true

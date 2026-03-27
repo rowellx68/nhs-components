@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "baseUrl": "./",
+    "rootDir": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,7 +18,7 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "emitDeclarationOnly": true,
-    "types": ["@testing-library/jest-dom"]
+    "types": []
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts", "./src/**/*.js"],
   "exclude": ["node_modules", "dist"]
