@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { ElementProps, Size } from '@/types/shared';
 
 export type HeadingCaptionProps = {
@@ -7,9 +8,7 @@ export type HeadingCaptionProps = {
 } & ElementProps<'span'>;
 
 const HeadingCaption = ({ size, className, ...props }: HeadingCaptionProps) => {
-  return (
-    <span className={clsx(`nhsuk-caption-${size}`, className)} {...props} />
-  );
+  return <span className={clsx(`nhsuk-caption-${size}`, className)} {...props} />;
 };
 
 HeadingCaption.displayName = 'HeadingCaption';

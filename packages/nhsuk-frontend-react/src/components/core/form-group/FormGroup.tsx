@@ -1,29 +1,21 @@
 'use client';
 
-import { Hint, HintProps } from '@/components/form-elements/hint/Hint';
-import { Label, LabelProps } from '../label/Label';
+import clsx from 'clsx';
+import React, { ForwardedRef, Fragment, ReactNode, forwardRef, useEffect, useState } from 'react';
+
 import {
   ErrorMessage,
   ErrorMessageProps,
 } from '@/components/form-elements/error-message/ErrorMessage';
-import { ElementProps } from '@/types/shared';
-import React, {
-  ForwardedRef,
-  Fragment,
-  ReactNode,
-  forwardRef,
-  useEffect,
-  useState,
-} from 'react';
-import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
+import { Fieldset, FieldsetLegend } from '@/components/form-elements/fieldset/Fieldset';
 import { useFieldsetContext } from '@/components/form-elements/fieldset/Fieldset.context';
+import { Hint, HintProps } from '@/components/form-elements/hint/Hint';
 import { createPolymorphicComponent } from '@/internal/factory/create-polymorphic-factory';
-import clsx from 'clsx';
+import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
+import { ElementProps } from '@/types/shared';
+
 import { Base } from '../base/Base';
-import {
-  Fieldset,
-  FieldsetLegend,
-} from '@/components/form-elements/fieldset/Fieldset';
+import { Label, LabelProps } from '../label/Label';
 
 export type BaseFormElementProps = {
   name?: string;
@@ -34,7 +26,7 @@ export type BaseFormElementProps = {
   labelProps?: LabelProps;
   hintProps?: HintProps;
   errorProps?: ErrorMessageProps;
-  formGroupProps?: ElementProps<'div'>;
+  formGroupProps?: React.HTMLAttributes<HTMLDivElement> & Record<`data-${string}`, unknown>;
   withErrorLine?: boolean;
 };
 
@@ -48,185 +40,163 @@ type FormGroupProps = BaseFormElementProps & {
       children?: ReactNode;
     },
   ) => ReactNode;
-  inputType:
-    | 'input'
-    | 'radios'
-    | 'select'
-    | 'checkboxes'
-    | 'dateinput'
-    | 'textarea'
-    | 'other';
+  inputType: 'input' | 'radios' | 'select' | 'checkboxes' | 'dateinput' | 'textarea' | 'other';
   fieldsetProps?: ElementProps<'fieldset'>;
   withFieldset?: boolean;
   namePrefix?: string;
 };
 
-const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>(
-  (props, ref) => {
-    const {
-      render,
-      formGroupProps = {},
-      fieldsetProps = {},
-      withErrorLine,
-      error,
-      label,
-      hint,
-      labelProps = {},
-      hintProps = {},
-      errorProps = {},
-      inputType,
-      id,
-      withFieldset,
-      namePrefix,
-      ...rest
-    } = props;
+const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>((props, ref) => {
+  const {
+    render,
+    formGroupProps = {},
+    fieldsetProps = {},
+    withErrorLine,
+    error,
+    label,
+    hint,
+    labelProps = {},
+    hintProps = {},
+    errorProps = {},
+    inputType,
+    id,
+    withFieldset,
+    namePrefix,
+    ...rest
+  } = props;
 
-    const [generatedId] = useState(useIdWithPrefix(namePrefix || inputType));
-    const { isFieldset, dispatch: dispatchFieldsetAction } =
-      useFieldsetContext();
+  const [generatedId] = useState(useIdWithPrefix(namePrefix || inputType));
+  const { isFieldset, dispatch: dispatchFieldsetAction } = useFieldsetContext();
 
-    const hints = Array.isArray(hint) ? hint : [hint];
-    const errorMessages =
-      typeof error === 'string'
-        ? [error]
-        : typeof error === 'object'
-          ? Object.values(error)
-          : [];
+  const hints = Array.isArray(hint) ? hint : [hint];
+  const errorMessages =
+    typeof error === 'string' ? [error] : typeof error === 'object' ? Object.values(error) : [];
 
-    const elementId = id || generatedId;
-    const labelId = `${elementId}--label`;
-    const hintId = hints.map(() => `${useIdWithPrefix(elementId)}--hint`);
-    const errorId = `${elementId}--error-message`;
+  const elementId = id || generatedId;
+  const labelId = `${elementId}--label`;
+  const hintId = hints.map(() => `${useIdWithPrefix(elementId)}--hint`);
+  const errorId = `${elementId}--error-message`;
 
-    useEffect(() => {
-      if (!isFieldset) {
-        return;
-      }
+  useEffect(() => {
+    if (!isFieldset) {
+      return;
+    }
 
+    dispatchFieldsetAction({
+      type: 'set_error',
+      data: { id: elementId, error: Boolean(error) },
+    });
+
+    return () =>
       dispatchFieldsetAction({
         type: 'set_error',
-        data: { id: elementId, error: Boolean(error) },
+        data: { id: elementId, error: false },
       });
+  }, [elementId, error, isFieldset]);
 
-      return () =>
-        dispatchFieldsetAction({
-          type: 'set_error',
-          data: { id: elementId, error: false },
-        });
-    }, [elementId, error, isFieldset]);
-
-    useEffect(() => {
+  useEffect(() => {
+    dispatchFieldsetAction({
+      type: 'register_component',
+      data: { id: elementId, unregister: false },
+    });
+    return () =>
       dispatchFieldsetAction({
         type: 'register_component',
-        data: { id: elementId, unregister: false },
+        data: { id: elementId, unregister: true },
       });
-      return () =>
-        dispatchFieldsetAction({
-          type: 'register_component',
-          data: { id: elementId, unregister: true },
-        });
-    }, []);
+  }, []);
 
-    const { className: formGroupClass, ...formGroupRest } = formGroupProps;
+  const { className: formGroupClass, ...formGroupRest } = formGroupProps;
 
-    const arias = {
-      'aria-labelledby': labelId,
-      'aria-describedby':
-        clsx({ [`${hintId.join(' ')}`]: hint, [`${errorId}`]: error }) ||
-        undefined,
-    };
+  const arias = {
+    'aria-labelledby': labelId,
+    'aria-describedby': clsx({ [`${hintId.join(' ')}`]: hint, [`${errorId}`]: error }) || undefined,
+  };
 
-    const wrapWithFieldset =
-      inputType === 'checkboxes' ||
-      inputType === 'radios' ||
-      inputType === 'dateinput' ||
-      withFieldset;
+  const wrapWithFieldset =
+    inputType === 'checkboxes' ||
+    inputType === 'radios' ||
+    inputType === 'dateinput' ||
+    withFieldset;
 
-    const renderProps = {
-      as: undefined,
-      id: elementId,
-      withError: Boolean(error),
-      ref,
-      ...rest,
-      ...(typeof error === 'object' && inputType === 'dateinput'
-        ? {
-            errorMap: error,
-          }
-        : {}),
-      ...(!wrapWithFieldset ? arias : {}),
-    };
+  const renderProps = {
+    as: undefined,
+    id: elementId,
+    withError: Boolean(error),
+    ref,
+    ...rest,
+    ...(typeof error === 'object' && inputType === 'dateinput'
+      ? {
+          errorMap: error,
+        }
+      : {}),
+    ...(!wrapWithFieldset ? arias : {}),
+  };
 
-    const outerBaseProps = {
-      as: wrapWithFieldset ? 'div' : Fragment,
-      ...(wrapWithFieldset
-        ? {
-            className: clsx(
-              'nhsuk-form-group',
-              {
-                'nhsuk-form-group--error': withErrorLine && error,
-              },
-              formGroupClass,
-            ),
-            ...formGroupRest,
-          }
-        : {}),
-    };
+  const outerBaseProps = {
+    as: wrapWithFieldset ? 'div' : Fragment,
+    ...(wrapWithFieldset
+      ? {
+          className: clsx(
+            'nhsuk-form-group',
+            {
+              'nhsuk-form-group--error': withErrorLine && error,
+            },
+            formGroupClass,
+          ),
+          ...formGroupRest,
+        }
+      : {}),
+  };
 
-    const baseProps = {
-      as: wrapWithFieldset ? Fieldset : 'div',
-      ...(wrapWithFieldset
-        ? { ...fieldsetProps, ...arias }
-        : {
-            className: clsx(
-              'nhsuk-form-group',
-              {
-                'nhsuk-form-group--error': withErrorLine && error,
-              },
-              formGroupClass,
-            ),
-            ...formGroupRest,
-          }),
-    };
+  const baseProps = {
+    as: wrapWithFieldset ? Fieldset : 'div',
+    ...(wrapWithFieldset
+      ? { ...fieldsetProps, ...arias }
+      : {
+          className: clsx(
+            'nhsuk-form-group',
+            {
+              'nhsuk-form-group--error': withErrorLine && error,
+            },
+            formGroupClass,
+          ),
+          ...formGroupRest,
+        }),
+  };
 
-    const labelBaseProps = {
-      as: wrapWithFieldset ? FieldsetLegend : Label,
-      id: labelId,
-      htmlFor: elementId,
-      ...labelProps,
-    };
+  const labelBaseProps = {
+    as: wrapWithFieldset ? FieldsetLegend : Label,
+    id: labelId,
+    htmlFor: elementId,
+    ...labelProps,
+  };
 
-    return (
-      <Base<any> {...outerBaseProps}>
-        <Base<any> {...baseProps}>
-          {label && <Base<any> {...labelBaseProps} children={label} />}
+  return (
+    <Base<any> {...outerBaseProps}>
+      <Base<any> {...baseProps}>
+        {label && <Base<any> {...labelBaseProps} children={label} />}
 
-          {hint &&
-            hints.map((hint, idx) => (
-              <Hint
-                key={hintId[idx]}
-                id={hintId[idx]}
-                {...hintProps}
-                className={clsx(hintProps.className, {
-                  'nhsuk-u-margin-bottom-2': idx < hints.length - 1,
-                })}
-                children={hint}
-              />
-            ))}
-
-          {error && (
-            <ErrorMessage
-              id={errorId}
-              {...errorProps}
-              children={errorMessages.join(' ')}
+        {hint &&
+          hints.map((hint, idx) => (
+            <Hint
+              key={hintId[idx]}
+              id={hintId[idx]}
+              {...hintProps}
+              className={clsx(hintProps.className, {
+                'nhsuk-u-margin-bottom-2': idx < hints.length - 1,
+              })}
+              children={hint}
             />
-          )}
+          ))}
 
-          {render(renderProps)}
-        </Base>
+        {error && <ErrorMessage id={errorId} {...errorProps} children={errorMessages.join(' ')} />}
+
+        {render(renderProps)}
       </Base>
-    );
-  },
-);
+    </Base>
+  );
+});
 
 _FormGroup.displayName = 'FormGroup';
 
@@ -235,6 +205,4 @@ _FormGroup.displayName = 'FormGroup';
  *
  * This is the main component for most form elements. It wraps the input element with a label, hint and error message. It can also wrap the input element with a fieldset if required.
  */
-export const FormGroup = createPolymorphicComponent<'input', FormGroupProps>(
-  _FormGroup,
-);
+export const FormGroup = createPolymorphicComponent<'input', FormGroupProps>(_FormGroup);

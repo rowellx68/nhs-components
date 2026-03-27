@@ -1,11 +1,9 @@
-import React from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  polymorphicFactory,
-  PolymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { AsElementProps } from '@/types/shared';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps } from '@/types/shared';
 
 export type VisuallyHiddenProps = BaseProps;
 
@@ -17,12 +15,7 @@ export type VisuallyHiddenFactory = PolymorphicFactory<{
 
 const VisuallyHidden = polymorphicFactory<VisuallyHiddenFactory>(
   (
-    {
-      className,
-      children,
-      as: component = 'span',
-      ...props
-    }: VisuallyHiddenProps & AsElementProps,
+    { className, children, as: component = 'span', ...props }: VisuallyHiddenProps & AsElementProps,
     ref,
   ) => {
     return (

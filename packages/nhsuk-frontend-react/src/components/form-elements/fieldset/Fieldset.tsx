@@ -1,15 +1,13 @@
 'use client';
 
-import React, { memo, useReducer, useMemo, Fragment } from 'react';
 import clsx from 'clsx';
-import {
-  FieldsetContextValue,
-  FieldsetProvider,
-  reducer,
-} from './Fieldset.context';
+import React, { memo, useReducer, useMemo, Fragment } from 'react';
+
 import { Base, BaseProps } from '@/components/core/base/Base';
-import { AsElementProps, ElementProps, Size } from '@/types/shared';
 import { factory, Factory } from '@/internal/factory/factory';
+import { AsElementProps, ElementProps, Size } from '@/types/shared';
+
+import { FieldsetContextValue, FieldsetProvider, reducer } from './Fieldset.context';
 
 export type FieldsetProps = ElementProps<'fieldset'>;
 
@@ -21,17 +19,9 @@ type FieldsetFactory = Factory<{
   };
 }>;
 
-const BaseFieldset = factory<FieldsetFactory>(
-  ({ className, ...props }, ref) => {
-    return (
-      <fieldset
-        className={clsx('nhsuk-fieldset', className)}
-        {...props}
-        ref={ref}
-      />
-    );
-  },
-);
+const BaseFieldset = factory<FieldsetFactory>(({ className, ...props }, ref) => {
+  return <fieldset className={clsx('nhsuk-fieldset', className)} {...props} ref={ref} />;
+});
 
 const MemoisedFieldset = memo(BaseFieldset);
 
@@ -82,12 +72,12 @@ export type FieldsetLegendProps = (
       variant?: undefined;
     }
   | {
-      size: Exclude<Size, 'xl'>;
+      size: Size;
       variant?: undefined;
     }
   | {
       variant: 'page-heading';
-      size?: Exclude<Size, 'xl'>;
+      size?: Size;
     }
 ) &
   ElementProps<'legend', 'size' | 'as'> &
@@ -101,15 +91,13 @@ const FieldsetLegend = ({
   children,
   ...props
 }: FieldsetLegendProps & AsElementProps) => {
-  const _component =
-    variant === 'page-heading' || size === 'l' ? component || 'h1' : Fragment;
+  const _component = variant === 'page-heading' ? component || 'h1' : Fragment;
 
   const baseProps = {
     as: _component,
     ...(_component !== Fragment
       ? {
-          className:
-            variant === 'page-heading' ? 'nhsuk-fieldset__heading' : undefined,
+          className: 'nhsuk-fieldset__heading',
         }
       : {}),
   };
@@ -119,7 +107,6 @@ const FieldsetLegend = ({
       className={clsx(
         'nhsuk-fieldset__legend',
         {
-          'nhsuk-fieldset__legend--l': variant === 'page-heading' && !size,
           [`nhsuk-fieldset__legend--${size}`]: size,
         },
         className,

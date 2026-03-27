@@ -1,21 +1,13 @@
 'use client';
 
-import React, {
-  Fragment,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react';
-import {
-  BaseFormElementProps,
-  FormGroup,
-} from '@/components/core/form-group/FormGroup';
+import clsx from 'clsx';
+import { CharacterCount as NhsCharacterCount } from 'nhsuk-frontend';
+import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+
+import { BaseFormElementProps, FormGroup } from '@/components/core/form-group/FormGroup';
 import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps } from '@/types/shared';
-import clsx from 'clsx';
-import initTextarea from '@/resources/character-count/character-count';
-import { Base } from '@/components/core/base/Base';
+
 import { Hint } from '../hint/Hint';
 
 export type TextareaProps = BaseFormElementProps &
@@ -44,31 +36,28 @@ type TextareaFactory = Factory<{
 }>;
 
 const Textarea = factory<TextareaFactory>(
-  ({ variant = 'textarea', maxCharacterLength, maxWords, ...props }, ref) => {
+  (
+    {
+      variant = 'textarea',
+      maxCharacterLength,
+      maxWords,
+      formGroupProps: userFormGroupProps,
+      ...props
+    },
+    ref,
+  ) => {
     useImperativeHandle(ref, () => internalRef.current as HTMLTextAreaElement);
     const internalRef = useRef<HTMLTextAreaElement>(null);
 
     const characterCount = variant !== 'textarea';
-    const baseProps = {
-      as: characterCount ? 'div' : Fragment,
-      ...(characterCount
-        ? {
-            className: 'nhsuk-character-count',
-            'data-module': 'nhsuk-character-count',
-            'data-maxwords': variant === 'word-count' ? maxWords : undefined,
-            'data-maxlength':
-              variant === 'character-count' ? maxCharacterLength : undefined,
-          }
-        : {}),
-    };
 
     const message = useMemo(() => {
       if (variant === 'character-count') {
-        return `You have ${maxCharacterLength} characters remaining`;
+        return `You can enter up to ${maxCharacterLength} characters`;
       }
 
       if (variant === 'word-count') {
-        return `You have ${maxWords} words remaining`;
+        return `You can enter up to ${maxWords} words`;
       }
 
       return undefined;
@@ -83,26 +72,38 @@ const Textarea = factory<TextareaFactory>(
         return;
       }
 
-      const parent = internalRef.current.closest(
-        '.nhsuk-character-count',
-      )?.parentElement;
+      const root = internalRef.current.closest('[data-module="nhsuk-character-count"]');
+      new NhsCharacterCount(root);
 
-      if (!parent) {
-        return;
-      }
-
-      initTextarea({ scope: parent as any });
+      return () => {
+        root?.removeAttribute('data-nhsuk-character-count-init');
+      };
     }, [internalRef, characterCount, maxCharacterLength, maxWords]);
 
+    const formGroupProps = characterCount
+      ? {
+          ...userFormGroupProps,
+          className: clsx('nhsuk-character-count', userFormGroupProps?.className),
+          'data-module': 'nhsuk-character-count',
+          ...(variant === 'word-count' ? { 'data-maxwords': maxWords } : {}),
+          ...(variant === 'character-count' ? { 'data-maxlength': maxCharacterLength } : {}),
+        }
+      : userFormGroupProps;
+
     return (
-      <Base<any> {...baseProps}>
-        <FormGroup
-          as="textarea"
-          inputType="textarea"
-          withErrorLine
-          {...props}
-          ref={internalRef}
-          render={({ id, name, className, withError, ...rest }) => (
+      <FormGroup
+        as="textarea"
+        inputType="textarea"
+        withErrorLine
+        {...props}
+        formGroupProps={formGroupProps}
+        ref={internalRef}
+        render={({ id, name, className, withError, ...rest }) => {
+          const ariaDescribedBy =
+            clsx(characterCount ? `${id}-info` : undefined, (rest as never)['aria-describedby']) ||
+            undefined;
+
+          return (
             <>
               <textarea
                 id={id}
@@ -116,19 +117,17 @@ const Textarea = factory<TextareaFactory>(
                   className,
                 )}
                 {...rest}
+                aria-describedby={ariaDescribedBy}
               />
               {characterCount && (
-                <Hint
-                  className="nhsuk-character-count__message"
-                  id={`${id}-info`}
-                >
+                <Hint className="nhsuk-character-count__message" id={`${id}-info`}>
                   {message}
                 </Hint>
               )}
             </>
-          )}
-        />
-      </Base>
+          );
+        }}
+      />
     );
   },
 );

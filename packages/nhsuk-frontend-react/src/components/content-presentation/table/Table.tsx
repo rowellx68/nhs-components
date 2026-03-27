@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import React, {
   Children,
   ReactElement,
@@ -10,10 +11,11 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { ElementProps } from '@/types/shared';
-import { Factory, factory } from '@/internal/factory/factory';
-import clsx from 'clsx';
+
 import { Base } from '@/components/core/base/Base';
+import { Factory, factory } from '@/internal/factory/factory';
+import { ElementProps } from '@/types/shared';
+
 import {
   TableHeadProvider,
   TableProvider,
@@ -25,7 +27,11 @@ export type TableProps = {
   /**
    * The variant of the table. Defaults to a non-responsive table.
    */
-  variant?: 'default' | 'responsive';
+  variant?: 'responsive';
+  /**
+   * Whether to use the reverse colour scheme.
+   */
+  reverse?: boolean;
   /**
    * Whether the first cell in the table is a header cell. Defaults to false.
    * @default false
@@ -46,7 +52,7 @@ type TableFactory = Factory<{
 }>;
 
 const Table = factory<TableFactory>(
-  ({ variant, className, firstCellIsHeader = false, ...props }, ref) => {
+  ({ variant, reverse, className, firstCellIsHeader = false, ...props }, ref) => {
     const [responsiveHeadings, registerHeadings] = useState<ReactNode[]>([]);
 
     const value = useMemo(
@@ -59,16 +65,13 @@ const Table = factory<TableFactory>(
       [variant, responsiveHeadings, registerHeadings],
     );
 
+    const baseClass = variant === 'responsive' ? 'nhsuk-table-responsive' : 'nhsuk-table';
+
     return (
       <TableProvider value={value}>
         <table
-          className={clsx(
-            {
-              'nhsuk-table': !variant,
-              [`nhsuk-table-${variant}`]: variant,
-            },
-            className,
-          )}
+          className={clsx(baseClass, { [`${baseClass}--reverse`]: reverse }, className)}
+          role={variant === 'responsive' ? 'table' : undefined}
           {...props}
           ref={ref}
         />
@@ -77,25 +80,22 @@ const Table = factory<TableFactory>(
   },
 );
 
-export type TableCaptionProps = ElementProps<'caption'>;
+export type TableCaptionProps = {
+  size?: 'm' | 'l' | 'xl';
+} & ElementProps<'caption'>;
 
-const TableCaption = ({ className, ...props }: TableCaptionProps) => (
-  <caption className={clsx('nhsuk-table__caption', className)} {...props} />
+const TableCaption = ({ size, className, ...props }: TableCaptionProps) => (
+  <caption
+    className={clsx('nhsuk-table__caption', { [`nhsuk-table__caption--${size}`]: size }, className)}
+    {...props}
+  />
 );
 
 export type TableHeadProps = ElementProps<'thead'>;
 
-const TableHead = ({
-  className,
-  role = 'rowgroup',
-  ...props
-}: TableHeadProps) => (
+const TableHead = ({ className, role = 'rowgroup', ...props }: TableHeadProps) => (
   <TableHeadProvider value={{ head: true }}>
-    <thead
-      className={clsx('nhsuk-table__head', className)}
-      role={role}
-      {...props}
-    />
+    <thead className={clsx('nhsuk-table__head', className)} role={role} {...props} />
   </TableHeadProvider>
 );
 
@@ -107,12 +107,7 @@ const TableBody = ({ className, ...props }: TableBodyProps) => (
 
 export type TableRowProps = ElementProps<'tr'>;
 
-const TableRow = ({
-  role = 'row',
-  className,
-  children,
-  ...props
-}: TableRowProps) => {
+const TableRow = ({ role = 'row', className, children, ...props }: TableRowProps) => {
   const {
     variant: tableVariant,
     responsiveHeadings,
@@ -166,18 +161,7 @@ const TableRow = ({
   }
 
   return (
-    <tr
-      className={
-        clsx(
-          {
-            'nhsuk-table__row': !head,
-          },
-          className,
-        ) || undefined
-      }
-      role={role}
-      {...props}
-    >
+    <tr className={clsx('nhsuk-table__row', className) || undefined} role={role} {...props}>
       {_children}
     </tr>
   );
@@ -187,7 +171,7 @@ export type TableCellProps = {
   /**
    * The variant of the cell. Defaults to none.
    */
-  variant?: 'default' | 'numeric';
+  variant?: 'numeric';
   /**
    * The heading to display in when the table is in responsive mode and on small screens. If not provided, the children will be used.
    */

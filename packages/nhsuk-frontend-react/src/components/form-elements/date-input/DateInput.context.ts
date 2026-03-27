@@ -1,4 +1,5 @@
 import { ChangeEvent, createContext, useContext } from 'react';
+
 import { DateInputPart, DateInputValue } from './DateInput';
 
 export type DateInputContextValue = {
@@ -8,10 +9,7 @@ export type DateInputContextValue = {
   errorMap?: Record<string, string>;
   value?: Partial<DateInputValue>;
   disabled?: boolean;
-  handleChange: (
-    field: DateInputPart,
-    event: ChangeEvent<HTMLInputElement>,
-  ) => void;
+  handleChange: (field: DateInputPart, event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 const DateInputContext = createContext<DateInputContextValue>({

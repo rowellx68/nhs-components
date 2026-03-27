@@ -1,38 +1,48 @@
-import React from 'react';
-import {
-  DetailsSummaryProps,
-  DetailsTextProps,
-  DetailsProps,
-  Details,
-} from '@/components/content-presentation/details/Details';
 import clsx from 'clsx';
+import React from 'react';
+
+import {
+  DetailsSummary,
+  DetailsSummaryProps,
+  DetailsText,
+  DetailsTextProps,
+} from '@/components/content-presentation/details/Details';
+import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps } from '@/types/shared';
 
-export type ExpanderProps = Omit<DetailsProps, 'expander' | 'variant'>;
+export type ExpanderProps = ElementProps<'details'>;
 
-const Expander = ({ ...props }: ExpanderProps) => {
-  return <Details {...props} variant="expander" />;
-};
+type ExpanderFactory = Factory<{
+  props: ExpanderProps;
+  ref: HTMLDetailsElement;
+  staticComponents: {
+    Summary: typeof ExpanderSummary;
+    Text: typeof ExpanderText;
+    Group: typeof ExpanderGroup;
+  };
+}>;
+
+const Expander = factory<ExpanderFactory>(({ className, ...props }: ExpanderProps, ref) => {
+  return (
+    <details className={clsx('nhsuk-details nhsuk-expander', className)} {...props} ref={ref} />
+  );
+});
 
 export type ExpanderSummaryProps = DetailsSummaryProps;
 
-const ExpanderSummary = ({ ...props }: ExpanderSummaryProps) => {
-  return <Details.Summary {...props} />;
+const ExpanderSummary = (props: ExpanderSummaryProps) => {
+  return <DetailsSummary {...props} />;
 };
 
 export type ExpanderTextProps = DetailsTextProps;
 
-const ExpanderText = ({ ...props }: ExpanderTextProps) => {
-  return <Details.Text {...props} />;
+const ExpanderText = (props: ExpanderTextProps) => {
+  return <DetailsText {...props} />;
 };
 
 export type ExpanderGroupProps = ElementProps<'div'>;
 
-const ExpanderGroup = ({
-  children,
-  className,
-  ...props
-}: ExpanderGroupProps) => {
+const ExpanderGroup = ({ children, className, ...props }: ExpanderGroupProps) => {
   return (
     <div className={clsx('nhsuk-expander-group', className)} {...props}>
       {children}

@@ -1,12 +1,10 @@
-import React from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { AsElementProps, ElementProps } from '@/types/shared';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Base, BaseProps } from '@/components/core/base/Base';
 import { Factory, factory } from '@/internal/factory/factory';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps } from '@/types/shared';
 
 export type FigureProps = ElementProps<'figure'>;
 
@@ -19,15 +17,13 @@ type FigureFactory = Factory<{
   };
 }>;
 
-const Figure = factory<FigureFactory>(
-  ({ children, className, ...props }: FigureProps, ref) => {
-    return (
-      <figure className={clsx('nhsuk-image', className)} {...props} ref={ref}>
-        {children}
-      </figure>
-    );
-  },
-);
+const Figure = factory<FigureFactory>(({ children, className, ...props }: FigureProps, ref) => {
+  return (
+    <figure className={clsx('nhsuk-image', className)} {...props} ref={ref}>
+      {children}
+    </figure>
+  );
+});
 
 export type FigureImageProps = Omit<BaseProps, 'children'>;
 
@@ -38,32 +34,16 @@ type FigureImageFactory = PolymorphicFactory<{
 }>;
 
 const FigureImage = polymorphicFactory<FigureImageFactory>(
-  (
-    {
-      className,
-      as: component = 'img',
-      ...props
-    }: FigureImageProps & AsElementProps,
-    ref,
-  ) => {
+  ({ className, as: component = 'img', ...props }: FigureImageProps & AsElementProps, ref) => {
     return (
-      <Base
-        as={component}
-        className={clsx('nhsuk-image__img', className)}
-        {...props}
-        ref={ref}
-      />
+      <Base as={component} className={clsx('nhsuk-image__img', className)} {...props} ref={ref} />
     );
   },
 );
 
 export type FigureCaptionProps = ElementProps<'figcaption'>;
 
-const FigureCaption = ({
-  children,
-  className,
-  ...props
-}: FigureCaptionProps) => {
+const FigureCaption = ({ children, className, ...props }: FigureCaptionProps) => {
   return (
     <figcaption className={clsx('nhsuk-image__caption', className)} {...props}>
       {children}

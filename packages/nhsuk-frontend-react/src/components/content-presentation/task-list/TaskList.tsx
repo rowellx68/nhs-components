@@ -1,20 +1,15 @@
 'use client';
 
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { Base, BaseProps } from '@/components/core/base/Base';
-import { AsElementProps, ElementProps } from '@/types/shared';
 import { Factory, factory } from '@/internal/factory/factory';
-import {
-  TaskListItemContextProvider,
-  useTaskListItemContext,
-} from './TaskList.context';
+import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
 import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
-import {
-  polymorphicFactory,
-  PolymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { Tag, TagProps } from '@/components/content-presentation/tag/Tag';
+import { AsElementProps, ElementProps } from '@/types/shared';
+
+import { TaskListItemContextProvider, useTaskListItemContext } from './TaskList.context';
 
 export type TaskListProps = ElementProps<'ul'>;
 
@@ -26,13 +21,9 @@ type TaskListFactory = Factory<{
   };
 }>;
 
-const TaskList = factory<TaskListFactory>(
-  ({ className, ...props }: TaskListProps, ref) => {
-    return (
-      <ul ref={ref} className={clsx('nhsuk-task-list', className)} {...props} />
-    );
-  },
-);
+const TaskList = factory<TaskListFactory>(({ className, ...props }: TaskListProps, ref) => {
+  return <ul ref={ref} className={clsx('nhsuk-task-list', className)} {...props} />;
+});
 
 export type TaskListItemProps = {
   variant?: 'with-link';
@@ -82,69 +73,69 @@ type TaskListItemNameAndHintFactory = PolymorphicFactory<{
   defaultRef: HTMLAnchorElement;
 }>;
 
-const TaskListItemNameAndHint =
-  polymorphicFactory<TaskListItemNameAndHintFactory>(
-    (
-      {
-        children,
-        hint,
-        as: component = 'a',
-        containerProps = {},
-        hintProps = {},
-        ...props
-      }: TaskListItemNameAndHintProps,
-      ref,
-    ) => {
-      const { variant, rowId } = useTaskListItemContext();
+const TaskListItemNameAndHint = polymorphicFactory<TaskListItemNameAndHintFactory>(
+  (
+    {
+      children,
+      hint,
+      as: component = 'a',
+      containerProps = {},
+      hintProps = {},
+      ...props
+    }: TaskListItemNameAndHintProps,
+    ref,
+  ) => {
+    const { variant, rowId } = useTaskListItemContext();
 
-      const { className: containerClassName, ...containerRestProps } =
-        containerProps;
-      const { className: hintClassName, ...hintRestProps } = hintProps;
+    const { className: containerClassName, ...containerRestProps } = containerProps;
+    const { className: hintClassName, ...hintRestProps } = hintProps;
 
-      const descriptionId = `${rowId}-hint`;
-      const statusId = `${rowId}-status`;
+    const descriptionId = `${rowId}-hint`;
+    const statusId = `${rowId}-status`;
 
-      const Component = variant === 'with-link' ? component : 'div';
-      const componentProps =
-        variant === 'with-link'
-          ? {
-              ref,
-              ...props,
-              'aria-describedby': clsx(statusId, { [descriptionId]: hint }),
-            }
-          : {};
+    const Component = variant === 'with-link' ? component : 'div';
+    const componentProps =
+      variant === 'with-link'
+        ? {
+            ref,
+            ...props,
+            'aria-describedby': clsx({ [descriptionId]: hint }, statusId),
+          }
+        : {};
 
-      return (
-        <div
-          className={clsx(
-            'nhsuk-task-list__item-name-and-hint',
-            containerClassName,
-          )}
-          {...containerRestProps}
+    return (
+      <div
+        className={clsx('nhsuk-task-list__name-and-hint', containerClassName)}
+        {...containerRestProps}
+      >
+        <Base
+          as={Component}
+          className={variant === 'with-link' ? 'nhsuk-link nhsuk-task-list__link' : undefined}
+          {...componentProps}
         >
-          <Base as={Component} {...componentProps}>
-            {children}
-          </Base>
-          {hint && (
-            <div
-              id={descriptionId}
-              className={clsx('nhsuk-task-list__hint', hintClassName)}
-              {...hintRestProps}
-            >
-              {hint}
-            </div>
-          )}
-        </div>
-      );
-    },
-  );
+          {children}
+        </Base>
+        {hint && (
+          <div
+            id={descriptionId}
+            className={clsx('nhsuk-task-list__hint', hintClassName)}
+            {...hintRestProps}
+          >
+            {hint}
+          </div>
+        )}
+      </div>
+    );
+  },
+);
 
 export type TaskListItemStatusProps = {
-  variant: 'completed' | 'cannot-start-yet' | 'incomplete';
-} & Omit<TagProps, 'variant' | 'id'>;
+  variant?: 'completed' | 'cannot-start-yet';
+} & ElementProps<'div'>;
 
 const TaskListItemStatus = ({
-  variant = 'incomplete',
+  variant,
+  className,
   children,
   ...props
 }: TaskListItemStatusProps) => {
@@ -154,20 +145,15 @@ const TaskListItemStatus = ({
 
   return (
     <div
-      id={variant === 'completed' ? statusId : undefined}
+      id={statusId}
       className={clsx(
         'nhsuk-task-list__status',
-        `nhsuk-task-list__status--${variant}`,
+        { [`nhsuk-task-list__status--${variant}`]: variant },
+        className,
       )}
       {...props}
     >
-      {variant === 'incomplete' ? (
-        <Tag id={statusId} variant="blue" {...props}>
-          {children}
-        </Tag>
-      ) : (
-        children
-      )}
+      {children}
     </div>
   );
 };

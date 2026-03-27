@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { ElementProps } from '@/types/shared';
 
 export type SectionBreakSize = 'm' | 'l' | 'xl';
@@ -9,12 +10,7 @@ export type SectionBreakProps = {
   visible?: boolean;
 } & ElementProps<'hr'>;
 
-const SectionBreak = ({
-  className,
-  size,
-  visible,
-  ...props
-}: SectionBreakProps) => {
+const SectionBreak = ({ className, size, visible, ...props }: SectionBreakProps) => {
   return (
     <hr
       className={clsx(

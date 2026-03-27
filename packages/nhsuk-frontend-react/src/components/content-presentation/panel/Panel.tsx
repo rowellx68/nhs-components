@@ -1,13 +1,14 @@
-import React from 'react';
 import clsx from 'clsx';
-import { factory, Factory } from '@/internal/factory/factory';
-import { ElementProps } from '@/types/shared';
-import {
-  Heading,
-  HeadingProps,
-} from '@/components/styles/typography/heading/Heading';
+import React from 'react';
 
-export type PanelProps = ElementProps<'div'>;
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { factory, Factory } from '@/internal/factory/factory';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
+
+export type PanelProps = {
+  variant?: 'interruption';
+} & ElementProps<'div'>;
 
 type PanelFactory = Factory<{
   props: PanelProps;
@@ -18,23 +19,45 @@ type PanelFactory = Factory<{
   };
 }>;
 
-const Panel = factory<PanelFactory>(
-  ({ className, children, ...props }, ref) => {
+const Panel = factory<PanelFactory>(({ variant, className, children, ...props }, ref) => {
+  return (
+    <div
+      className={clsx(
+        'nhsuk-panel',
+        { 'nhsuk-panel--interruption': variant === 'interruption' },
+        className,
+      )}
+      {...props}
+      ref={ref}
+    >
+      {children}
+    </div>
+  );
+});
+
+export type PanelTitleProps = {
+  size?: 'm' | 'l' | 'xl';
+} & BaseProps &
+  AsElementProps<HeadingLevel>;
+
+type PanelTitleFactory = PolymorphicFactory<{
+  props: PanelTitleProps;
+  defaultComponent: 'h1';
+  defaultRef: HTMLHeadingElement;
+}>;
+
+const PanelTitle = polymorphicFactory<PanelTitleFactory>(
+  ({ size, className, as: component = 'h1', ...props }: PanelTitleProps, ref) => {
     return (
-      <div className={clsx('nhsuk-panel', className)} {...props} ref={ref}>
-        {children}
-      </div>
+      <Base
+        as={component}
+        className={clsx('nhsuk-panel__title', { [`nhsuk-panel__title--${size}`]: size }, className)}
+        {...props}
+        ref={ref}
+      />
     );
   },
 );
-
-export type PanelTitleProps = HeadingProps;
-
-const PanelTitle = ({ className, ...props }: PanelTitleProps) => {
-  return (
-    <Heading className={clsx('nhsuk-panel__title', className)} {...props} />
-  );
-};
 
 export type PanelBodyProps = ElementProps<'div'>;
 

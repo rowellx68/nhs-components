@@ -1,14 +1,14 @@
-import React from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  polymorphicFactory,
-  PolymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { ArrowRightCircleIcon } from '@/icons/arrow-right-circle/ArrowRightCircle';
-import { AsElementProps } from '@/types/shared';
 import clsx from 'clsx';
+import React from 'react';
 
-export type ActionLinkProps = BaseProps;
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { ArrowRightCircleIcon } from '@/icons/arrow-right-circle/ArrowRightCircle';
+import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps } from '@/types/shared';
+
+export type ActionLinkProps = {
+  variant?: 'reverse';
+} & BaseProps;
 
 type ActionLinkFactory = PolymorphicFactory<{
   props: ActionLinkProps;
@@ -21,23 +21,26 @@ const ActionLink = polymorphicFactory<ActionLinkFactory>(
     {
       className,
       children,
+      variant,
       as: component = 'a',
       ...props
     }: ActionLinkProps & AsElementProps,
     ref,
   ) => {
     return (
-      <div className="nhsuk-action-link">
-        <Base
-          as={component}
-          className={clsx('nhsuk-action-link__link', className)}
-          {...props}
-          ref={ref}
-        >
-          <ArrowRightCircleIcon />
-          <span className="nhsuk-action-link__text">{children}</span>
-        </Base>
-      </div>
+      <Base
+        as={component}
+        className={clsx(
+          'nhsuk-action-link',
+          { 'nhsuk-action-link--reverse': variant === 'reverse' },
+          className,
+        )}
+        {...props}
+        ref={ref}
+      >
+        <ArrowRightCircleIcon />
+        <span className="nhsuk-action-link__text">{children}</span>
+      </Base>
     );
   },
 );

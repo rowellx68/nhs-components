@@ -1,17 +1,11 @@
-import { Base } from '@/components/core/base/Base';
-import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
-import { Factory, factory } from '@/internal/factory/factory';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import {
-  AsElementProps,
-  ElementProps,
-  WithVisuallyHiddenTextProps,
-} from '@/types/shared';
 import clsx from 'clsx';
 import React from 'react';
+
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
+import { Factory, factory } from '@/internal/factory/factory';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps, WithVisuallyHiddenTextProps } from '@/types/shared';
 
 export type ContentsListProps = {
   role?: 'navigation';
@@ -21,46 +15,58 @@ export type ContentsListProps = {
 
 type ContentsListFactory = Factory<{
   props: ContentsListProps;
-  ref: HTMLDivElement;
+  ref: HTMLElement;
   staticComponents: {
+    List: typeof ContentsListList;
     Item: typeof ContentsListItem;
+    Link: typeof ContentsListLink;
   };
 }>;
 
 const ContentsList = factory<ContentsListFactory>(
   (
-    {
-      children,
-      className,
-      role = 'navigation',
-      visuallyHiddenText = 'Contents',
-      ...props
-    },
+    { children, className, role = 'navigation', visuallyHiddenText = 'Contents', ...props },
     ref,
   ) => {
     return (
-      <nav
-        className={clsx('nhsuk-contents-list', className)}
-        role={role}
-        {...props}
-        ref={ref}
-      >
+      <nav className={clsx('nhsuk-contents-list', className)} role={role} {...props} ref={ref}>
         <VisuallyHidden as="h2">{visuallyHiddenText}</VisuallyHidden>
-        <ol className="nhsuk-contents-list__list">{children}</ol>
+        <ContentsListList>{children}</ContentsListList>
       </nav>
     );
   },
 );
 
-export type ContentsListItemProps = { active?: boolean } & ElementProps<'a'>;
+export type ContentsListListProps = ElementProps<'ol'>;
 
-type ContentsListItemFactory = PolymorphicFactory<{
-  props: ContentsListItemProps;
+const ContentsListList = ({ className, ...props }: ContentsListListProps) => (
+  <ol className={clsx('nhsuk-contents-list__list', className)} {...props} />
+);
+
+export type ContentsListItemProps = {
+  active?: boolean;
+} & ElementProps<'li'>;
+
+const ContentsListItem = ({ active, className, ...props }: ContentsListItemProps) => (
+  <li
+    className={clsx('nhsuk-contents-list__item', className)}
+    aria-current={active ? 'page' : undefined}
+    {...props}
+  />
+);
+
+export type ContentsListLinkProps = {
+  active?: boolean;
+} & BaseProps &
+  AsElementProps<'a'>;
+
+type ContentsListLinkFactory = PolymorphicFactory<{
+  props: ContentsListLinkProps;
   defaultComponent: 'a';
   defaultRef: HTMLAnchorElement;
 }>;
 
-const ContentsListItem = polymorphicFactory<ContentsListItemFactory>(
+const ContentsListLink = polymorphicFactory<ContentsListLinkFactory>(
   (
     {
       children,
@@ -68,37 +74,33 @@ const ContentsListItem = polymorphicFactory<ContentsListItemFactory>(
       active,
       as: component = 'a',
       ...props
-    }: ContentsListItemProps & AsElementProps,
+    }: ContentsListLinkProps & AsElementProps,
     ref,
-  ) => {
-    const baseProps = {
-      as: !active ? component : 'span',
-      className: clsx(
+  ) => (
+    <Base
+      as={active ? 'span' : component}
+      className={clsx(
         {
           'nhsuk-contents-list__current': active,
           'nhsuk-contents-list__link': !active,
         },
         className,
-      ),
-      ...props,
-    };
-
-    return (
-      <li
-        className="nhsuk-contents-list__item"
-        aria-current={active ? 'page' : undefined}
-      >
-        <Base<any> {...baseProps} ref={ref}>
-          {children}
-        </Base>
-      </li>
-    );
-  },
+      )}
+      {...props}
+      ref={ref}
+    >
+      {children}
+    </Base>
+  ),
 );
 
 ContentsList.displayName = 'ContentsList';
+ContentsListList.displayName = 'ContentsList.List';
 ContentsListItem.displayName = 'ContentsList.Item';
+ContentsListLink.displayName = 'ContentsList.Link';
 
+ContentsList.List = ContentsListList;
 ContentsList.Item = ContentsListItem;
+ContentsList.Link = ContentsListLink;
 
-export { ContentsList, ContentsListItem };
+export { ContentsList, ContentsListList, ContentsListItem, ContentsListLink };

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Textarea, TextareaProps } from '../textarea/Textarea';
+
 import { Factory, factory } from '@/internal/factory/factory';
+
+import { Textarea, TextareaProps } from '../textarea/Textarea';
 
 export type CharacterCountProps = (
   | {

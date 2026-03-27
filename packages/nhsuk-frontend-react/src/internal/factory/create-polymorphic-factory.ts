@@ -10,6 +10,7 @@ import {
   ReactElement,
   JSX,
 } from 'react';
+
 import { AsElementProps } from '@/types/shared';
 
 type ExtendedProps<
@@ -51,23 +52,15 @@ export function createPolymorphicComponent<
   Props,
   StaticComponents = Record<string, never>,
 >(component: any) {
-  type ComponentProps<TComponent> = PolymorphicComponentProps<
-    TComponent,
-    Props
-  >;
+  type ComponentProps<TComponent> = PolymorphicComponentProps<TComponent, Props>;
 
   type _PolymorphicComponent = <TComponent = ComponentDefaultType>(
     props: ComponentProps<TComponent>,
   ) => ReactElement;
 
-  type ComponentProperties = Omit<
-    FunctionComponent<ComponentProps<any>>,
-    never
-  >;
+  type ComponentProperties = Omit<FunctionComponent<ComponentProps<any>>, never>;
 
-  type PolymorphicComponent = _PolymorphicComponent &
-    ComponentProperties &
-    StaticComponents;
+  type PolymorphicComponent = _PolymorphicComponent & ComponentProperties & StaticComponents;
 
   return component as PolymorphicComponent;
 }

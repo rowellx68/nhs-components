@@ -1,88 +1,68 @@
-import React from 'react';
-import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  polymorphicFactory,
-  PolymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
 import clsx from 'clsx';
-import {
-  WithVisuallyHiddenTextProps,
-  AsElementProps,
-  ElementProps,
-} from '@/types/shared';
-import { Factory, factory } from '@/internal/factory/factory';
+import React from 'react';
 
-export type FooterProps = WithVisuallyHiddenTextProps & ElementProps<'footer'>;
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
+import { Factory, factory } from '@/internal/factory/factory';
+import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { WithVisuallyHiddenTextProps, AsElementProps, ElementProps } from '@/types/shared';
+
+export type FooterProps = ElementProps<'footer'>;
 
 type FooterFactory = Factory<{
   props: FooterProps;
-  ref: HTMLDivElement;
+  ref: HTMLElement;
   staticComponents: {
-    Content: typeof FooterContent;
+    Meta: typeof FooterMeta;
+    Navigation: typeof FooterNavigation;
+    NavigationColumn: typeof FooterNavigationColumn;
     List: typeof FooterList;
     ListItem: typeof FooterListItem;
     Copyright: typeof FooterCopyright;
   };
 }>;
 
-const Footer = factory<FooterFactory>(
-  (
-    { children, visuallyHiddenText = 'Support links', ...props }: FooterProps,
-    ref,
-  ) => {
-    return (
-      <footer role="contentinfo" {...props} ref={ref}>
-        <div className="nhsuk-footer-container">
-          <div className="nhsuk-width-container">
-            <VisuallyHidden as="h2">{visuallyHiddenText}</VisuallyHidden>
-            {children}
-          </div>
-        </div>
-      </footer>
-    );
-  },
+const Footer = factory<FooterFactory>(({ children, className, ...props }: FooterProps, ref) => {
+  return (
+    <footer className={clsx('nhsuk-footer', className)} role="contentinfo" {...props} ref={ref}>
+      <div className="nhsuk-width-container">{children}</div>
+    </footer>
+  );
+});
+
+export type FooterMetaProps = WithVisuallyHiddenTextProps & ElementProps<'div'>;
+
+const FooterMeta = ({
+  className,
+  children,
+  visuallyHiddenText = 'Support links',
+  ...props
+}: FooterMetaProps) => (
+  <div className={clsx('nhsuk-footer__meta', className)} {...props}>
+    {visuallyHiddenText && <VisuallyHidden as="h2">{visuallyHiddenText}</VisuallyHidden>}
+    {children}
+  </div>
 );
 
-export type FooterFooterProps = ElementProps<'div'>;
+export type FooterNavigationProps = ElementProps<'div'>;
 
-const FooterContent = ({
-  className,
-  children,
-  ...props
-}: FooterFooterProps) => {
-  return (
-    <div className={clsx('nhsuk-footer', className)} {...props}>
-      {children}
-    </div>
-  );
-};
+const FooterNavigation = ({ className, ...props }: FooterNavigationProps) => (
+  <div className={clsx('nhsuk-footer__navigation', 'nhsuk-grid-row', className)} {...props} />
+);
 
-export type FooterListProps = { variant?: 'meta-links' } & ElementProps<'ul'>;
+export type FooterNavigationColumnProps = ElementProps<'div'>;
 
-const FooterList = ({
-  className,
-  children,
-  variant,
-  ...props
-}: FooterListProps) => {
-  return (
-    <ul
-      className={clsx(
-        'nhsuk-footer__list',
-        { 'nhsuk-footer__meta': variant === 'meta-links' },
-        className,
-      )}
-      {...props}
-    >
-      {children}
-    </ul>
-  );
-};
+const FooterNavigationColumn = ({ className, ...props }: FooterNavigationColumnProps) => (
+  <div className={clsx('nhsuk-grid-column-one-quarter', className)} {...props} />
+);
 
-export type FooterListItemProps = {
-  variant?: 'default';
-} & BaseProps;
+export type FooterListProps = ElementProps<'ul'>;
+
+const FooterList = ({ className, ...props }: FooterListProps) => (
+  <ul className={clsx('nhsuk-footer__list', className)} {...props} />
+);
+
+export type FooterListItemProps = BaseProps;
 
 type FooterListItemFactory = PolymorphicFactory<{
   props: FooterListItemProps;
@@ -92,21 +72,11 @@ type FooterListItemFactory = PolymorphicFactory<{
 
 const FooterListItem = polymorphicFactory<FooterListItemFactory>(
   (
-    {
-      className,
-      children,
-      as: component = 'a',
-      variant = 'default',
-      ...props
-    }: FooterListItemProps & AsElementProps,
+    { className, children, as: component = 'a', ...props }: FooterListItemProps & AsElementProps,
     ref,
   ) => {
     return (
-      <li
-        className={clsx('nhsuk-footer__list-item', {
-          'nhsuk-footer-default__list-item': variant === 'default',
-        })}
-      >
+      <li className="nhsuk-footer__list-item">
         <Base<any>
           as={component}
           className={clsx('nhsuk-footer__list-item-link', className)}
@@ -122,29 +92,31 @@ const FooterListItem = polymorphicFactory<FooterListItemFactory>(
 
 export type FooterCopyrightProps = ElementProps<'p'>;
 
-const FooterCopyright = ({
-  className,
-  children,
-  ...props
-}: FooterCopyrightProps) => {
-  return (
-    <div>
-      <p className={clsx('nhsuk-footer__copyright', className)} {...props}>
-        &copy; {children}
-      </p>
-    </div>
-  );
-};
+const FooterCopyright = ({ className, ...props }: FooterCopyrightProps) => (
+  <p className={clsx('nhsuk-body-s', className)} {...props} />
+);
 
 Footer.displayName = 'Footer';
-FooterContent.displayName = 'Footer.Content';
+FooterMeta.displayName = 'Footer.Meta';
+FooterNavigation.displayName = 'Footer.Navigation';
+FooterNavigationColumn.displayName = 'Footer.NavigationColumn';
 FooterList.displayName = 'Footer.List';
 FooterListItem.displayName = 'Footer.ListItem';
 FooterCopyright.displayName = 'Footer.Copyright';
 
-Footer.Content = FooterContent;
+Footer.Meta = FooterMeta;
+Footer.Navigation = FooterNavigation;
+Footer.NavigationColumn = FooterNavigationColumn;
 Footer.List = FooterList;
 Footer.ListItem = FooterListItem;
 Footer.Copyright = FooterCopyright;
 
-export { Footer, FooterContent, FooterList, FooterListItem, FooterCopyright };
+export {
+  Footer,
+  FooterMeta,
+  FooterNavigation,
+  FooterNavigationColumn,
+  FooterList,
+  FooterListItem,
+  FooterCopyright,
+};

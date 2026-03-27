@@ -1,14 +1,13 @@
 'use client';
 
+import clsx from 'clsx';
 import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import {
-  BaseFormElementProps,
-  FormGroup,
-} from '@/components/core/form-group/FormGroup';
+
+import { BaseFormElementProps, FormGroup } from '@/components/core/form-group/FormGroup';
+import { LabelProps } from '@/components/core/label/Label';
 import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps, InputWidth } from '@/types/shared';
-import clsx from 'clsx';
-import { LabelProps } from '@/components/core/label/Label';
+
 import { Input } from '../input/Input';
 import { DateInputProvider, useDateInputContext } from './DateInput.context';
 
@@ -44,89 +43,87 @@ type DateInputFactory = Factory<{
   };
 }>;
 
-const DateInput = factory<DateInputFactory>(
-  ({ onChange, value, disabled, ...props }, ref) => {
-    const [state, setState] = useState({
-      day: value?.day ?? '',
-      month: value?.month ?? '',
-      year: value?.year ?? '',
-    });
+const DateInput = factory<DateInputFactory>(({ onChange, value, disabled, ...props }, ref) => {
+  const [state, setState] = useState({
+    day: value?.day ?? '',
+    month: value?.month ?? '',
+    year: value?.year ?? '',
+  });
 
-    const internalState = useMemo(
-      () => ({
-        values: {
-          day: value?.day ?? '',
-          month: value?.month ?? '',
-          year: value?.year ?? '',
-        },
-      }),
-      [],
-    );
-
-    const handleChange = useCallback(
-      (part: DateInputPart, event: ChangeEvent<HTMLInputElement>) => {
-        event.stopPropagation();
-        const newValue = {
-          ...internalState.values,
-          [part]: event.target.value,
-        };
-
-        if (onChange) {
-          const newEvent = {
-            ...event,
-            target: { ...event.target, value: newValue },
-            currentTarget: { ...event.currentTarget, value: newValue },
-          } as DateInputChangeEvent;
-
-          onChange(newEvent);
-        }
-
-        setState(newValue);
-        internalState.values = { ...newValue };
+  const internalState = useMemo(
+    () => ({
+      values: {
+        day: value?.day ?? '',
+        month: value?.month ?? '',
+        year: value?.year ?? '',
       },
-      [state, setState, onChange],
-    );
+    }),
+    [],
+  );
 
-    return (
-      <FormGroup
-        as="div"
-        withErrorLine
-        {...props}
-        ref={ref}
-        fieldsetProps={{ role: 'group' }}
-        inputType="dateinput"
-        render={({ id, className, withError, errorMap, children }) => {
-          const contextValue = useMemo(
-            () => ({
-              id: id!,
-              name: id!,
-              error: withError,
-              errorMap,
-              handleChange,
-              value: state,
-              disabled,
-            }),
-            [id, withError, errorMap, state, handleChange, disabled],
-          );
+  const handleChange = useCallback(
+    (part: DateInputPart, event: ChangeEvent<HTMLInputElement>) => {
+      event.stopPropagation();
+      const newValue = {
+        ...internalState.values,
+        [part]: event.target.value,
+      };
 
-          return (
-            <div className={clsx('nhsuk-date-input', className)} id={id}>
-              <DateInputProvider value={contextValue}>
-                {children ?? (
-                  <>
-                    <DateInputDay />
-                    <DateInputMonth />
-                    <DateInputYear />
-                  </>
-                )}
-              </DateInputProvider>
-            </div>
-          );
-        }}
-      />
-    );
-  },
-);
+      if (onChange) {
+        const newEvent = {
+          ...event,
+          target: { ...event.target, value: newValue },
+          currentTarget: { ...event.currentTarget, value: newValue },
+        } as DateInputChangeEvent;
+
+        onChange(newEvent);
+      }
+
+      setState(newValue);
+      internalState.values = { ...newValue };
+    },
+    [state, setState, onChange],
+  );
+
+  return (
+    <FormGroup
+      as="div"
+      withErrorLine
+      {...props}
+      ref={ref}
+      fieldsetProps={{ role: 'group' }}
+      inputType="dateinput"
+      render={({ id, className, withError, errorMap, children }) => {
+        const contextValue = useMemo(
+          () => ({
+            id: id!,
+            name: id!,
+            error: withError,
+            errorMap,
+            handleChange,
+            value: state,
+            disabled,
+          }),
+          [id, withError, errorMap, state, handleChange, disabled],
+        );
+
+        return (
+          <div className={clsx('nhsuk-date-input', className)} id={id}>
+            <DateInputProvider value={contextValue}>
+              {children ?? (
+                <>
+                  <DateInputDay />
+                  <DateInputMonth />
+                  <DateInputYear />
+                </>
+              )}
+            </DateInputProvider>
+          </div>
+        );
+      }}
+    />
+  );
+});
 
 export type DatePart = 'day' | 'month' | 'year';
 
@@ -203,14 +200,10 @@ const BaseDatePart = factory<DateInputPartFactory>(
 
     const inputValue = value || ctxValue?.[part];
 
-    const _error =
-      error || (errorMap && errorMap[part]) || (ctxError && !errorMap);
+    const _error = error || (errorMap && errorMap[part]) || (ctxError && !errorMap);
 
     return (
-      <div
-        className={clsx('nhsuk-date-input__item', wrapperClassName)}
-        {...restWrapperProps}
-      >
+      <div className={clsx('nhsuk-date-input__item', wrapperClassName)} {...restWrapperProps}>
         <Input
           labelProps={{
             className: clsx('nhsuk-date-input__label', labelClassName),

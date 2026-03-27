@@ -1,295 +1,180 @@
 'use client';
 
-import React, {
-  Children,
-  ReactNode,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  polymorphicFactory,
-  PolymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
 import clsx from 'clsx';
-import { HeaderContextProvider, useHeaderContext } from './Header.context';
-import { Factory, factory } from '@/internal/factory/factory';
-import { VisuallyHidden } from '@/components/core/visually-hidden/VisuallyHidden';
-import {
-  AsElementProps,
-  ElementProps,
-  WithVisuallyHiddenTextProps,
-} from '@/types/shared';
-import { SearchIcon } from '@/icons/search/Search';
-import { ChevronDownIcon } from '@/icons/chevron-down/ChevronDown';
-import initHeader from '@/resources/header/header';
+import { Header as NhsHeader } from 'nhsuk-frontend';
+import React, { Fragment, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 
-export type HeaderProps = (
-  | {
-      serviceName?: undefined;
-      transactional?: false;
-      organisationName?: undefined;
-      organisationSplit?: undefined;
-      organisationDescriptor?: undefined;
-    }
-  | {
-      serviceName: string;
-      transactional?: false;
-      organisationName?: undefined;
-      organisationSplit?: undefined;
-      organisationDescriptor?: undefined;
-    }
-  | {
-      serviceName?: undefined;
-      transactional: true;
-      organisationName?: undefined;
-      organisationSplit?: undefined;
-      organisationDescriptor?: undefined;
-    }
-  | {
-      serviceName?: undefined;
-      transactional?: false;
-      organisationName: string;
-      organisationSplit?: string;
-      organisationDescriptor: string;
-    }
-) & {
-  variant?:
-    | 'blue-header-blue-nav'
-    | 'blue-header-white-nave'
-    | 'white-header-blue-nav'
-    | 'white-header-white-nav';
-} & ElementProps<'header'>;
+import { NhsLogo } from '@/assets/NhsLogo';
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { SearchIcon } from '@/icons/search/Search';
+import { UserIcon } from '@/icons/user/User';
+import { Factory, factory } from '@/internal/factory/factory';
+import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps, ElementProps, WithVisuallyHiddenTextProps } from '@/types/shared';
+
+export type HeaderProps = {
+  variant?: 'organisation' | 'inline';
+  colour?: 'white';
+} & ElementProps<'header', 'color'>;
 
 type HeaderFactory = Factory<{
   props: HeaderProps;
   ref: HTMLDivElement;
   staticComponents: {
     Container: typeof HeaderContainer;
-    Logo: typeof HeaderLogo;
-    TransactionLink: typeof HeaderTransactionLink;
+    Service: typeof HeaderService;
+    ServiceLogo: typeof HeaderServiceLogo;
     Nav: typeof HeaderNav;
     NavList: typeof HeaderNavList;
     NavItem: typeof HeaderNavItem;
-    MobileMenu: typeof HeaderMobileMenu;
-    Content: typeof HeaderContent;
+    Account: typeof HeaderAccount;
+    AccountItem: typeof HeaderAccountItem;
     Search: typeof HeaderSearch;
   };
 }>;
 
 const Header = factory<HeaderFactory>(
-  (
-    {
-      children,
-      className,
-      serviceName,
-      transactional,
-      organisationName,
-      organisationSplit,
-      organisationDescriptor,
-      variant = 'blue-header-blue-nav',
-      ...props
-    }: HeaderProps,
-    ref,
-  ) => {
-    const value = useMemo(
-      () => ({
-        serviceName,
-        transactional,
-        organisationName,
-        organisationSplit,
-        organisationDescriptor,
-        white: variant.includes('white-header'),
-        whiteNav: variant.includes('white-nav'),
-      }),
-      [],
-    );
-
+  ({ children, className, variant, colour, ...props }: HeaderProps, ref) => {
     return (
-      <HeaderContextProvider value={value}>
-        <header
-          className={clsx(
-            'nhsuk-header',
-            {
-              'nhsuk-header__transactional': transactional,
-              'nhsuk-header--organisation': organisationName,
-              'nhsuk-header--white': variant.includes('white-header'),
-              'nhsuk-header--white-nav': variant.includes('white-nav'),
-            },
-            className,
-          )}
-          role="banner"
-          {...props}
-          ref={ref}
-        >
-          {children}
-        </header>
-      </HeaderContextProvider>
+      <header
+        className={clsx(
+          'nhsuk-header',
+          {
+            'nhsuk-header--organisation': variant === 'organisation',
+            'nhsuk-header--inline': variant === 'inline',
+            'nhsuk-header--white': colour === 'white',
+          },
+          className,
+        )}
+        role="banner"
+        data-module="nhsuk-header"
+        {...props}
+        ref={ref}
+      >
+        {children}
+      </header>
     );
   },
 );
 
 export type HeaderContainerProps = ElementProps<'div'>;
 
-const HeaderContainer = ({
-  children,
-  className,
-  ...props
-}: HeaderContainerProps) => {
+const HeaderContainer = ({ children, className, ...props }: HeaderContainerProps) => {
   return (
-    <div className={clsx('nhsuk-header__container', className)} {...props}>
+    <div className={clsx('nhsuk-header__container nhsuk-width-container', className)} {...props}>
       {children}
     </div>
   );
 };
 
-export type HeaderLogoProps = {
-  'aria-label': string;
-  /**
-   * If set, there will be extra space around the logo to account for the lack of a service/oganisation name
-   */
-  variant?: 'logo-only';
-} & Omit<BaseProps, 'children'>;
+export type HeaderServiceProps = ElementProps<'div'>;
 
-type HeaderLogoFactory = PolymorphicFactory<{
-  props: HeaderLogoProps;
+const HeaderService = ({ children, className, ...props }: HeaderServiceProps) => {
+  return (
+    <div className={clsx('nhsuk-header__service', className)} {...props}>
+      {children}
+    </div>
+  );
+};
+
+export type HeaderServiceLogoProps = Omit<BaseProps, 'children'> &
+  (
+    | {
+        variant: 'logo-only';
+        serviceName?: undefined;
+        organisationName?: undefined;
+        organisationSplit?: undefined;
+        organisationDescriptor?: undefined;
+      }
+    | {
+        variant?: 'default';
+        serviceName: string;
+        organisationName?: undefined;
+        organisationSplit?: undefined;
+        organisationDescriptor?: undefined;
+      }
+    | {
+        variant?: 'default';
+        serviceName?: undefined;
+        organisationName: string;
+        organisationSplit?: string;
+        organisationDescriptor: string;
+      }
+  ) & {
+    logo?: ReactNode;
+  };
+
+type HeaderServiceLogoFactory = PolymorphicFactory<{
+  props: HeaderServiceLogoProps;
   defaultComponent: 'a';
   defaultRef: HTMLAnchorElement;
 }>;
 
-const HeaderLogo = polymorphicFactory<HeaderLogoFactory>(
+const HeaderServiceLogo = polymorphicFactory<HeaderServiceLogoFactory>(
   (
     {
       className,
       as: component = 'a',
-      variant,
-      ...props
-    }: HeaderLogoProps & AsElementProps,
-    ref,
-  ) => {
-    const {
-      transactional,
+      logo,
       serviceName,
       organisationName,
       organisationSplit,
       organisationDescriptor,
-    } = useHeaderContext();
-
-    return (
-      <div
-        className={clsx('nhsuk-header__logo', {
-          'nhsuk-header__logo--only': variant,
-        })}
-      >
-        <Base
-          as={component}
-          className={clsx(
-            'nhsuk-header__link',
-            {
-              'nhsuk-header__transactional--logo': transactional,
-              'nhsuk-header__link--service': serviceName,
-            },
-            className,
-          )}
-          {...props}
-          ref={ref}
-        >
-          <svg
-            className="nhsuk-logo"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 40 16"
-            height="40"
-            width="100"
-          >
-            <path
-              className="nhsuk-logo__background"
-              fill="#005eb8"
-              d="M0 0h40v16H0z"
-            />
-            <path
-              className="nhsuk-logo__text"
-              fill="#fff"
-              d="M3.9 1.5h4.4l2.6 9h.1l1.8-9h3.3l-2.8 13H9l-2.7-9h-.1l-1.8 9H1.1M17.3 1.5h3.6l-1 4.9h4L25 1.5h3.5l-2.7 13h-3.5l1.1-5.6h-4.1l-1.2 5.6h-3.4M37.7 4.4c-.7-.3-1.6-.6-2.9-.6-1.4 0-2.5.2-2.5 1.3 0 1.8 5.1 1.2 5.1 5.1 0 3.6-3.3 4.5-6.4 4.5-1.3 0-2.9-.3-4-.7l.8-2.7c.7.4 2.1.7 3.2.7s2.8-.2 2.8-1.5c0-2.1-5.1-1.3-5.1-5 0-3.4 2.9-4.4 5.8-4.4 1.6 0 3.1.2 4 .6"
-            />
-          </svg>
-          {serviceName && (
-            <span className="nhsuk-header__service-name">{serviceName}</span>
-          )}
-          {organisationName && (
-            <span className="nhsuk-organisation-name">
-              {organisationName}
-              {organisationSplit && (
-                <>
-                  {' '}
-                  <span className="nhsuk-organisation-split">
-                    {organisationSplit}
-                  </span>
-                </>
-              )}
-            </span>
-          )}
-          {organisationDescriptor && (
-            <span className="nhsuk-organisation-descriptor">
-              {organisationDescriptor}
-            </span>
-          )}
-        </Base>
-      </div>
-    );
-  },
-);
-
-export type HeaderTransactionLinkProps = AsElementProps & BaseProps;
-
-type HeaderTransactionLinkFactory = PolymorphicFactory<{
-  props: HeaderTransactionLinkProps;
-  defaultComponent: 'a';
-  defaultRef: HTMLAnchorElement;
-}>;
-
-const HeaderTransactionLink = polymorphicFactory<HeaderTransactionLinkFactory>(
-  (
-    { className, as: component = 'a', ...props }: HeaderTransactionLinkProps,
+      ...props
+    }: HeaderServiceLogoProps & AsElementProps,
     ref,
   ) => {
-    const { transactional } = useHeaderContext();
-
-    if (!transactional) {
-      return null;
-    }
-
     return (
-      <div className="nhsuk-header__transactional-service-name">
-        <Base
-          as={component}
-          className={clsx(
-            'nhsuk-header__transactional-service-name--link',
-            className,
-          )}
-          {...props}
-          ref={ref}
-        />
-      </div>
+      <Base
+        as={component}
+        {...props}
+        className={clsx('nhsuk-header__service-logo', className)}
+        ref={ref}
+      >
+        {logo || <NhsLogo className="nhsuk-header__logo" />}
+        {serviceName && <span className="nhsuk-header__service-name">{serviceName}</span>}
+        {organisationName && (
+          <span className="nhsuk-header__organisation-name">
+            {organisationName}
+            {organisationSplit && (
+              <>
+                {' '}
+                <span className="nhsuk-header__organisation-name-split">{organisationSplit}</span>
+              </>
+            )}
+          </span>
+        )}
+        {organisationDescriptor && (
+          <span className="nhsuk-header__organisation-name-descriptor">
+            {organisationDescriptor}
+          </span>
+        )}
+      </Base>
     );
   },
 );
 
-export type HeaderNavProps = ElementProps<'div'>;
+export type HeaderNavProps = {
+  variant?: 'justified';
+  colour?: 'white';
+} & ElementProps<'div', 'color'>;
 
-const HeaderNav = ({ children, className, ...props }: HeaderNavProps) => {
+const HeaderNav = ({ children, variant, colour, className, ...props }: HeaderNavProps) => {
   return (
-    <div className="nhsuk-navigation-container">
-      <nav
-        className={clsx('nhsuk-navigation', className)}
-        role="navigation"
-        aria-label="Primary navigation"
-        {...props}
-      >
-        {children}
-      </nav>
-    </div>
+    <nav
+      className={clsx(
+        'nhsuk-header__navigation',
+        {
+          'nhsuk-header__navigation--justified': variant === 'justified',
+          'nhsuk-header__navigation--white': colour === 'white',
+        },
+        className,
+      )}
+      aria-label="Menu"
+      {...props}
+    >
+      <div className="nhsuk-header__navigation-container nhsuk-width-container">{children}</div>
+    </nav>
   );
 };
 
@@ -303,7 +188,7 @@ type HeaderNavListFactory = Factory<{
 const HeaderNavList = factory<HeaderNavListFactory>(
   ({ children, className, ...props }: HeaderNavListProps, ref) => {
     const internalRef = useRef<HTMLUListElement>(null);
-
+    const header = useRef<NhsHeader>(null);
     useImperativeHandle(ref, () => internalRef.current as HTMLUListElement);
 
     useEffect(() => {
@@ -311,33 +196,35 @@ const HeaderNavList = factory<HeaderNavListFactory>(
         return;
       }
 
-      initHeader();
+      if (header.current) {
+        header.current.handleUpdateNavigation();
+        return;
+      }
+
+      const target = internalRef.current.closest('.nhsuk-header');
+
+      header.current = new NhsHeader(target);
     }, [internalRef, children]);
 
-    const primaryLinks = Children.toArray(children).filter((child) => {
-      return React.isValidElement(child) && child.type === HeaderNavItem;
-    });
-
     return (
-      <ul
-        className={clsx(
-          'nhsuk-header__navigation-list',
-          {
-            'nhsuk-header__navigation-list--left-aligned':
-              primaryLinks.length < 4,
-          },
-          className,
-        )}
-        {...props}
-        ref={internalRef}
-      >
+      <ul className={clsx('nhsuk-header__navigation-list', className)} {...props} ref={internalRef}>
         {children}
+        <li className="nhsuk-header__menu" hidden>
+          <button
+            className="nhsuk-header__menu-toggle nhsuk-header__navigation-link"
+            id="toggle-menu"
+            aria-expanded="false"
+            type="button"
+          >
+            <span className="nhsuk-u-visually-hidden">Browse </span>More
+          </button>
+        </li>
       </ul>
     );
   },
 );
 
-export type HeaderNavItemProps = { variant?: 'home-link' } & BaseProps;
+export type HeaderNavItemProps = { active?: boolean } & BaseProps;
 
 type HeaderNavItemFactory = PolymorphicFactory<{
   props: HeaderNavItemProps;
@@ -349,50 +236,108 @@ const HeaderNavItem = polymorphicFactory<HeaderNavItemFactory>(
   (
     {
       className,
-      variant,
+      active = false,
       as: component = 'a',
+      children,
       ...props
     }: HeaderNavItemProps & AsElementProps,
     ref,
   ) => {
+    const linkProps = active ? { 'aria-current': true, ...props } : props;
+    const currentFallbackProps = active
+      ? { className: 'nhsuk-header__navigation-item-current-fallback' }
+      : {};
+
     return (
       <li
         className={clsx('nhsuk-header__navigation-item', {
-          'nhsuk-header__navigation-item--home': variant === 'home-link',
+          'nhsuk-header__navigation-item--current': active,
         })}
       >
         <Base
           as={component}
           className={clsx('nhsuk-header__navigation-link', className)}
-          {...props}
+          {...linkProps}
           ref={ref}
-        />
+        >
+          <Base<any> as={active ? 'strong' : Fragment} {...currentFallbackProps}>
+            {children}
+          </Base>
+        </Base>
       </li>
     );
   },
 );
 
-export type HeaderContentProps = ElementProps<'div'>;
+export type HeaderAccountProps = ElementProps<'ul'>;
 
-const HeaderContent = ({
-  children,
-  className,
-  ...props
-}: HeaderContentProps) => {
-  return (
-    <div className={clsx('nhsuk-header__content', className)} {...props}>
-      {children}
-    </div>
-  );
-};
+export type HeaderAccountFactory = Factory<{
+  props: HeaderAccountProps;
+  ref: HTMLUListElement;
+}>;
+
+const HeaderAccount = factory<HeaderAccountFactory>(
+  ({ children, className, ...props }: HeaderAccountProps, ref) => {
+    return (
+      <nav className="nhsuk-header__account" aria-label="Account">
+        <ul className={clsx('nhsuk-header__account-list', className)} {...props} ref={ref}>
+          {children}
+        </ul>
+      </nav>
+    );
+  },
+);
+
+export type HeaderAccountItemProps = (
+  | {
+      variant?: 'default';
+    }
+  | {
+      variant?: 'icon';
+    }
+) &
+  BaseProps;
+
+type HeaderAccountItemFactory = PolymorphicFactory<{
+  props: HeaderAccountItemProps;
+  defaultComponent: 'a';
+  defaultRef: HTMLAnchorElement;
+}>;
+
+const HeaderAccountItem = polymorphicFactory<HeaderAccountItemFactory>(
+  (
+    {
+      className,
+      children,
+      as: component = 'a',
+      variant,
+      ...props
+    }: HeaderAccountItemProps & AsElementProps,
+    ref,
+  ) => {
+    return (
+      <li className="nhsuk-header__account-item">
+        <Base
+          as={component}
+          className={clsx('nhsuk-header__account-link', className)}
+          {...props}
+          ref={ref}
+        >
+          {variant === 'icon' && <UserIcon />}
+          {children}
+        </Base>
+      </li>
+    );
+  },
+);
 
 export type HeaderSearchProps = (
   | { children?: undefined; inputProps?: undefined; buttonProps?: undefined }
   | { children: ReactNode; inputProps?: undefined; buttonProps?: undefined }
   | {
       children?: undefined;
-      inputProps: HeaderSearchInputProps;
-      buttonProps: HeaderSearchButtonProps;
+      inputProps?: HeaderSearchInputProps;
+      buttonProps?: HeaderSearchButtonProps;
     }
 ) &
   ElementProps<'form', 'children'>;
@@ -412,35 +357,50 @@ const HeaderSearch = factory<HeaderSearchFactory>(
       children,
       className,
       inputProps = { visuallyHiddenText: 'Search the NHS website' },
-      buttonProps = { visuallyHiddenText: 'Search' },
+      buttonProps = {},
       ...props
     },
     ref,
   ) => {
+    const { visuallyHiddenText = 'Search the NHS website', ...inputRest } = inputProps ?? {};
+    const { visuallyHiddenText: _buttonVisuallyHiddenText, ...buttonRest } = buttonProps ?? {};
+
     return (
-      <div className="nhsuk-header__search">
-        <div className="nhsuk-header__search-wrap">
-          <form
-            className={clsx('nhsuk-header__search-form', className)}
-            role="search"
-            {...props}
-            ref={ref}
-          >
-            {children || (
-              <>
-                <HeaderSearchInput {...inputProps} />
-                <HeaderSearchButton {...buttonProps} />
-              </>
-            )}
-          </form>
-        </div>
-      </div>
+      <search className="nhsuk-header__search">
+        <form className={clsx('nhsuk-header__search-form', className)} {...props} ref={ref}>
+          {children || (
+            <div className="nhsuk-form-group">
+              <label className="nhsuk-label nhsuk-u-visually-hidden" htmlFor="search-field">
+                {visuallyHiddenText}
+              </label>
+              <div className="nhsuk-input-wrapper">
+                <input
+                  className="nhsuk-input"
+                  id="search-field"
+                  name="q"
+                  type="search"
+                  autoComplete="off"
+                  placeholder="Search"
+                  {...inputRest}
+                />
+                <button
+                  className="nhsuk-button nhsuk-button--small"
+                  data-module="nhsuk-button"
+                  type="submit"
+                  {...buttonRest}
+                >
+                  <SearchIcon />
+                </button>
+              </div>
+            </div>
+          )}
+        </form>
+      </search>
     );
   },
 );
 
-export type HeaderSearchInputProps = ElementProps<'input'> &
-  WithVisuallyHiddenTextProps;
+export type HeaderSearchInputProps = ElementProps<'input'> & WithVisuallyHiddenTextProps;
 
 type HeaderSearchInputFactory = Factory<{
   props: HeaderSearchInputProps;
@@ -448,19 +408,16 @@ type HeaderSearchInputFactory = Factory<{
 }>;
 
 const HeaderSearchInput = factory<HeaderSearchInputFactory>(
-  (
-    { visuallyHiddenText, className, placeholder = 'Search', ...props },
-    ref,
-  ) => {
+  ({ visuallyHiddenText, className, placeholder = 'Search', ...props }, ref) => {
     return (
       <>
-        <label className="nhsuk-u-visually-hidden" htmlFor="search-field">
+        <label className="nhsuk-label nhsuk-u-visually-hidden" htmlFor="search-field">
           {visuallyHiddenText}
         </label>
         <input
-          className={clsx('nhsuk-search__input', className)}
+          className={clsx('nhsuk-input', className)}
           id="search-field"
-          name="search-field"
+          name="q"
           type="search"
           placeholder={placeholder}
           autoComplete="off"
@@ -472,8 +429,7 @@ const HeaderSearchInput = factory<HeaderSearchInputFactory>(
   },
 );
 
-export type HeaderSearchButtonProps = ElementProps<'button'> &
-  WithVisuallyHiddenTextProps;
+export type HeaderSearchButtonProps = ElementProps<'button'> & WithVisuallyHiddenTextProps;
 
 type HeaderSearchButtonFactory = Factory<{
   props: HeaderSearchButtonProps;
@@ -481,58 +437,30 @@ type HeaderSearchButtonFactory = Factory<{
 }>;
 
 const HeaderSearchButton = factory<HeaderSearchButtonFactory>(
-  ({ visuallyHiddenText, className, ...props }, ref) => {
+  ({ visuallyHiddenText: _visuallyHiddenText, className, ...props }, ref) => {
     return (
       <button
-        className={clsx('nhsuk-search__submit', className)}
-        {...props}
+        className={clsx('nhsuk-button nhsuk-button--small', className)}
+        data-module="nhsuk-button"
         type="submit"
+        {...props}
         ref={ref}
       >
         <SearchIcon />
-        <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden>
       </button>
     );
   },
 );
 
-export type HeaderMobileMenuProps = ElementProps<'button'> &
-  WithVisuallyHiddenTextProps;
-
-const HeaderMobileMenu = ({
-  visuallyHiddenText = 'Browse',
-  children = 'More',
-  className,
-  ...props
-}: HeaderMobileMenuProps) => {
-  return (
-    <li className="nhsuk-mobile-menu-container">
-      <button
-        className={clsx(
-          'nhsuk-header__menu-toggle nhsuk-header__navigation-link',
-          className,
-        )}
-        id="toggle-menu"
-        aria-expanded="false"
-        {...props}
-        type="button"
-      >
-        <VisuallyHidden>{visuallyHiddenText}</VisuallyHidden> {children}
-        <ChevronDownIcon />
-      </button>
-    </li>
-  );
-};
-
 Header.displayName = 'Header';
 HeaderContainer.displayName = 'Header.Container';
-HeaderLogo.displayName = 'Header.Logo';
-HeaderTransactionLink.displayName = 'Header.TransactionLink';
+HeaderService.displayName = 'Header.Service';
+HeaderServiceLogo.displayName = 'Header.ServiceLogo';
 HeaderNav.displayName = 'Header.Nav';
 HeaderNavList.displayName = 'Header.NavList';
 HeaderNavItem.displayName = 'Header.NavItem';
-HeaderMobileMenu.displayName = 'Header.MobileMenu';
-HeaderContent.displayName = 'Header.Content';
+HeaderAccount.displayName = 'Header.Account';
+HeaderAccountItem.displayName = 'Header.Account.Item';
 HeaderSearch.displayName = 'Header.Search';
 HeaderSearchInput.displayName = 'Header.Search.Input';
 HeaderSearchButton.displayName = 'Header.Search.Button';
@@ -541,25 +469,25 @@ HeaderSearch.Input = HeaderSearchInput;
 HeaderSearch.Button = HeaderSearchButton;
 
 Header.Container = HeaderContainer;
-Header.Logo = HeaderLogo;
-Header.TransactionLink = HeaderTransactionLink;
+Header.Service = HeaderService;
+Header.ServiceLogo = HeaderServiceLogo;
 Header.Nav = HeaderNav;
 Header.NavList = HeaderNavList;
 Header.NavItem = HeaderNavItem;
-Header.MobileMenu = HeaderMobileMenu;
-Header.Content = HeaderContent;
+Header.Account = HeaderAccount;
+Header.AccountItem = HeaderAccountItem;
 Header.Search = HeaderSearch;
 
 export {
   Header,
   HeaderContainer,
-  HeaderLogo,
-  HeaderTransactionLink,
+  HeaderService,
+  HeaderServiceLogo,
   HeaderNav,
   HeaderNavList,
   HeaderNavItem,
-  HeaderMobileMenu,
-  HeaderContent,
+  HeaderAccount,
+  HeaderAccountItem,
   HeaderSearch,
   HeaderSearchInput,
   HeaderSearchButton,

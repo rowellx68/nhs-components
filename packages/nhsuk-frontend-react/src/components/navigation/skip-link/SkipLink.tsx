@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { ElementProps } from '@/types/shared';
 import clsx from 'clsx';
-import { Factory, factory } from '@/internal/factory/factory';
-import initSkipLink from '@/resources/skip-link/skip-link';
+import { SkipLink as NhsSkipLink } from 'nhsuk-frontend';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 
-export type SkipLinkProps = ElementProps<'a', 'href'>;
+import { Factory, factory } from '@/internal/factory/factory';
+import { ElementProps } from '@/types/shared';
+
+export type SkipLinkProps = ElementProps<'a'>;
 
 type SkipLinkFactory = Factory<{
   props: SkipLinkProps;
@@ -14,20 +15,29 @@ type SkipLinkFactory = Factory<{
 }>;
 
 const SkipLink = factory<SkipLinkFactory>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, href = '#maincontent', ...props }, ref) => {
+    const internalRef = useRef<HTMLAnchorElement>(null);
+    useImperativeHandle(ref, () => internalRef.current as HTMLAnchorElement);
+
     useEffect(() => {
-      setTimeout(() => {
-        initSkipLink();
-      }, 500);
-    });
+      if (!internalRef.current) {
+        return;
+      }
+
+      new NhsSkipLink(internalRef.current);
+
+      return () => {
+        internalRef.current?.removeAttribute('data-nhsuk-skip-link-init');
+      };
+    }, [internalRef]);
 
     return (
       <a
         className={clsx('nhsuk-skip-link', className)}
-        href="#maincontent"
-        tabIndex={0}
+        data-module="nhsuk-skip-link"
+        href={href}
         {...props}
-        ref={ref}
+        ref={internalRef}
       >
         {children}
       </a>

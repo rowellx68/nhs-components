@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { ElementProps } from '@/types/shared';
 
 export type FontSize = '64' | '48' | '32' | '24' | '22' | '19' | '16' | '14';

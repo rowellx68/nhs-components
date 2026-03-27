@@ -1,11 +1,9 @@
-import React from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  PolymorphicFactory,
-  polymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
-import { AsElementProps } from '@/types/shared';
 import clsx from 'clsx';
+import React from 'react';
+
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
+import { AsElementProps } from '@/types/shared';
 
 export type LinkProps = {
   noVisitedState?: boolean;
@@ -19,12 +17,7 @@ type LinkFactory = PolymorphicFactory<{
 
 const Link = polymorphicFactory<LinkFactory>(
   (
-    {
-      className,
-      noVisitedState,
-      as: component = 'a',
-      ...props
-    }: LinkProps & AsElementProps,
+    { className, noVisitedState, as: component = 'a', ...props }: LinkProps & AsElementProps,
     ref,
   ) => {
     return (

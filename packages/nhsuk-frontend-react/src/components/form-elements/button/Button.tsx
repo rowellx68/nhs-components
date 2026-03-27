@@ -1,23 +1,16 @@
 'use client';
 
-import React, { useEffect, useRef, useImperativeHandle } from 'react';
-import { Base, BaseProps } from '@/components/core/base/Base';
-import {
-  polymorphicFactory,
-  PolymorphicFactory,
-} from '@/internal/factory/polymorphic-factory';
 import clsx from 'clsx';
+import { Button as NhsButton } from 'nhsuk-frontend';
+import React, { useEffect, useRef, useImperativeHandle } from 'react';
+
+import { Base, BaseProps } from '@/components/core/base/Base';
+import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
 import { AsElementProps } from '@/types/shared';
-import initButton from '@/resources/button/button';
 
 export type ButtonProps = {
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'secondary-solid'
-    | 'reverse'
-    | 'warning'
-    | 'login';
+  variant?: 'primary' | 'secondary' | 'secondary-solid' | 'reverse' | 'warning' | 'login';
+  small?: boolean;
   disabled?: boolean;
   preventDoubleClick?: boolean;
   type?: 'button' | 'submit' | 'reset';
@@ -35,9 +28,10 @@ const Button = polymorphicFactory<ButtonFactory>(
       className,
       children,
       variant = 'primary',
+      small,
       disabled,
       preventDoubleClick,
-      type = 'button',
+      type = 'submit',
       as: component = 'button',
       ...props
     }: ButtonProps & AsElementProps,
@@ -52,15 +46,11 @@ const Button = polymorphicFactory<ButtonFactory>(
         return;
       }
 
-      const parent = internalRef.current.parentElement;
+      new NhsButton(internalRef.current);
 
-      if (!parent) {
-        return;
-      }
-
-      initButton({
-        scope: parent as any,
-      });
+      return () => {
+        internalRef.current?.removeAttribute('data-nhsuk-button-init');
+      };
     }, [internalRef]);
 
     const notButton = component !== 'button';
@@ -72,7 +62,7 @@ const Button = polymorphicFactory<ButtonFactory>(
           'nhsuk-button',
           {
             [`nhsuk-button--${variant}`]: variant !== 'primary',
-            'nhsuk-button--disabled': disabled,
+            'nhsuk-button--small': small,
           },
           className,
         )}

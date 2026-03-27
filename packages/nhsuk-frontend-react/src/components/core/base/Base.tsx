@@ -1,4 +1,5 @@
 import React, { PropsWithChildren, forwardRef, JSX, Fragment } from 'react';
+
 import { createPolymorphicComponent } from '@/internal/factory/create-polymorphic-factory';
 import { AsElementProps } from '@/types/shared';
 
@@ -18,11 +19,7 @@ const _Base = forwardRef<
     ...(Element !== Fragment ? { ref } : {}),
   };
 
-  return typeof renderRoot === 'function' ? (
-    renderRoot(props)
-  ) : (
-    <Element {...props} />
-  );
+  return typeof renderRoot === 'function' ? renderRoot(props) : <Element {...props} />;
 });
 
 _Base.displayName = 'Base';
