@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "sortPackageJson": false,
+  "sortImports": {},
+  "insertFinalNewline": true,
+  "ignorePatterns": [
+    "**/dist/",
+    "**/pnpm-lock.yaml",
+    "**/src/resources",
+    ".vscode",
+    ".changeset"
+  ]
+}
