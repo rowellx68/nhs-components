@@ -1,16 +1,43 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Example as ExampleStory } from './Fieldset.stories';
+import { render } from 'vitest-browser-react';
 
-const Example = composeStory(ExampleStory, meta);
+import { Fieldset } from './Fieldset';
 
-it('should render the fieldset component', () => {
-  const { container } = render(<Example />);
+it('renders a fieldset element with the nhsuk-fieldset class', async () => {
+  const page = await render(
+    <Fieldset>
+      <Fieldset.Legend>Where do you live?</Fieldset.Legend>
+    </Fieldset>,
+  );
+  expect(page.container.querySelector('fieldset.nhsuk-fieldset')).toBeInTheDocument();
+});
 
-  expect(
-    container.querySelector('.nhsuk-fieldset__legend--l'),
-  ).toHaveTextContent('What is your address?');
-  expect(container).toMatchSnapshot();
+it('renders the legend', async () => {
+  const page = await render(
+    <Fieldset>
+      <Fieldset.Legend>Where do you live?</Fieldset.Legend>
+    </Fieldset>,
+  );
+  await expect.element(page.getByText('Where do you live?')).toBeInTheDocument();
+});
+
+it('applies a size class to the legend', async () => {
+  const page = await render(
+    <Fieldset>
+      <Fieldset.Legend size="l">Where do you live?</Fieldset.Legend>
+    </Fieldset>,
+  );
+  expect(page.container.querySelector('.nhsuk-fieldset__legend--l')).toBeInTheDocument();
+});
+
+it('wraps the legend as a page heading', async () => {
+  const page = await render(
+    <Fieldset>
+      <Fieldset.Legend variant="page-heading" size="l">
+        Where do you live?
+      </Fieldset.Legend>
+    </Fieldset>,
+  );
+  expect(page.container.querySelector('h1.nhsuk-fieldset__heading')).toBeInTheDocument();
 });

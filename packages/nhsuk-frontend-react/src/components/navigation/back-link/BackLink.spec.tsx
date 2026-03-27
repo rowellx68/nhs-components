@@ -1,27 +1,33 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  AsButton as AsButtonStory,
-} from './BackLink.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const AsButton = composeStory(AsButtonStory, meta);
+import { BackLink } from './BackLink';
 
-it('should render an anchor element with a back link', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('a')).toBeInTheDocument();
-  expect(container).toHaveTextContent('Go back');
-  expect(container).toMatchSnapshot();
+it('renders with the nhsuk-back-link class', async () => {
+  const page = await render(<BackLink href="/previous">Go back</BackLink>);
+  expect(page.container.querySelector('.nhsuk-back-link')).toBeInTheDocument();
 });
 
-it('should render a button element', () => {
-  const { container } = render(<AsButton />);
+it('renders the link text', async () => {
+  const page = await render(<BackLink href="/previous">Go back</BackLink>);
+  await expect.element(page.getByText('Go back')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('button')).toBeInTheDocument();
-  expect(container).toHaveTextContent('Go back');
-  expect(container).toMatchSnapshot();
+it('applies the reverse variant class', async () => {
+  const page = await render(
+    <BackLink href="/previous" variant="reverse">
+      Go back
+    </BackLink>,
+  );
+  expect(page.container.querySelector('.nhsuk-back-link--reverse')).toBeInTheDocument();
+});
+
+it('renders as a polymorphic element', async () => {
+  const page = await render(
+    <BackLink as="button" onClick={() => {}}>
+      Go back
+    </BackLink>,
+  );
+  expect(page.container.querySelector('button.nhsuk-back-link')).toBeInTheDocument();
 });

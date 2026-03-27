@@ -1,27 +1,15 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  FluidWidth as FluidWidthStory,
-} from './Container.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const FluidWidth = composeStory(FluidWidthStory, meta);
+import { Container } from './Container';
 
-it('should render the Container component', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('.nhsuk-width-container')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders with the nhsuk-width-container class by default', async () => {
+  const page = await render(<Container>Content</Container>);
+  expect(page.container.querySelector('.nhsuk-width-container')).toBeInTheDocument();
 });
 
-it('should render the Container component with fluid width', () => {
-  const { container } = render(<FluidWidth />);
-
-  expect(
-    container.querySelector('.nhsuk-width-container-fluid'),
-  ).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the fluid class for the fluid variant', async () => {
+  const page = await render(<Container variant="fluid">Content</Container>);
+  expect(page.container.querySelector('.nhsuk-width-container-fluid')).toBeInTheDocument();
 });

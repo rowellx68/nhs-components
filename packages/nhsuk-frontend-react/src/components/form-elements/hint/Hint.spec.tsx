@@ -1,13 +1,15 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './Hint.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { Hint } from './Hint';
 
-it('should render the hint component', () => {
-  const { container } = render(<Default />);
+it('renders with the nhsuk-hint class', async () => {
+  const page = await render(<Hint>For example, 15 3 1984</Hint>);
+  expect(page.container.querySelector('.nhsuk-hint')).toBeInTheDocument();
+});
 
-  expect(container).toMatchSnapshot();
+it('renders the hint text', async () => {
+  const page = await render(<Hint>For example, 15 3 1984</Hint>);
+  await expect.element(page.getByText('For example, 15 3 1984')).toBeInTheDocument();
 });

@@ -1,31 +1,48 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  WithContentOnly as WithContentOnlyStory,
-  WithImageContent as WithImageContentStory,
-  WithImageOnly as WithImageOnlyStory,
-} from './Hero.stories';
+import { render } from 'vitest-browser-react';
 
-const WithContentOnly = composeStory(WithContentOnlyStory, meta);
-const WithImageContent = composeStory(WithImageContentStory, meta);
-const WithImageOnly = composeStory(WithImageOnlyStory, meta);
+import { Hero } from './Hero';
 
-it('should render the Hero component', () => {
-  const { container } = render(<WithContentOnly />);
-
-  expect(container).toMatchSnapshot();
+it('renders a section element with the nhsuk-hero class', async () => {
+  const page = await render(
+    <Hero>
+      <Hero.Container>
+        <Hero.Heading>We're here for you</Hero.Heading>
+      </Hero.Container>
+    </Hero>,
+  );
+  expect(page.container.querySelector('section.nhsuk-hero')).toBeInTheDocument();
 });
 
-it('should render the image-and-content variant of the Hero component', () => {
-  const { container } = render(<WithImageContent />);
-
-  expect(container).toMatchSnapshot();
+it('renders heading and paragraph sub-components', async () => {
+  const page = await render(
+    <Hero>
+      <Hero.Container>
+        <Hero.Heading>We're here for you</Hero.Heading>
+        <Hero.Paragraph>Helping you take control of your health.</Hero.Paragraph>
+      </Hero.Container>
+    </Hero>,
+  );
+  await expect.element(page.getByText('We\'re here for you')).toBeInTheDocument();
+  await expect
+    .element(page.getByText('Helping you take control of your health.'))
+    .toBeInTheDocument();
 });
 
-it('should render the image-only variant of the Hero component', () => {
-  const { container } = render(<WithImageOnly />);
+it('applies the image-only variant class', async () => {
+  const page = await render(<Hero variant="image-only" imageUrl="/hero.jpg" />);
+  expect(page.container.querySelector('.nhsuk-hero--image')).toBeInTheDocument();
+});
 
-  expect(container).toMatchSnapshot();
+it('applies the image-and-content variant classes', async () => {
+  const page = await render(
+    <Hero variant="image-and-content" imageUrl="/hero.jpg">
+      <Hero.Container>
+        <Hero.Heading>Title</Hero.Heading>
+      </Hero.Container>
+    </Hero>,
+  );
+  expect(page.container.querySelector('.nhsuk-hero--image')).toBeInTheDocument();
+  expect(page.container.querySelector('.nhsuk-hero--image-description')).toBeInTheDocument();
 });

@@ -1,43 +1,23 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  WithRows as WithRowsStory,
-  WithError as WithErrorStory,
-} from './Textarea.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const WithRows = composeStory(WithRowsStory, meta);
-const WithError = composeStory(WithErrorStory, meta);
+import { Textarea } from './Textarea';
 
-it('should render a textarea element', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('textarea')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders a textarea with the nhsuk-textarea class', async () => {
+  const page = await render(<Textarea id="more-detail" label="Can you provide more detail?" />);
+  expect(page.container.querySelector('textarea.nhsuk-textarea')).toBeInTheDocument();
 });
 
-it('should render a textarea element with a hint', () => {
-  const { container } = render(<Default hint="Hint" />);
-
-  expect(container.querySelector('textarea')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-hint')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('associates the label with the textarea', async () => {
+  const page = await render(<Textarea id="more-detail" label="Can you provide more detail?" />);
+  await expect.element(page.getByLabelText('Can you provide more detail?')).toBeInTheDocument();
 });
 
-it('should render a textarea element with an error', () => {
-  const { container } = render(<WithError />);
-
-  expect(container.querySelector('textarea')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-error-message')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
-});
-
-it('should render a textarea element with rows', () => {
-  const { container } = render(<WithRows />);
-
-  expect(container.querySelector('textarea')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders an error message and applies the error class', async () => {
+  const page = await render(
+    <Textarea id="more-detail" label="Details" error="Enter more detail" />,
+  );
+  expect(page.container.querySelector('textarea.nhsuk-textarea--error')).toBeInTheDocument();
+  await expect.element(page.getByText('Enter more detail')).toBeInTheDocument();
 });

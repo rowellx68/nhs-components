@@ -1,23 +1,34 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  ImageWithCaption as ImageWithCaptionStory,
-  ImageWithoutCaption as ImageWithoutCaptionStory,
-} from './Figure.stories';
+import { render } from 'vitest-browser-react';
 
-const ImageWithCaption = composeStory(ImageWithCaptionStory, meta);
-const ImageWithoutCaption = composeStory(ImageWithoutCaptionStory, meta);
+import { Figure } from './Figure';
 
-it('should render the Figure component', () => {
-  const { container } = render(<ImageWithCaption />);
-
-  expect(container).toMatchSnapshot();
+it('renders a figure element with the nhsuk-image class', async () => {
+  const page = await render(
+    <Figure>
+      <Figure.Image src="/photo.jpg" alt="A photo" />
+    </Figure>,
+  );
+  expect(page.container.querySelector('figure.nhsuk-image')).toBeInTheDocument();
 });
 
-it('should render the Figure component without caption', () => {
-  const { container } = render(<ImageWithoutCaption />);
+it('renders the image with the nhsuk-image__img class', async () => {
+  const page = await render(
+    <Figure>
+      <Figure.Image src="/photo.jpg" alt="A photo" />
+    </Figure>,
+  );
+  expect(page.container.querySelector('img.nhsuk-image__img')).toBeInTheDocument();
+});
 
-  expect(container).toMatchSnapshot();
+it('renders a caption with the nhsuk-image__caption class', async () => {
+  const page = await render(
+    <Figure>
+      <Figure.Image src="/photo.jpg" alt="" />
+      <Figure.Caption>A description of the image.</Figure.Caption>
+    </Figure>,
+  );
+  expect(page.container.querySelector('figcaption.nhsuk-image__caption')).toBeInTheDocument();
+  await expect.element(page.getByText('A description of the image.')).toBeInTheDocument();
 });

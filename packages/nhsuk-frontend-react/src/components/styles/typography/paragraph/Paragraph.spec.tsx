@@ -1,67 +1,40 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  Lead as LeadStory,
-  Small as SmallStory,
-  FontSizes as FontSizesStory,
-  FontWeights as FontWeightsStory,
-  TextAlignRight as TextAlignRightStory,
-} from './Paragraph.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const Lead = composeStory(LeadStory, meta);
-const Small = composeStory(SmallStory, meta);
-const FontSizes = composeStory(FontSizesStory, meta);
-const FontWeights = composeStory(FontWeightsStory, meta);
-const TextAlignRight = composeStory(TextAlignRightStory, meta);
+import { Paragraph } from './Paragraph';
 
-it('should render the Paragraph component', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('.nhsuk-body')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders a paragraph with the nhsuk-body class by default', async () => {
+  const page = await render(<Paragraph>Body text</Paragraph>);
+  expect(page.container.querySelector('p.nhsuk-body')).toBeInTheDocument();
 });
 
-it('should render the Paragraph component as lead', () => {
-  const { container } = render(<Lead />);
-
-  expect(container.querySelector('.nhsuk-body-l')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the lead variant class', async () => {
+  const page = await render(<Paragraph variant="lead">Lead text</Paragraph>);
+  expect(page.container.querySelector('p.nhsuk-body-l')).toBeInTheDocument();
 });
 
-it('should render the Paragraph component as small', () => {
-  const { container } = render(<Small />);
-
-  expect(container.querySelector('.nhsuk-body-s')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the small variant class', async () => {
+  const page = await render(<Paragraph variant="small">Small text</Paragraph>);
+  expect(page.container.querySelector('p.nhsuk-body-s')).toBeInTheDocument();
 });
 
-it.each(['64', '48', '32', '24', '22', '19', '16', '14'] as const)(
-  'should render the Paragraph component with font sizes %s',
-  (size) => {
-    const { container } = render(<FontSizes fontSize={size} />);
+it('applies a font size utility class', async () => {
+  const page = await render(<Paragraph fontSize="24">Text</Paragraph>);
+  expect(page.container.querySelector('.nhsuk-u-font-size-24')).toBeInTheDocument();
+});
 
-    expect(container).toMatchSnapshot();
-  },
-);
+it('applies a font weight utility class', async () => {
+  const page = await render(<Paragraph fontWeight="bold">Text</Paragraph>);
+  expect(page.container.querySelector('.nhsuk-u-font-weight-bold')).toBeInTheDocument();
+});
 
-it.each(['bold', 'normal'] as const)(
-  'should render the Paragraph component with font weights %s',
-  (weight) => {
-    const { container } = render(<FontWeights fontWeight={weight} />);
+it('applies the text-align-right utility class', async () => {
+  const page = await render(<Paragraph textAlignRight>Text</Paragraph>);
+  expect(page.container.querySelector('.nhsuk-u-text-align-right')).toBeInTheDocument();
+});
 
-    expect(container).toMatchSnapshot();
-  },
-);
-
-it('should render the Paragraph component with text align right', () => {
-  const { container } = render(<TextAlignRight />);
-
-  expect(
-    container.querySelector('.nhsuk-u-text-align-right'),
-  ).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders the paragraph text', async () => {
+  const page = await render(<Paragraph>Hello NHS</Paragraph>);
+  await expect.element(page.getByText('Hello NHS')).toBeInTheDocument();
 });

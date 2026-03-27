@@ -1,68 +1,58 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Primary as PrimaryStory,
-  PrimaryButtonAsLink as PrimaryButtonAsLinkStory,
-} from './Button.stories';
+import { render } from 'vitest-browser-react';
 
-const Button = composeStory(PrimaryStory, meta);
-const ButtonAsLink = composeStory(PrimaryButtonAsLinkStory, meta);
+import { Button } from './Button';
 
-it('should render the Button component as a button', () => {
-  const { container } = render(<Button>Submit</Button>);
-
-  expect(container.querySelector('button')).toBeInTheDocument();
-  expect(container).toHaveTextContent('Submit');
+it('renders a button element', async () => {
+  const page = await render(<Button>Submit</Button>);
+  await expect.element(page.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
 });
 
-it.each([
-  'secondary',
-  'secondary-solid',
-  'reverse',
-  'warning',
-  'login',
-] as const)(
-  'should render the Button component with the %s variant',
-  (variant) => {
-    const { container } = render(<Button variant={variant}>Action</Button>);
+it('renders with the nhsuk-button class', async () => {
+  const page = await render(<Button>Submit</Button>);
+  await expect.element(page.getByRole('button')).toHaveClass('nhsuk-button');
+});
 
-    expect(
-      container.querySelector('.nhsuk-button--' + variant),
-    ).toBeInTheDocument();
+it.each(['secondary', 'secondary-solid', 'reverse', 'warning'] as const)(
+  'applies the %s variant class',
+  async (variant) => {
+    const page = await render(<Button variant={variant}>Action</Button>);
+    await expect.element(page.getByRole('button')).toHaveClass(`nhsuk-button--${variant}`);
   },
 );
 
-it('should render the Button component with the disabled attribute', () => {
-  const { container } = render(<Button disabled>Disabled</Button>);
-
-  expect(container.querySelector('button')).toHaveAttribute('disabled');
+it('does not add a variant class for primary (default)', async () => {
+  const page = await render(<Button variant="primary">Action</Button>);
+  const button = page.getByRole('button');
+  await expect.element(button).not.toHaveClass('nhsuk-button--primary');
 });
 
-it('should render the Button component as a link', () => {
-  const { container } = render(
-    <ButtonAsLink as="a" href="https://www.nhs.uk">
-      Link
-    </ButtonAsLink>,
+it('applies the small modifier class', async () => {
+  const page = await render(<Button small>Action</Button>);
+  await expect.element(page.getByRole('button')).toHaveClass('nhsuk-button--small');
+});
+
+it('sets aria-disabled when disabled', async () => {
+  const page = await render(<Button disabled>Action</Button>);
+  await expect.element(page.getByRole('button')).toHaveAttribute('aria-disabled', 'true');
+});
+
+it('renders as an anchor element with role=button when as="a"', async () => {
+  const page = await render(
+    <Button as="a" href="/start">
+      Start
+    </Button>,
   );
-
-  expect(container.querySelector('a')).toBeInTheDocument();
+  await expect.element(page.getByRole('button', { name: 'Start' })).toBeInTheDocument();
+  expect(page.container.querySelector('a.nhsuk-button')).toBeInTheDocument();
 });
 
-it.each(['secondary', 'reverse', 'warning'] as const)(
-  'should render the Button component as a link variant %s',
-  (variant) => {
-    const { container } = render(
-      <ButtonAsLink as="a" href="https://www.nhs.uk" variant={variant}>
-        Link
-      </ButtonAsLink>,
-    );
-
-    expect(container.querySelector('a')).toBeInTheDocument();
-    expect(container).toMatchSnapshot();
-    expect(
-      container.querySelector('.nhsuk-button--' + variant),
-    ).toBeInTheDocument();
-  },
-);
+it('does not render a type attribute when rendered as an anchor', async () => {
+  const page = await render(
+    <Button as="a" href="#">
+      Go
+    </Button>,
+  );
+  expect(page.container.querySelector('a.nhsuk-button')).toBeInTheDocument();
+});

@@ -1,27 +1,23 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  Visible as VisibleStory,
-} from './SectionBreak.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const Visible = composeStory(VisibleStory, meta);
+import { SectionBreak } from './SectionBreak';
 
-it('should render the SectionBreak component', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('.nhsuk-section-break')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders an hr with the nhsuk-section-break class', async () => {
+  const page = await render(<SectionBreak />);
+  expect(page.container.querySelector('hr.nhsuk-section-break')).toBeInTheDocument();
 });
 
-it('should render the SectionBreak component with visible', () => {
-  const { container } = render(<Visible />);
+it.each(['m', 'l', 'xl'] as const)(
+  'applies the nhsuk-section-break--%s size class',
+  async (size) => {
+    const page = await render(<SectionBreak size={size} />);
+    expect(page.container.querySelector(`.nhsuk-section-break--${size}`)).toBeInTheDocument();
+  },
+);
 
-  expect(
-    container.querySelector('.nhsuk-section-break--visible'),
-  ).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the visible class when visible is true', async () => {
+  const page = await render(<SectionBreak visible />);
+  expect(page.container.querySelector('.nhsuk-section-break--visible')).toBeInTheDocument();
 });

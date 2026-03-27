@@ -1,14 +1,20 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './InsetText.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { InsetText } from './InsetText';
 
-it('should render the InsetText component', () => {
-  const { container } = render(<Default />);
+it('renders with the nhsuk-inset-text class', async () => {
+  const page = await render(<InsetText>Important information here.</InsetText>);
+  expect(page.container.querySelector('.nhsuk-inset-text')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('.nhsuk-inset-text')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders children content', async () => {
+  const page = await render(<InsetText>Important information here.</InsetText>);
+  await expect.element(page.getByText('Important information here.')).toBeInTheDocument();
+});
+
+it('renders the default visually hidden text', async () => {
+  const page = await render(<InsetText>Content</InsetText>);
+  expect(page.container.querySelector('.nhsuk-u-visually-hidden')).toBeInTheDocument();
 });

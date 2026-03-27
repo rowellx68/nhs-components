@@ -1,35 +1,31 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, { Default as DefaultStory } from './Tag.stories';
-import { TagColour } from './Tag';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
+import { Tag } from './Tag';
 
-it('should render the Tag component with the default grey variant', () => {
-  const { container } = render(<Default />);
-  expect(container.querySelector('.nhsuk-tag--grey')).toBeInTheDocument();
+it('renders a strong element with the nhsuk-tag class', async () => {
+  const page = await render(<Tag>Active</Tag>);
+  expect(page.container.querySelector('strong.nhsuk-tag')).toBeInTheDocument();
 });
 
 it.each([
+  'white',
+  'grey',
+  'green',
   'aqua-green',
   'blue',
-  'green',
-  'grey',
-  'orange',
-  'pink',
   'purple',
+  'pink',
   'red',
-  'white',
+  'orange',
   'yellow',
-] as TagColour[])(
-  'should render the Tag component with the %s variant',
-  (variant) => {
-    const { container } = render(<Default variant={variant} />);
-    expect(
-      container.querySelector(`.nhsuk-tag--${variant}`),
-    ).toBeInTheDocument();
-    expect(container.querySelector('.custom-class')).toBeInTheDocument();
-  },
-);
+] as const)('applies the %s colour class', async (colour) => {
+  const page = await render(<Tag colour={colour}>Label</Tag>);
+  expect(page.container.querySelector(`.nhsuk-tag--${colour}`)).toBeInTheDocument();
+});
+
+it('applies the no-border class', async () => {
+  const page = await render(<Tag noBorder>Label</Tag>);
+  expect(page.container.querySelector('.nhsuk-tag--no-border')).toBeInTheDocument();
+});

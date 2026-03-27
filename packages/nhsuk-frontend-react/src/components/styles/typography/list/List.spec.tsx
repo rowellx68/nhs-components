@@ -1,45 +1,52 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  Bulleted as BulletedStory,
-  Numbered as NumberedStory,
-  WithBorders as WithBordersStory,
-} from './List.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const Bulleted = composeStory(BulletedStory, meta);
-const Numbered = composeStory(NumberedStory, meta);
-const WithBorders = composeStory(WithBordersStory, meta);
+import { List } from './List';
 
-it('should render the List component', () => {
-  const { container } = render(<Default />);
-
-  expect(container.querySelector('.nhsuk-list')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders an unordered list with the nhsuk-list class by default', async () => {
+  const page = await render(
+    <List>
+      <List.Item>Item</List.Item>
+    </List>,
+  );
+  expect(page.container.querySelector('ul.nhsuk-list')).toBeInTheDocument();
 });
 
-it('should render the List component with bulleted items', () => {
-  const { container } = render(<Bulleted />);
-
-  expect(container.querySelector('ul')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-list--bullet')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders an ordered list when variant is ordered', async () => {
+  const page = await render(
+    <List variant="ordered">
+      <List.Item>Item</List.Item>
+    </List>,
+  );
+  expect(page.container.querySelector('ol.nhsuk-list--number')).toBeInTheDocument();
 });
 
-it('should render the List component with numbered items', () => {
-  const { container } = render(<Numbered />);
-
-  expect(container.querySelector('ol')).toBeInTheDocument();
-  expect(container.querySelector('.nhsuk-list--number')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('applies the bullet class when variant is unordered', async () => {
+  const page = await render(
+    <List variant="unordered">
+      <List.Item>Item</List.Item>
+    </List>,
+  );
+  expect(page.container.querySelector('.nhsuk-list--bullet')).toBeInTheDocument();
 });
 
-it('should render the List component with borders', () => {
-  const { container } = render(<WithBorders />);
+it('applies the border class when border is true', async () => {
+  const page = await render(
+    <List border>
+      <List.Item>Item</List.Item>
+    </List>,
+  );
+  expect(page.container.querySelector('.nhsuk-list--border')).toBeInTheDocument();
+});
 
-  expect(container.querySelector('.nhsuk-list--border')).toBeInTheDocument();
-  expect(container).toMatchSnapshot();
+it('renders list items', async () => {
+  const page = await render(
+    <List>
+      <List.Item>First</List.Item>
+      <List.Item>Second</List.Item>
+    </List>,
+  );
+  await expect.element(page.getByText('First')).toBeInTheDocument();
+  await expect.element(page.getByText('Second')).toBeInTheDocument();
 });

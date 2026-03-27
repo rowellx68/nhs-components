@@ -1,50 +1,56 @@
 import React from 'react';
 import { it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { composeStory } from '@storybook/react';
-import meta, {
-  Default as DefaultStory,
-  WithServiceName as WithServiceNameStory,
-  WithOrgansation as WithOrgansationStory,
-  Transactional as TransactionalStory,
-  WithServiceNameAndLessThanFourLinks as WithServiceNameAndLessThanFourLinksStory,
-} from './Header.stories';
+import { render } from 'vitest-browser-react';
 
-const Default = composeStory(DefaultStory, meta);
-const WithServiceName = composeStory(WithServiceNameStory, meta);
-const WithOrgansation = composeStory(WithOrgansationStory, meta);
-const Transactional = composeStory(TransactionalStory, meta);
-const WithServiceNameAndLessThanFourLinks = composeStory(
-  WithServiceNameAndLessThanFourLinksStory,
-  meta,
-);
+import { Header } from './Header';
 
-it('should render the Header component', () => {
-  const { container } = render(<Default />);
-
-  expect(container).toMatchSnapshot();
+it('renders a header landmark', async () => {
+  const page = await render(
+    <Header>
+      <Header.Container>
+        <Header.ServiceLogo variant="logo-only" href="/" aria-label="NHS homepage" />
+      </Header.Container>
+    </Header>,
+  );
+  await expect.element(page.getByRole('banner')).toBeInTheDocument();
 });
 
-it('should render the Header component with a service name', () => {
-  const { container } = render(<WithServiceName />);
-
-  expect(container).toMatchSnapshot();
+it('renders with the nhsuk-header class', async () => {
+  const page = await render(
+    <Header>
+      <Header.Container>
+        <Header.ServiceLogo variant="logo-only" href="/" aria-label="NHS homepage" />
+      </Header.Container>
+    </Header>,
+  );
+  expect(page.container.querySelector('header.nhsuk-header')).toBeInTheDocument();
 });
 
-it('should render the Header component as transactional', () => {
-  const { container } = render(<Transactional />);
-
-  expect(container).toMatchSnapshot();
+it('applies the organisation variant class', async () => {
+  const page = await render(
+    <Header variant="organisation">
+      <Header.Container>
+        <Header.ServiceLogo href="/" serviceName="My Service" />
+      </Header.Container>
+    </Header>,
+  );
+  expect(page.container.querySelector('.nhsuk-header--organisation')).toBeInTheDocument();
 });
 
-it('should render the Header component with an organisation', () => {
-  const { container } = render(<WithOrgansation />);
-
-  expect(container).toMatchSnapshot();
-});
-
-it('should render the Header component with a service name and less than four links', () => {
-  const { container } = render(<WithServiceNameAndLessThanFourLinks />);
-
-  expect(container).toMatchSnapshot();
+it('renders navigation items', async () => {
+  const page = await render(
+    <Header>
+      <Header.Container>
+        <Header.ServiceLogo variant="logo-only" href="/" aria-label="NHS homepage" />
+      </Header.Container>
+      <Header.Nav>
+        <Header.NavList>
+          <Header.NavItem href="/conditions">Health A to Z</Header.NavItem>
+          <Header.NavItem href="/live-well">Live Well</Header.NavItem>
+        </Header.NavList>
+      </Header.Nav>
+    </Header>,
+  );
+  const navLinks = page.container.querySelectorAll('a.nhsuk-header__navigation-link');
+  expect(navLinks).toHaveLength(2);
 });
