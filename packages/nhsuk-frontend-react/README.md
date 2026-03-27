@@ -12,12 +12,13 @@ This implementation supports the latest version of the NHS.UK Frontend library a
 
 ## Version compatibility
 
-With the release of v9 of the NHS.UK Frontend library, the version of this library has been bumped to v4. The following table shows the compatibility between the NHS.UK Frontend library and `nhsuk-frontend-react`:
+With the release of v10.4 of the NHS.UK Frontend library, the version of this library has been bumped to v5. The following table shows the compatibility between the NHS.UK Frontend library and `nhsuk-frontend-react`:
 
 | nhsuk-frontend | nhsuk-frontend-react | branch                                                        |
 | -------------- | -------------------- | ------------------------------------------------------------- |
 | `8.x.x`        | `3.x.x`              | [v3](https://github.com/rowellx68/nhs-components/tree/v3)     |
-| `9.x.x`        | `4.x.x`              | [main](https://github.com/rowellx68/nhs-components/tree/main) |
+| `9.x.x`        | `4.x.x`              | [v4](https://github.com/rowellx68/nhs-components/tree/v4)     |
+| `10.4.x`       | `5.x.x`              | [main](https://github.com/rowellx68/nhs-components/tree/main) |
 
 ## Features
 
@@ -33,22 +34,17 @@ A few components in this library are polymorphic, meaning they can accept a diff
 
 This feature is was taken from [Mantine](https://github.com/mantinedev/mantine), have a look at their [polymorphic components documentation](https://mantine.dev/guides/polymorphic/) for more information.
 
-Here is an example of how you can use a custom `Link` component with the `Header.Logo` component:
+Here is an example of how you can use a custom `Link` component with the `Header.ServiceLogo` component:
 
 ```tsx
-import { Header, HeaderContainer, HeaderLogo } from 'nhsuk-frontend-react';
+import { Header, HeaderContainer, HeaderServiceLogo } from 'nhsuk-frontend-react';
 import Link from 'next/link';
 
 export const AppHeader = () => (
   <Header>
     <HeaderContainer>
-      {/* Now HeaderLogo will have the same prop type as Link. That means that href is now required. */}
-      <HeaderLogo
-        as={Link}
-        href="/"
-        variant="logo-only"
-        aria-label="NHS homepage"
-      />
+      {/* Now HeaderServiceLogo will have the same prop type as Link. That means that href is now required. */}
+      <HeaderServiceLogo as={Link} href="/" variant="logo-only" aria-label="NHS homepage" />
     </HeaderContainer>
   </Header>
 );
@@ -75,9 +71,8 @@ export const AppHeader = () => (
 - `Fieldset.Legend`
 - `Figure.Image`
 - `Footer.ListItem`
-- `Header.Logo`
 - `Header.NavItem`
-- `Header.TransactionLink`
+- `Header.ServiceLogo`
 - `Heading`
 - `Link`
 - `List`
@@ -88,7 +83,6 @@ export const AppHeader = () => (
 - `TaskList.Item.NameAndHint`
 - `VisuallyHidden`
 - `WarningCallout.Label`
-- `VisuallyHidden`
 
 </details>
 
@@ -110,21 +104,13 @@ Both usages below will render the following:
 <summary>Code</summary>
 
 ```tsx
-import {
-  Input,
-  Header,
-  Container,
-  Main,
-  Column,
-  Row,
-  Button,
-} from 'nhsuk-frontend-react';
+import { Input, Header, Container, Main, Column, Row, Button } from 'nhsuk-frontend-react';
 
 const Component = () => (
   <>
     <Header>
       <Header.Container>
-        <Header.Logo href="/" variant="logo-only" aria-label="NHS homepage" />
+        <Header.ServiceLogo href="/" variant="logo-only" aria-label="NHS homepage" />
       </Header.Container>
       <Header.Nav />
     </Header>
@@ -139,9 +125,8 @@ const Component = () => (
                 width="10"
                 hint={
                   <>
-                    Your NHS number is a 10 digit number that you find on any
-                    letter the NHS has sent you. For example,{' '}
-                    <span className="nhsuk-u-nowrap">485 777 3456</span>.
+                    Your NHS number is a 10 digit number that you find on any letter the NHS has
+                    sent you. For example, <span className="nhsuk-u-nowrap">485 777 3456</span>.
                   </>
                 }
               />
@@ -167,7 +152,7 @@ import {
   Input,
   Header,
   HeaderContainer, // notice how we have to import HeaderContainer separately
-  HeaderLogo, // Next.js does not work with nested components yet
+  HeaderServiceLogo, // Next.js does not work with nested components yet
   Container,
   Main,
   Column,
@@ -179,7 +164,7 @@ const Component = () => (
   <>
     <Header>
       <HeaderContainer>
-        <HeaderLogo href="/" variant="logo-only" aria-label="NHS homepage" />
+        <HeaderServiceLogo href="/" variant="logo-only" aria-label="NHS homepage" />
       </HeaderContainer>
     </Header>
     <Container>
@@ -193,9 +178,8 @@ const Component = () => (
                 width="10"
                 hint={
                   <>
-                    Your NHS number is a 10 digit number that you find on any
-                    letter the NHS has sent you. For example,{' '}
-                    <span className="nhsuk-u-nowrap">485 777 3456</span>.
+                    Your NHS number is a 10 digit number that you find on any letter the NHS has
+                    sent you. For example, <span className="nhsuk-u-nowrap">485 777 3456</span>.
                   </>
                 }
               />
