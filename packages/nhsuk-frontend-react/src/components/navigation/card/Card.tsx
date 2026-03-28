@@ -29,7 +29,7 @@ export type CardProps = (
 ) &
   ElementProps<'div'>;
 
-const careCardVariants = ['non-urgent', 'urgent', 'emergency'];
+const careCardVariants = new Set(['non-urgent', 'urgent', 'emergency']);
 
 type CardFactory = Factory<{
   props: CardProps;
@@ -54,9 +54,9 @@ const Card = factory<CardFactory>(({ variant, clickable, className, ...props }, 
         'nhsuk-card',
         {
           'nhsuk-card--clickable': clickable,
-          [`nhsuk-card--${variant}`]: variant && !careCardVariants.includes(variant),
+          [`nhsuk-card--${variant}`]: variant && !careCardVariants.has(variant),
           [`nhsuk-card--care nhsuk-card--care--${variant}`]:
-            variant && careCardVariants.includes(variant),
+            variant && careCardVariants.has(variant),
         },
         className,
       )}

@@ -16,7 +16,7 @@ const _Base = forwardRef<
 >(({ as: Element = 'div', renderRoot, ...others }, ref) => {
   const props: Record<string, any> = {
     ...others,
-    ...(Element !== Fragment ? { ref } : {}),
+    ...(Element === Fragment ? {} : { ref }),
   };
 
   return typeof renderRoot === 'function' ? renderRoot(props) : <Element {...props} />;

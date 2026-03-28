@@ -79,21 +79,28 @@ const HeaderService = ({ children, className, ...props }: HeaderServiceProps) =>
 export type HeaderServiceLogoProps = Omit<BaseProps, 'children'> &
   (
     | {
-        variant: 'logo-only';
-        serviceName?: undefined;
-        organisationName?: undefined;
-        organisationSplit?: undefined;
-        organisationDescriptor?: undefined;
+        variant?: 'logo-only';
+        serviceName?: string;
+        organisationName?: string;
+        organisationSplit?: string;
+        organisationDescriptor?: string;
       }
     | {
-        variant?: undefined;
+        variant: 'logo-only';
+        serviceName: undefined;
+        organisationName: undefined;
+        organisationSplit: undefined;
+        organisationDescriptor: undefined;
+      }
+    | {
+        variant: undefined;
         serviceName: string;
         organisationName?: undefined;
         organisationSplit?: undefined;
         organisationDescriptor?: undefined;
       }
     | {
-        variant?: undefined;
+        variant: undefined;
         serviceName?: undefined;
         organisationName: string;
         organisationSplit?: string;

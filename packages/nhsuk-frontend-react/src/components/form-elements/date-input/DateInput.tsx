@@ -63,7 +63,7 @@ function DateInputInner({
   handleChange,
   state,
   disabled,
-}: DateInputInnerProps) {
+}: Readonly<DateInputInnerProps>) {
   const contextValue = useMemo(
     () => ({
       id,
@@ -144,7 +144,7 @@ const DateInput = factory<DateInputFactory>(({ onChange, value, disabled, ...pro
       inputType="dateinput"
       render={({ id, className, withError, errorMap, children }) => (
         <DateInputInner
-          id={id!}
+          id={id}
           className={className}
           withError={withError}
           errorMap={errorMap}
@@ -234,7 +234,7 @@ const BaseDatePart = factory<DateInputPartFactory>(
 
     const inputValue = value || ctxValue?.[part];
 
-    const _error = error || (errorMap && errorMap[part]) || (ctxError && !errorMap);
+    const _error = error || errorMap?.[part] || (ctxError && !errorMap);
 
     return (
       <div className={clsx('nhsuk-date-input__item', wrapperClassName)} {...restWrapperProps}>

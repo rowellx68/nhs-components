@@ -68,16 +68,16 @@ const Fieldset = ({
 
 export type FieldsetLegendProps = (
   | {
-      size?: undefined;
-      variant?: undefined;
+      variant?: 'page-heading';
+      size?: Size;
     }
   | {
       size: Size;
-      variant?: undefined;
+      variant: undefined;
     }
   | {
       variant: 'page-heading';
-      size?: Size;
+      size?: undefined;
     }
 ) &
   ElementProps<'legend', 'size' | 'as'> &
@@ -95,11 +95,7 @@ const FieldsetLegend = ({
 
   const baseProps = {
     as: _component,
-    ...(_component !== Fragment
-      ? {
-          className: 'nhsuk-fieldset__heading',
-        }
-      : {}),
+    ...(_component === Fragment ? {} : { className: 'nhsuk-fieldset__heading' }),
   };
 
   return (

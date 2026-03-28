@@ -38,6 +38,7 @@ type FormGroupProps = BaseFormElementProps & {
       errorMap?: Record<string, string>;
       className?: string;
       children?: ReactNode;
+      id: string;
     },
   ) => ReactNode;
   inputType: 'input' | 'radios' | 'select' | 'checkboxes' | 'dateinput' | 'textarea' | 'other';
@@ -69,8 +70,13 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>((props, ref) => 
   const { isFieldset, dispatch: dispatchFieldsetAction } = useFieldsetContext();
 
   const hints = Array.isArray(hint) ? hint : [hint];
-  const errorMessages =
-    typeof error === 'string' ? [error] : typeof error === 'object' ? Object.values(error) : [];
+  let errorMessages: string[] = [];
+
+  if (typeof error === 'string') {
+    errorMessages = [error];
+  } else if (error && typeof error === 'object') {
+    errorMessages = Object.values(error);
+  }
 
   const elementId = id || generatedId;
   const labelId = `${elementId}--label`;
@@ -130,7 +136,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>((props, ref) => 
           errorMap: error,
         }
       : {}),
-    ...(!wrapWithFieldset ? arias : {}),
+    ...(wrapWithFieldset ? {} : arias),
   };
 
   const outerBaseProps = {
@@ -175,7 +181,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>((props, ref) => 
   return (
     <Base<any> {...outerBaseProps}>
       <Base<any> {...baseProps}>
-        {label && <Base<any> {...labelBaseProps} children={label} />}
+        {label && <Base<any> {...labelBaseProps}>{label}</Base>}
 
         {hint &&
           hints.map((hint, idx) => (
@@ -186,11 +192,16 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>((props, ref) => 
               className={clsx(hintProps.className, {
                 'nhsuk-u-margin-bottom-2': idx < hints.length - 1,
               })}
-              children={hint}
-            />
+            >
+              {hint}
+            </Hint>
           ))}
 
-        {error && <ErrorMessage id={errorId} {...errorProps} children={errorMessages.join(' ')} />}
+        {error && (
+          <ErrorMessage id={errorId} {...errorProps}>
+            {errorMessages.join(' ')}
+          </ErrorMessage>
+        )}
 
         {render(renderProps)}
       </Base>

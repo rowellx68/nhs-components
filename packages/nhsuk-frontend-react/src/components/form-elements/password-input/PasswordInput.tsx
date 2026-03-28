@@ -42,7 +42,7 @@ const PasswordInput = factory<PasswordInputFactory>(({ width, i18n, ...props }, 
     };
   }, []);
 
-  const widthNumberLike = width && !isNaN(parseInt(width, 10));
+  const widthNumberLike = width && !Number.isNaN(Number.parseInt(width, 10));
 
   return (
     <FormGroup

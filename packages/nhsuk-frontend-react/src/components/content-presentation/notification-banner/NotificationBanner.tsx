@@ -27,7 +27,7 @@ const NotificationBanner = factory<NotificationBannerFactory>(
     ref,
   ) => {
     const autoFocusProps: Record<string, string> = {};
-    if (disableAutoFocus !== undefined) {
+    if (typeof disableAutoFocus === 'boolean') {
       autoFocusProps['data-disable-auto-focus'] = String(disableAutoFocus);
     }
 

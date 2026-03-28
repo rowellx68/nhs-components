@@ -6,17 +6,11 @@ import { ElementProps, Size } from '@/types/shared';
 
 export type LabelProps = (
   | {
-      size?: undefined;
-      variant?: undefined;
-    }
-  | {
-      size: Size;
-      variant?: undefined;
-    }
-  | {
-      variant: 'page-heading';
+      variant?: 'page-heading';
       size?: Size;
     }
+  | { variant: undefined; size: Size }
+  | { variant: 'page-heading'; size?: Size }
 ) &
   ElementProps<'label', 'size' | 'as'>;
 
