@@ -30,11 +30,11 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['default', 'organisation', 'inline'],
+      options: ['organisation', 'inline'],
     },
     colour: {
       control: { type: 'select' },
-      options: ['default', 'white'],
+      options: ['white'],
     },
   },
 } satisfies Meta<typeof Header>;

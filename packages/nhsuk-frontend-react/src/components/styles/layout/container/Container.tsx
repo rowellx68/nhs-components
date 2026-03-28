@@ -7,15 +7,15 @@ export type ContainerProps = {
   /**
    * `set-width` will be deprecated in the future. Use `default` instead.
    */
-  variant?: 'fluid' | 'set-width' | 'default';
+  variant?: 'fluid' | 'set-width';
 } & ElementProps<'div'>;
 
-const Container = ({ className, variant = 'default', ...props }: ContainerProps) => {
+const Container = ({ className, variant, ...props }: ContainerProps) => {
   return (
     <div
       className={clsx(
         {
-          'nhsuk-width-container': variant === 'default' || variant === 'set-width',
+          'nhsuk-width-container': !variant || variant === 'set-width',
           'nhsuk-width-container-fluid': variant === 'fluid',
         },
         className,

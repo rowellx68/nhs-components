@@ -143,11 +143,7 @@ export type CheckboxDividerProps = ElementProps<'div'>;
 /**
  * This component is used to add a separator between checkboxes.
  */
-const CheckboxDivider: React.FC<CheckboxDividerProps> = ({
-  children = 'or',
-  className,
-  ...props
-}) => (
+const CheckboxDivider = ({ children = 'or', className, ...props }: CheckboxDividerProps) => (
   <div className={clsx('nhsuk-checkboxes__divider', className)} {...props}>
     {children}
   </div>

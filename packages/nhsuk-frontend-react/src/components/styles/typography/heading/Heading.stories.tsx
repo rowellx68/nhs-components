@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
-import { Heading } from './Heading';
+import { Heading, HeadingProps } from './Heading';
 
 /**
  * https://service-manual.nhs.uk/design-system/styles/typography#headings
@@ -33,7 +33,7 @@ export const H1: Story = {
       },
     },
   },
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <Heading {...args}>
       nhsuk-heading-
       {args.size}
@@ -59,7 +59,7 @@ export const H2: Story = {
       },
     },
   },
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <Heading {...args}>
       nhsuk-heading-
       {args.size}
@@ -85,7 +85,7 @@ export const H3: Story = {
       },
     },
   },
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <Heading {...args}>
       nhsuk-heading-
       {args.size}
@@ -111,7 +111,7 @@ export const H4: Story = {
       },
     },
   },
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <Heading {...args}>
       nhsuk-heading-
       {args.size}
@@ -137,7 +137,7 @@ export const H5: Story = {
       },
     },
   },
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <Heading {...args}>
       nhsuk-heading-
       {args.size}
@@ -163,7 +163,7 @@ export const H6: Story = {
       },
     },
   },
-  render: (args) => (
+  render: (args: HeadingProps) => (
     <Heading {...args}>
       nhsuk-heading-
       {args.size}
