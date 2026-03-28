@@ -1,8 +1,5 @@
-'use client';
-
 import clsx from 'clsx';
-import { Header as NhsHeader } from 'nhsuk-frontend';
-import React, { Fragment, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import React, { Fragment, ReactNode } from 'react';
 
 import { NhsLogo } from '@/assets/NhsLogo';
 import { Base, BaseProps } from '@/components/core/base/Base';
@@ -11,6 +8,8 @@ import { UserIcon } from '@/icons/user/User';
 import { Factory, factory } from '@/internal/factory/factory';
 import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
 import { AsElementProps, ElementProps, WithVisuallyHiddenTextProps } from '@/types/shared';
+
+import { HeaderNavList } from './HeaderNavList';
 
 export type HeaderProps = {
   variant?: 'organisation' | 'inline';
@@ -87,14 +86,14 @@ export type HeaderServiceLogoProps = Omit<BaseProps, 'children'> &
         organisationDescriptor?: undefined;
       }
     | {
-        variant?: 'default';
+        variant?: undefined;
         serviceName: string;
         organisationName?: undefined;
         organisationSplit?: undefined;
         organisationDescriptor?: undefined;
       }
     | {
-        variant?: 'default';
+        variant?: undefined;
         serviceName?: undefined;
         organisationName: string;
         organisationSplit?: string;
@@ -178,52 +177,6 @@ const HeaderNav = ({ children, variant, colour, className, ...props }: HeaderNav
   );
 };
 
-export type HeaderNavListProps = ElementProps<'ul'>;
-
-type HeaderNavListFactory = Factory<{
-  props: HeaderNavListProps;
-  ref: HTMLUListElement;
-}>;
-
-const HeaderNavList = factory<HeaderNavListFactory>(
-  ({ children, className, ...props }: HeaderNavListProps, ref) => {
-    const internalRef = useRef<HTMLUListElement>(null);
-    const header = useRef<NhsHeader>(null);
-    useImperativeHandle(ref, () => internalRef.current as HTMLUListElement);
-
-    useEffect(() => {
-      if (!internalRef.current) {
-        return;
-      }
-
-      if (header.current) {
-        header.current.handleUpdateNavigation();
-        return;
-      }
-
-      const target = internalRef.current.closest('.nhsuk-header');
-
-      header.current = new NhsHeader(target);
-    }, [internalRef, children]);
-
-    return (
-      <ul className={clsx('nhsuk-header__navigation-list', className)} {...props} ref={internalRef}>
-        {children}
-        <li className="nhsuk-header__menu" hidden>
-          <button
-            className="nhsuk-header__menu-toggle nhsuk-header__navigation-link"
-            id="toggle-menu"
-            aria-expanded="false"
-            type="button"
-          >
-            <span className="nhsuk-u-visually-hidden">Browse </span>More
-          </button>
-        </li>
-      </ul>
-    );
-  },
-);
-
 export type HeaderNavItemProps = { active?: boolean } & BaseProps;
 
 type HeaderNavItemFactory = PolymorphicFactory<{
@@ -288,15 +241,9 @@ const HeaderAccount = factory<HeaderAccountFactory>(
   },
 );
 
-export type HeaderAccountItemProps = (
-  | {
-      variant?: 'default';
-    }
-  | {
-      variant?: 'icon';
-    }
-) &
-  BaseProps;
+export type HeaderAccountItemProps = {
+  variant?: 'icon';
+} & BaseProps;
 
 type HeaderAccountItemFactory = PolymorphicFactory<{
   props: HeaderAccountItemProps;
