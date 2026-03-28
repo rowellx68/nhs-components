@@ -50,7 +50,9 @@ export type SelectOptionProps = ElementProps<'option'>;
 
 const SelectOption = (props: SelectOptionProps) => <option {...props} />;
 
-const SelectDivider = () => <hr />;
+export type SelectDividerProps = ElementProps<'hr'>;
+
+const SelectDivider = (props: SelectDividerProps) => <hr {...props} />;
 
 Select.displayName = 'Select';
 SelectOption.displayName = 'Select.Option';

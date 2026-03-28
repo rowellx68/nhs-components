@@ -17,13 +17,7 @@ type BackLinkFactory = PolymorphicFactory<{
 
 const BackLink = polymorphicFactory<BackLinkFactory>(
   (
-    {
-      className,
-      children,
-      as: component = 'a',
-      variant = 'default',
-      ...props
-    }: BackLinkProps & AsElementProps,
+    { className, children, as: component = 'a', variant, ...props }: BackLinkProps & AsElementProps,
     ref,
   ) => {
     return (

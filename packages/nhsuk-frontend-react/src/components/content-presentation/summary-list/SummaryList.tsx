@@ -46,22 +46,20 @@ type SummaryListRowFactory = Factory<{
   ref: HTMLDivElement;
 }>;
 
-const SummaryListRow = factory<SummaryListRowFactory>(
-  ({ className, variant = 'default', ...props }, ref) => {
-    return (
-      <div
-        className={clsx(
-          'nhsuk-summary-list__row',
-          { 'nhsuk-summary-list__row--no-border': variant === 'no-border' },
-          { 'nhsuk-summary-list__row--no-actions': variant === 'no-actions' },
-          className,
-        )}
-        {...props}
-        ref={ref}
-      />
-    );
-  },
-);
+const SummaryListRow = factory<SummaryListRowFactory>(({ className, variant, ...props }, ref) => {
+  return (
+    <div
+      className={clsx(
+        'nhsuk-summary-list__row',
+        { 'nhsuk-summary-list__row--no-border': variant === 'no-border' },
+        { 'nhsuk-summary-list__row--no-actions': variant === 'no-actions' },
+        className,
+      )}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 export type SummaryListRowKeyProps = ElementProps<'dt'>;
 

@@ -130,7 +130,7 @@ const RadioItem = factory<RadioItemFactory>(
 
 export type RadioDividerProps = ElementProps<'div'>;
 
-const RadioDivider: React.FC<RadioDividerProps> = ({ children = 'or', className, ...props }) => (
+const RadioDivider = ({ children = 'or', className, ...props }: RadioDividerProps) => (
   <div className={clsx('nhsuk-radios__divider', className)} {...props}>
     {children}
   </div>

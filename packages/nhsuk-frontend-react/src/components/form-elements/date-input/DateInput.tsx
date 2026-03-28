@@ -43,6 +43,55 @@ type DateInputFactory = Factory<{
   };
 }>;
 
+type DateInputInnerProps = {
+  id: string;
+  className?: string;
+  withError?: boolean;
+  errorMap?: Record<string, string>;
+  children?: React.ReactNode;
+  handleChange: (part: DateInputPart, event: ChangeEvent<HTMLInputElement>) => void;
+  state: DateInputValue;
+  disabled?: boolean;
+};
+
+function DateInputInner({
+  id,
+  className,
+  withError,
+  errorMap,
+  children,
+  handleChange,
+  state,
+  disabled,
+}: DateInputInnerProps) {
+  const contextValue = useMemo(
+    () => ({
+      id,
+      name: id,
+      error: withError,
+      errorMap,
+      handleChange,
+      value: state,
+      disabled,
+    }),
+    [id, withError, errorMap, handleChange, state, disabled],
+  );
+
+  return (
+    <div className={clsx('nhsuk-date-input', className)} id={id}>
+      <DateInputProvider value={contextValue}>
+        {children ?? (
+          <>
+            <DateInputDay />
+            <DateInputMonth />
+            <DateInputYear />
+          </>
+        )}
+      </DateInputProvider>
+    </div>
+  );
+}
+
 const DateInput = factory<DateInputFactory>(({ onChange, value, disabled, ...props }, ref) => {
   const [state, setState] = useState({
     day: value?.day ?? '',
@@ -82,7 +131,7 @@ const DateInput = factory<DateInputFactory>(({ onChange, value, disabled, ...pro
       setState(newValue);
       internalState.values = { ...newValue };
     },
-    [state, setState, onChange],
+    [internalState, onChange],
   );
 
   return (
@@ -93,34 +142,19 @@ const DateInput = factory<DateInputFactory>(({ onChange, value, disabled, ...pro
       ref={ref}
       fieldsetProps={{ role: 'group' }}
       inputType="dateinput"
-      render={({ id, className, withError, errorMap, children }) => {
-        const contextValue = useMemo(
-          () => ({
-            id: id!,
-            name: id!,
-            error: withError,
-            errorMap,
-            handleChange,
-            value: state,
-            disabled,
-          }),
-          [id, withError, errorMap, state, handleChange, disabled],
-        );
-
-        return (
-          <div className={clsx('nhsuk-date-input', className)} id={id}>
-            <DateInputProvider value={contextValue}>
-              {children ?? (
-                <>
-                  <DateInputDay />
-                  <DateInputMonth />
-                  <DateInputYear />
-                </>
-              )}
-            </DateInputProvider>
-          </div>
-        );
-      }}
+      render={({ id, className, withError, errorMap, children }) => (
+        <DateInputInner
+          id={id!}
+          className={className}
+          withError={withError}
+          errorMap={errorMap}
+          handleChange={handleChange}
+          state={state}
+          disabled={disabled}
+        >
+          {children}
+        </DateInputInner>
+      )}
     />
   );
 });
