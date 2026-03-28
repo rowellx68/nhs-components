@@ -1,5 +1,43 @@
 # CHANGELOG
 
+## 5.0.0
+
+### Major Changes
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`1a93591`](https://github.com/rowellx68/nhs-components/commit/1a93591286543ff52f4a692f17b8aff70ee738dd) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: update and implement components
+
+  Update components to be in line with v10 of nhsuk-frontend. Add notification banners, file upload, and password input.
+
+  BREAKING CHANGE:
+
+  Reworked DoDontList, Header, and Footer. New defaults for Button type.
+
+### Minor Changes
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`3ea3244`](https://github.com/rowellx68/nhs-components/commit/3ea3244b079937c1ec33b212fda411fad30841b5) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: split components client directive
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`aa202b4`](https://github.com/rowellx68/nhs-components/commit/aa202b402e5d60677da019adc51947a1daa9d82f) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: update storybook stories
+
+### Patch Changes
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`81a0a41`](https://github.com/rowellx68/nhs-components/commit/81a0a415455591164a06c98b26f8ffa536c74c50) Thanks [@rowellx68](https://github.com/rowellx68)! - chore(nhsuk-frontend-react-extension): remove package
+
+  Removed this package since these components are now included in the new version of nhsuk-frontend-react
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`a13679a`](https://github.com/rowellx68/nhs-components/commit/a13679a6bbe058142bc5f2a4ac7eb002bce9ea50) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: remove redundant resource files
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`54fc90b`](https://github.com/rowellx68/nhs-components/commit/54fc90b67bee5cd34c36a1c4af8b0cb68ee6b074) Thanks [@rowellx68](https://github.com/rowellx68)! - test: update tests
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`337f8a3`](https://github.com/rowellx68/nhs-components/commit/337f8a338132d6c40821c056e2bbff8c078bab20) Thanks [@rowellx68](https://github.com/rowellx68)! - docs: update README and add UPGRADING doc
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`a92c19c`](https://github.com/rowellx68/nhs-components/commit/a92c19c55d1aa88db243f9ec67de1c474a937240) Thanks [@rowellx68](https://github.com/rowellx68)! - refactor: remove 'default' variants
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`8186f8f`](https://github.com/rowellx68/nhs-components/commit/8186f8f66ea4fbce310cc3527cfc5d2a333ffdee) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: remove redundant snapshot files
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`768edc5`](https://github.com/rowellx68/nhs-components/commit/768edc57d8b162b9c3889fddf3983f2e751d13db) Thanks [@rowellx68](https://github.com/rowellx68)! - ci: add playwright to workflows
+
+- [#266](https://github.com/rowellx68/nhs-components/pull/266) [`ad02e81`](https://github.com/rowellx68/nhs-components/commit/ad02e81c3acf931dae4c0a080b191bf3c5c48d89) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update tooling and dependencies
+
 ## 4.5.0
 
 ### Minor Changes
