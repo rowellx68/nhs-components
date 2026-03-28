@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 5.0.1
+
+### Patch Changes
+
+- [#269](https://github.com/rowellx68/nhs-components/pull/269) [`ccb1947`](https://github.com/rowellx68/nhs-components/commit/ccb194718739468ea62ad44136188ca264d4d643) Thanks [@rowellx68](https://github.com/rowellx68)! - doc: fix storybook build
+
 ## 5.0.0
 
 ### Major Changes
