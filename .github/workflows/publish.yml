@@ -16,13 +16,13 @@ jobs:
     outputs:
       published: ${{ steps.changesets.outputs.published }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320
         with:
           run_install: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           node-version: 24
           cache: 'pnpm'
@@ -32,7 +32,7 @@ jobs:
 
       - run: pnpm build
 
-      - uses: changesets/action@v1
+      - uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf
         id: changesets
         with:
           title: 'chore: version packages'
@@ -49,15 +49,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320
         with:
           run_install: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
         with:
           cache: 'pnpm'
           cache-dependency-path: './pnpm-lock.yaml'
@@ -68,6 +68,6 @@ jobs:
           pnpm -F ./packages/nhsuk-frontend-react sb:build -o ./out-sb
           touch ./packages/nhsuk-frontend-react/out-sb/.nojekyll
 
-      - uses: JamesIves/github-pages-deploy-action@v4
+      - uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f
         with:
           folder: ./packages/nhsuk-frontend-react/out-sb
