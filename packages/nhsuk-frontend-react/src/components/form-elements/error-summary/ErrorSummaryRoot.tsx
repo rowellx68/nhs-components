@@ -43,9 +43,9 @@ const ErrorSummary = factory<ErrorSummaryFactory>(
       <div
         className={clsx('nhsuk-error-summary', className)}
         data-module="nhsuk-error-summary"
-        {...(disableAutoFocus !== undefined
-          ? { 'data-disable-auto-focus': String(disableAutoFocus) }
-          : {})}
+        {...(disableAutoFocus === undefined
+          ? {}
+          : { 'data-disable-auto-focus': String(disableAutoFocus) })}
         {...props}
         ref={internalRef}
       >

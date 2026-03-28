@@ -10,7 +10,7 @@ import { ElementProps } from '@/types/shared';
 
 export type HeroProps = (
   | {
-      variant?: undefined;
+      variant: undefined;
       imageUrl?: undefined;
     }
   | {

@@ -23,7 +23,7 @@ const Input = factory<InputFactory>(({ width, variant, suffix, prefix, ...props 
   const component = suffix || prefix ? 'div' : Fragment;
   const baseProps = component === 'div' ? { className: 'nhsuk-input-wrapper' } : {};
 
-  const widthNumberLike = width && !isNaN(parseInt(width, 10));
+  const widthNumberLike = width && !Number.isNaN(Number.parseInt(width, 10));
 
   return (
     <FormGroup
