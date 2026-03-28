@@ -1,22 +1,27 @@
 'use client';
 
 import clsx from 'clsx';
-import { FileUpload as NhsFileUpload } from 'nhsuk-frontend';
+import { FileUploadTranslations, FileUpload as NhsFileUpload } from 'nhsuk-frontend';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
 
 import { BaseFormElementProps, FormGroup } from '@/components/core/form-group/FormGroup';
 import { Factory, factory } from '@/internal/factory/factory';
 import { ElementProps } from '@/types/shared';
 
-export type FileUploadProps = BaseFormElementProps & ElementProps<'input', 'size' | 'as' | 'type'>;
+export type FileUploadProps = BaseFormElementProps &
+  ElementProps<'input', 'size' | 'as' | 'type'> & {
+    i18n?: FileUploadTranslations;
+  };
 
 type FileUploadFactory = Factory<{
   props: FileUploadProps;
   ref: HTMLInputElement;
 }>;
 
-const FileUpload = factory<FileUploadFactory>(({ ...props }, ref) => {
+const FileUpload = factory<FileUploadFactory>(({ i18n, ...props }, ref) => {
   const internalRef = useRef<HTMLInputElement>(null);
+  const fileUpload = useRef<NhsFileUpload>(null);
+
   useImperativeHandle(ref, () => internalRef.current as HTMLInputElement);
 
   useEffect(() => {
@@ -25,7 +30,11 @@ const FileUpload = factory<FileUploadFactory>(({ ...props }, ref) => {
       return;
     }
 
-    new NhsFileUpload(container);
+    if (fileUpload.current) {
+      return;
+    }
+
+    fileUpload.current = new NhsFileUpload(container, { i18n });
 
     return () => {
       container.removeAttribute('data-nhsuk-file-upload-init');

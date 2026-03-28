@@ -34,6 +34,8 @@ type CheckboxFactory = Factory<{
 const Checkbox = factory<CheckboxFactory>(({ children, small, ...props }, ref) => {
   const internalRef = useRef<HTMLDivElement>(null);
   const checkboxesRef = useRef<HTMLDivElement>(null);
+  const checkboxes = useRef<NhsCheckboxes>(null);
+
   useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
   useEffect(() => {
@@ -41,8 +43,12 @@ const Checkbox = factory<CheckboxFactory>(({ children, small, ...props }, ref) =
       return;
     }
 
+    if (checkboxes.current) {
+      return;
+    }
+
     setTimeout(() => {
-      new NhsCheckboxes(checkboxesRef.current);
+      checkboxes.current = new NhsCheckboxes(checkboxesRef.current);
     }, 0);
 
     return () => {

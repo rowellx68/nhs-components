@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { PasswordInput as NhsPasswordInput } from 'nhsuk-frontend';
+import { PasswordInput as NhsPasswordInput, PasswordInputTranslations } from 'nhsuk-frontend';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
 
 import { BaseFormElementProps, FormGroup } from '@/components/core/form-group/FormGroup';
@@ -10,6 +10,7 @@ import { ColumnWidth, ElementProps, InputWidth } from '@/types/shared';
 
 export type PasswordInputProps = {
   width?: InputWidth | ColumnWidth;
+  i18n?: PasswordInputTranslations;
 } & BaseFormElementProps &
   ElementProps<'input', 'size' | 'as' | 'type'>;
 
@@ -18,8 +19,10 @@ type PasswordInputFactory = Factory<{
   ref: HTMLInputElement;
 }>;
 
-const PasswordInput = factory<PasswordInputFactory>(({ width, ...props }, ref) => {
+const PasswordInput = factory<PasswordInputFactory>(({ width, i18n, ...props }, ref) => {
   const internalRef = useRef<HTMLInputElement>(null);
+  const password = useRef<NhsPasswordInput>(null);
+
   useImperativeHandle(ref, () => internalRef.current as HTMLInputElement);
 
   useEffect(() => {
@@ -28,7 +31,11 @@ const PasswordInput = factory<PasswordInputFactory>(({ width, ...props }, ref) =
       return;
     }
 
-    new NhsPasswordInput(container);
+    if (password.current) {
+      return;
+    }
+
+    password.current = new NhsPasswordInput(container, { i18n });
 
     return () => {
       container.removeAttribute('data-nhsuk-password-input-init');
