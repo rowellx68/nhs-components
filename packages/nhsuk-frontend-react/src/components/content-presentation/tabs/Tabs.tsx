@@ -1,55 +1,13 @@
-'use client';
-
 import clsx from 'clsx';
-import { Tabs as NhsTabs } from 'nhsuk-frontend';
-import React, { useImperativeHandle, useEffect, useRef } from 'react';
+import React from 'react';
 
 import { Base, BaseProps } from '@/components/core/base/Base';
-import { Factory, factory } from '@/internal/factory/factory';
 import { PolymorphicFactory, polymorphicFactory } from '@/internal/factory/polymorphic-factory';
 import { AsElementProps, ElementProps, HeadingLevel } from '@/types/shared';
 
-export type TabsProps = ElementProps<'div'>;
+import { Tabs as TabsRoot } from './TabsRoot';
 
-type TabsFactory = Factory<{
-  props: TabsProps;
-  ref: HTMLDivElement;
-  staticComponents: {
-    Title: typeof TabsTitle;
-    List: typeof TabsList;
-    ListItem: typeof TabsListItem;
-    Panel: typeof TabsPanel;
-  };
-}>;
-
-const Tabs = factory<TabsFactory>(({ children, className, ...props }: TabsProps, ref) => {
-  const internalRef = useRef<HTMLDivElement>(null);
-
-  useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
-
-  useEffect(() => {
-    if (!internalRef.current) {
-      return;
-    }
-
-    new NhsTabs(internalRef.current);
-
-    return () => {
-      internalRef.current?.removeAttribute('data-nhsuk-tabs-init');
-    };
-  }, [internalRef]);
-
-  return (
-    <div
-      className={clsx('nhsuk-tabs', className)}
-      data-module="nhsuk-tabs"
-      ref={internalRef}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-});
+export type { TabsProps } from './TabsRoot';
 
 export type TabsTitleProps = BaseProps & AsElementProps<HeadingLevel>;
 
@@ -120,15 +78,17 @@ const TabsPanel = ({ children, className, id, hidden, ...props }: TabsPanelProps
   </div>
 );
 
+const Tabs = Object.assign(TabsRoot, {
+  Title: TabsTitle,
+  List: TabsList,
+  ListItem: TabsListItem,
+  Panel: TabsPanel,
+});
+
 Tabs.displayName = 'Tabs';
 TabsTitle.displayName = 'Tabs.Title';
 TabsList.displayName = 'Tabs.List';
 TabsListItem.displayName = 'Tabs.ListItem';
 TabsPanel.displayName = 'Tabs.Panel';
-
-Tabs.Title = TabsTitle;
-Tabs.List = TabsList;
-Tabs.ListItem = TabsListItem;
-Tabs.Panel = TabsPanel;
 
 export { Tabs, TabsTitle, TabsList, TabsListItem, TabsPanel };
