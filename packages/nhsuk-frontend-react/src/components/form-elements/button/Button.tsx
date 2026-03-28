@@ -38,6 +38,7 @@ const Button = polymorphicFactory<ButtonFactory>(
     ref,
   ) => {
     const internalRef = useRef<HTMLElement>(null);
+    const button = useRef<NhsButton>(null);
 
     useImperativeHandle(ref, () => internalRef.current as HTMLButtonElement);
 
@@ -46,7 +47,11 @@ const Button = polymorphicFactory<ButtonFactory>(
         return;
       }
 
-      new NhsButton(internalRef.current);
+      if (button.current) {
+        return;
+      }
+
+      button.current = new NhsButton(internalRef.current);
 
       return () => {
         internalRef.current?.removeAttribute('data-nhsuk-button-init');

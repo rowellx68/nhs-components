@@ -19,6 +19,8 @@ type ErrorSummaryFactory = Factory<{
 const ErrorSummary = factory<ErrorSummaryFactory>(
   ({ className, disableAutoFocus, children, ...props }, ref) => {
     const internalRef = useRef<HTMLDivElement>(null);
+    const errorSummary = useRef<NhsErrorSummary>(null);
+
     useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
     useEffect(() => {
@@ -26,7 +28,11 @@ const ErrorSummary = factory<ErrorSummaryFactory>(
         return;
       }
 
-      new NhsErrorSummary(internalRef.current);
+      if (errorSummary.current) {
+        return;
+      }
+
+      errorSummary.current = new NhsErrorSummary(internalRef.current);
 
       return () => {
         internalRef.current?.removeAttribute('data-nhsuk-error-summary-init');

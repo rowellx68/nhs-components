@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import { CharacterCount as NhsCharacterCount } from 'nhsuk-frontend';
-import React, { useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import { CharacterCount as NhsCharacterCount, CharacterCountTranslations } from 'nhsuk-frontend';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 
 import { BaseFormElementProps, FormGroup } from '@/components/core/form-group/FormGroup';
 import { Factory, factory } from '@/internal/factory/factory';
@@ -28,7 +28,9 @@ export type TextareaProps = BaseFormElementProps &
         maxWords?: undefined;
         maxCharacterLength?: undefined;
       }
-  );
+  ) & {
+    i18n?: CharacterCountTranslations;
+  };
 
 type TextareaFactory = Factory<{
   props: TextareaProps;
@@ -42,26 +44,17 @@ const Textarea = factory<TextareaFactory>(
       maxCharacterLength,
       maxWords,
       formGroupProps: userFormGroupProps,
+      i18n,
       ...props
     },
     ref,
   ) => {
-    useImperativeHandle(ref, () => internalRef.current as HTMLTextAreaElement);
     const internalRef = useRef<HTMLTextAreaElement>(null);
+    const textarea = useRef<NhsCharacterCount>(null);
+
+    useImperativeHandle(ref, () => internalRef.current as HTMLTextAreaElement);
 
     const characterCount = variant !== 'textarea';
-
-    const message = useMemo(() => {
-      if (variant === 'character-count') {
-        return `You can enter up to ${maxCharacterLength} characters`;
-      }
-
-      if (variant === 'word-count') {
-        return `You can enter up to ${maxWords} words`;
-      }
-
-      return undefined;
-    }, [variant, maxWords, maxCharacterLength]);
 
     useEffect(() => {
       if (!characterCount) {
@@ -72,8 +65,12 @@ const Textarea = factory<TextareaFactory>(
         return;
       }
 
+      if (textarea.current) {
+        return;
+      }
+
       const root = internalRef.current.closest('[data-module="nhsuk-character-count"]');
-      new NhsCharacterCount(root);
+      textarea.current = new NhsCharacterCount(root, { i18n });
 
       return () => {
         root?.removeAttribute('data-nhsuk-character-count-init');
@@ -120,9 +117,7 @@ const Textarea = factory<TextareaFactory>(
                 aria-describedby={ariaDescribedBy}
               />
               {characterCount && (
-                <Hint className="nhsuk-character-count__message" id={`${id}-info`}>
-                  {message}
-                </Hint>
+                <Hint className="nhsuk-character-count__message" id={`${id}-info`} />
               )}
             </>
           );

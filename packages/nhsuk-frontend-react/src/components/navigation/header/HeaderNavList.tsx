@@ -18,6 +18,7 @@ const HeaderNavList = factory<HeaderNavListFactory>(
   ({ children, className, ...props }: HeaderNavListProps, ref) => {
     const internalRef = useRef<HTMLUListElement>(null);
     const header = useRef<NhsHeader>(null);
+
     useImperativeHandle(ref, () => internalRef.current as HTMLUListElement);
 
     useEffect(() => {

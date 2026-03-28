@@ -17,6 +17,8 @@ type SkipLinkFactory = Factory<{
 const SkipLink = factory<SkipLinkFactory>(
   ({ children, className, href = '#maincontent', ...props }, ref) => {
     const internalRef = useRef<HTMLAnchorElement>(null);
+    const skiplink = useRef<NhsSkipLink>(null);
+
     useImperativeHandle(ref, () => internalRef.current as HTMLAnchorElement);
 
     useEffect(() => {
@@ -24,7 +26,11 @@ const SkipLink = factory<SkipLinkFactory>(
         return;
       }
 
-      new NhsSkipLink(internalRef.current);
+      if (skiplink.current) {
+        return;
+      }
+
+      skiplink.current = new NhsSkipLink(internalRef.current);
 
       return () => {
         internalRef.current?.removeAttribute('data-nhsuk-skip-link-init');

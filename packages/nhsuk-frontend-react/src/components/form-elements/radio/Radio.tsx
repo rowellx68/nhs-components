@@ -30,6 +30,8 @@ type RadioFactory = Factory<{
 const Radio = factory<RadioFactory>(({ children, inline, small, ...props }, ref) => {
   const internalRef = useRef<HTMLDivElement>(null);
   const radiosRef = useRef<HTMLDivElement>(null);
+  const radio = useRef<NhsRadios>(null);
+
   useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
   useEffect(() => {
@@ -37,8 +39,12 @@ const Radio = factory<RadioFactory>(({ children, inline, small, ...props }, ref)
       return;
     }
 
+    if (radio.current) {
+      return;
+    }
+
     setTimeout(() => {
-      new NhsRadios(radiosRef.current);
+      radio.current = new NhsRadios(radiosRef.current);
     }, 0);
 
     return () => {

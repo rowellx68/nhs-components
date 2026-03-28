@@ -16,6 +16,7 @@ type TabsFactory = Factory<{
 
 const Tabs = factory<TabsFactory>(({ children, className, ...props }, ref) => {
   const internalRef = useRef<HTMLDivElement>(null);
+  const tabs = useRef<NhsTabs>(null);
 
   useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
@@ -24,7 +25,11 @@ const Tabs = factory<TabsFactory>(({ children, className, ...props }, ref) => {
       return;
     }
 
-    new NhsTabs(internalRef.current);
+    if (tabs.current) {
+      return;
+    }
+
+    tabs.current = new NhsTabs(internalRef.current);
 
     return () => {
       internalRef.current?.removeAttribute('data-nhsuk-tabs-init');
