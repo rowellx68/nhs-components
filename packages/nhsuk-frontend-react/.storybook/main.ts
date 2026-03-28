@@ -25,6 +25,9 @@ const config: StorybookConfig = {
           '@/': '/src/',
         },
       },
+      build: {
+        cssMinify: 'esbuild',
+      },
     });
   },
 };
