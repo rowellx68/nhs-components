@@ -23,15 +23,13 @@ const Heading = polymorphicFactory<HeadingFactory>(
     return (
       <Base
         as={component}
-        className={
-          clsx(
-            {
-              [`nhsuk-heading-${size}`]: size,
-              'nhsuk-caption--bottom': variant,
-            },
-            className,
-          ) || undefined
-        }
+        className={clsx(
+          {
+            [`nhsuk-heading-${size}`]: size,
+            'nhsuk-caption--bottom': variant,
+          },
+          className,
+        )}
         {...props}
         ref={ref}
       />
