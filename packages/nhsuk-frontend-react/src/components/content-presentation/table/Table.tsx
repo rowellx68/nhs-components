@@ -161,7 +161,7 @@ const TableRow = ({ role = 'row', className, children, ...props }: TableRowProps
   }
 
   return (
-    <tr className={clsx('nhsuk-table__row', className) || undefined} role={role} {...props}>
+    <tr className={clsx('nhsuk-table__row', className)} role={role} {...props}>
       {_children}
     </tr>
   );
