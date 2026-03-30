@@ -9,13 +9,18 @@ it('renders a paragraph with the nhsuk-body class by default', async () => {
   expect(page.container.querySelector('p.nhsuk-body')).toBeInTheDocument();
 });
 
-it('applies the lead variant class', async () => {
-  const page = await render(<Paragraph variant="lead">Lead text</Paragraph>);
+it('applies the large size class', async () => {
+  const page = await render(<Paragraph size="l">Lead text</Paragraph>);
   expect(page.container.querySelector('p.nhsuk-body-l')).toBeInTheDocument();
 });
 
-it('applies the small variant class', async () => {
-  const page = await render(<Paragraph variant="small">Small text</Paragraph>);
+it('applies the medium size class', async () => {
+  const page = await render(<Paragraph size="m">Small text</Paragraph>);
+  expect(page.container.querySelector('p.nhsuk-body-m')).toBeInTheDocument();
+});
+
+it('applies the small size class', async () => {
+  const page = await render(<Paragraph size="s">Small text</Paragraph>);
   expect(page.container.querySelector('p.nhsuk-body-s')).toBeInTheDocument();
 });
 

@@ -22,17 +22,28 @@ export const Default: Story = {
   render: (args) => <Paragraph {...args} />,
 };
 
-export const Lead: Story = {
+export const Large: Story = {
   args: {
-    variant: 'lead',
+    size: 'l',
     children: 'nhsuk-body-l',
+  },
+  render: (args) => <Paragraph {...args} />,
+};
+
+/**
+ * This is the same as not providing a size.
+ */
+export const Medium: Story = {
+  args: {
+    size: 'm',
+    children: 'nhsuk-body-m',
   },
   render: (args) => <Paragraph {...args} />,
 };
 
 export const Small: Story = {
   args: {
-    variant: 'small',
+    size: 's',
     children: 'nhsuk-body-s',
   },
   render: (args) => <Paragraph {...args} />,
