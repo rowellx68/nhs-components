@@ -576,13 +576,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">10/59 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">13/59 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/211 story errors</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">10/60 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">13/60 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/214 story errors</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>false</code>. Generation took <strong>2.2s</strong>.
+              Using <code>false</code>. Generation took <strong>2.3s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -4742,7 +4742,7 @@ variant?: &#39;caption-bottom&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> HeadingCaption</h2>
       <div class="badges">
-        <label for="c-28-styles-typography-headingcaption-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-28-styles-typography-headingcaption-props" class="badge ok as-toggle">2 prop types</label>
         
         <label for="c-28-styles-typography-headingcaption-stories" class="badge ok as-toggle">4 stories</label>
         
@@ -4769,11 +4769,13 @@ variant?: &#39;caption-bottom&#39;</code></pre>
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">1 prop type</span>
+              <span class="badge ok">2 prop types</span>
             </div>
             <pre><code>Component: src/components/styles/typography/heading-caption/HeadingCaption.tsx::HeadingCaption</code></pre>
             <pre><code>Props:</code></pre>
-            <pre><code>size: Extract&lt;Size, &#39;xl&#39; | &#39;l&#39; | &#39;m&#39;&gt;</code></pre>
+            <pre><code>size: &#39;m&#39; | &#39;l&#39; | &#39;xl&#39;
+
+variant?: &#39;bottom&#39;</code></pre>
           </div>
         </div>
     
@@ -5566,7 +5568,7 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
   render: (args) =&gt; (
     &lt;Paragraph
       {...args}
-      variant=&quot;small&quot;
+      size=&quot;s&quot;
       className=&quot;nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0&quot;
     &gt;
       Page last reviewed: 15 March 2021
@@ -5608,7 +5610,7 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
               
               
               <pre><code>const ReassureUsersThatAPageIsUpToDate = () =&gt; &lt;Paragraph
-    variant=&quot;small&quot;
+    size=&quot;s&quot;
     className=&quot;nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0&quot;&gt;Page last reviewed: 15 March 2021
           &lt;br /&gt;Next review due: 15 March 2024
         &lt;/Paragraph&gt;;</code></pre>
@@ -5730,14 +5732,102 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
   no-story-error
   no-doc-error"
   role="listitem"
+  aria-label="LedeText">
+  <div class="head">
+    <div class="title">
+      <h2><span class="status-dot dot-ok"></span> LedeText</h2>
+      <div class="badges">
+        <label for="c-36-styles-typography-ledetext-props" class="badge ok as-toggle">3 prop types</label>
+        
+        <label for="c-36-styles-typography-ledetext-stories" class="badge ok as-toggle">2 stories</label>
+        
+      </div>
+    </div>
+    <div class="meta" title="./src/components/styles/typography/lede-text/LedeText.stories.tsx">styles-typography-ledetext · ./src/components/styles/typography/lede-text/LedeText.stories.tsx</div>
+    
+    <div class="hint">https://service-manual.nhs.uk/design-system/styles/typography</div>
+    
+  </div>
+
+  <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
+  
+  
+  <input id="c-36-styles-typography-ledetext-stories" class="tg tg-stories" type="checkbox" hidden />
+  
+  <input id="c-36-styles-typography-ledetext-props" class="tg tg-props" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+    
+        <div class="panel panel-props">
+          <div class="note ok">
+            <div class="row">
+              <span class="ex-name">Prop types <small>(react-docgen)</small></span>
+              <span class="badge ok">3 prop types</span>
+            </div>
+            <pre><code>Component: src/components/styles/typography/lede-text/LedeText.tsx::LedeText</code></pre>
+            <pre><code>Props:</code></pre>
+            <pre><code>/**
+ * The component to render as.
+ */
+as?: TComponent = &#39;div&#39;
+
+className?: string
+
+size?: &#39;s&#39;</code></pre>
+          </div>
+        </div>
+    
+        <div class="panel panel-stories">
+          
+          
+          
+          <div class="note ok">
+                <div class="row">
+                  <span class="ex-name">Imports</span>
+                </div>
+                <pre><code>import { LedeText } from "nhsuk-frontend-react";</code></pre>
+              </div>
+          
+          
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Default</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Default = () =&gt; &lt;LedeText&gt;nhsuk-lede-text&lt;/LedeText&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Small</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              
+              <pre><code>const Small = () =&gt; &lt;LedeText size=&quot;s&quot;&gt;nhsuk-lede-text-s&lt;/LedeText&gt;;</code></pre>
+            </div>
+        </div>
+    
+  </div>
+</article>
+<article
+  class="card 
+  no-error 
+  no-info 
+  no-story-error
+  no-doc-error"
+  role="listitem"
   aria-label="Link">
   <div class="head">
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Link</h2>
       <div class="badges">
-        <label for="c-36-styles-typography-link-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-37-styles-typography-link-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-36-styles-typography-link-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-37-styles-typography-link-stories" class="badge ok as-toggle">2 stories</label>
         
       </div>
     </div>
@@ -5750,9 +5840,9 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-36-styles-typography-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-37-styles-typography-link-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-36-styles-typography-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-37-styles-typography-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -5825,7 +5915,7 @@ noVisitedState?: boolean</code></pre>
       <div class="badges">
         
         
-        <label for="c-37-styles-typography-list-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-38-styles-typography-list-stories" class="badge ok as-toggle">4 stories</label>
         
       </div>
     </div>
@@ -5838,7 +5928,7 @@ noVisitedState?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-37-styles-typography-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-38-styles-typography-list-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -5940,9 +6030,9 @@ noVisitedState?: boolean</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Main</h2>
       <div class="badges">
-        <label for="c-38-styles-layout-main-props" class="badge ok as-toggle">3 prop types</label>
+        <label for="c-39-styles-layout-main-props" class="badge ok as-toggle">3 prop types</label>
         
-        <label for="c-38-styles-layout-main-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-39-styles-layout-main-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -5955,9 +6045,9 @@ noVisitedState?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-38-styles-layout-main-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-39-styles-layout-main-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-38-styles-layout-main-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-39-styles-layout-main-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6021,9 +6111,9 @@ size?: &#39;s&#39; | &#39;l&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Mini-hubpage</h2>
       <div class="badges">
-        <label for="c-39-patterns-pages-mini-hub-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-39-patterns-pages-mini-hub-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-39-patterns-pages-mini-hub-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-40-patterns-pages-mini-hub-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-40-patterns-pages-mini-hub-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-40-patterns-pages-mini-hub-page-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -6034,9 +6124,9 @@ size?: &#39;s&#39; | &#39;l&#39;</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-39-patterns-pages-mini-hub-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-39-patterns-pages-mini-hub-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-39-patterns-pages-mini-hub-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-40-patterns-pages-mini-hub-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-40-patterns-pages-mini-hub-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-40-patterns-pages-mini-hub-page-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -6159,10 +6249,7 @@ export const MiniHub: Story = {
                 &lt;/List.Item&gt;
               &lt;/List&gt;
 
-              &lt;Paragraph
-                variant=&quot;small&quot;
-                className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;
-              &gt;
+              &lt;Paragraph size=&quot;s&quot; className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;&gt;
                 Page last reviewed: 27 March 2018 &lt;br /&gt;
                 Next review due: 27 March 2021
               &lt;/Paragraph&gt;
@@ -6294,9 +6381,7 @@ export const MiniHub: Story = {
                                               blood pressure, being overweight and having a family history of AMD.
                                             &lt;/List.Item&gt;
                     &lt;/List&gt;
-                    &lt;Paragraph
-                        variant=&quot;small&quot;
-                        className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;&gt;Page last reviewed: 27 March 2018 &lt;br /&gt;Next review due: 27 March 2021
+                    &lt;Paragraph size=&quot;s&quot; className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;&gt;Page last reviewed: 27 March 2018 &lt;br /&gt;Next review due: 27 March 2021
                                       &lt;/Paragraph&gt;
                     &lt;Pagination&gt;
                         &lt;Pagination.Next pageTitle=&quot;Symptoms&quot; /&gt;
@@ -6328,9 +6413,9 @@ export const MiniHub: Story = {
     <div class="title">
       <h2><span class="status-dot dot-err"></span> NHSnumber</h2>
       <div class="badges">
-        <label for="c-40-patterns-ask-users-for-nhs-number-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-40-patterns-ask-users-for-nhs-number-info" class="badge info as-toggle">1 info</label>
-        <label for="c-40-patterns-ask-users-for-nhs-number-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-41-patterns-ask-users-for-nhs-number-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-41-patterns-ask-users-for-nhs-number-info" class="badge info as-toggle">1 info</label>
+        <label for="c-41-patterns-ask-users-for-nhs-number-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -6341,9 +6426,9 @@ export const MiniHub: Story = {
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-40-patterns-ask-users-for-nhs-number-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-40-patterns-ask-users-for-nhs-number-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-40-patterns-ask-users-for-nhs-number-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-41-patterns-ask-users-for-nhs-number-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-41-patterns-ask-users-for-nhs-number-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-41-patterns-ask-users-for-nhs-number-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -6502,9 +6587,9 @@ export const AskUsersForTheirNhsNumber: Story = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> NotificationBanner</h2>
       <div class="badges">
-        <label for="c-41-components-content-presentation-notification-banner-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-42-components-content-presentation-notification-banner-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-41-components-content-presentation-notification-banner-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-42-components-content-presentation-notification-banner-stories" class="badge ok as-toggle">4 stories</label>
         
       </div>
     </div>
@@ -6517,9 +6602,9 @@ export const AskUsersForTheirNhsNumber: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-41-components-content-presentation-notification-banner-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-42-components-content-presentation-notification-banner-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-41-components-content-presentation-notification-banner-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-42-components-content-presentation-notification-banner-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6635,9 +6720,9 @@ variant?: &#39;success&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Pagination</h2>
       <div class="badges">
-        <label for="c-42-components-navigation-pagination-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-43-components-navigation-pagination-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-42-components-navigation-pagination-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-43-components-navigation-pagination-stories" class="badge ok as-toggle">4 stories</label>
         
       </div>
     </div>
@@ -6650,9 +6735,9 @@ variant?: &#39;success&#39;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-42-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-43-components-navigation-pagination-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-42-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-43-components-navigation-pagination-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6751,7 +6836,7 @@ variant?: &#39;success&#39;</code></pre>
       <div class="badges">
         
         
-        <label for="c-43-components-content-presentation-panel-stories" class="badge ok as-toggle">8 stories</label>
+        <label for="c-44-components-content-presentation-panel-stories" class="badge ok as-toggle">8 stories</label>
         
       </div>
     </div>
@@ -6764,7 +6849,7 @@ variant?: &#39;success&#39;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-43-components-content-presentation-panel-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-44-components-content-presentation-panel-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -6948,9 +7033,9 @@ variant?: &#39;success&#39;</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Paragraph</h2>
       <div class="badges">
-        <label for="c-44-styles-typography-paragraph-props" class="badge ok as-toggle">4 prop types</label>
+        <label for="c-45-styles-typography-paragraph-props" class="badge ok as-toggle">4 prop types</label>
         
-        <label for="c-44-styles-typography-paragraph-stories" class="badge ok as-toggle">6 stories</label>
+        <label for="c-45-styles-typography-paragraph-stories" class="badge ok as-toggle">7 stories</label>
         
       </div>
     </div>
@@ -6963,9 +7048,9 @@ variant?: &#39;success&#39;</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-44-styles-typography-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-45-styles-typography-paragraph-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-44-styles-typography-paragraph-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-45-styles-typography-paragraph-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -6983,9 +7068,9 @@ variant?: &#39;success&#39;</code></pre>
 
 fontWeight?: &#39;bold&#39; | &#39;normal&#39;
 
-textAlignRight?: boolean
+size?: &#39;s&#39; | &#39;m&#39; | &#39;l&#39;
 
-variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</code></pre>
+textAlignRight?: boolean</code></pre>
           </div>
         </div>
     
@@ -7012,12 +7097,21 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
             </div>
             <div class="note ok">
               <div class="row">
-                <span class="ex-name">Lead</span>
+                <span class="ex-name">Large</span>
                 <span class="badge ok">story ok</span>
               </div>
               
               
-              <pre><code>const Lead = () =&gt; &lt;Paragraph variant=&quot;lead&quot;&gt;nhsuk-body-l&lt;/Paragraph&gt;;</code></pre>
+              <pre><code>const Large = () =&gt; &lt;Paragraph size=&quot;l&quot;&gt;nhsuk-body-l&lt;/Paragraph&gt;;</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Medium</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              <div class="hint">This is the same as not providing a size.</div>
+              <pre><code>const Medium = () =&gt; &lt;Paragraph size=&quot;m&quot;&gt;nhsuk-body-m&lt;/Paragraph&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -7026,7 +7120,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
               </div>
               
               
-              <pre><code>const Small = () =&gt; &lt;Paragraph variant=&quot;small&quot;&gt;nhsuk-body-s&lt;/Paragraph&gt;;</code></pre>
+              <pre><code>const Small = () =&gt; &lt;Paragraph size=&quot;s&quot;&gt;nhsuk-body-s&lt;/Paragraph&gt;;</code></pre>
             </div>
             <div class="note ok">
               <div class="row">
@@ -7080,7 +7174,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
       <div class="badges">
         
         
-        <label for="c-45-components-form-elements-password-input-stories" class="badge ok as-toggle">5 stories</label>
+        <label for="c-46-components-form-elements-password-input-stories" class="badge ok as-toggle">5 stories</label>
         
       </div>
     </div>
@@ -7093,7 +7187,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-45-components-form-elements-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-46-components-form-elements-password-input-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7196,7 +7290,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
       <div class="badges">
         
         
-        <label for="c-46-components-form-elements-radio-stories" class="badge ok as-toggle">7 stories</label>
+        <label for="c-47-components-form-elements-radio-stories" class="badge ok as-toggle">7 stories</label>
         
       </div>
     </div>
@@ -7209,7 +7303,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-46-components-form-elements-radio-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-47-components-form-elements-radio-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7411,7 +7505,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
       <div class="badges">
         
         
-        <label for="c-47-styles-layout-reading-width-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-48-styles-layout-reading-width-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -7424,7 +7518,7 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-47-styles-layout-reading-width-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-48-styles-layout-reading-width-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7477,9 +7571,9 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SectionBreak</h2>
       <div class="badges">
-        <label for="c-48-styles-typography-section-break-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-49-styles-typography-section-break-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-48-styles-typography-section-break-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-49-styles-typography-section-break-stories" class="badge ok as-toggle">2 stories</label>
         
       </div>
     </div>
@@ -7492,9 +7586,9 @@ variant?: &#39;lead&#39; | &#39;small&#39; | &#39;body&#39; = &#39;body&#39;</co
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-48-styles-typography-section-break-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-49-styles-typography-section-break-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-48-styles-typography-section-break-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-49-styles-typography-section-break-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7562,7 +7656,7 @@ visible?: boolean</code></pre>
       <div class="badges">
         
         
-        <label for="c-49-components-form-elements-select-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-50-components-form-elements-select-stories" class="badge ok as-toggle">3 stories</label>
         
       </div>
     </div>
@@ -7575,7 +7669,7 @@ visible?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-49-components-form-elements-select-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-50-components-form-elements-select-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7668,9 +7762,9 @@ visible?: boolean</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> SkipLink</h2>
       <div class="badges">
-        <label for="c-50-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-51-components-navigation-skip-link-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-50-components-navigation-skip-link-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-51-components-navigation-skip-link-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -7683,9 +7777,9 @@ visible?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-50-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-51-components-navigation-skip-link-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-50-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-51-components-navigation-skip-link-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -7754,9 +7848,9 @@ visible?: boolean</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-err"></span> Startpage</h2>
       <div class="badges">
-        <label for="c-51-patterns-pages-start-page-err" class="badge err as-toggle">prop type error</label>
-        <label for="c-51-patterns-pages-start-page-info" class="badge info as-toggle">1 info</label>
-        <label for="c-51-patterns-pages-start-page-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-52-patterns-pages-start-page-err" class="badge err as-toggle">prop type error</label>
+        <label for="c-52-patterns-pages-start-page-info" class="badge info as-toggle">1 info</label>
+        <label for="c-52-patterns-pages-start-page-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -7767,9 +7861,9 @@ visible?: boolean</code></pre>
   </div>
 
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
-  <input id="c-51-patterns-pages-start-page-err" class="tg tg-err" type="checkbox" hidden />
-  <input id="c-51-patterns-pages-start-page-info" class="tg tg-info" type="checkbox" hidden />
-  <input id="c-51-patterns-pages-start-page-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-52-patterns-pages-start-page-err" class="tg tg-err" type="checkbox" hidden />
+  <input id="c-52-patterns-pages-start-page-info" class="tg tg-info" type="checkbox" hidden />
+  <input id="c-52-patterns-pages-start-page-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -7983,7 +8077,7 @@ export const StartPage: Story = {
       <div class="badges">
         
         
-        <label for="c-52-components-content-presentation-summary-list-stories" class="badge ok as-toggle">15 stories</label>
+        <label for="c-53-components-content-presentation-summary-list-stories" class="badge ok as-toggle">15 stories</label>
         
       </div>
     </div>
@@ -7996,7 +8090,7 @@ export const StartPage: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-52-components-content-presentation-summary-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-53-components-content-presentation-summary-list-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -8694,9 +8788,9 @@ export const StartPage: Story = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Table</h2>
       <div class="badges">
-        <label for="c-53-components-content-presentation-table-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-54-components-content-presentation-table-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-53-components-content-presentation-table-stories" class="badge ok as-toggle">4 stories</label>
+        <label for="c-54-components-content-presentation-table-stories" class="badge ok as-toggle">4 stories</label>
         
       </div>
     </div>
@@ -8709,9 +8803,9 @@ export const StartPage: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-53-components-content-presentation-table-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-54-components-content-presentation-table-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-53-components-content-presentation-table-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-54-components-content-presentation-table-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -8918,7 +9012,7 @@ export const StartPage: Story = {
       <div class="badges">
         
         
-        <label for="c-54-components-content-presentation-tabs-stories" class="badge ok as-toggle">1 story</label>
+        <label for="c-55-components-content-presentation-tabs-stories" class="badge ok as-toggle">1 story</label>
         
       </div>
     </div>
@@ -8931,7 +9025,7 @@ export const StartPage: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-54-components-content-presentation-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-55-components-content-presentation-tabs-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -8998,9 +9092,9 @@ export const StartPage: Story = {
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Tag</h2>
       <div class="badges">
-        <label for="c-55-components-content-presentation-tag-props" class="badge ok as-toggle">2 prop types</label>
+        <label for="c-56-components-content-presentation-tag-props" class="badge ok as-toggle">2 prop types</label>
         
-        <label for="c-55-components-content-presentation-tag-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-56-components-content-presentation-tag-stories" class="badge ok as-toggle">3 stories</label>
         
       </div>
     </div>
@@ -9013,9 +9107,9 @@ export const StartPage: Story = {
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-55-components-content-presentation-tag-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-56-components-content-presentation-tag-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-55-components-content-presentation-tag-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-56-components-content-presentation-tag-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -9109,7 +9203,7 @@ noBorder?: boolean</code></pre>
       <div class="badges">
         
         
-        <label for="c-56-components-content-presentation-task-list-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-57-components-content-presentation-task-list-stories" class="badge ok as-toggle">2 stories</label>
         
       </div>
     </div>
@@ -9122,7 +9216,7 @@ noBorder?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-56-components-content-presentation-task-list-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-57-components-content-presentation-task-list-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -9248,9 +9342,9 @@ noBorder?: boolean</code></pre>
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> Textarea</h2>
       <div class="badges">
-        <label for="c-57-components-form-elements-textarea-props" class="badge ok as-toggle">1 prop type</label>
+        <label for="c-58-components-form-elements-textarea-props" class="badge ok as-toggle">1 prop type</label>
         
-        <label for="c-57-components-form-elements-textarea-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-58-components-form-elements-textarea-stories" class="badge ok as-toggle">3 stories</label>
         
       </div>
     </div>
@@ -9263,9 +9357,9 @@ noBorder?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-57-components-form-elements-textarea-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-58-components-form-elements-textarea-stories" class="tg tg-stories" type="checkbox" hidden />
   
-  <input id="c-57-components-form-elements-textarea-props" class="tg tg-props" type="checkbox" hidden />
+  <input id="c-58-components-form-elements-textarea-props" class="tg tg-props" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -9349,7 +9443,7 @@ noBorder?: boolean</code></pre>
       <div class="badges">
         
         
-        <label for="c-58-components-content-presentation-warning-callout-stories" class="badge ok as-toggle">3 stories</label>
+        <label for="c-59-components-content-presentation-warning-callout-stories" class="badge ok as-toggle">3 stories</label>
         
       </div>
     </div>
@@ -9362,7 +9456,7 @@ noBorder?: boolean</code></pre>
   <!-- ⬇️ Hidden toggles must be siblings BEFORE .panels -->
   
   
-  <input id="c-58-components-content-presentation-warning-callout-stories" class="tg tg-stories" type="checkbox" hidden />
+  <input id="c-59-components-content-presentation-warning-callout-stories" class="tg tg-stories" type="checkbox" hidden />
   
   
 
@@ -10917,7 +11011,7 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
   render: (args) =&gt; (
     &lt;Paragraph
       {...args}
-      variant=&quot;small&quot;
+      size=&quot;s&quot;
       className=&quot;nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0&quot;
     &gt;
       Page last reviewed: 15 March 2021
@@ -10959,7 +11053,7 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
               
               
               <pre><code>const ReassureUsersThatAPageIsUpToDate = () =&gt; &lt;Paragraph
-    variant=&quot;small&quot;
+    size=&quot;s&quot;
     className=&quot;nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0&quot;&gt;Page last reviewed: 15 March 2021
           &lt;br /&gt;Next review due: 15 March 2024
         &lt;/Paragraph&gt;;</code></pre>
@@ -11118,10 +11212,7 @@ export const MiniHub: Story = {
                 &lt;/List.Item&gt;
               &lt;/List&gt;
 
-              &lt;Paragraph
-                variant=&quot;small&quot;
-                className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;
-              &gt;
+              &lt;Paragraph size=&quot;s&quot; className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;&gt;
                 Page last reviewed: 27 March 2018 &lt;br /&gt;
                 Next review due: 27 March 2021
               &lt;/Paragraph&gt;
@@ -11253,9 +11344,7 @@ export const MiniHub: Story = {
                                               blood pressure, being overweight and having a family history of AMD.
                                             &lt;/List.Item&gt;
                     &lt;/List&gt;
-                    &lt;Paragraph
-                        variant=&quot;small&quot;
-                        className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;&gt;Page last reviewed: 27 March 2018 &lt;br /&gt;Next review due: 27 March 2021
+                    &lt;Paragraph size=&quot;s&quot; className=&quot;nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color&quot;&gt;Page last reviewed: 27 March 2018 &lt;br /&gt;Next review due: 27 March 2021
                                       &lt;/Paragraph&gt;
                     &lt;Pagination&gt;
                         &lt;Pagination.Next pageTitle=&quot;Symptoms&quot; /&gt;
