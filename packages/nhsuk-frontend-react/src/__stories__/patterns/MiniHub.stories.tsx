@@ -101,10 +101,7 @@ export const MiniHub: Story = {
                 </List.Item>
               </List>
 
-              <Paragraph
-                variant="small"
-                className="nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color"
-              >
+              <Paragraph size="s" className="nhsuk-u-margin-top-7 nhsuk-u-secondary-text-color">
                 Page last reviewed: 27 March 2018 <br />
                 Next review due: 27 March 2021
               </Paragraph>
