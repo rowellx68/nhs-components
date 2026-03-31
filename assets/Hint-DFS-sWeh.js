@@ -1,0 +1,1 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{L as n}from"./iframe-DUBK-3MB.js";import{n as r,t as i}from"./clsx-keIqec4B.js";var a,o,s=t((()=>{r(),a=e(n(),1),o=({className:e,...t})=>a.createElement(`div`,{className:i(`nhsuk-hint`,e),...t}),o.displayName=`Hint`}));export{s as n,o as t};

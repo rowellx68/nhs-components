@@ -1,1 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{L as n}from"./iframe-opzFqeq4.js";import{n as r,t as i}from"./clsx-keIqec4B.js";var a,o,s=t((()=>{r(),a=e(n(),1),o=({colour:e,noBorder:t,className:n,...r})=>a.createElement(`strong`,{className:i(`nhsuk-tag`,{[`nhsuk-tag--${e}`]:e},{"nhsuk-tag--no-border":t},n),...r}),o.displayName=`Tag`}));export{s as n,o as t};
