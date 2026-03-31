@@ -6,6 +6,7 @@
     "test": "vitest",
     "format": "oxfmt ./packages && oxlint ./packages --fix",
     "lint": "oxlint ./packages",
+    "types": "pnpm -r types",
     "sb": "pnpm -r sb",
     "release": "pnpm changeset publish",
     "cc": "pnpm changeset-conventional"
