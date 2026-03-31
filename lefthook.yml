@@ -1,0 +1,17 @@
+pre-commit:
+  jobs:
+    - name: lint staged files
+      glob: "*.{js,ts,jsx,tsx,vue,css,scss}"
+      run: pnpm oxlint {staged_files}
+
+pre-push:
+  parallel: true
+  jobs:
+    - name: typecheck
+      run: pnpm types
+
+    - name: test
+      run: pnpm test run --browser.headless
+
+    - name: build
+      run: pnpm build
