@@ -20,7 +20,7 @@ export const ReassureUsersThatAPageIsUpToDate: Story = {
   render: (args) => (
     <Paragraph
       {...args}
-      variant="small"
+      size="s"
       className="nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0"
     >
       Page last reviewed: 15 March 2021

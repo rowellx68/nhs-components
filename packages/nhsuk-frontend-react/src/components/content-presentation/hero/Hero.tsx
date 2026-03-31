@@ -107,7 +107,7 @@ const HeroHeading = ({ className, size, ...props }: HeroHeadingProps) => (
 export type HeroParagraphProps = ElementProps<'p'>;
 
 const HeroParagraph = ({ className, ...props }: HeroParagraphProps) => (
-  <Paragraph variant="lead" className={clsx('nhsuk-u-margin-bottom-0', className)} {...props} />
+  <Paragraph size="l" className={clsx('nhsuk-u-margin-bottom-0', className)} {...props} />
 );
 
 Hero.displayName = 'Hero';
