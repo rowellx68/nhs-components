@@ -23,8 +23,8 @@ const LedeText = polymorphicFactory<LedeTextFactory>(
       <Base
         as={component}
         className={clsx(
-          'nhsuk-lede-text',
           {
+            'nhsuk-lede-text': !size,
             [`nhsuk-lede-text-${size}`]: size,
           },
           className,

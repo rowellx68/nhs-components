@@ -11,6 +11,7 @@ it('renders a div with the nhsuk-lede-text class by default', async () => {
 
 it('applies the small size class', async () => {
   const page = await render(<LedeText size="s">Small lede text</LedeText>);
+  expect(page.container.querySelector('.nhsuk-lede-text')).not.toBeInTheDocument();
   expect(page.container.querySelector('.nhsuk-lede-text-s')).toBeInTheDocument();
 });
 
