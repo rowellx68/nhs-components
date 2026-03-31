@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 5.1.1
+
+### Patch Changes
+
+- [#278](https://github.com/rowellx68/nhs-components/pull/278) [`5034a0d`](https://github.com/rowellx68/nhs-components/commit/5034a0d4b11bca90c9b169621d4f52b504e14c15) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: apply lede-text size class exclusively
+
 ## 5.1.0
 
 ### Minor Changes
