@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 5.1.0
+
+### Minor Changes
+
+- [#275](https://github.com/rowellx68/nhs-components/pull/275) [`443320c`](https://github.com/rowellx68/nhs-components/commit/443320c7b63f12fdc512bbf9ccf211c0c9a4524b) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add lede text component
+
+### Patch Changes
+
+- [#275](https://github.com/rowellx68/nhs-components/pull/275) [`d58e553`](https://github.com/rowellx68/nhs-components/commit/d58e5539af99bd2414a95e558e7f6ebe5a475b9f) Thanks [@rowellx68](https://github.com/rowellx68)! - refactor: cleanup classes
+
+- [#275](https://github.com/rowellx68/nhs-components/pull/275) [`9a7d90c`](https://github.com/rowellx68/nhs-components/commit/9a7d90c59d81ea3d32f6c81dc8f0b55dd50edbcf) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: remove paragraph variant
+
+- [#275](https://github.com/rowellx68/nhs-components/pull/275) [`9581a26`](https://github.com/rowellx68/nhs-components/commit/9581a2615708311cce2326f20ed082dfd7facec1) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing caption variant
+
 ## 5.0.1
 
 ### Patch Changes
