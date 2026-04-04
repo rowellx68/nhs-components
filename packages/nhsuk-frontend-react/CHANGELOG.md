@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 5.1.2
+
+### Patch Changes
+
+- [#281](https://github.com/rowellx68/nhs-components/pull/281) [`dd41229`](https://github.com/rowellx68/nhs-components/commit/dd4122933099e68050d389ee63d699ee909dd224) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add missing defaults for i18n
+
+  Node default i18n object was not set for FileUpload, PasswordInput, and Textarea causing the default translations to be removed.
+
 ## 5.1.1
 
 ### Patch Changes
