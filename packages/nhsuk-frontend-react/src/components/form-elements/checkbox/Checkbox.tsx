@@ -82,9 +82,9 @@ export type CheckboxItemProps = {
   hint?: ReactNode;
   conditional?: ReactNode;
 } & (
-  | { exclusive?: undefined; exclusiveGroup?: undefined }
+  | { exclusive?: never; exclusiveGroup?: never }
   | { exclusive: true; exclusiveGroup: string }
-  | { exclusive?: undefined; exclusiveGroup: string }
+  | { exclusive?: never; exclusiveGroup: string }
 ) &
   ElementProps<'input', 'type'>;
 

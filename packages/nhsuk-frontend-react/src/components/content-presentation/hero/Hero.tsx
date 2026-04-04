@@ -10,16 +10,12 @@ import { ElementProps } from '@/types/shared';
 
 export type HeroProps = (
   | {
-      variant: undefined;
-      imageUrl?: undefined;
-    }
-  | {
       variant?: 'image-only' | 'image-and-content';
       imageUrl: string;
     }
   | {
       variant?: 'content-only';
-      imageUrl?: undefined;
+      imageUrl?: never;
     }
 ) &
   ElementProps<'section'>;

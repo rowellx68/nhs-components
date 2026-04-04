@@ -72,12 +72,12 @@ export type FieldsetLegendProps = (
       size?: Size;
     }
   | {
-      size: Size;
       variant: undefined;
+      size: Size;
     }
   | {
       variant: 'page-heading';
-      size?: undefined;
+      size?: never;
     }
 ) &
   ElementProps<'legend', 'size' | 'as'> &

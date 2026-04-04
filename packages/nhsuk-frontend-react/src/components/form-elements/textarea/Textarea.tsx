@@ -15,18 +15,18 @@ export type TextareaProps = BaseFormElementProps &
   (
     | {
         variant: 'character-count';
-        maxWords?: undefined;
+        maxWords?: never;
         maxCharacterLength: number;
       }
     | {
         variant: 'word-count';
         maxWords: number;
-        maxCharacterLength?: undefined;
+        maxCharacterLength?: never;
       }
     | {
         variant?: 'textarea';
-        maxWords?: undefined;
-        maxCharacterLength?: undefined;
+        maxWords?: never;
+        maxCharacterLength?: never;
       }
   ) & {
     i18n?: CharacterCountTranslations;

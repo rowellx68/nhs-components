@@ -7,13 +7,13 @@ import { Textarea, TextareaProps } from '../textarea/Textarea';
 export type CharacterCountProps = (
   | {
       variant: 'character-count';
-      maxWords?: undefined;
+      maxWords?: never;
       maxCharacterLength: number;
     }
   | {
       variant: 'word-count';
       maxWords: number;
-      maxCharacterLength?: undefined;
+      maxCharacterLength?: never;
     }
 ) &
   Omit<TextareaProps, 'variant'>;
