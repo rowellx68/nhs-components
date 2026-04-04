@@ -95,13 +95,13 @@ export type HeaderServiceLogoProps = Omit<BaseProps, 'children'> &
     | {
         variant: undefined;
         serviceName: string;
-        organisationName?: undefined;
-        organisationSplit?: undefined;
-        organisationDescriptor?: undefined;
+        organisationName?: never;
+        organisationSplit?: never;
+        organisationDescriptor?: never;
       }
     | {
         variant: undefined;
-        serviceName?: undefined;
+        serviceName?: never;
         organisationName: string;
         organisationSplit?: string;
         organisationDescriptor: string;
@@ -286,10 +286,10 @@ const HeaderAccountItem = polymorphicFactory<HeaderAccountItemFactory>(
 );
 
 export type HeaderSearchProps = (
-  | { children?: undefined; inputProps?: undefined; buttonProps?: undefined }
-  | { children: ReactNode; inputProps?: undefined; buttonProps?: undefined }
+  | { children?: never; inputProps?: never; buttonProps?: never }
+  | { children: ReactNode; inputProps?: never; buttonProps?: never }
   | {
-      children?: undefined;
+      children?: never;
       inputProps?: HeaderSearchInputProps;
       buttonProps?: HeaderSearchButtonProps;
     }
