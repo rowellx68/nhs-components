@@ -19,7 +19,7 @@ type PasswordInputFactory = Factory<{
   ref: HTMLInputElement;
 }>;
 
-const PasswordInput = factory<PasswordInputFactory>(({ width, i18n, ...props }, ref) => {
+const PasswordInput = factory<PasswordInputFactory>(({ width, i18n = {}, ...props }, ref) => {
   const internalRef = useRef<HTMLInputElement>(null);
   const password = useRef<NhsPasswordInput>(null);
 

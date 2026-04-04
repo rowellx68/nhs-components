@@ -18,7 +18,7 @@ type FileUploadFactory = Factory<{
   ref: HTMLInputElement;
 }>;
 
-const FileUpload = factory<FileUploadFactory>(({ i18n, ...props }, ref) => {
+const FileUpload = factory<FileUploadFactory>(({ i18n = {}, ...props }, ref) => {
   const internalRef = useRef<HTMLInputElement>(null);
   const fileUpload = useRef<NhsFileUpload>(null);
 
