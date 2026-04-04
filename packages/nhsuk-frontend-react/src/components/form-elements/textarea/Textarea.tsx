@@ -44,7 +44,7 @@ const Textarea = factory<TextareaFactory>(
       maxCharacterLength,
       maxWords,
       formGroupProps: userFormGroupProps,
-      i18n,
+      i18n = {},
       ...props
     },
     ref,
