@@ -37,8 +37,7 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
-      - run: pnpm tsgo --noEmit
-        working-directory: packages/nhsuk-frontend-react
+      - run: pnpm typecheck
 
       - run: pnpm lint
 

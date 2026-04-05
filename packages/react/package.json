@@ -28,7 +28,7 @@
     "sb": "storybook dev -p 6006 --no-open",
     "sb:build": "storybook build",
     "test": "vitest",
-    "types": "tsgo --noEmit"
+    "typecheck": "tsgo --noEmit"
   },
   "keywords": [
     "nhsuk",
