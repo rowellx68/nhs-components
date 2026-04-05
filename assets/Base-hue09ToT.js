@@ -1,0 +1,1 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{L as n}from"./iframe-d_1BVJsF.js";function r(e){return e}var i=t((()=>{})),a,o,s,c=t((()=>{a=e(n(),1),i(),o=(0,a.forwardRef)(({as:e=`div`,renderRoot:t,...n},r)=>{let i={...n,...e===a.Fragment?{}:{ref:r}};return typeof t==`function`?t(i):a.createElement(e,i)}),o.displayName=`Base`,s=r(o)}));export{i,c as n,r,s as t};
