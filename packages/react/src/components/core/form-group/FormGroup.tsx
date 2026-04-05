@@ -80,7 +80,7 @@ const _FormGroup = forwardRef<HTMLInputElement, FormGroupProps>((props, ref) => 
 
   const elementId = id || generatedId;
   const labelId = `${elementId}--label`;
-  const hintId = hints.map(() => `${useIdWithPrefix(elementId)}--hint`);
+  const hintId = hints.map(() => `${elementId}--hint`);
   const errorId = `${elementId}--error-message`;
 
   useEffect(() => {
