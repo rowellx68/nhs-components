@@ -8,7 +8,7 @@ pre-push:
   parallel: true
   jobs:
     - name: typecheck
-      run: pnpm types
+      run: pnpm typecheck
 
     - name: test
       run: pnpm test run --browser.headless
