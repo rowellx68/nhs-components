@@ -22,3 +22,21 @@ it('applies the no-visited-state class', async () => {
   );
   expect(page.container.querySelector('.nhsuk-link--no-visited-state')).toBeInTheDocument();
 });
+
+it('applies the text-colour class', async () => {
+  const page = await render(
+    <Link href="/conditions" textColour>
+      Health A to Z
+    </Link>,
+  );
+  expect(page.container.querySelector('.nhsuk-link--text-colour')).toBeInTheDocument();
+});
+
+it('applies the no-underline class', async () => {
+  const page = await render(
+    <Link href="/conditions" noUnderline>
+      Health A to Z
+    </Link>,
+  );
+  expect(page.container.querySelector('.nhsuk-link--no-underline')).toBeInTheDocument();
+});
