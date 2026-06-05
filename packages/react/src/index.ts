@@ -64,11 +64,21 @@ export * from '@/components/styles/typography/paragraph/Paragraph';
 export * from '@/components/styles/typography/section-break/SectionBreak';
 
 // Icons
+export * from '@/icons/arrow-down/ArrowDown';
+export * from '@/icons/arrow-down-circle/ArrowDownCircle';
 export * from '@/icons/arrow-left/ArrowLeft';
+export * from '@/icons/arrow-left-circle/ArrowLeftCircle';
 export * from '@/icons/arrow-right/ArrowRight';
 export * from '@/icons/arrow-right-circle/ArrowRightCircle';
+export * from '@/icons/arrow-up/ArrowUp';
+export * from '@/icons/arrow-up-circle/ArrowUpCircle';
+export * from '@/icons/chevron-down-circle/ChevronDownCircle';
+export * from '@/icons/chevron-left-circle/ChevronLeftCircle';
 export * from '@/icons/chevron-right-circle/ChevronRightCircle';
+export * from '@/icons/chevron-up-circle/ChevronUpCircle';
 export * from '@/icons/cross/Cross';
+export * from '@/icons/minus/Minus';
+export * from '@/icons/plus/Plus';
 export * from '@/icons/search/Search';
 export * from '@/icons/tick/Tick';
 export * from '@/icons/user/User';
