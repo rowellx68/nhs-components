@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 
+import { SearchIcon } from '@/icons/search/Search';
+
 import { Button } from './Button';
 
 /**
@@ -101,6 +103,31 @@ export const Disabled: Story = {
   args: {
     children: 'Disabled button',
     disabled: true,
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Search',
+    icon: <SearchIcon />,
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const WithIconAtEnd: Story = {
+  args: {
+    children: 'Search',
+    icon: <SearchIcon />,
+    iconPlacement: 'end',
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const IconOnly: Story = {
+  args: {
+    icon: <SearchIcon />,
+    'aria-label': 'Search',
   },
   render: (args) => <Button {...args} />,
 };

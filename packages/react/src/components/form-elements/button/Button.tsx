@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { Button as NhsButton } from 'nhsuk-frontend';
-import React, { useEffect, useRef, useImperativeHandle } from 'react';
+import React, { ReactNode, useEffect, useRef, useImperativeHandle } from 'react';
 
 import { Base, BaseProps } from '@/components/core/base/Base';
 import { polymorphicFactory, PolymorphicFactory } from '@/internal/factory/polymorphic-factory';
@@ -14,6 +14,16 @@ export type ButtonProps = {
   disabled?: boolean;
   preventDoubleClick?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  /**
+   * An icon to render inside the button, for example `<SearchIcon />`. When set, the
+   * `nhsuk-button--icon` modifier is applied and any text is wrapped in a
+   * `nhsuk-button__content` element.
+   */
+  icon?: ReactNode;
+  /**
+   * Where to render the icon relative to the button text. Defaults to `start`.
+   */
+  iconPlacement?: 'start' | 'end';
 } & BaseProps;
 
 type ButtonFactory = PolymorphicFactory<{
@@ -32,6 +42,8 @@ const Button = polymorphicFactory<ButtonFactory>(
       disabled,
       preventDoubleClick,
       type = 'submit',
+      icon,
+      iconPlacement = 'start',
       as: component = 'button',
       ...props
     }: ButtonProps & AsElementProps,
@@ -60,6 +72,9 @@ const Button = polymorphicFactory<ButtonFactory>(
 
     const notButton = component !== 'button';
 
+    const content =
+      icon && children ? <span className="nhsuk-button__content">{children}</span> : children;
+
     return (
       <Base<any>
         as={component}
@@ -68,6 +83,7 @@ const Button = polymorphicFactory<ButtonFactory>(
           {
             [`nhsuk-button--${variant}`]: variant !== 'primary',
             'nhsuk-button--small': small,
+            'nhsuk-button--icon': !!icon,
           },
           className,
         )}
@@ -81,7 +97,9 @@ const Button = polymorphicFactory<ButtonFactory>(
         {...props}
         ref={internalRef}
       >
-        {children}
+        {icon && iconPlacement === 'start' && icon}
+        {content}
+        {icon && iconPlacement === 'end' && icon}
       </Base>
     );
   },
