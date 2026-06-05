@@ -7,6 +7,8 @@ import { AsElementProps } from '@/types/shared';
 
 export type LinkProps = {
   noVisitedState?: boolean;
+  textColour?: boolean;
+  noUnderline?: boolean;
 } & BaseProps;
 
 type LinkFactory = PolymorphicFactory<{
@@ -17,7 +19,14 @@ type LinkFactory = PolymorphicFactory<{
 
 const Link = polymorphicFactory<LinkFactory>(
   (
-    { className, noVisitedState, as: component = 'a', ...props }: LinkProps & AsElementProps,
+    {
+      className,
+      noVisitedState,
+      textColour,
+      noUnderline,
+      as: component = 'a',
+      ...props
+    }: LinkProps & AsElementProps,
     ref,
   ) => {
     return (
@@ -25,7 +34,11 @@ const Link = polymorphicFactory<LinkFactory>(
         as={component}
         className={clsx(
           'nhsuk-link',
-          { 'nhsuk-link--no-visited-state': noVisitedState },
+          {
+            'nhsuk-link--no-visited-state': noVisitedState,
+            'nhsuk-link--text-colour': textColour,
+            'nhsuk-link--no-underline': noUnderline,
+          },
           className,
         )}
         ref={ref}

@@ -33,3 +33,19 @@ export const NoVisitedState: Story = {
   },
   render: (args) => <Link {...args}>Link nhsuk-link--no-visited-state</Link>,
 };
+
+export const TextColour: Story = {
+  args: {
+    href: '#',
+    textColour: true,
+  },
+  render: (args) => <Link {...args}>Link nhsuk-link--text-colour</Link>,
+};
+
+export const NoUnderline: Story = {
+  args: {
+    href: '#',
+    noUnderline: true,
+  },
+  render: (args) => <Link {...args}>Link nhsuk-link--no-underline</Link>,
+};
