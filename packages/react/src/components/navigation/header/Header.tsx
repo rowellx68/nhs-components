@@ -317,7 +317,8 @@ const HeaderSearch = factory<HeaderSearchFactory>(
     ref,
   ) => {
     const { visuallyHiddenText = 'Search the NHS website', ...inputRest } = inputProps ?? {};
-    const { visuallyHiddenText: _buttonVisuallyHiddenText, ...buttonRest } = buttonProps ?? {};
+    const { visuallyHiddenText: buttonVisuallyHiddenText = 'Search', ...buttonRest } =
+      buttonProps ?? {};
 
     return (
       <search className="nhsuk-header__search">
@@ -341,6 +342,7 @@ const HeaderSearch = factory<HeaderSearchFactory>(
                   className="nhsuk-button nhsuk-button--small"
                   data-module="nhsuk-button"
                   type="submit"
+                  aria-label={buttonVisuallyHiddenText}
                   {...buttonRest}
                 >
                   <SearchIcon />
@@ -391,12 +393,13 @@ type HeaderSearchButtonFactory = Factory<{
 }>;
 
 const HeaderSearchButton = factory<HeaderSearchButtonFactory>(
-  ({ visuallyHiddenText: _visuallyHiddenText, className, ...props }, ref) => {
+  ({ visuallyHiddenText = 'Search', className, ...props }, ref) => {
     return (
       <button
         className={clsx('nhsuk-button nhsuk-button--small', className)}
         data-module="nhsuk-button"
         type="submit"
+        aria-label={visuallyHiddenText}
         {...props}
         ref={ref}
       >
