@@ -2,6 +2,8 @@ import React from 'react';
 import { it, expect } from 'vitest';
 import { render } from 'vitest-browser-react';
 
+import { SearchIcon } from '@/icons/search/Search';
+
 import { Button } from './Button';
 
 it('renders a button element', async () => {
@@ -55,4 +57,29 @@ it('does not render a type attribute when rendered as an anchor', async () => {
     </Button>,
   );
   expect(page.container.querySelector('a.nhsuk-button')).toBeInTheDocument();
+});
+
+it('applies the icon modifier class and wraps text when an icon is set', async () => {
+  const page = await render(<Button icon={<SearchIcon />}>Search</Button>);
+  await expect.element(page.getByRole('button')).toHaveClass('nhsuk-button--icon');
+  expect(page.container.querySelector('.nhsuk-button__content')).toHaveTextContent('Search');
+  expect(page.container.querySelector('.nhsuk-icon--search')).toBeInTheDocument();
+});
+
+it('renders an icon-only button without a content wrapper', async () => {
+  const page = await render(<Button icon={<SearchIcon />} aria-label="Search" />);
+  await expect.element(page.getByRole('button', { name: 'Search' })).toBeInTheDocument();
+  expect(page.container.querySelector('.nhsuk-button__content')).not.toBeInTheDocument();
+});
+
+it('renders the icon after the text when iconPlacement is end', async () => {
+  const page = await render(
+    <Button icon={<SearchIcon />} iconPlacement="end">
+      Search
+    </Button>,
+  );
+  const button = page.container.querySelector('.nhsuk-button')!;
+  const content = button.querySelector('.nhsuk-button__content')!;
+  const icon = button.querySelector('.nhsuk-icon--search')!;
+  expect(content.compareDocumentPosition(icon) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 });
