@@ -51,3 +51,18 @@ it('applies the inline modifier class', async () => {
   );
   expect(page.container.querySelector('.nhsuk-checkboxes--inline')).toBeInTheDocument();
 });
+
+it('disables every item when the group is disabled', async () => {
+  const page = await render(
+    <Checkbox disabled>
+      <Checkbox.Item id="c1" name="c" value="1">
+        Option 1
+      </Checkbox.Item>
+      <Checkbox.Item id="c2" name="c" value="2">
+        Option 2
+      </Checkbox.Item>
+    </Checkbox>,
+  );
+  const inputs = page.container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+  expect([...inputs].every((input) => input.disabled)).toBe(true);
+});

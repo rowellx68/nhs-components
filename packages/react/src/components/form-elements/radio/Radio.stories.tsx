@@ -55,6 +55,23 @@ export const Default: Story = {
   ),
 };
 
+export const Disabled: Story = {
+  args: {
+    label: 'Are you 18 or over?',
+    disabled: true,
+  },
+  render: (args) => (
+    <Radio {...args}>
+      <Radio.Item value="yes" name="adult">
+        Yes
+      </Radio.Item>
+      <Radio.Item value="no" name="adult">
+        No
+      </Radio.Item>
+    </Radio>
+  ),
+};
+
 export const Inline: Story = {
   args: {
     label: 'Are you 18 or over?',

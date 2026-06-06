@@ -87,6 +87,21 @@ export const Inline: Story = {
   ),
 };
 
+export const Disabled: Story = {
+  args: {
+    label: 'How do you want to be contacted about this?',
+    hint: 'Select all options that are relevant to you',
+    disabled: true,
+  },
+  render: (args) => (
+    <Checkbox {...args}>
+      <Checkbox.Item value="email">Email</Checkbox.Item>
+      <Checkbox.Item value="phone">Phone</Checkbox.Item>
+      <Checkbox.Item value="text">Text message</Checkbox.Item>
+    </Checkbox>
+  ),
+};
+
 export const WithError: Story = {
   args: {
     label: 'How do you want to be contacted about this?',

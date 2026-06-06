@@ -25,3 +25,15 @@ it('applies the error class when an error is provided', async () => {
   );
   await expect.element(page.getByText('Enter a password')).toBeInTheDocument();
 });
+
+it('disables the input and the toggle button when disabled', async () => {
+  const page = await render(
+    <PasswordInput id="password" name="password" label="Password" disabled />,
+  );
+  expect(page.container.querySelector<HTMLInputElement>('input[type="password"]')!.disabled).toBe(
+    true,
+  );
+  expect(
+    page.container.querySelector<HTMLButtonElement>('.nhsuk-password-input__toggle')!.disabled,
+  ).toBe(true);
+});

@@ -11,11 +11,13 @@ import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
 import { ElementProps } from '@/types/shared';
 
 import { Hint } from '../hint/Hint';
+import { CheckboxProvider, useCheckboxContext } from './Checkbox.context';
 
 export type CheckboxProps = BaseFormElementProps &
   ElementProps<'div'> & {
     small?: boolean;
     inline?: boolean;
+    disabled?: boolean;
   };
 
 type CheckboxFactory = Factory<{
@@ -32,56 +34,58 @@ type CheckboxFactory = Factory<{
  *
  * It should contain one or more {@link Checkbox.Item} or {@link CheckboxItem} components and optionally a {@link Checkbox.Divider} or {@link CheckboxDivider} component.
  */
-const Checkbox = factory<CheckboxFactory>(({ children, small, inline, ...props }, ref) => {
-  const internalRef = useRef<HTMLDivElement>(null);
-  const checkboxesRef = useRef<HTMLDivElement>(null);
-  const checkboxes = useRef<NhsCheckboxes>(null);
+const Checkbox = factory<CheckboxFactory>(
+  ({ children, small, inline, disabled, ...props }, ref) => {
+    const internalRef = useRef<HTMLDivElement>(null);
+    const checkboxesRef = useRef<HTMLDivElement>(null);
+    const checkboxes = useRef<NhsCheckboxes>(null);
 
-  useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
+    useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
 
-  useEffect(() => {
-    if (!checkboxesRef.current) {
-      return;
-    }
+    useEffect(() => {
+      if (!checkboxesRef.current) {
+        return;
+      }
 
-    if (checkboxes.current) {
-      return;
-    }
+      if (checkboxes.current) {
+        return;
+      }
 
-    setTimeout(() => {
-      checkboxes.current = new NhsCheckboxes(checkboxesRef.current);
-    }, 0);
+      setTimeout(() => {
+        checkboxes.current = new NhsCheckboxes(checkboxesRef.current);
+      }, 0);
 
-    return () => {
-      checkboxesRef.current?.removeAttribute('data-nhsuk-checkboxes-init');
-    };
-  }, []);
+      return () => {
+        checkboxesRef.current?.removeAttribute('data-nhsuk-checkboxes-init');
+      };
+    }, []);
 
-  return (
-    <FormGroup
-      as="div"
-      withErrorLine
-      {...props}
-      ref={internalRef}
-      inputType="checkboxes"
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      render={({ className, withError: _withError, ref: _ref, ...rest }) => (
-        <div
-          className={clsx(
-            'nhsuk-checkboxes',
-            { 'nhsuk-checkboxes--small': small, 'nhsuk-checkboxes--inline': inline },
-            className,
-          )}
-          data-module="nhsuk-checkboxes"
-          ref={checkboxesRef}
-          {...rest}
-        >
-          {children}
-        </div>
-      )}
-    />
-  );
-});
+    return (
+      <FormGroup
+        as="div"
+        withErrorLine
+        {...props}
+        ref={internalRef}
+        inputType="checkboxes"
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        render={({ className, withError: _withError, ref: _ref, ...rest }) => (
+          <div
+            className={clsx(
+              'nhsuk-checkboxes',
+              { 'nhsuk-checkboxes--small': small, 'nhsuk-checkboxes--inline': inline },
+              className,
+            )}
+            data-module="nhsuk-checkboxes"
+            ref={checkboxesRef}
+            {...rest}
+          >
+            <CheckboxProvider value={{ disabled }}>{children}</CheckboxProvider>
+          </div>
+        )}
+      />
+    );
+  },
+);
 
 export type CheckboxItemProps = {
   hint?: ReactNode;
@@ -106,10 +110,15 @@ type CheckboxItemFactory = Factory<{
  * If the `exclusive` and `exclusiveGroup` props are provided, the checkbox will be exclusive to other checkboxes in the same group.
  */
 const CheckboxItem = factory<CheckboxItemFactory>(
-  ({ id, hint, conditional, exclusive, exclusiveGroup, className, children, ...props }, ref) => {
+  (
+    { id, hint, conditional, exclusive, exclusiveGroup, className, children, disabled, ...props },
+    ref,
+  ) => {
     const hasConditional = !!conditional;
+    const { disabled: groupDisabled } = useCheckboxContext();
 
-    const itemId = id || useIdWithPrefix('checkbox-item');
+    const generatedId = useIdWithPrefix('checkbox-item');
+    const itemId = id || generatedId;
     const hintId = `${itemId}-item-hint`;
     const conditionalId = `${itemId}-conditional`;
 
@@ -121,6 +130,7 @@ const CheckboxItem = factory<CheckboxItemFactory>(
             id={itemId}
             {...props}
             ref={ref}
+            disabled={disabled || groupDisabled}
             aria-describedby={hint ? hintId : undefined}
             {...(hasConditional ? { 'data-aria-controls': conditionalId } : {})}
             data-checkbox-exclusive-group={exclusiveGroup || undefined}

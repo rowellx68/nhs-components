@@ -11,10 +11,12 @@ import { useIdWithPrefix } from '@/internal/hooks/use-id-with-prefix';
 import { ElementProps } from '@/types/shared';
 
 import { Hint } from '../hint/Hint';
+import { RadioProvider, useRadioContext } from './Radio.context';
 
 export type RadioProps = {
   inline?: boolean;
   small?: boolean;
+  disabled?: boolean;
 } & BaseFormElementProps &
   ElementProps<'div'>;
 
@@ -27,7 +29,7 @@ type RadioFactory = Factory<{
   };
 }>;
 
-const Radio = factory<RadioFactory>(({ children, inline, small, ...props }, ref) => {
+const Radio = factory<RadioFactory>(({ children, inline, small, disabled, ...props }, ref) => {
   const internalRef = useRef<HTMLDivElement>(null);
   const radiosRef = useRef<HTMLDivElement>(null);
   const radio = useRef<NhsRadios>(null);
@@ -74,7 +76,7 @@ const Radio = factory<RadioFactory>(({ children, inline, small, ...props }, ref)
           ref={radiosRef}
           {...rest}
         >
-          {children}
+          <RadioProvider value={{ disabled }}>{children}</RadioProvider>
         </div>
       )}
     />
@@ -93,10 +95,12 @@ type RadioItemFactory = Factory<{
 }>;
 
 const RadioItem = factory<RadioItemFactory>(
-  ({ id, hint, conditional, className, children, ...props }, ref) => {
+  ({ id, hint, conditional, className, children, disabled, ...props }, ref) => {
     const hasConditional = !!conditional;
+    const { disabled: groupDisabled } = useRadioContext();
 
-    const itemId = id || useIdWithPrefix('radio-item');
+    const generatedId = useIdWithPrefix('radio-item');
+    const itemId = id || generatedId;
     const hintId = `${itemId}-item-hint`;
     const conditionalId = `${itemId}-conditional`;
 
@@ -108,6 +112,7 @@ const RadioItem = factory<RadioItemFactory>(
             id={itemId}
             {...props}
             ref={ref}
+            disabled={disabled || groupDisabled}
             aria-describedby={hint ? hintId : undefined}
             {...(hasConditional ? { 'data-aria-controls': conditionalId } : {})}
             type="radio"

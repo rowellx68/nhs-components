@@ -54,3 +54,33 @@ it('applies the small modifier class', async () => {
   );
   expect(page.container.querySelector('.nhsuk-radios--small')).toBeInTheDocument();
 });
+
+it('disables every item when the group is disabled', async () => {
+  const page = await render(
+    <Radio disabled>
+      <Radio.Item id="yes" name="confirm" value="yes">
+        Yes
+      </Radio.Item>
+      <Radio.Item id="no" name="confirm" value="no">
+        No
+      </Radio.Item>
+    </Radio>,
+  );
+  const radios = page.container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+  expect([...radios].every((radio) => radio.disabled)).toBe(true);
+});
+
+it('allows an individual item to opt in to disabled', async () => {
+  const page = await render(
+    <Radio>
+      <Radio.Item id="yes" name="confirm" value="yes" disabled>
+        Yes
+      </Radio.Item>
+      <Radio.Item id="no" name="confirm" value="no">
+        No
+      </Radio.Item>
+    </Radio>,
+  );
+  expect(page.container.querySelector<HTMLInputElement>('#yes')!.disabled).toBe(true);
+  expect(page.container.querySelector<HTMLInputElement>('#no')!.disabled).toBe(false);
+});

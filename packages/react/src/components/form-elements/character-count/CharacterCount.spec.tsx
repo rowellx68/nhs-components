@@ -38,6 +38,19 @@ it('supports countType words on a character-count variant', async () => {
   expect(page.container.querySelector('[data-maxlength="50"]')).toBeInTheDocument();
 });
 
+it('disables the textarea when disabled', async () => {
+  const page = await render(
+    <CharacterCount
+      id="more-detail"
+      label="Can you provide more detail?"
+      variant="character-count"
+      maxCharacterLength={200}
+      disabled
+    />,
+  );
+  expect(page.container.querySelector<HTMLTextAreaElement>('textarea')!.disabled).toBe(true);
+});
+
 it('accepts a custom countFunction', async () => {
   const page = await render(
     <CharacterCount
