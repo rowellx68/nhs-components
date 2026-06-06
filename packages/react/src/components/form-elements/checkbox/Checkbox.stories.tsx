@@ -72,6 +72,21 @@ export const Small: Story = {
   ),
 };
 
+export const Inline: Story = {
+  args: {
+    label: 'Do you have any of these symptoms?',
+    hint: 'Select all options that are relevant to you',
+    inline: true,
+  },
+  render: (args) => (
+    <Checkbox {...args}>
+      <Checkbox.Item value="cough">Cough</Checkbox.Item>
+      <Checkbox.Item value="headache">Headache</Checkbox.Item>
+      <Checkbox.Item value="fever">Fever</Checkbox.Item>
+    </Checkbox>
+  ),
+};
+
 export const WithError: Story = {
   args: {
     label: 'How do you want to be contacted about this?',
