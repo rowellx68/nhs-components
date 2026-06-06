@@ -10,27 +10,48 @@ import { ElementProps } from '@/types/shared';
 
 import { Hint } from '../hint/Hint';
 
-export type TextareaProps = BaseFormElementProps &
-  ElementProps<'textarea'> &
+export type TextareaBaseProps = BaseFormElementProps &
+  ElementProps<'textarea'> & {
+    i18n?: CharacterCountTranslations;
+  };
+
+export type CharacterCountConfigProps =
+  | {
+      variant: 'character-count';
+      maxCharacterLength: number;
+      maxWords?: never;
+      /**
+       * How the text is counted: `length` (code units), `characters` (grapheme
+       * clusters via `Intl.Segmenter`) or `words`. Defaults to `length`.
+       */
+      countType?: 'characters' | 'length' | 'words';
+      /**
+       * Custom counting function, for example to mirror server-side counting.
+       */
+      countFunction?: (text: string) => number;
+    }
+  | {
+      /**
+       * @deprecated Use `variant: 'character-count'` with `countType: 'words'`.
+       */
+      variant: 'word-count';
+      maxWords: number;
+      maxCharacterLength?: never;
+      countType?: never;
+      countFunction?: never;
+    };
+
+export type TextareaProps = TextareaBaseProps &
   (
-    | {
-        variant: 'character-count';
-        maxWords?: never;
-        maxCharacterLength: number;
-      }
-    | {
-        variant: 'word-count';
-        maxWords: number;
-        maxCharacterLength?: never;
-      }
+    | CharacterCountConfigProps
     | {
         variant?: 'textarea';
         maxWords?: never;
         maxCharacterLength?: never;
+        countType?: never;
+        countFunction?: never;
       }
-  ) & {
-    i18n?: CharacterCountTranslations;
-  };
+  );
 
 type TextareaFactory = Factory<{
   props: TextareaProps;
@@ -43,6 +64,8 @@ const Textarea = factory<TextareaFactory>(
       variant = 'textarea',
       maxCharacterLength,
       maxWords,
+      countType,
+      countFunction,
       formGroupProps: userFormGroupProps,
       i18n = {},
       ...props
@@ -70,12 +93,16 @@ const Textarea = factory<TextareaFactory>(
       }
 
       const root = internalRef.current.closest('[data-module="nhsuk-character-count"]');
-      textarea.current = new NhsCharacterCount(root, { i18n });
+      textarea.current = new NhsCharacterCount(root, {
+        i18n,
+        ...(countType ? { countType } : {}),
+        ...(countFunction ? { countFunction } : {}),
+      });
 
       return () => {
         root?.removeAttribute('data-nhsuk-character-count-init');
       };
-    }, [internalRef, characterCount, maxCharacterLength, maxWords]);
+    }, [internalRef, characterCount, maxCharacterLength, maxWords, countType, countFunction]);
 
     const formGroupProps = characterCount
       ? {

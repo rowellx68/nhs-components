@@ -2,21 +2,9 @@ import React from 'react';
 
 import { Factory, factory } from '@/internal/factory/factory';
 
-import { Textarea, TextareaProps } from '../textarea/Textarea';
+import { CharacterCountConfigProps, Textarea, TextareaBaseProps } from '../textarea/Textarea';
 
-export type CharacterCountProps = (
-  | {
-      variant: 'character-count';
-      maxWords?: never;
-      maxCharacterLength: number;
-    }
-  | {
-      variant: 'word-count';
-      maxWords: number;
-      maxCharacterLength?: never;
-    }
-) &
-  Omit<TextareaProps, 'variant'>;
+export type CharacterCountProps = TextareaBaseProps & CharacterCountConfigProps;
 
 type CharacterCountFactory = Factory<{
   props: CharacterCountProps;
