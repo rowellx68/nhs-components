@@ -40,3 +40,14 @@ it('applies the small modifier class', async () => {
   );
   expect(page.container.querySelector('.nhsuk-checkboxes--small')).toBeInTheDocument();
 });
+
+it('applies the inline modifier class', async () => {
+  const page = await render(
+    <Checkbox inline>
+      <Checkbox.Item id="c1" name="c" value="1">
+        Option 1
+      </Checkbox.Item>
+    </Checkbox>,
+  );
+  expect(page.container.querySelector('.nhsuk-checkboxes--inline')).toBeInTheDocument();
+});

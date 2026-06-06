@@ -15,6 +15,7 @@ import { Hint } from '../hint/Hint';
 export type CheckboxProps = BaseFormElementProps &
   ElementProps<'div'> & {
     small?: boolean;
+    inline?: boolean;
   };
 
 type CheckboxFactory = Factory<{
@@ -31,7 +32,7 @@ type CheckboxFactory = Factory<{
  *
  * It should contain one or more {@link Checkbox.Item} or {@link CheckboxItem} components and optionally a {@link Checkbox.Divider} or {@link CheckboxDivider} component.
  */
-const Checkbox = factory<CheckboxFactory>(({ children, small, ...props }, ref) => {
+const Checkbox = factory<CheckboxFactory>(({ children, small, inline, ...props }, ref) => {
   const internalRef = useRef<HTMLDivElement>(null);
   const checkboxesRef = useRef<HTMLDivElement>(null);
   const checkboxes = useRef<NhsCheckboxes>(null);
@@ -66,7 +67,11 @@ const Checkbox = factory<CheckboxFactory>(({ children, small, ...props }, ref) =
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       render={({ className, withError: _withError, ref: _ref, ...rest }) => (
         <div
-          className={clsx('nhsuk-checkboxes', { 'nhsuk-checkboxes--small': small }, className)}
+          className={clsx(
+            'nhsuk-checkboxes',
+            { 'nhsuk-checkboxes--small': small, 'nhsuk-checkboxes--inline': inline },
+            className,
+          )}
           data-module="nhsuk-checkboxes"
           ref={checkboxesRef}
           {...rest}
