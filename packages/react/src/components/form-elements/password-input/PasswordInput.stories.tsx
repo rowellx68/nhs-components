@@ -46,6 +46,16 @@ export const WithError: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    id: 'disabled',
+    name: 'example',
+    label: 'Password',
+    labelProps: { variant: 'page-heading' },
+    disabled: true,
+  },
+};
+
 export const WithoutPageHeading: Story = {
   args: {
     id: 'without-heading',
