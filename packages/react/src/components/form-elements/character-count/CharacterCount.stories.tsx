@@ -36,8 +36,20 @@ export const Default: Story = {
 export const WithWordCount: Story = {
   args: {
     label: 'Enter a job description',
-    variant: 'word-count',
-    maxWords: 150,
+    variant: 'character-count',
+    countType: 'words',
+    maxCharacterLength: 150,
+  },
+  render: (args) => <CharacterCount {...args} />,
+};
+
+export const WithCustomCountFunction: Story = {
+  args: {
+    label: 'Can you provide more detail?',
+    hint: 'Counts the number of sentences',
+    variant: 'character-count',
+    maxCharacterLength: 5,
+    countFunction: (text) => text.split(/[.!?]+/).filter(Boolean).length,
   },
   render: (args) => <CharacterCount {...args} />,
 };
