@@ -5,11 +5,22 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {} # least privilege; each job grants its own scopes
+
 jobs:
   build_and_test:
+    name: build_and_test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
 
       - name: Cache Playwright binaries
         id: playwright-cache
