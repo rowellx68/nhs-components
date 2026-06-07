@@ -33,6 +33,7 @@ export * from '@/components/form-elements/hint/Hint';
 export * from '@/components/form-elements/input/Input';
 export * from '@/components/form-elements/password-input/PasswordInput';
 export * from '@/components/form-elements/radio/Radio';
+export * from '@/components/form-elements/search-input/SearchInput';
 export * from '@/components/form-elements/select/Select';
 export * from '@/components/form-elements/textarea/Textarea';
 
