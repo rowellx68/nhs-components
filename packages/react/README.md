@@ -18,7 +18,7 @@ With the release of v10.4 of the NHS.UK Frontend library, the version of this li
 | -------------- | -------------------- | ------------------------------------------------------------- |
 | `8.x.x`        | `3.x.x`              | [v3](https://github.com/rowellx68/nhs-components/tree/v3)     |
 | `9.x.x`        | `4.x.x`              | [v4](https://github.com/rowellx68/nhs-components/tree/v4)     |
-| `10.4.x`       | `5.x.x`              | [main](https://github.com/rowellx68/nhs-components/tree/main) |
+| `10.5.x`       | `5.2.x`              | [main](https://github.com/rowellx68/nhs-components/tree/main) |
 
 ## Features
 
