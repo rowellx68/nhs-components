@@ -77,9 +77,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: |
-          pnpm -F ./packages/nhsuk-frontend-react sb:build -o ./out-sb
-          touch ./packages/nhsuk-frontend-react/out-sb/.nojekyll
+          pnpm -F ./packages/react sb:build -o ./out-sb
+          touch ./packages/react/out-sb/.nojekyll
 
       - uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f
         with:
-          folder: ./packages/nhsuk-frontend-react/out-sb
+          folder: ./packages/react/out-sb
