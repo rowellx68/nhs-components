@@ -1,5 +1,39 @@
 # CHANGELOG
 
+## 5.2.0
+
+### Minor Changes
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`6a0ec15`](https://github.com/rowellx68/nhs-components/commit/6a0ec15d6bd5f6998e10706b23ea1223892bedaa) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add new props to Link
+
+  Add textColour and noUnderline props to Link component
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`dd5c80c`](https://github.com/rowellx68/nhs-components/commit/dd5c80cb699bb281ed2856b53d26aecf2d4ed926) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add SearchInput component
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`cd55dd3`](https://github.com/rowellx68/nhs-components/commit/cd55dd356b82c69bf1e70f0115a81d7c5b716c01) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add icon prop in Button
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`dcbbd77`](https://github.com/rowellx68/nhs-components/commit/dcbbd772d63ab28ea943560b49142eec6612a8b9) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add new icons
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`3130461`](https://github.com/rowellx68/nhs-components/commit/31304613d8db192e6cad0d860a85d49f91bd77a6) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add new prop to Checkbox
+
+  Add inline prop to Checkbox component
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`f7947d6`](https://github.com/rowellx68/nhs-components/commit/f7947d6793975c85efe0a7a6e7dd80a3771ed29d) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add top-level disabled prop
+
+  Add top-level disabled prop Checkbox, PasswordInput, and Radio components
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`b2e75bf`](https://github.com/rowellx68/nhs-components/commit/b2e75bf25027dc4ab11840b12ed3a6477619e8b8) Thanks [@rowellx68](https://github.com/rowellx68)! - feat: add title prop to icons
+
+### Patch Changes
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`6f3fa79`](https://github.com/rowellx68/nhs-components/commit/6f3fa79e1a9098999c3fca6d4eee5d9426cfa2db) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: Header component button accessibility
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`7d9596c`](https://github.com/rowellx68/nhs-components/commit/7d9596c2a851c0d6e1e7b39045a8adfa4a48f2ff) Thanks [@rowellx68](https://github.com/rowellx68)! - fix: add new props to CharacterCount
+
+  Add countType and countFunction to CharacterCount. Mark maxWords as deprecated.
+
+- [#295](https://github.com/rowellx68/nhs-components/pull/295) [`ba32c88`](https://github.com/rowellx68/nhs-components/commit/ba32c881fd45b64b9f3e3126824e64cde8cf212b) Thanks [@rowellx68](https://github.com/rowellx68)! - chore: update nhsuk-frontend version
+
 ## 5.1.2
 
 ### Patch Changes
