@@ -4,6 +4,10 @@ pre-commit:
       glob: "*.{js,ts,jsx,tsx,vue,css,scss}"
       run: pnpm oxlint {staged_files}
 
+    - name: lint github workflows
+      glob: "./github/**/*.yml"
+      run: "zizmor {staged_files} -p -q"
+
 pre-push:
   parallel: true
   jobs:

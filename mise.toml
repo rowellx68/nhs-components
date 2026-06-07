@@ -1,6 +1,7 @@
 [tools]
-lefthook = { version = "2.1", postinstall = "lefthook install" }
-node = { version = "24.14", postinstall = "corepack enable" }
+lefthook = { version = "2", postinstall = "lefthook install" }
+node = { version = "24", postinstall = "corepack enable" }
+zizmor = "latest"
 
 [settings]
 lockfile = true
