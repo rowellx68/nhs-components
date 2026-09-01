@@ -22,18 +22,18 @@ jobs:
     outputs:
       published: ${{ steps.changesets.outputs.published }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           # persist-credentials is set to true: changesets/action pushes the version
           # branch and release tags via plain `git push`, which relies on the
           # checkout-persisted token for auth.
           persist-credentials: true
 
-      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
         with:
           run_install: false
 
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 24
           cache: 'pnpm'
@@ -43,7 +43,7 @@ jobs:
 
       - run: pnpm build
 
-      - uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf
+      - uses: changesets/action@8488615a623b1b9c987934bb89eae8af6a946ac1
         id: changesets
         with:
           title: 'chore: version packages'
@@ -60,16 +60,16 @@ jobs:
     permissions:
       contents: write # push built Storybook to the gh-pages branch
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86
         with:
           run_install: false
 
-      - uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           cache: 'pnpm'
           cache-dependency-path: './pnpm-lock.yaml'
@@ -80,6 +80,6 @@ jobs:
           pnpm -F ./packages/react sb:build -o ./out-sb
           touch ./packages/react/out-sb/.nojekyll
 
-      - uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f
+      - uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445
         with:
           folder: ./packages/react/out-sb
